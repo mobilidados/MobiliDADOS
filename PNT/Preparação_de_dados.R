@@ -34,7 +34,7 @@ unzip("BA_municipios.zip", exdir="BA_municipios") #Extrair arquivos baixados em 
 #2.2 Criar shapefiles da RM 
 #Criar shape de municipios da RM
 setores_ba <- st_read("./BA_setorcensitario_2010", layer="29SEE250GC_SIR") #Abrir municipios do Estado conforme dados baixados na etapa anterior. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn) e o nome do arquivo (layer)
-setores_ba$CD_GEOCODM <- as.numeric(as.character(setores_rj$CD_GEOCODM)) #Transformar os dados da coluna de codigos de municipios (CD_GEOCODM) em valores numericos.
+setores_ba$CD_GEOCODM <- as.numeric(as.character(setores_ba$CD_GEOCODM)) #Transformar os dados da coluna de codigos de municipios (CD_GEOCODM) em valores numericos.
 #str(setores_ba) #verificar setores do estado
 setores_rms <- setores_ba[setores_ba$CD_GEOCODM %in% c("2905701", "2906501","2910057","2916104","2919207","2919926","2921005",
                                                        "2925204","2927408","2929206","2929503","2930709","2933208"), ] #Recortar os municpios do estado para manter somente aqueles inseridos na regiao metropolitana. Quando modificar o Estado, sera necessario alterar os codigos dos municipios que serao recortados. Caso deseje calcular para uma cidade especifica, inserir apenas seu codigo aqui.
