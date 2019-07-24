@@ -39,7 +39,7 @@ Passo-a-passo do código 2_Calculo_PNTs.R
 
 # Fontes e Referências
 - Link para vídeo Tutorial
-- Post PNT
+- [Estudo ITDP Global] 
 - MobiliDADOS https://mobilidados.org.br/
 - Ficha dos indicadores da MobiliDADOS https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0
 - R  https://www.rstudio.com/products/rstudio/download/#download  
