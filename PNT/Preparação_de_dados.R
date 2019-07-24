@@ -1,11 +1,11 @@
-#Etapa 1: Preparação de dados
-###1. Instalar e abrir pacotes necessários
+#Etapa 1: PreparaÃ§Ã£o de dados
+###1. Instalar e abrir pacotes necessÃ¡rios
 ###2. Criar shapefile da RM
-###3. Preparar dados demográficos
+###3. Preparar dados demogrÃ¡ficos
 ###4. Unir os dados com os setores censitarios
-###5. Realizar o cálculo total de cada variável
+###5. Realizar o cÃ¡lculo total de cada variÃ¡vel
 
-#1. Instalar e abrir pacotes necessários --------------
+#1. Instalar e abrir pacotes necessÃ¡rios --------------
 #1.1. Instalar pacotes necessarios
 install.packages("sf")
 install.packages("openxlsx")
@@ -24,28 +24,28 @@ setwd("C:/Users/Novo Colaborador/Desktop/Cod_R/PNT/RMS") #altere o caminho para 
 #2. Criar shapefile da RM ---------------------------------------------------------------
 #2.1 Importar shapefiles dO IBGE
 #Importar shapes dos setores censitarios
-download.file("ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios_shp/ba/ba_setores_censitarios.zip", "BA_SetorCensitario_2010.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou região metropolitana desejada. Neste exemplo usamos a Bahia (BA).
+download.file("ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2010/setores_censitarios_shp/ba/ba_setores_censitarios.zip", "BA_SetorCensitario_2010.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou regiÃ£o metropolitana desejada. Neste exemplo usamos a Bahia (BA).
 unzip("BA_SetorCensitario_2010.zip", exdir="BA_setorcensitario_2010") #extrair arquivos baixando em formato zip
 
 #Importar shapes dos municipios
-download.file("ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2018/UFs/BA/ba_municipios.zip", "BA_municipios.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou região metropolitana desejada. Neste exemplo usamos a Bahia (BA).
+download.file("ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2018/UFs/BA/ba_municipios.zip", "BA_municipios.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou regiÃ£o metropolitana desejada. Neste exemplo usamos a Bahia (BA).
 unzip("BA_municipios.zip", exdir="BA_municipios") #Extrair arquivos baixados em formato zip
 
 #2.2 Criar shapefiles da RM 
 #Criar shape de municipios da RM
-setores_ba <- st_read("./BA_setorcensitario_2010", layer="29SEE250GC_SIR") #Abrir municipios do Estado conforme dados baixados na etapa anterior. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn) e o nome do arquivo (layer)
-setores_ba$CD_GEOCODM <- as.numeric(as.character(setores_ba$CD_GEOCODM)) #Transformar os dados da coluna de codigos de municipios (CD_GEOCODM) em valores numericos.
+setores_ba <- st_read("./BA_setorcensitario_2010", layer="29SEE250GC_SIR") #Abrir municipios do Estado conforme dados baixados na etapa anterior. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn) e o nome do arquivo (layer)
+setores_ba$CD_GEOCODM <- as.numeric(as.character(setores_rj$CD_GEOCODM)) #Transformar os dados da coluna de codigos de municipios (CD_GEOCODM) em valores numericos.
 #str(setores_ba) #verificar setores do estado
 setores_rms <- setores_ba[setores_ba$CD_GEOCODM %in% c("2905701", "2906501","2910057","2916104","2919207","2919926","2921005",
                                                        "2925204","2927408","2929206","2929503","2930709","2933208"), ] #Recortar os municpios do estado para manter somente aqueles inseridos na regiao metropolitana. Quando modificar o Estado, sera necessario alterar os codigos dos municipios que serao recortados. Caso deseje calcular para uma cidade especifica, inserir apenas seu codigo aqui.
 #plot(setores_rms) #verificar setores da rm
 #str(setores_rms) #verificar setores da rm
-st_write(setores_rms, dsn ="./BA_shapes/setores_rms.shp", delete_dsn = TRUE) # Salvar shape dos municipios na pasta. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+st_write(setores_rms, dsn ="./BA_shapes/setores_rms.shp", delete_dsn = TRUE) # Salvar shape dos municipios na pasta. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
 
 #3. Criar tabelas de dados dos setores censitarios ------------------------------------------------------------
 #3.1. Importar dados do censo
-download.file("ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios/BA_20171016.zip", "BA_dados_censo_2010.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou região metropolitana desejada. Neste exemplo usamos a Bahia (BA).
+download.file("ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios/BA_20171016.zip", "BA_dados_censo_2010.zip", quiet = FALSE) #Alterar url conforme Estado da cidade ou regiÃ£o metropolitana desejada. Neste exemplo usamos a Bahia (BA).
 unzip("BA_dados_censo_2010.zip", exdir="BA_dados_censo_2010") #Extrair arquivos baixados em formato zip
 
 #3.2. Abrir tabelas necessarias
@@ -55,7 +55,7 @@ Pessoa03 <- read.xlsx("./BA_dados_censo_2010/BA/Base informa???oes setores2010 u
 Pessoa05 <- read.xlsx("./BA_dados_censo_2010/BA/Base informa???oes setores2010 universo BA/EXCEL/Pessoa05_BA.xlsx", sheet = 1, colNames = T) #Dados de genero
 ResponsavelRenda <- read.xlsx("./BA_dados_censo_2010/BA/Base informa???oes setores2010 universo BA/EXCEL/ResponsavelRenda_BA.xlsx", sheet = 1, colNames = T) #Dados de de renda do responsavel por domicilio
 DomicilioRenda <- read.xlsx("./BA_dados_censo_2010/BA/Base informa???oes setores2010 universo BA/EXCEL/DomicilioRenda_BA.xlsx", sheet = 1, colNames = T) #Dados de renda per capita por domicilio
-#Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn)
+#Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn)
 
 ###Verificar estrutura das tabelas (remover)
 str(basico)
@@ -66,10 +66,10 @@ str(DomicilioRenda)
 
 #3.3. Selecionar dados necessarios
 #Dados populacao
-basico$pop<-basico$V002 #Criar variavel população a partir da tabela basico
+basico$pop<-basico$V002 #Criar variavel populaÃ§Ã£o a partir da tabela basico
 setores_pop<-basico[,-c(2:33)] #Manter somente dado da populacao
 str(setores_pop) #Verificar tabela
-write.xlsx(setores_pop, "./BA_dados_tratados/BA_setores_pop.xlsx") #Salvar tabela. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+write.xlsx(setores_pop, "./BA_dados_tratados/BA_setores_pop.xlsx") #Salvar tabela. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
 #Dados mulheres
 Pessoa05 <- Pessoa05[,-c(2:8,10,12)]#Manter somente dados necessarios na tabela Pessoa05
@@ -81,7 +81,7 @@ tabela_mulheres_negras <-as.data.frame(sapply(tabela_mulheres_negras, as.numeric
 tabela_mulheres_negras$Mulheres_negras <- rowSums(tabela_mulheres_negras[,2:31]) #Criar nova coluna com a soma total de mulheres negras
 setores_mulheres_negras <- tabela_mulheres_negras[,-c(2:31)] #Manter somente dados necessarios
 str(setores_mulheres_negras) #Verificar estrutura da tabela - remover
-write.xlsx(setores_mulheres_negras, "./BA_dados_tratados/BA_setores_mulheres_negras.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+write.xlsx(setores_mulheres_negras, "./BA_dados_tratados/BA_setores_mulheres_negras.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
 #Dados mulheres com renda ate 2 salarios minimos (SM) responsaveis por domicilio
 ResponsavelRenda <-ResponsavelRenda[,-c(3:46, 50:134)] #Manter somente dados necessarios na tabela ResponsavelRenda
@@ -90,7 +90,7 @@ str(ResponsavelRenda) #verificar estrutura da tabela - remover
 ResponsavelRenda$Mulheres_RR_ate_2SM <- rowSums(ResponsavelRenda[,3:5]) #Criar nova coluna com a soma total de mulheres com renda ate 2 SM responsaveis por domicilio
 setores_rr <- ResponsavelRenda[,-c(2:5)]#Manter somente dados necessarios
 str(setores_rr) #verif - remover
-write.xlsx(setores_rr, "./BA_dados_tratados/BA_setores_rr.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+write.xlsx(setores_rr, "./BA_dados_tratados/BA_setores_rr.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
 #Dados renda per capita por domicilio 
 #O codigo abaixo transforma valores em numeros e muda a ordem das colunas para facilitar calculos, importante rodar o codigo nesta ordem
@@ -115,7 +115,7 @@ DomicilioRenda$DR_3_mais <- rowSums(DomicilioRenda[9:11]) #Domicilios com renda 
 str(DomicilioRenda) #verificar resultados - remover
 setores_dr <- DomicilioRenda[,-c(2:11)] #verificar estrutura da tabela- remover
 str(setores_dr) #verificar resultados - remover
-write.xlsx(setores_dr, "./BA_dados_tratados/BA_setores_dr.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+write.xlsx(setores_dr, "./BA_dados_tratados/BA_setores_dr.xlsx") #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
 #Verificar estrutura de todas as tabelas criadas - avaliar deposi de rodar codigo
 str(setores_pop)
@@ -134,9 +134,9 @@ setores_rms$Cod_setor<- as.numeric(as.character(setores_rms$CD_GEOCODI)) #Transf
 str(setores_rms) #remover
 setores_dados <- left_join(setores_rms, setores_pop_rr_dr_mneg, by="Cod_setor") #Unir shapefile dos setores censitarios com tabela final dos dados demograficos
 str(setores_dados) #remover
-st_write(setores_dados, dsn ="./BA_shapes/setores_dados_rms.shp", delete_dsn = TRUE) #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+st_write(setores_dados, dsn ="./BA_shapes/setores_dados_rms.shp", delete_dsn = TRUE) #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estÃ£o os dados (dsn). 
 
-#5. Realizar o cálculo total de cada variável ----------------------------------------------------
+#5. Realizar o cÃ¡lculo total de cada variÃ¡vel ----------------------------------------------------
 total_rm<- c((sum(setores_dados$Pop, na.rm = TRUE)), 
              (sum(setores_dados$DR_0_meio, na.rm = TRUE)), 
              (sum(setores_dados$DR_meio_1, na.rm = TRUE)), 
