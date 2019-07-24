@@ -9,8 +9,8 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 # Fonte de dados
-- Dados por setores censitários do IBGE: ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios
-- Estações de transporte média e alta capacidade mapeadas pela ITDP: https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3
+- [Dados por setores censitários do IBGE](ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios)
+- [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
 # Cálculo do indicador
 Para calcular o PNT é necessário rodar dois códigos:
@@ -38,12 +38,14 @@ Passo-a-passo do código 2_Calculo_PNTs.R
 5. Realizar cálculo final dos indicadores de PNT com as variáveis criadas nos passos anteriores.
 
 # Fontes e Referências
+- [MobiliDADOS](https://mobilidados.org.br/)
+- [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - Link para vídeo Tutorial
 - [Estudo ITDP Global](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf)
-- MobiliDADOS https://mobilidados.org.br/
-- Ficha dos indicadores da MobiliDADOS https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0
-- R  https://www.rstudio.com/products/rstudio/download/#download  
-- R Studio: https://cran.rstudio.com/  
+- [Post PNT](https://itdpbrasil.org/pnt/)
+- [Publicação Ministério das Cidades com dados de PNT](http://www.cidades.gov.br/images/stories/ArquivosSEMOB/ArquivosPDF/relatorio-indicadores-efetividade-pnmu.pdf)
+- [Baixar R](https://www.rstudio.com/products/rstudio/download/#download) 
+- [Baixar R Studio](https://cran.rstudio.com/) 
 
 
 
