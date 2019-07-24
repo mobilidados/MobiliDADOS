@@ -56,6 +56,10 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 
 ### Glossário
 
+| Termo | Descrição |
+|-------|-----------|
+|Setor censitário|unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.|
+
 Setor censitário: unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.
 
 Shapefiles: formato de arquivo contendo dados geoespaciais em forma de vetor usado por Sistemas de Informações Geográficas
