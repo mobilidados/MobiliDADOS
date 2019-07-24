@@ -8,6 +8,7 @@
 
 # Cálculo do indicador
 Para calcular o PNT é necessário rodar dois códigos:
+
 1_Preparacao_de_dados.R
 Neste código, você prepara os shapefiles dos setores censitários fornecidos pelo IBGE agregando os dados demográficos necessários para realizar o cálculo do indicador. Esta preparação contempla a organização de dados da população total, de domicílios por faixa de renda, de mulheres negras e de mulheres com renda até dois salários mínimos responsáveis por domicílio.
 
@@ -35,13 +36,17 @@ Link para vídeo Tutorial
 Post PNT
 MobiliDADOS
 Ficha dos indicadores
-R
-R Studio
+R  https://www.rstudio.com/products/rstudio/download/#download  
+R Studio: https://cran.rstudio.com/  
 
 # Glossário
+
 Buffer
+
 Setor censitário
+
 Shapefiles
+
 Transporte de média e alta capacidade
 
 ATENÇÃO: É necessário que os shapes com os dados censitários e os dados das estações TMA estejam na mesma projeção.
