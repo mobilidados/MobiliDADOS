@@ -1,7 +1,5 @@
 # MobiliDADOS 
 
-![Alt text](file:///C:/Users/Novo%20Colaborador/Downloads/Caf%C3%A9%20com%20MobiliDADOS_Final%20(2).pptx.png "Title")
-
 Repositório com os códigos utilizados para cálculo dos indicadores da plataforma MobiliDADOS
 
 
