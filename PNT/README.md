@@ -9,6 +9,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 #### Fonte de dados
+- [Shapefile dos setores censitários do IBGE](INSERIR LINK) 
 - Dados por setores censitários do IBGE: ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios
 - [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
@@ -17,7 +18,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 ### Cálculo do indicador
 Para calcular o PNT é necessário rodar dois códigos:
 
-#### 1_Preparacao_de_dados.R
+  **1_Preparacao_de_dados.R**
 
 Neste código, você prepara os shapefiles dos setores censitários fornecidos pelo IBGE agregando os dados demográficos necessários para realizar o cálculo do indicador. Esta preparação contempla a organização de dados da população total, de domicílios por faixa de renda, de mulheres negras e de mulheres com renda até dois salários mínimos responsáveis por domicílio.
 
@@ -28,7 +29,7 @@ Passo-a-passo do código 1:
 4. Unir os dados demográficos com os shapefiles dos setores censitarios;
 5. Realizar o cálculo total de cada variável para a RM (ou cidade) selecionada.
 
-#### 2_Calculo_PNTs.R
+  **2_Calculo_PNTs.R**
 
 Este código abre os shapefiles das estações transporte de média e alta capacidade (TMA) para criar a área no entorno de cada estação e calcular a população residente a partir dos resultados gerados na primeira etapa. Este cálculo pode ser realizado tanto para uma região metropolitana (RM) como para uma cidade específica.
 
@@ -41,7 +42,7 @@ Passo-a-passo do código 2:
 
 Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Salvador(RMS). 
 
-#### Fontes e Referências
+### Fontes e Referências
 - [MobiliDADOS](https://mobilidados.org.br/)
 - [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - Link para vídeo Tutorial
@@ -51,7 +52,7 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 - [Baixar R](https://www.rstudio.com/products/rstudio/download/#download) 
 - [Baixar R Studio](https://cran.rstudio.com/) 
 
-#### Glossário
+### Glossário
 
 Setor censitário: unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.
 
