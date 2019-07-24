@@ -45,6 +45,12 @@ Passo-a-passo do código 2_Calculo_PNTs.R
 - R  https://www.rstudio.com/products/rstudio/download/#download  
 - R Studio: https://cran.rstudio.com/  
 
+[Flex Grid](http://exemplo.com/)
+
+Criando um link com HTML:
+
+<a href=“http://exemplo.com/“>Flex Grid</a>
+
 # Glossário
 
 Buffer
