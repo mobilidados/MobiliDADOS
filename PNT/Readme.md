@@ -9,7 +9,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 # Fonte de dados
-- [Dados por setores censitários do IBGE](ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios)
+- Dados por setores censitários do IBGE: ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios
 - [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
 # Cálculo do indicador
@@ -51,11 +51,11 @@ Passo-a-passo do código 2_Calculo_PNTs.R
 
 # Glossário
 
-Buffer
+Buffer:
 
-Setor censitário
+Setor censitário: unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.
 
-Shapefiles
+Shapefiles: formato de arquivo contendo dados geoespaciais em forma de vetor usado por Sistemas de Informações Geográficas
 
 Transporte de média e alta capacidade
 
