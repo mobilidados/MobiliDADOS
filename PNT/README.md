@@ -1,6 +1,6 @@
 # Percentual de pessoas próximas da rede de transporte de média e alta capacidade - PNT
 
-# O que é o indicador?
+### O que é o indicador?
 O indicador mensura o percentual da população de uma cidade ou região metropolitana que reside em um raio de até 1 km de uma estação do sistema de transporte público de média e alta capacidade. O dado é obtido por recursos de geoprocessamento, considerando a distribuição da população no território e a localização das estações e terminais de transporte público de média e alta capacidade. Na plataforma MobiliDADOS, este indicador é calculado considerando recorte de faixa de renda, gênero e raça e gênero e renda.
 
 O indicador pode ser utilizado para fins comparativos entre cidades ou regiões metropolitanas, para avaliar a distribuição da infraestrutura de média e alta capacidade no território e acompanhar a evolução da proximidade da população aos sistemas de transporte existentes ou em planejamento.
@@ -8,11 +8,11 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
-# Fonte de dados
+#### Fonte de dados
 - Dados por setores censitários do IBGE: ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios
 - [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
-# Cálculo do indicador
+### Cálculo do indicador
 Para calcular o PNT é necessário rodar dois códigos:
 
 1_Preparacao_de_dados.R
@@ -39,7 +39,7 @@ Passo-a-passo do código 2:
 
 Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Salvador(RMS). 
 
-# Fontes e Referências
+#### Fontes e Referências
 - [MobiliDADOS](https://mobilidados.org.br/)
 - [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - Link para vídeo Tutorial
@@ -49,7 +49,7 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 - [Baixar R](https://www.rstudio.com/products/rstudio/download/#download) 
 - [Baixar R Studio](https://cran.rstudio.com/) 
 
-# Glossário
+#### Glossário
 
 Setor censitário: unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.
 
