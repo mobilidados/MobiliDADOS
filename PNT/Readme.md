@@ -55,9 +55,9 @@ Shapefiles
 
 Transporte de média e alta capacidade
 
-ATENÇÃO: É necessário que os shapes com os dados censitários e os dados das estações TMA estejam na mesma projeção.
-Utilize o código (st_crs(TMA_stations) ==  st_crs(Setores)) para conferir. Caso a resposta seja FALSE, reprojetar os shapes com o código st_transform(). O código ESPG da projecao varia para cada cidade/RM brasileira:
-   - Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo 31983
-   - Recife 31985
-   - Belem 31982
-   - Fortaleza 31984
+
+EPSG: sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG das regiões metropolitanas e capitais presentes da MobiliDADOS estão detaçhadas abaixo:
+            - EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo
+            - EPSG 31985 para Recife
+            - EPSG 31982 para Belem
+            - EPSG 31984 para Fortaleza
