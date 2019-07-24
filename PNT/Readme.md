@@ -60,11 +60,7 @@ Shapefiles: formato de arquivo contendo dados geoespaciais em forma de vetor usa
 Transporte de média e alta capacidade: [Completar]
 
 EPSG: sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG das regiões metropolitanas e capitais presentes da MobiliDADOS estão detaçhadas abaixo:
-            
-            - EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo
-            
-            - EPSG 31985 para Recife
-            
-            - EPSG 31982 para Belem
-            
-            - EPSG 31984 para Fortaleza
+     - EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo
+     - EPSG 31985 para Recife
+     - EPSG 31982 para Belem
+     - EPSG 31984 para Fortaleza
