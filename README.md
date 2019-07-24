@@ -1,4 +1,5 @@
 # MobiliDADOS 
+![Café com MobiliDADOS_Final (2) pptx](https://user-images.githubusercontent.com/53263992/61835840-e8a29b00-ae53-11e9-9aaa-49bcc20bcbf4.png)
 
 Repositório com os códigos utilizados para cálculo dos indicadores da plataforma MobiliDADOS
 
