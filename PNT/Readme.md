@@ -19,7 +19,7 @@ Para calcular o PNT é necessário rodar dois códigos:
 
 Neste código, você prepara os shapefiles dos setores censitários fornecidos pelo IBGE agregando os dados demográficos necessários para realizar o cálculo do indicador. Esta preparação contempla a organização de dados da população total, de domicílios por faixa de renda, de mulheres negras e de mulheres com renda até dois salários mínimos responsáveis por domicílio.
 
-Passo-a-passo
+Passo-a-passo do código 1:
 1. Instalar e abrir todos os pacotes necessários;
 2. Criar o shapefile dos municípios da região metropolitana;
 3. Preparar os dados demográficos da região metropolitana;
@@ -30,6 +30,7 @@ Passo-a-passo
 
 Este código abre os shapefiles das estações transporte de média e alta capacidade (TMA) para criar a área no entorno de cada estação e calcular a população residente a partir dos resultados gerados na primeira etapa. Este cálculo pode ser realizado tanto para uma região metropolitana (RM) como para uma cidade específica.
 
+Passo-a-passo do código 2:
 1. Instalar e abrir todos os pacotes necessários para o cálculo;
 2. Importar os dados das estações TMA;
 3. Criar a área no entorno das estações de TMA e recortar os setores censitarios inseridos nesta área;
