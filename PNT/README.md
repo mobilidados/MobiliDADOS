@@ -42,15 +42,17 @@ Passo-a-passo do código 2:
 
 Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Salvador(RMS). 
 
+
 ### Fontes e Referências
 - [MobiliDADOS](https://mobilidados.org.br/)
 - [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
-- Link para vídeo Tutorial
+- [Link para vídeo Tutorial](INSERIR LINK)
 - [Estudo ITDP Global](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf)
 - [Post PNT](https://itdpbrasil.org/pnt/)
 - [Publicação Ministério das Cidades com dados de PNT](http://www.cidades.gov.br/images/stories/ArquivosSEMOB/ArquivosPDF/relatorio-indicadores-efetividade-pnmu.pdf)
 - [Baixar R](https://www.rstudio.com/products/rstudio/download/#download) 
 - [Baixar R Studio](https://cran.rstudio.com/) 
+
 
 ### Glossário
 
