@@ -61,7 +61,7 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 | Setor censitário | Unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.|
 | Shapefile | Formato de arquivo contendo dados geoespaciais em forma de vetor usado por Sistemas de Informações Geográficas.|
 | EPSG | sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG das regiões metropolitanas e capitais presentes da MobiliDADOS estão detalhadas a seguir: 
-- EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo
+|- EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo
 - EPSG 31985 para Recife
 - EPSG 31982 para Belem
 - EPSG 31984 para Fortaleza.|
