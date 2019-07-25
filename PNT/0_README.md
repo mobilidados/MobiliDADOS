@@ -9,8 +9,8 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 #### Fonte dos dados necessários para cacular o indicador
-- [Shapefile dos setores censitários do IBGE](INSERIR LINK) 
-- Dados por setores censitários do IBGE: ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios
+- [Shapefile dos setores censitários do IBGE](https://bit.ly/2Y6T4In) 
+- [Dados por setores censitários do IBGE](https://bit.ly/2hr75s0)
 - [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
 
