@@ -1,11 +1,11 @@
-#Etapa 1: PreparaÃ§Ã£o de dados
-###1. Instalar e abrir pacotes necessÃ¡rios
+#Etapa 1: Preparacao de dados
+###1. Instalar e abrir pacotes necessarios
 ###2. Criar shapefile da RM
-###3. Preparar dados demogrÃ¡ficos
+###3. Preparar dados demograficos
 ###4. Unir os dados com os setores censitarios
-###5. Realizar o cÃ¡lculo total de cada variÃ¡vel
+###5. Realizar o calculo total de cada variavel
 
-#1. Instalar e abrir pacotes necessÃ¡rios --------------
+#1. Instalar e abrir pacotes necessarios --------------
 #1.1. Instalar pacotes necessarios
 install.packages("sf")
 install.packages("openxlsx")
