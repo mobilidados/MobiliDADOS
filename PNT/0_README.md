@@ -30,6 +30,8 @@ Passo-a-passo do código 1:
 | Variáveis que serão criadas | Dados do IBGE necessários |
 |-----------------------------|---------------------------|
 |Populacao | Quantidade de moradores em domicílios particulares permanentes ou população residente em domicílios particulares permanentes. A variável V002 extraída da tabela Basico|
+|DR_0_meio | Domicílios particulares com rendimento nominal mensal domiciliar per capita entre 0 e meio salário mínimo. A variável é o resultado do somatório das variáveis Domicílios particulares com rendimento nominal mensal domiciliar per capita de até 1/8 salário mínimo (V005),  Domicílios particulares com rendimento nominal mensal domiciliar per capita de mais de 1/8 a 1/4 salário mínimo (V006), Domicílios particulares com rendimento nominal mensal domiciliar per capita de mais de 1/4 a 1/2 salário mínimo (V007)  e a Domicílios particulares sem rendimento nominal mensal domiciliar per capita (V014) extraídas da tabela DomicilioRenda.|
+
 
 
 4. Unir os dados demográficos com os shapefiles dos setores censitarios;
