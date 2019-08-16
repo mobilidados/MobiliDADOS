@@ -26,6 +26,13 @@ Passo-a-passo do código 1:
 1. Instalar e abrir todos os pacotes necessários;
 2. Criar o shapefile dos municípios da região metropolitana;
 3. Preparar os dados demográficos da região metropolitana;
+| Variáveis que serão criadas | Dados do IBGE necessários |
+|-------|-----------|
+|Populacao | Quantidade de moradores em domicílios particulares permanentes ou população residente em domicílios particulares permanentes.
+
+A variável V002 extraída da tabela Basico|
+
+
 4. Unir os dados demográficos com os shapefiles dos setores censitarios;
 5. Realizar o cálculo total de cada variável para a RM (ou cidade) selecionada.
 
