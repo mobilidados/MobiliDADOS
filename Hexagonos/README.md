@@ -1,2 +1,7 @@
-#1 Rodar codigo para gerar hex de todos os municipios, juntar em shape unico e criar coluna id
-#2 Criar centroides dos setores censitarios e juntar no QGis (Gerenciar dados, Unir atributos pela localização, primeiro shape é hex, selecionar todos os predicados, selecionar sum)
+### Passo-a-passo a detalhar:
+
+1. Extrair municipios e setores
+2. Preparar dados do censo
+3. Extrair grade do IBGE
+4. Gerar hexagonos
+5. Compatibilizar dados do censo, da grade do IBGE com os hexagonos
