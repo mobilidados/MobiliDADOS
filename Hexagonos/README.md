@@ -7,4 +7,5 @@
 5. Compatibilizar dados do censo, da grade do IBGE com os hexagonos
 
 Codigos adaptado do projeto: https://github.com/ipeaGIT/acesso_oport
-Com colaboracao de @kauebraga e @rafapereirabr
+
+Colaboracao de kauebraga e rafapereirabr
