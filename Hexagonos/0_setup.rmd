@@ -1,4 +1,4 @@
-Sys.setenv(TZ='UTC') # Fuso horario local
+Sys.setenv(TZ='UTC') #Fuso horario local
 
 # carregar bibliotecas
 library(ggplot2)      # visualizacao de dados
