@@ -1,0 +1,48 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###### 0.1.1 Download de shape file de municipios e setores censitarios dos  municipios incluidos no projeto
+
+# carregar bibliotecas
+source('./0_setup.R')
+
+## 1. lista de municipios no projeto
+list_muni_codes <- c(3300803,3304300,3302007,3302700,3302858,
+                     3305554,3305752,3301850,3302270,3304144,
+                     3300456,3301702,3301900,3302502,3303203,
+                     3303302,3303500,3303609,3304557,3304904,
+                     3305109,2304400,3550308,4106902,3106200,
+                     2927408, 1501402,5300108)
+
+# criar pasta do municipios
+lapply( paste0('./dados/', unique(munis_df$rm)), dir.create)
+lapply( paste0('./dados/', unique(munis_df$rm), '/municipios'), dir.create)
+lapply( paste0('./dados/', unique(munis_df$rm), '/setores'), dir.create)
+
+
+# 2. Funcao para download de shape file dos municipios e setores censitarios
+download_muni_setores <- function(i){
+  
+  #sigla <- ifelse(i %in% as.numeric(munis_df$code_muni), 
+  #                as.character(munis_df$name_muni), NA)
+  
+  sigla <- munis_df %>% filter(code_muni == i) %>% 
+    mutate(name_muni = as.character(name_muni)) %>%
+    .$name_muni
+  
+  # Download de arquivos
+  muni_sf <- geobr::read_municipality(code_muni=i, year=2010)
+  ct_sf <- geobr::read_census_tract(code_tract =i, year=2010)
+  
+  
+  # salvar municipios
+  readr::write_rds(muni_sf, paste0('./dados/', subset(munis_df, code_muni==i)$rm, '/municipios/municipio_', sigla,'.rds'))
+  
+  #readr::write_rds(muni_sf, paste0("../data-raw/municipios/",sigla,"/municipio_", sigla,".rds"))
+  
+  # salvar setores censitarios
+  readr::write_rds(ct_sf, paste0('./dados/', subset(munis_df, code_muni==i)$rm, '/setores/setores_', sigla,'.rds'))
+                   
+  #readr::write_rds(ct_sf, paste0("../data-raw/setores_censitarios/", sigla,"/setores_", sigla,".rds"))
+}
+
+# 3. Aplica funcao
+lapply(X=list_muni_codes, FUN=download_muni_setores)
