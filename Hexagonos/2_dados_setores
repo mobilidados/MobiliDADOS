@@ -1,11 +1,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-###### 0.1.4 Extrai grade estatistica de cada municipio
+###### Seleciona e agrega microdados dos setores censitarios
 
 # carregar bibliotecas
 source('./0_setup.R')
-
-# Criar pasta para salvar arquivos
-#dir.create(paste0("../data/grade_municipio"))
 
 # Cria data.frame com municipios do projeto
 munis_df <- data.frame(code_muni = c(3300803,3304300,3302007,	3302700,	3302858,	3305554,	3305752,	3301850,	3302270,	3304144,	3300456,	3301702,	
@@ -20,48 +17,121 @@ munis_df <- data.frame(code_muni = c(3300803,3304300,3302007,	3302700,	3302858,	
                             'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
                             'rmrj','rmrj','rmrj','rmf','rmsp','rmc','rmbh','rms','rmb','ride-df'))
 
-munis_df2 <- data.frame(code_muni = c(3305109,2304400,3550308,4106902,3106200,
-                                     2927408,1501402,5300108), 
-                       name_muni=c('sao joao de meriti','fortaleza','sao paulo','curitiba',
-                                   'belo horizonte','salvador','belem','distrito federal'),
-                       abrev_state=c('RJ','CE','SP','PR','MG','BA','PA','DF'),
-                       rm=c('rmrj','rmf','rmsp','rmc','rmbh','rms','rmb','ride-df'))
+### 1. Carrega micro dados dos setores censitarios --------------------------------------------------
 
-### Funcao
+## Leitura dos dados
+setores #310120 | 2837
+setores1 <- data.table::fread("../dados/apoio/dados_censo2010A.csv",
+                              select = c('Pess3_V168','Pess3_V170','Pess3_V173','Pess3_V175','Pess3_V178','Pess3_V180','Pess3_V183',
+                                         'Pess3_V185','Pess3_V198','Pess3_V200','Pess3_V203','Pess3_V205','Pess3_V208','Pess3_V210',
+                                         'Pess3_V213','Pess3_V215','Pess3_V218','Pess3_V220','Pess3_V223','Pess3_V225','Pess3_V228',
+                                         'Pess3_V230','Pess3_V233','Pess3_V235','Pess3_V238','Pess3_V240','Pess3_V243','Pess3_V245',
+                                         'Pess5_V007','Pess5_V009','RespRend_V045','RespRend_V046','RespRend_V047','DomRend_V005', 
+                                         'DomRend_V006','DomRend_V007','DomRend_V008','DomRend_V009', 'DomRend_V010', 'DomRend_V011', 
+                                         'DomRend_V012','DomRend_V013','DomRend_V014'))setores <- data.table::fread("./dados/apoio/dados_censo2010A.csv")
+names(setores1)
 
-criar_grade_muni <- function(sigla){
-  
-  message(paste0('Rodando ', sigla,"\n"))
-  
-  # codigo do estado do municipio
-  cod_estado <- subset(munis_df2, name_muni==sigla)$abrev_state %>% as.character()
-  
-  # Leitura das grades estatisticas dos estados
-  grade <- read_statistical_grid(code_grid = cod_estado, year = 2010)
-  # Leitura do municipio
-  muni <- readr::read_rds(paste0("./dados/", subset(munis_df2, name_muni==sigla)$rm,
-                                 "/municipios/municipio_", subset(munis_df2, name_muni==sigla)$name_muni,".rds"))
-  
-  # mesma projecao geografica
-  grade <- grade %>% st_transform(crs = 4326)
-  muni <- muni   %>%  st_transform(crs = 4326)
+# filtra apenas municipio do projeto
+setores1 <- setores1[Cod_municipio %in% munis_df$code_muni,]
 
-  # Intersecao
-  grade_muni <- sf::st_join(grade, muni)
-  # Tirar grades so do municipio
-  grade_muni <- data.table::setDT(grade_muni)[!is.na(code_muni)]
-  # Transformar para sf
-  grade_muni <- sf::st_sf(grade_muni)
+## Renomeia variaveis
+#Revisar~~~~~~~~~~~~~~~~~~~~~~~~
+# Renda 6.19 - variavel escolhida: V003 = Total do rendimento nominal mensal dos domicílios particulares permanentes
+setores_renda <-  setores1 %>% 
+  dplyr::select(cod_uf = Cod_UF, cod_muni = Cod_municipio, cod_setor = Cod_setor, renda_total = DomRend_V003, moradores_total = Dom2_V002, cor_branca=Pess3_V002, cor_preta=Pess3_V003, cor_amarela=Pess3_V004, cor_parda=Pess3_V005, cor_indigena=Pess3_V006)
+
+# Criar variavel de renda domicilias per capita de cada setor censitario
+setDT(setores_renda)[, renda_per_capta := renda_total / moradores_total]
+setores_renda[, cod_setor := as.character(cod_setor)]
+
+##### Dados que precisam ser filtrados -------------
+#Dados que precisam ser
+# Cod_UF # Codigo da UF
+# Cod_municipio # Codigo do municipio
+# Cod_setor # Codigo do setor censitario
+# DomRend_V003 # Renda do domicilio
+# Dom2_V002 # Populacao #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Basico_V002 # Populaçao #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Pess3_V002 # Pessoas Residentes e cor ou raça - branca
+# Pess3_V003 # Pessoas Residentes e cor ou raça - preta
+# Pess3_V004 # Pessoas Residentes e cor ou raça - amarela
+# Pess3_V005 # Pessoas Residentes e cor ou raça - parda
+# Pess3_V006 # Pessoas Residentes e cor ou raça - indígena 
+# Pess3_V168 # 
+# Pess3_V170 # 
+# Pess3_V173 # 
+# Pess3_V175 #
+# Pess3_V178 #
+# Pess3_V180 # 
+# Pess3_V183 # 
+# Pess3_V185 # 
+# Pess3_V198 # 
+# Pess3_V200 # 
+# Pess3_V203 # 
+# Pess3_V205 # 
+# Pess3_V208 # 
+# Pess3_V210 # 
+# Pess3_V213 # 
+# Pess3_V215 # 
+# Pess3_V218 # 
+# Pess3_V220 # 
+# Pess3_V223 # 
+# Pess3_V225 # 
+# Pess3_V228 # 
+# Pess3_V230 # 
+# Pess3_V233 # 
+# Pess3_V235 # 
+# Pess3_V238 # 
+# Pess3_V240 # 
+# Pess3_V243 # 
+# Pess3_V245 # 
+# Pess5_V007 # 
+# Pess5_V009 # 
+# RespRend_V045 #  
+# RespRend_V046 # 
+# RespRend_V047 # 
+# DomRend_V005 # 
+# DomRend_V006 # 
+# DomRend_V007 # 
+# DomRend_V008 # 
+# DomRend_V009 # 
+# DomRend_V010 # 
+# DomRend_V011 # 
+# DomRend_V012 # 
+# DomRend_V013 # 
+# DomRend_V014 # 
+
+
+
+
+
+### 2. Merge dos dados de renda com shapes dos setores censitarios --------------------------------------------------
+
+# funcao para fazer merge dos dados e salve arquivos na pata 'data'
+merge_renda_setores <- function(sigla){
   
-  # limpa memoria
-  rm(grade, muni)
-  gc(reset=T)
+  #  sigla <- "for"
   
-  # salvar no disco
-  readr::write_rds(grade_muni, paste0("./dados/", subset(munis_df2, name_muni==sigla)$rm, 
-                                      "/grade_municipio/grade_", sigla,".rds"))
+  # status message
+  message('Woking on city ', sigla_muni, '\n')
+  
+  # codigo do municipios
+  code_muni <- subset(munis_df, abrev_muni==sigla )$code_muni
+  
+  # subset dados dos setores
+  dados <- subset(setores_renda, cod_muni == code_muni)
+  
+  # leitura do shape dos setores
+  sf <- readr::read_rds( paste0("../data-raw/setores_censitarios/", sigla,"/setores_", sigla,".rds") )
+  
+  # merge
+  sf2 <- dplyr::left_join(sf, dados, c('code_tract'='cod_setor'))
+  
+  # salvar
+  readr::write_rds(sf2,  paste0("../data/setores_agregados/setores_agregados_", sigla,".rds"))
 }
 
-# Aplicar funcao
-lapply(X = munis_df2$name_muni, FUN=criar_grade_muni)
+
+# aplicar funcao
+purrr::walk(munis_df$abrev_muni, merge_renda_setores)
 
