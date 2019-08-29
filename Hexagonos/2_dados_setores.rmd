@@ -45,63 +45,73 @@ setDT(setores_renda)[, renda_per_capta := renda_total / moradores_total]
 setores_renda[, cod_setor := as.character(cod_setor)]
 
 ##### Dados que precisam ser filtrados -------------
-#Dados que precisam ser
+#Dados que precisam ser incluídos
 # Cod_UF # Codigo da UF
 # Cod_municipio # Codigo do municipio
 # Cod_setor # Codigo do setor censitario
-# DomRend_V003 # Renda do domicilio
-# Dom2_V002 # Populacao #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Basico_V002 # Populaçao #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# DomRend_V003 # Total do rendimento nominal mensal dos domicílios particulares permanentes
+# Dom2_V002 # Moradores em domicílios particulares permanentes
+# Basico_V002 # Moradores em domicílios particulares permanentes ou população residente em domicílios particulares permanentes
 # Pess3_V002 # Pessoas Residentes e cor ou raça - branca
 # Pess3_V003 # Pessoas Residentes e cor ou raça - preta
 # Pess3_V004 # Pessoas Residentes e cor ou raça - amarela
 # Pess3_V005 # Pessoas Residentes e cor ou raça - parda
 # Pess3_V006 # Pessoas Residentes e cor ou raça - indígena 
-# Pess3_V168 # 
-# Pess3_V170 # 
-# Pess3_V173 # 
-# Pess3_V175 #
-# Pess3_V178 #
-# Pess3_V180 # 
-# Pess3_V183 # 
-# Pess3_V185 # 
-# Pess3_V198 # 
-# Pess3_V200 # 
-# Pess3_V203 # 
-# Pess3_V205 # 
-# Pess3_V208 # 
-# Pess3_V210 # 
-# Pess3_V213 # 
-# Pess3_V215 # 
-# Pess3_V218 # 
-# Pess3_V220 # 
-# Pess3_V223 # 
-# Pess3_V225 # 
-# Pess3_V228 # 
-# Pess3_V230 # 
-# Pess3_V233 # 
-# Pess3_V235 # 
-# Pess3_V238 # 
-# Pess3_V240 # 
-# Pess3_V243 # 
-# Pess3_V245 # 
-# Pess5_V007 # 
-# Pess5_V009 # 
-# RespRend_V045 #  
-# RespRend_V046 # 
-# RespRend_V047 # 
-# DomRend_V005 # 
-# DomRend_V006 # 
-# DomRend_V007 # 
-# DomRend_V008 # 
-# DomRend_V009 # 
-# DomRend_V010 # 
-# DomRend_V011 # 
-# DomRend_V012 # 
-# DomRend_V013 # 
-# DomRend_V014 # 
-
-
+# Pess3_V168 # Pessoas de 5 ou 6 anos de idade, do sexo feminino e cor ou raça - preta
+# Pess3_V170 # Pessoas de 5 ou 6 anos de idade, do sexo feminino e cor ou raça - parda
+# Pess3_V173 # Pessoas de 7 a 9 anos de idade, do sexo feminino e cor ou raça - preta
+# Pess3_V175 # Pessoas de 7 a 9 anos de idade, do sexo feminino e cor ou raça - parda
+# Pess3_V178 # Pessoas de 10 a 14 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V180 # Pessoas de 10 a 14 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V183 # Pessoas de 15 a 19 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V185 # Pessoas de 15 a 19 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V198 # Pessoas de 20 a 24 anos de idade, do sexo feminino e cor ou raça - preta
+# Pess3_V200 # Pessoas de 20 a 24 anos de idade, do sexo feminino e cor ou raça - parda
+# Pess3_V203 # Pessoas de 25 a 29 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V205 # Pessoas de 25 a 29 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V208 # Pessoas de 30 a 34 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V210 # Pessoas de 30 a 34 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V213 # Pessoas de 35 a 39 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V215 # Pessoas de 35 a 39 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V218 # Pessoas de 40 a 44 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V220 # Pessoas de 40 a 44 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V223 # Pessoas de 45 a 49 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V225 # Pessoas de 45 a 49 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V228 # Pessoas de 50 a 54 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V230 # Pessoas de 50 a 54 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V233 # Pessoas de 55 a 59 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V235 # Pessoas de 55 a 59 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V238 # Pessoas de 60 a 69 anos de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V240 # Pessoas de 60 a 69 anos de idade, do sexo feminino e cor ou raça – parda
+# Pess3_V243 # Pessoas de 70 anos ou mais de idade, do sexo feminino e cor ou raça – preta
+# Pess3_V245 # Pessoas de 70 anos ou mais de idade, do sexo feminino e cor ou raça – parda
+# Pess5_V007 # Pessoas de 0 a 4 anos de idade, do sexo feminino e cor ou raça - preta
+# Pess5_V009 # Pessoas de 0 a 4 anos de idade, do sexo feminino e cor ou raça - parda
+# RespRend_V045 # Pessoas responsáveis com rendimento nominal mensal de até ½ salário
+mínimo, do sexo feminino
+# RespRend_V046 # Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1
+salário mínimo, do sexo feminino
+# RespRend_V047 # Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2
+salários mínimos, do sexo feminino
+# DomRend_V005 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de até
+1/8 salário mínimo
+# DomRend_V006 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 1/8 a 1/4 salário mínimo
+# DomRend_V007 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 1/4 a 1/2 salário mínimo
+# DomRend_V008 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 1/2 a 1 salário mínimo
+# DomRend_V009 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 1 a 2 salário mínimo
+# DomRend_V010 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 2 a 3 salários mínimos
+# DomRend_V011 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 3 a 5 salários mínimos
+# DomRend_V012 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 5 a 10 salários mínimos
+# DomRend_V013 # Domicílios particulares com rendimento nominal mensal domiciliar per capita de
+mais de 10 salários mínimos
+# DomRend_V014 # Domicílios particulares sem rendimento nominal mensal domiciliar per capita
 
 
 
