@@ -5,12 +5,7 @@
 source('./0_setup.R')
 
 ## 1. lista de municipios no projeto
-list_muni_codes <- c(3300803,3304300,3302007,3302700,3302858,
-                     3305554,3305752,3301850,3302270,3304144,
-                     3300456,3301702,3301900,3302502,3303203,
-                     3303302,3303500,3303609,3304557,3304904,
-                     3305109,2304400,3550308,4106902,3106200,
-                     2927408, 1501402,5300108)
+list_muni_codes <- munis_df$code_muni
 
 # criar pasta do municipios
 lapply( paste0('./dados/', unique(munis_df$rm)), dir.create)
