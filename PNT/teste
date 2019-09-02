@@ -1,0 +1,201 @@
+#Etapa 1: Preparação de dados
+###1. Instalar e abrir pacotes necessários
+###2. Criar shapefile da RM
+###3. Preparar dados demográficos
+###4. Unir os dados com os setores censitarios
+###5. Realizar o cálculo total de cada variável
+
+#1. Instalar e abrir pacotes necessários ---------------------------------------------------------------
+#1.1. Instalar pacotes necessarios
+install.packages('geobr')      #dados espaciais do brasil
+install.packages("sf")         #operacoes geoespaciais
+install.packages("openxlsx")   #manipulacao de xlsx
+install.packages("readxl")     #manipulacao de xls
+install.packages('mapview')    #visualizacao interativa dos dados
+install.packages('readr')      #rapida leitura de dados
+install.packages('data.table')
+install.packages('dplyr')
+
+#1.2. Abrir pacotes necessarios
+library(geobr)      #dados espaciais do brasil
+library(sf)         #operacoes geoespaciais
+library(openxlsx)   #manipulacao de xlsx
+library(readxl)     #manipulacao de xls
+library(mapview)    #visualizacao interativa dos dados
+library(readr)      #rapida leitura de dados
+library(data.table) #manipulacao de tabela
+library(dplyr)      #manipulacao de tabela
+
+#1.3. Definir local para salvar arquivos
+setwd('/Users/mackook/Desktop/R/PNT/') #Alterar o caminho para a pasta onde deseja salvar os arquivos
+
+#1.4 Criar tabela de cidades da RM que sera analisada
+munis_df <- data.frame(code_muni = c(3300803,3304300,3302007,3302700,3302858,3305554,3305752,
+                                     3301850,3302270,3304144,3300456,3301702,3301900,3302502,
+                                     3303203,3303302,3303500,3303609,3304557,3304904,3305109),
+                       name_muni=c('cachoeiras de macacu','rio bonito','itaguai','marica','mesquita','seropedica',
+                                   'tangua','guapimirim','japeri','queimados','belford roxo','duque de caxias','itaborai',
+                                   'mage','nilopolis','niteroi','nova iguacu','paracambi','rio de janeiro','sao goncalo','sao joao de meriti'),
+                       abrev_state=c('RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ',
+                                     'RJ','RJ','RJ','RJ','RJ','RJ','RJ'),
+                       rm=c('rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
+                            'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
+                            'rmrj','rmrj','rmrj'))
+#1.5 Criar pastas para salvar arquivos
+lapply( paste0('./', unique(munis_df_sudeste$rm)), dir.create)
+lapply( paste0('./', unique(munis_df_sudeste$rm), '/municipios'), dir.create)
+lapply( paste0('./', unique(munis_df_sudeste$rm), '/setores'), dir.create)
+
+#2. Criar shapefile da RM ---------------------------------------------------------------
+#2.1. Fazer download dos shapefiles
+#2.1.1. Funcao para fazer download de shapefile dos municipios e setores censitarios
+list_muni_codes <- munis_df$code_muni
+
+download_muni_setores <- function(i){
+  
+  sigla <- munis_df_sudeste %>% filter(code_muni==i) %>% 
+    mutate(name_muni=as.character(name_muni)) %>%
+    .$name_muni
+  
+  # Download de arquivos
+  muni_sf <- geobr::read_municipality(code_muni=i, year=2010)
+  ct_sf <- geobr::read_census_tract(code_tract=i, year=2010)
+  
+  # salvar municipios
+  readr::write_rds(munis_df_sudeste, paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/municipios/municipio_', sigla,'.rds'))
+  
+  # salvar setores censitarios
+  readr::write_rds(ct_sf, paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/setores/setores_', sigla,'.rds'))
+  
+}
+
+# 2.1.2. Aplicar funcao para lista de municipios desejados
+lapply(list_muni_codes, download_muni_setores)
+
+#2.2. Juntar shapes para RM
+#2.2.1. Juntar os shapes municipios e setores
+juntar_municipios <- function (i) {
+  
+  sigla <- munis_df_sudeste %>% filter(code_muni==i) %>% 
+  mutate(name_muni=as.character(name_muni)) %>%
+  .$name_muni
+
+files <- list.files(path = paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/municipios'),
+                    pattern = "\\.rds$", full.names = TRUE)
+
+ler <- lapply(files, read_rds)
+juntos <- do.call("rbind", lapply(files, read_rds))
+readr::write_rds(juntos, paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/municipios/municipios_',subset(munis_df_sudeste, code_muni==i)$rm,'.rds'))
+
+}
+
+juntar_setores <- function (i) {
+  
+  sigla <- munis_df_sudeste %>% filter(code_muni==i) %>% 
+    mutate(name_muni=as.character(name_muni)) %>%
+    .$name_muni
+  
+  files <- list.files(path = paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/setores'),
+                      pattern = "\\.rds$", full.names = TRUE)
+  
+  ler <- lapply(files, read_rds)
+  juntos <- do.call("rbind", lapply(files, read_rds))
+  
+  #salvar
+  readr::write_rds(juntos, paste0('./', subset(munis_df_sudeste, code_muni==i)$rm, '/setores/setores_',subset(munis_df_sudeste, code_muni==i)$rm,'.rds'))
+  
+}
+
+#2.2.2 Aplicar funcoes
+lapply(list_muni_codes, juntar_municipios)
+lapply(list_muni_codes, juntar_setores)
+
+
+#3. Criar tabelas de dados dos setores censitarios ------------------------------------------------------------
+#3.1. Preparar dados do censo
+#3.1.1. Abrir dados do censo
+dados <- data.table::fread ('./dados/dados_censo2010A.csv',
+                            select=c('Cod_UF', 'Cod_municipio', 'Cod_setor', 'DomRend_V003', 'BA_V002',
+                                     'Dom2_V002', 'Pess3_V002','Pess3_V003', 'Pess3_V004', 'Pess3_V005', 
+                                     'Pess3_V006','Pess3_V168', 'Pess3_V170', 'Pess3_V173', 'Pess3_V175', 
+                                     'Pess3_V178','Pess3_V180', 'Pess3_V183', 'Pess3_V185', 'Pess3_V198', 
+                                     'Pess3_V200','Pess3_V203', 'Pess3_V205', 'Pess3_V208', 'Pess3_V210', 
+                                     'Pess3_V213','Pess3_V215', 'Pess3_V218', 'Pess3_V220', 'Pess3_V223', 
+                                     'Pess3_V225','Pess3_V228', 'Pess3_V230', 'Pess3_V233', 'Pess3_V235', 
+                                     'Pess3_V238','Pess3_V240', 'Pess3_V243', 'Pess3_V245', 'Pess5_V007', 
+                                     'Pess5_V009','RespRend_V045','RespRend_V046', 'RespRend_V047', 'DomRend_V005',
+                                     'DomRend_V006', 'DomRend_V007', 'DomRend_V008', 'DomRend_V009', 'DomRend_V010',
+                                     'DomRend_V011', 'DomRend_V012', 'DomRend_V013', 'DomRend_V014'))
+
+dados$Cod_setor <- as.numeric(dados$Cod_setor)
+names(dados)
+head(dados)
+
+#3.1.2. Calcular variaveis necessarias
+dados$Pop <- dados$BA_V002
+dados$Renda_mensal <- dados$DomRend_V003
+dados$Renda_media <- dados$Renda_mensal/dados$Pop
+dados$DR_0_meio <- rowSums(cbind(dados$DomRend_V005, dados$DomRend_V006,dados$DomRend_V007, dados$DomRend_V014))
+dados$DR_meio_1 <- dados$DomRend_V008
+dados$DR_1_3 <- rowSums(cbind(dados$DomRend_V009, dados$DomRend_V010))
+dados$DR_3_mais <- rowSums(cbind(dados$DomRend_V011, dados$DomRend_V012, dados$DomRend_V0103))
+dados$Mulheres_negras <- rowSums(dados[,6:40])
+dados$Mulheres_RR_2_SM <- rowSums(dados[,41:43])
+
+names(dados)
+dados <- dados[,-c(4:54)]
+write_rds(dados, './dados/dados_pnt.rds')
+
+#3.2. Abrir e juntar setores
+setores_rmrj <- read_rds('./rmrj/setores/setores_rmrj.rds')
+setores_rmbh <- read_rds('./rmbh/setores/setores_rmbh.rds')
+setores_rmsp <- read_rds('./rmsp/setores/setores_rmsp.rds')
+setores_ride <- read_rds('./ride/setores/setores_ride.rds')
+
+setores <- rbind(setores_rmrj,setores_rmbh, setores_rmsp, setores_ride)
+setores$Cod_setor <- as.numeric(setores$code_tract)
+
+str(dados)
+str(setores)
+
+#3.3. Unir shapefile com dados do Censo
+setores_dados <- left_join(setores, dados, by="Cod_setor") #Unir shapefile dos setores censitarios com tabela final dos dados demograficos
+str(setores_dados) #Verificar estrutura final contem: Cod_setor, Pop, Mulheres_RR_ate_2SM, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais e Mulheres_negras
+st_write(setores_dados, dsn ="./BA_shapes/setores_dados_rms.shp", delete_dsn = TRUE) #Salvar tabela final. Quando modificar o Estado sera necessario alterar o caminho da pasta onde estão os dados (dsn). 
+
+#5. Realizar o cálculo total de cada variável ----------------------------------------------------
+total_rm<- c((sum(setores_dados$Pop, na.rm = TRUE)), 
+             (sum(setores_dados$DR_0_meio, na.rm = TRUE)), 
+             (sum(setores_dados$DR_meio_1, na.rm = TRUE)), 
+             (sum(setores_dados$DR_1_3, na.rm = TRUE)), 
+             (sum(setores_dados$DR_3_mais, na.rm = TRUE)), 
+             (sum(setores_dados$Mulheres_negras, na.rm = TRUE)), 
+             (sum(setores_dados$Mulheres_RR_ate_2SM, na.rm = TRUE))) #Realizar a soma total de cada variavel
+Resultados_rm<-rbind(total_rm) #Criar uma tabela com as variaveis criadas na linha anterior
+colnames(Resultados_rm)<- c("Pop", "DR_0_meio","DR_meio_1",
+                            "DR_1_3","DR_3_mais","M_Negras","M_RR_ate_2SM") #Nomear as colunas da tabela criada
+print(Resultados_rm) #Visualizar resultado final
+
+####------------------------------- Fim da Etapa 1 -------------------------------------------
+setores <- st_sf(setores_dados)
+setores$ar_m2 <- as.numeric(st_area(setores)) #Criar coluna com area dos setores censitarios em m2 
+setores <- st_transform(setores, 31983)
+
+TMA_estacoes <- st_read('./dados/TMA/TMA_estacoes_2018.shp') %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational')
+str(TMA_estacoes)
+
+TMA_estacoes<- st_transform(TMA_estacoes, 31983)
+TMA_buf_1000m <- st_buffer(TMA_estacoes, dist = 1000) %>% st_union() 
+
+setores_1000m <- st_intersection(st_buffer(setores, 0), TMA_buf_1000m)
+
+mapview(setores_1000m)
+
+setores_1000m  <- setores_1000m %>%
+  mutate(ar_int = unclass(st_area(.)), rt = as.numeric(ar_int/ar_m2)) %>%
+  mutate_at(.vars = vars(Pop), funs(int =.*rt))
+
+Resultados_RM <- data.frame(Pop_int = sum(setores_1000m$int, na.rm = TRUE),
+                             Pop_tot = sum(setores$Pop, na.rm = TRUE), 
+                            PNT = 100*sum(setores_1000m$int, na.rm = TRUE)/sum(setores$Pop, na.rm = TRUE))
+                  
