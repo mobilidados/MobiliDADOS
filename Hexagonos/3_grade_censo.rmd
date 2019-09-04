@@ -3,29 +3,24 @@
 
 # carregar bibliotecas
 source('./0_setup.R')
+setwd('/Users/mackook/Desktop/R/PNT/') 
 
 # Criar pasta para salvar arquivos
-#dir.create(paste0("../data/grade_municipio"))
+#dir.create(paste0("./rmrj/grade_municipio"))
 
 # Cria data.frame com municipios do projeto
-munis_df <- data.frame(code_muni = c(3300803,3304300,3302007,	3302700,	3302858,	3305554,	3305752,	3301850,	3302270,	3304144,	3300456,	3301702,	
-                                     3301900,3302502,3303203,3303302,3303500,3303609,3304557,3304904,3305109,2304400,3550308,4106902,3106200,2927408,1501402,5300108), 
-                       name_muni=c('cachoeiras de macacu','rio bonito','itaguai','marica','mesquita','seropedica','tangua','guapimirim',
-                                   'japeri','queimados','belford roxo','duque de caxias','itaborai','mage','nilopolis','niteroi','nova iguacu',
-                                   'paracambi','rio de janeiro','sao goncalo','sao joao de meriti','fortaleza','sao paulo','curitiba',
-                                   'belo horizonte','salvador','belem','distrito federal'),
+munis_df <- data.frame(code_muni = c(3300803,3304300,3302007,3302700,3302858,3305554,3305752,
+                                     3301850,3302270,3304144,3300456,3301702,3301900,3302502,
+                                     3303203,3303302,3303500,3303609,3304557,3304904,3305109),
+                       name_muni=c('cachoeiras de macacu','rio bonito','itaguai','marica','mesquita','seropedica',
+                                   'tangua','guapimirim','japeri','queimados','belford roxo','duque de caxias','itaborai',
+                                   'mage','nilopolis','niteroi','nova iguacu','paracambi','rio de janeiro','sao goncalo','sao joao de meriti'),
                        abrev_state=c('RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ',
-                                     'RJ','RJ','RJ','RJ','RJ','RJ','RJ','CE','SP','PR','MG','BA','PA','DF'),
+                                     'RJ','RJ','RJ','RJ','RJ','RJ','RJ'),
                        rm=c('rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
                             'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
-                            'rmrj','rmrj','rmrj','rmf','rmsp','rmc','rmbh','rms','rmb','ride-df'))
+                            'rmrj','rmrj','rmrj'))
 
-munis_df2 <- data.frame(code_muni = c(3305109,2304400,3550308,4106902,3106200,
-                                     2927408,1501402,5300108), 
-                       name_muni=c('sao joao de meriti','fortaleza','sao paulo','curitiba',
-                                   'belo horizonte','salvador','belem','distrito federal'),
-                       abrev_state=c('RJ','CE','SP','PR','MG','BA','PA','DF'),
-                       rm=c('rmrj','rmf','rmsp','rmc','rmbh','rms','rmb','ride-df'))
 
 ### Funcao
 
@@ -34,18 +29,18 @@ criar_grade_muni <- function(sigla){
   message(paste0('Rodando ', sigla,"\n"))
   
   # codigo do estado do municipio
-  cod_estado <- subset(munis_df2, name_muni==sigla)$abrev_state %>% as.character()
+  cod_estado <- subset(munis_df, name_muni==sigla)$abrev_state %>% as.character()
   
   # Leitura das grades estatisticas dos estados
   grade <- read_statistical_grid(code_grid = cod_estado, year = 2010)
   # Leitura do municipio
-  muni <- readr::read_rds(paste0("./dados/", subset(munis_df2, name_muni==sigla)$rm,
-                                 "/municipios/municipio_", subset(munis_df2, name_muni==sigla)$name_muni,".rds"))
+  muni <- readr::read_rds(paste0("./", subset(munis_df, name_muni==sigla)$rm,
+                                 "/municipios/municipio_", subset(munis_df, name_muni==sigla)$name_muni,".rds"))
   
   # mesma projecao geografica
   grade <- grade %>% st_transform(crs = 4326)
   muni <- muni   %>%  st_transform(crs = 4326)
-
+  
   # Intersecao
   grade_muni <- sf::st_join(grade, muni)
   # Tirar grades so do municipio
@@ -58,10 +53,33 @@ criar_grade_muni <- function(sigla){
   gc(reset=T)
   
   # salvar no disco
-  readr::write_rds(grade_muni, paste0("./dados/", subset(munis_df2, name_muni==sigla)$rm, 
+  readr::write_rds(grade_muni, paste0("./", subset(munis_df, name_muni==sigla)$rm, 
                                       "/grade_municipio/grade_", sigla,".rds"))
 }
 
 # Aplicar funcao
-lapply(X = munis_df2$name_muni, FUN=criar_grade_muni)
+lapply(X = munis_df$name_muni, FUN=criar_grade_muni)
+
+
+juntar_grades <- function (i) {
+  
+  sigla <- munis_df %>% filter(code_muni==i) %>% 
+    mutate(name_muni=as.character(name_muni)) %>%
+    .$name_muni
+  
+  files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/grade_municipio/'),
+                      pattern = "\\.rds$", full.names = TRUE)
+  
+  ler <- lapply(files, read_rds)
+  juntos <- do.call("rbind", lapply(files, read_rds))
+  
+  #salvar
+  readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/grade_municipio/grade_',
+                                  subset(munis_df, code_muni==i)$rm,'.rds'))
+  
+}
+
+#2.2.2 Aplicar funcoes
+pblapply(list_muni_codes, juntar_grades)
+list_muni_codes <- munis_df$code_muni
 
