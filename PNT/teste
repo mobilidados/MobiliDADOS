@@ -15,6 +15,7 @@ install.packages("mapview")
 install.packages("geobr")
 install.packages("pbapply")
 install.packages("data.table")
+install.packages("openxlsx")
 
 #1.2. Abrir pacotes necessarios
 library(sf)
@@ -25,65 +26,59 @@ library(mapview)
 library(geobr)
 library(pbapply)
 library(data.table)
+library(openxlsx)
 
 ###2. Definir local para salvar arquivos e criar tabela de referencia --------------------------------------------------
+
 #2.1. Definir local para salvar arquivos
-setwd("C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados") #Alterar o caminho para a pasta onde deseja salvar os arquivos
+setwd('/Users/mackook/Desktop/Treinamento_MDR') #Alterar o caminho para a pasta onde deseja salvar os arquivos
 
-
-#2.2. Criar pastas para salvar arquivos
-lapply( paste0('./', unique(munis_df$rm)), dir.create)
-lapply( paste0('./', unique(munis_df$rm), '/municipios'), dir.create)
-lapply( paste0('./', unique(munis_df$rm), '/setores'), dir.create)
-
-
-#2.3 Criar tabela de cidades da RM que sera analisada
-munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,2925204,2927408,2929206,2929503,2930709,2933208),
-                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus','mata de são joão','pojuca',
-                                   'salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
+#2.2 Criar tabela de cidades da RM que sera analisada
+munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
+                                     2925204,2927408,2929206,2929503,2930709,2933208),
+                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
+                                   'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
                        abrev_state=c('BA','BA','BA','BA','BA','BA','BA',
                                      'BA','BA','BA','BA','BA','BA'),
                        rm=c('rms','rms','rms','rms','rms','rms','rms',
                             'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985))
+                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 
+                                31985, 31985, 31985, 31985, 31985, 31985))
 
+#2.3. Criar pastas para salvar arquivos
+lapply( paste0('./', unique(munis_df$rm)), dir.create) #cria pasta da rm
+lapply( paste0('./', unique(munis_df$rm), '/municipios'), dir.create) #cria pasta do municipio
+lapply( paste0('./', unique(munis_df$rm), '/setores'), dir.create) #cria pasta do setor
 
-###3. Preparar dados demograficos
+###3. Preparar dados demograficos ------------------------------------------------------------------------------------------
 #3.1. Fazer download de shapefiles dos municipios e setores censitarios ----------------------------------------------------
+
 download_municipios_setores <- function(i){
   
-  sigla <- munis_df %>% filter(code_muni==i) %>% 
-     mutate(name_muni=as.character(name_muni)) %>%
-     .$name_muni
-  
-  message(paste0('baixando dados ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  message(paste0('baixando dados ', subset(munis_df, code_muni==i)$name_muni,"\n")) #aplica mensagem para identificar municipios que esta sendo baixado
   
   # Download de arquivos
-  muni_sf <- geobr::read_municipality(code_muni=i, year=2010) 
-  ct_sf <- geobr::read_census_tract(code_tract=i, year=2010)
+  muni_sf <- geobr::read_municipality(code_muni=i, year=2010) #download do shape do municipio
+  ct_sf <- geobr::read_census_tract(code_tract=i, year=2010) #download do shape do setor censitario
   
   # salvar municipios
-  readr::write_rds(muni_sf, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipio_', subset(munis_df, code_muni==i)$name_muni,'.rds'))
+  readr::write_rds(muni_sf, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipio_', subset(munis_df, code_muni==i)$name_muni,'.rds')) #salva arquivo do municipio
   
   # salvar setores censitarios
-  readr::write_rds(ct_sf, paste0('./', subset(munis_df, code_muni==i)$rm, '/setores/setores_', subset(munis_df, code_muni==i)$name_muni,'.rds'))
+  readr::write_rds(ct_sf, paste0('./', subset(munis_df, code_muni==i)$rm, '/setores/setores_', subset(munis_df, code_muni==i)$name_muni,'.rds')) #salva arquivo do setor
   
 } #funcao para fazer download dos municipios e setores censitarios
 
 juntar_municipios_por_rm <- function (i) {
   
-  # sigla <- munis_df %>% filter(code_muni==i) %>% 
-  #   mutate(name_muni=as.character(name_muni)) %>%
-  #   .$name_muni
-  
   files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios'),
-                      pattern = "\\.rds$", full.names = TRUE)
+                      pattern = "\\.rds$", full.names = TRUE) #cria lista com todos os arquivos na pasta municipios
   
-  ler <- lapply(files, read_rds)
-  juntos <- do.call("rbind", lapply(files, read_rds))
-  readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipios_',subset(munis_df, code_muni==i)$rm,'.rds'))
+  # ler <- lapply(files, read_rds)
+  juntos <- do.call("rbind", lapply(files, read_rds)) #le e junta arquivos da pasta municipios 
+  readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipios_',subset(munis_df, code_muni==i)$rm,'.rds')) #salva arquivo com todos os municipios
   
-} #funcao para fazer juntar municpios da mesma regiao metropolitana
+} #funcao para juntar municpios da mesma regiao metropolitana
 
 juntar_setores_por_rm <- function (i) {
   
@@ -92,15 +87,15 @@ juntar_setores_por_rm <- function (i) {
   #   .$name_muni
   
   files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/setores'),
-                      pattern = "\\.rds$", full.names = TRUE)
+                      pattern = "\\.rds$", full.names = TRUE) #cria lista com todos os arquivos na pasta setores
   
-  ler <- lapply(files, read_rds)
-  juntos <- do.call("rbind", lapply(files, read_rds))
+  # ler <- lapply(files, read_rds)
+  juntos <- do.call("rbind", lapply(files, read_rds)) #le e junta arquivos da pasta setores
   
   #salvar
-  readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/setores/setores_',subset(munis_df, code_muni==i)$rm,'.rds'))
+  readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/setores/setores_',subset(munis_df, code_muni==i)$rm,'.rds')) #salva arquivo com todos os setores
   
-} #funcao para fazer juntar setores censitarios da mesma regiao metropolitana
+} #funcao para juntar setores censitarios da mesma regiao metropolitana
 
 #aplicar as funcoes 
 list_muni_codes <- munis_df$code_muni #criar lista de municipios para aplicar as funcoes
@@ -110,13 +105,13 @@ pblapply(list_muni_codes, juntar_municipios_por_rm) #aplicar funcao para juntar 
 pblapply(list_muni_codes, juntar_setores_por_rm) #aplicar funcao para juntar setores censitarios
 
 # Testar visualizacao
-# setores_rms <- read_rds('./rms/setores/setores_rms.rds')
-# munis_rms <- read_rds('./rms/municipios/municipios_rms.rds')
-# mapview(munis_rms) + mapview(setores_rms)
- #666666666
+setores_rm <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '.rds')) #abre setores da rm
+munis_rm <- read_rds(paste0('./', unique(munis_df$rm), '/municipios/municipios_', unique(munis_df$rm), '.rds')) #abre munis da rm
+mapview(munis_rm) + mapview(setores_rm) #visualizar setores e municipios da rm
+
 #3.2. Preparar dados do censo ----------------------------------------------------------------------------------------------
 #3.2.1. Abrir dados do censo e selecionar variaveis mais importantes
-dados <- data.table::fread ('./apoio/dados_censo2010A.csv',
+dados <- data.table::fread ('./dados/dados_censo2010A.csv',
                             select=c('Cod_UF', 'Cod_municipio', 'Cod_setor', 'DomRend_V003', 'BA_V002',
                                      'Dom2_V002', 'Pess3_V002','Pess3_V003', 'Pess3_V004', 'Pess3_V005', 
                                      'Pess3_V006','Pess3_V168', 'Pess3_V170', 'Pess3_V173', 'Pess3_V175', 
@@ -127,7 +122,7 @@ dados <- data.table::fread ('./apoio/dados_censo2010A.csv',
                                      'Pess3_V238','Pess3_V240', 'Pess3_V243', 'Pess3_V245', 'Pess5_V007', 
                                      'Pess5_V009','RespRend_V045','RespRend_V046', 'RespRend_V047', 'DomRend_V005',
                                      'DomRend_V006', 'DomRend_V007', 'DomRend_V008', 'DomRend_V009', 'DomRend_V010',
-                                     'DomRend_V011', 'DomRend_V012', 'DomRend_V013', 'DomRend_V014'))
+                                     'DomRend_V011', 'DomRend_V012', 'DomRend_V013', 'DomRend_V014')) #abre tabela dados censo somente com dados necessarios
 
 #3.1.2. Calcular variaveis necessarias
 dados$Pop <- as.numeric(dados$BA_V002) #Cria coluna com populacao
@@ -147,83 +142,100 @@ names(dados_pnt) # mostra nome das colunas da base dade dados
 str(dados_pnt) # mostra estrutura da base dade dados
 dados_pnt$Cod_setor <- as.character(dados_pnt$Cod_setor) #transforma em valor numerico
 
-write_rds(dados_pnt, './apoio/dados_pnt.rds') #salva tabela com dados demograficos
+write_rds(dados_pnt, './dados/dados_pnt.rds') #salva tabela com dados demograficos
 
-###4. Preparar dados dos corredores de transporte---------------------------------------------------------------------------
+###4. Preparar dados dos corredores de transporte ---------------------------------------------------------------------------
 
-#4.1. Abrir estacoes de transporte mapeadas pelo ITDP
-
-#Abrir estacoes de transporte mapeadas pelo ITDP
-# Antes de abir o arquivo ? necessario:
+#4.1. Abrir estacoes de transporte mapeadas pelo ITDP -----------------------------------------------------------------------
+# Antes de abir o arquivo necessario:
 #1. baixar o kml de todas as estacoes em https://www.google.com/maps/d/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=10
 #2. abrir, juntar e salvar todas as estacoes no Qgis
-Estacoes <- st_read('./apoio/TMA/Estacoes_2018.shp') 
+Estacoes <- st_read('./dados/Estacoes_2018.shp') 
 
-#Selecionar apenas estacoes de transporte de media e alta capacidade
-TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # selecionar apenas estacoes de transporte de meida e alta capacidade
-write_rds(TMA_estacoes, './apoio/TMA/TMA_Estacoes_2018.rds') #salva estacoes TMA
+#4.2. Selecionar apenas estacoes de transporte de media e alta capacidade ---------------------------------------------------
+TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # seleciona apenas estacoes de transporte de meida e alta capacidade
+write_rds(TMA_estacoes, './apoio/TMA_Estacoes_2018.rds') #salva estacoes TMA
 
 #visualizar mapa e tabela de atributos
 mapview(TMA_estacoes) #visualiza arquivo criado
 str(TMA_estacoes)
 
-#4.2. Criar buffer de 1km no entorno das estacoes
-TMA_estacoes <- st_transform(TMA_estacoes, 3857) #transforma projecao
-TMA_buf_1000m <- st_buffer(TMA_estacoes, dist = 1000) %>% st_union() #cria buffer
-mapview(TMA_buf_1000m) #visualiza arquivo criado
-
-
-###5. Realizar calculo do PNT-----------------------------------------------------------------------------------------------
-#5.1. Definir Regiao Metropolitana onde o calculo sera realizado
+###5. Realizar calculo do PNT -----------------------------------------------------------------------------------------------
+#5.1. Definir Regiao Metropolitana onde o calculo sera realizado ------------------------------------------------------------
 
 # Para realizar os calculos deve-se reprojetar os setores e buffer para o mesmo sistema de projecao geografica
-# Para isso usamos o EPSG, da sigla Sigla para do Grupo Europeu de Pesquisa Petrol?fera (European Petroleum Survey Group), 
-# que foi a entidade que organizou por meio desses c?digos num?ricos os Sistemas de Refer?ncia de Coordenadas (SRC) do mundo. 
-# Os EPSG das regi?es metropolitanas e capitais presentes da MobiliDADOS est?o detalhadas a seguir: 
+# Para isso usamos o EPSG, da sigla Sigla para do Grupo Europeu de Pesquisa Petrolifera (European Petroleum Survey Group), 
+# que foi a entidade que organizou por meio desses codigos numericos os Sistemas de Referencia de Coordenadas (SRC) do mundo. 
+# Os EPSG das regioes metropolitanas e capitais presentes da MobiliDADOS estao detalhadas a seguir: 
 # EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo. 
 # EPSG 31985 para Recife e Salvador
 # EPSG 31982 para Belem.
 # EPSG 31984 para Fortaleza.
 
-#5.2. Juntar setores e dados reprojetar - 666666666 Revisar
+munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
+                                     2925204,2927408,2929206,2929503,2930709,2933208),
+                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
+                                   'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
+                       abrev_state=c('BA','BA','BA','BA','BA','BA','BA',
+                                     'BA','BA','BA','BA','BA','BA'),
+                       rm=c('rms','rms','rms','rms','rms','rms','rms',
+                            'rms','rms','rms','rms','rms','rms'),
+                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 
+                                31985, 31985, 31985, 31985, 31985, 31985))
 
-setores_rm_dados <- function(i) {
+#5.2. Juntar setores e dados reprojetar -------------------------------------------------------------------------------------
+
+# Baixar arquivos dos setores censitarios na pagina da MobiliDADOS
+# Ir em https://mobilidados.org.br/database
+# Acessar pasta 'Dados das regiões metropolitanas por setor censitário'
+# Baixar a região metropolitana desejada na pasta do drive e salvar na pasta dados
+
+junta_rm_c_dados <- function(sigla) {
   
-# setores_rm <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '.rds')) %>%   #abre arquivo de setores
-#   st_sf() %>% #transforma em sf
-#   st_transform(., as.numeric(unique(munis_df$espg)))%>% #transforma epsg
-#   mutate(ar_m2 = unclass(st_area(.)), Cod_setor = as.character(code_tract)) #cria area e transforma coluna do cod_setor em caractere
-
-setores_rm <- st_read('./rms/setores/RM_Salvador_dados_setores_censitários_WGS84.shp') %>%
-  st_transform(., as.numeric(unique(munis_df$espg)))%>% #transforma epsg
-  rename(Cod_setor = Cod_str, Situacao_setor = Situc_s, Tipo_setor = Tip_str)%>% #renomeia tabelas
-  mutate(Cod_setor = as.character(Cod_setor), Cd_mncp = NULL) #transforma coluna em caractere
+  message(paste0('leitura ', sigla)) #aplica mensagem para identificar rm que esta sendo lida
   
-names(setores_rm)
-setores_rm <- setores_rm[,-c(6:17)] %>% #elimina colunas desnecessarias
-  mutate(ar_m2 = as.numeric(st_area(setores_rm))) #cria coluna com area do setor
+  setores_rm <- st_read(paste0('./dados/setores/', sigla,'/RM Salvador_dados_setores_censitários_WGS84.shp')) %>%
+    st_transform(., as.numeric(unique(munis_df$espg))) %>% #transforma epsg
+    # rename(Cod_setor = Cod_str, Situacao_setor = Situc_s, Tipo_setor = Tip_str)%>% #renomeia tabelas
+    mutate(Cod_setor = as.character(Cod_setor), Cd_mncp = NULL) #transforma coluna em caractere
+  
+  message(paste0('ajustes ', sigla)) 
+  setores_rm <- setores_rm[,-c(5:17)] %>% #elimina colunas desnecessarias
+    mutate(ar_m2 = as.numeric(st_area(setores_rm))) #cria coluna com area do setor
+  
+  message(paste0('leitura de dados')) 
+  
+  dados_pnt_rm <- read_rds('./dados/dados_pnt.rds')%>% #abre tabela de dados
+    filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
+    mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
+  
+  message(paste0('unindo setores e dados')) 
 
-dados_pnt_rm <- read_rds('./apoio/dados_pnt.rds')%>% #abre tabela de dados
-  filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
-  mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
+  setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') #une setores com dados
+  setores_rm_dados[is.na(setores_rm_dados)] <- 0 #elimina valores N/A
+  
+  message(paste0('salvando arquivos finais')) 
+  
+  write_rds(setores_rm_dados, paste0('./', sigla, '/setores/setores_', sigla, '_dados.rds')) #salva setores com dados
+  #st_write(setores_rm_dados, paste0('./', sigla, '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
+  
+} #funcao para abrir e juntar setores
 
-setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') #une setores com dados
-setores_rm_dados[is.na(setores_rm_dados)] <- 0 #elimina valores N/A
+#aplicar funcao para juntar setores
+junta_rm_c_dados(unique(munis_df$rm))
 
-write_rds(setores_rm_dados, paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '_dados.rds')) #salva setores com dados
-st_write(setores_rm_dados, paste0('./', unique(munis_df$rm), '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
+#Criar buffer de 1000m no entorno das estacoes
+TMA_estacoes <- st_transform(TMA_estacoes, unique(munis_df$espg)) #transforma na espg da regiao metropolitana
+TMA_buf_1000m <- st_buffer(TMA_estacoes, 1000)%>% st_union #cria buffer de 1000m, aqui podemos mostrar como usar distancia real
+mapview(TMA_buf_1000m) #visualizacao do buffer
+
+#Pegar dados no entorno das estacoes
+setores_rm_dados <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '_dados.rds')) #abre arquivo setores com dados
+setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m) #corta setores pelo buffer
+mapview(setores_rm_dados_1000m) #vizualiza arquivo de setores
 
 
-}
-
-TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # selecionar apenas estacoes de transporte de meida e alta capacidade
-TMA_estacoes <- st_transform(TMA_estacoes, unique(munis_df$espg))
-TMA_buf_1000m <- st_buffer(TMA_estacoes, 1000)%>% st_union
-mapview(TMA_buf_1000m)
-
-setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m)
-
-#5.3. Calcular dados na area de influencia do area no entorno das estacoes
+#5.3. Calcular dados na area de influencia do area no entorno das estacoes -------------------------------------------------------
 
 #Calcular total de cada variavel na regiao metropolitana
 total_rm <- c((sum(setores_rm_dados$Pop, na.rm = TRUE)), 
@@ -234,15 +246,16 @@ total_rm <- c((sum(setores_rm_dados$Pop, na.rm = TRUE)),
               (sum(setores_rm_dados$Mulheres_negras, na.rm = TRUE)), 
               (sum(setores_rm_dados$Mulheres_RR_2_SM, na.rm = TRUE))) #Realizar a soma total de cada variavel
 
-#Calcular total de cada variavel na area de entorno de uma estacao de TMA
+#Calcular total de cada variavel na area de entorno das estacoes de TMA
+
+#Criar variaveis no entorno das estacoes
 setores_rm_dados_1000m <- setores_rm_dados_1000m %>%
-  mutate(ar_int = unclass(st_area(.)),
-         rt = as.numeric(ar_int/ar_m2)) %>%
+  mutate(ar_int = unclass(st_area(.)), #cria area inserida no entorno da estacao
+         rt = as.numeric(ar_int/ar_m2)) %>% #cria proporcao entre area inserida no entorno da estacao e area total de cada 
   mutate_at(.vars = vars(Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, Mulheres_negras , Mulheres_RR_2_SM), 
             funs(int = . * rt)) #Criar coluna com proporcao entre area coberta no entorno das estacoes e colunas com total de cada variavel demografica inserida na area no entorno das estacoes
 
-str(setores_rm_dados_1000m)
-
+#Calcula total de cada variavel
 total_entorno <- c((sum(setores_rm_dados_1000m$Pop_int, na.rm = TRUE)), 
                    (sum(setores_rm_dados_1000m$DR_0_meio_int, na.rm = TRUE)), 
                    (sum(setores_rm_dados_1000m$DR_meio_1_int, na.rm = TRUE)), 
@@ -250,11 +263,11 @@ total_entorno <- c((sum(setores_rm_dados_1000m$Pop_int, na.rm = TRUE)),
                    (sum(setores_rm_dados_1000m$DR_3_mais_int, na.rm = TRUE)), 
                    (sum(setores_rm_dados_1000m$Mulheres_negras_int, na.rm = TRUE)), 
                    (sum(setores_rm_dados_1000m$Mulheres_RR_2_SM_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
-  
-#5.5. Resultado Final
+
+#5.4. Resultado Final ------------------------------------------------------------------------------------------------------------
 Resultados_rm <-rbind(total_entorno, total_rm, round(100*(total_entorno/total_rm))) # cria tabela unica
 colnames(Resultados_rm)<- c("pop", "DR_0_meio","DR_meio_1","DR_1_3","DR_3_mais","Mulheres_Negras","Mulheres_RR_ate_2SM") #Nomear as colunas da tabela criada
 row.names(Resultados_rm)<- c("total_entorno", "total_rm","resultado_%") #Nomeia as linhas da tabela criada
 print(Resultados_rm) #Verfica tabela, se desejado
-  
-write.xlsx(Resultados_rm,"./Resultados_rm.xlsx") #salva arquivo final
+
+write.xlsx(Resultados_rm,paste0('./', unique(munis_df$rm),'/pnt_resultados.xlsx')) #salva resultado final
