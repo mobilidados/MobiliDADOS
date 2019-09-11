@@ -58,6 +58,6 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 | EPSG | Sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG das regiões metropolitanas e capitais presentes da MobiliDADOS estão detalhadas a seguir: EPSG 31983 para Belo Horizonte, Curitiba, Distrito Federal, Rio De Janeiro e Sao Paulo, EPSG 31985 para Recife, EPSG 31982 para Belem, EPSG 31984 para Fortaleza.|
 
 Transporte de média e alta capacidade: [Inserir inforgráfico]
-
+![](imagens/Infografico%20ITDP_3.pdf)
 
 
