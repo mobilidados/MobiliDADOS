@@ -8,7 +8,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 ### O que é transporte de média e alta capacidade?
-![](Infografico_ITDP_3-1.png)
+![](O_que_é_TMA?.png)
 
 #### Fonte dos dados necessários para cacular o indicador
 - [Shapefile dos setores censitários do IBGE](https://bit.ly/2Y6T4In) 
