@@ -17,7 +17,7 @@
 
 
 ### Cálculo do indicador
-Para calcular o PNT é necessário rodar o código "Cod_PNT com o seguinte passo-a-passo:
+Para calcular o PNB é necessário rodar o código "Cod_PNB" com o seguinte passo-a-passo:
 1. Instalar e abrir pacotes necessários;
 2. Definir local para salvar arquivos e criar tabela de referência;
 3. Preparar dados demograficos;
