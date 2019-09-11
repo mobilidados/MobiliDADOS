@@ -103,7 +103,8 @@ pblapply(list_muni_codes, juntar_setores_por_rm) #aplicar funcao para juntar set
 # Testar visualizacao
 setores_rm <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '.rds')) #abre setores da rm
 munis_rm <- read_rds(paste0('./', unique(munis_df$rm), '/municipios/municipios_', unique(munis_df$rm), '.rds')) #abre munis da rm
-mapview(munis_rm) + mapview(setores_rm) #visualizar setores e municipios da rm
+mapview(munis_rm) #visualiza municipios da rm
+mapview(setores_rm) #visualiza setores da rm
 
 #3.2. Preparar dados do censo ----------------------------------------------------------------------------------------------
 #3.2.1. Abrir dados do censo e selecionar variaveis mais importantes
