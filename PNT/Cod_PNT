@@ -151,8 +151,8 @@ write_rds(dados_pnt, './dados/dados_pnt.rds') #salva tabela com dados demografic
 
 #4.1. Abrir estacoes de transporte mapeadas pelo ITDP -----------------------------------------------------------------------
 # Antes de abir o arquivo necessario:
-#1. baixar o kml de todas as estacoes em https://www.google.com/maps/d/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=10
-#2. abrir, juntar e salvar todas as estacoes no Qgis
+#Baixar o kml de todas as estacoes em https://www.google.com/maps/d/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=10
+#Abrir, juntar e salvar todas as estacoes no Qgis
 Estacoes <- st_read('./dados/Estacoes_2018.shp') 
 
 #4.2. Selecionar apenas estacoes de transporte de media e alta capacidade ---------------------------------------------------
@@ -179,14 +179,16 @@ str(TMA_estacoes)
 
 munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
                                      2925204,2927408,2929206,2929503,2930709,2933208),
-                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
-                                   'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
-                       abrev_state=c('BA','BA','BA','BA','BA','BA','BA',
-                                     'BA','BA','BA','BA','BA','BA'),
-                       rm=c('rms','rms','rms','rms','rms','rms','rms',
-                            'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 
-                                31985, 31985, 31985, 31985, 31985, 31985))
+                       name_muni = c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
+                                     'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
+                       abrev_state = c('BA','BA','BA','BA','BA','BA','BA',
+                                       'BA','BA','BA','BA','BA','BA'),
+                       rm = c('rms','rms','rms','rms','rms','rms','rms',
+                              'rms','rms','rms','rms','rms','rms'),
+                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985,
+                                31985, 31985, 31985, 31985, 31985, 31985),
+                       shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
+                               'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
 
 #5.2. Juntar setores e dados reprojetar -------------------------------------------------------------------------------------
 
@@ -199,10 +201,10 @@ junta_rm_c_dados <- function(sigla) {
   
   message(paste0('leitura ', sigla)) #aplica mensagem para identificar rm que esta sendo lida
   
-  setores_rm <- st_read(paste0('./dados/setores/', sigla,'/RM Salvador_dados_setores_censitários_WGS84.shp')) %>%
+  setores_rm <- st_read(paste0('./dados/setores/', sigla,'/', unique(munis_df$shp), '_dados.shp')) %>%
     st_transform(., as.numeric(unique(munis_df$espg))) %>% #transforma epsg
-    # rename(Cod_setor = Cod_str, Situacao_setor = Situc_s, Tipo_setor = Tip_str)%>% #renomeia tabelas
-    mutate(Cod_setor = as.character(Cod_setor), Cd_mncp = NULL) #transforma coluna em caractere
+    rename(Cod_setor = Cod_str) %>% #transforma coluna em caractere
+    mutate(Cod_setor = as.character(Cod_setor))
   
   message(paste0('ajustes ', sigla)) 
   setores_rm <- setores_rm[,-c(5:17)] %>% #elimina colunas desnecessarias
