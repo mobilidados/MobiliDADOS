@@ -79,7 +79,7 @@ juntar_municipios_por_rm <- function (i) {
   juntos <- do.call("rbind", lapply(files, read_rds)) #le e junta arquivos da pasta municipios 
   readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipios_',subset(munis_df, code_muni==i)$rm,'.rds')) #salva arquivo com todos os municipios
   
-} #funcao para juntar municpios da mesma regiao metropolitana
+} #funcao para juntar municipios da mesma regiao metropolitana
 
 juntar_setores_por_rm <- function (i) {
   
