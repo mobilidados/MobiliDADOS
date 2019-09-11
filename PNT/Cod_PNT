@@ -5,9 +5,6 @@
 ###4. Preparar dados dos corredores de transporte
 ###5. Realizar calculo do PNT
 
-
-#Passo a passo do codigo
-
 ###1. Instalar e abrir pacotes necessarios ----------------------------------------------------------------------------
 #1.1. Instalar pacotes necessarios
 install.packages("sf")
