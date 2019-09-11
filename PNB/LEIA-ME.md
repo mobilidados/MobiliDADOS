@@ -1,12 +1,14 @@
 # Percentual de pessoas próximas da infraestrutura cicloviária - PNB
 
 ### O que é o indicador?
+
 [A COMPLETAR]
 
 
 ### O que é considerado infraestrutura cicloviária?
-![](INSERIR FOTO.png) 
+
 [A COMPLETAR]
+
 
 #### Fonte dos dados necessários para cacular o indicador
 - [Shapefile dos setores censitários do IBGE](https://bit.ly/2Y6T4In) 
