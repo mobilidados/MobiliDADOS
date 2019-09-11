@@ -76,7 +76,6 @@ juntar_municipios_por_rm <- function (i) {
   files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios'),
                       pattern = "\\.rds$", full.names = TRUE) #cria lista com todos os arquivos na pasta municipios
   
-  # ler <- lapply(files, read_rds)
   juntos <- do.call("rbind", lapply(files, read_rds)) #le e junta arquivos da pasta municipios 
   readr::write_rds(juntos, paste0('./', subset(munis_df, code_muni==i)$rm, '/municipios/municipios_',subset(munis_df, code_muni==i)$rm,'.rds')) #salva arquivo com todos os municipios
   
@@ -84,14 +83,9 @@ juntar_municipios_por_rm <- function (i) {
 
 juntar_setores_por_rm <- function (i) {
   
-  # sigla <- munis_df %>% filter(code_muni==i) %>% 
-  #   mutate(name_muni=as.character(name_muni)) %>%
-  #   .$name_muni
-  
   files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/setores'),
                       pattern = "\\.rds$", full.names = TRUE) #cria lista com todos os arquivos na pasta setores
   
-  # ler <- lapply(files, read_rds)
   juntos <- do.call("rbind", lapply(files, read_rds)) #le e junta arquivos da pasta setores
   
   #salvar
