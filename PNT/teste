@@ -28,7 +28,7 @@ library(data.table)
 
 ###2. Definir local para salvar arquivos e criar tabela de referencia --------------------------------------------------
 #2.1. Definir local para salvar arquivos
-setwd("C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/R/PNT") #Alterar o caminho para a pasta onde deseja salvar os arquivos
+setwd("C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados") #Alterar o caminho para a pasta onde deseja salvar os arquivos
 
 
 #2.2. Criar pastas para salvar arquivos
@@ -38,79 +38,14 @@ lapply( paste0('./', unique(munis_df$rm), '/setores'), dir.create)
 
 
 #2.3 Criar tabela de cidades da RM que sera analisada
-munis_df <- data.frame(code_muni = c(1500800,1501402,1501501,1502400,1504422,1506351,1506500),
-                           name_muni=c('ananindeua','belém','benevides','castanhal','marituba','santa bárbara do pará','santa izabel do pará'),
-                           abrev_state=c('PA','PA','PA','PA','PA','PA','PA'),
-                           rm=c('rmb','rmb','rmb','rmb','rmb','rmb','rmb'))
-
-
-
-munis_df <- data.frame(code_muni = c(3105004,3106200,3106705,3109006,3110004,3112505,3117876,
-                                             3118601,3124104,3126000,3129806,3130101,3132206,3133709,
-                                             3134608,3136603,3136652,3137601,3140159,3140704,3141108,
-                                             3144805,3149309,3153905,3154606,3154804,3155306,3156700,
-                                             3157807,3162922,3162955,3165537,3168309,3171204,3104502,
-                                             3109303,3109451,3170404,5200100,5200175,5200258,5200308,
-                                             5200605,5200803,5203203,5204003,5205307,5205497,5205513,
-                                             5205802,5206206,5207907,5208004,5208608,5212501,5213053,
-                                             5214606,5215231,5215603,5217302,5217609,5219753,5220009,
-                                             5220686,5221858,5222203,5222302,5300108,3503901,3505708,
-                                             3506607,3509007,3509205,3510609,3513009,3513801,3515004,
-                                             3515103,3515707,3516309,3516408,3518305,3518800,3522208,
-                                             3522505,3523107,3525003,3526209,3528502,3529401,3530607,
-                                             3534401,3539103,3539806,3543303,3544103,3545001,3546801,
-                                             3547304,3547809,3548708,3548807,3549953,3550308,3552502,
-                                             3552809,3556453,3300803,3304300,3302007,3302700,3302858,
-                                             3305554,3305752,3301850,3302270,3304144,3300456,3301702,
-                                             3301900,3302502,3303203,3303302,3303500,3303609,3304557,
-                                             3304904,3305109),
-                               name_muni=c('baldim','belo horizonte','betim','brumadinho','caeté','capim branco','confins',
-                                           'contagem','esmeraldas','florestal','ibirité','igarapé','itaguara','itatiaiuçu',
-                                           'jaboticatubas','nova união','juatuba','lagoa santa','mário campos','mateus leme','matozinhos',
-                                           'nova lima','pedro leopoldo','raposos','ribeirão das neves','rio acima','rio manso','sabará',
-                                           'santa luzia','são joaquim de bicas','são josé da lapa','sarzedo','taquaraçu de minas','vespasiano', 'arinos',
-                                           'buritis','cabeceira grande','unaí','abadiânia','água fria de goiás','águas lindas de goiás','alexânia',
-                                           'alto paraíso de goiás','alvorada do norte','barro alto','cabeceiras','cavalcante','cidade ocidental',
-                                           'cocalzinho de goiás','corumbá de goiás','cristalina','flores de goiás','formosa','goianésia','luziânia',
-                                           'mimoso de goiás','niquelândia','novo gama','padre bernardo','pirenópolis','planaltina','santo antônio do descoberto',
-                                           'são joão d aliança','simolândia','valparaíso de goiás','vila boa','vila propício','distrito federal', 
-                                           'arujá','barueri','biritiba-mirim','caieiras','cajamar','carapicuíba','cotia','diadema',
-                                           'embu das artes','embu-guaçu','ferraz de vasconcelos','francisco morato','franco da rocha','guararema',
-                                           'guarulhos','itapecerica da serra','itapevi','itaquaquecetuba','jandira','juquitiba','mairiporã',
-                                           'mauá','mogi das cruzes','osasco','pirapora do bom jesus','poá','ribeirão pires','rio grande da serra',
-                                           'salesópolis','santa isabel','santana de parnaíba','santo andré','são bernardo do campo','são caetano do sul',
-                                           'são lourenço da serra','são paulo','suzano','taboão da serra','vargem grande paulista',
-                                           'cachoeiras de macacu','rio bonito','itaguai','marica','mesquita','seropedica',
-                                           'tangua','guapimirim','japeri','queimados','belford roxo','duque de caxias','itaborai',
-                                           'mage','nilopolis','niteroi','nova iguacu','paracambi','rio de janeiro','sao goncalo','sao joao de meriti'),
-                               rm=c('rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh',
-                                    'rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh',
-                                    'rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh','rmbh',
-                                    'rmbh','rmbh','rmbh','rmbh','ride','ride','ride','ride','ride','ride',
-                                    'ride','ride','ride','ride','ride','ride','ride','ride','ride','ride',
-                                    'ride','ride','ride','ride','ride','ride','ride','ride','ride','ride',
-                                    'ride','ride','ride','ride','ride','ride','ride','ride','rmsp','rmsp',
-                                    'rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp',
-                                    'rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp',
-                                    'rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp',
-                                    'rmsp','rmsp','rmsp','rmsp','rmsp','rmsp','rmsp', 'rmrj','rmrj','rmrj',
-                                    'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
-                                    'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj'),
-                               abrev_state=c('mg','mg','mg','mg','mg','mg','mg','mg','mg','mg',
-                                             'mg','mg','mg','mg','mg','mg','mg','mg','mg','mg',
-                                             'mg','mg','mg','mg','mg','mg','mg','mg','mg','mg',
-                                             'mg','mg','mg','mg','mg','mg','mg','mg','go','go',
-                                             'go','go','go','go','go','go','go','go','go','go',
-                                             'go','go','go','go','go','go','go','go','go','go',
-                                             'go','go','go','go','go','go','go','df','SP','SP',
-                                             'SP','SP','SP','SP','SP','SP','SP','SP','SP','SP',
-                                             'SP','SP','SP','SP','SP','SP','SP','SP','SP','SP',
-                                             'SP','SP','SP','SP','SP','SP','SP','SP','SP','SP',
-                                             'SP','SP','SP','SP','SP','SP','SP','RJ','RJ','RJ',
-                                             'RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ',
-                                             'RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ'))
-
-
+munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,2925204,2927408,2929206,2929503,2930709,2933208),
+                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus','mata de são joão','pojuca',
+                                   'salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
+                       abrev_state=c('BA','BA','BA','BA','BA','BA','BA',
+                                     'BA','BA','BA','BA','BA','BA'),
+                       rm=c('rms','rms','rms','rms','rms','rms','rms',
+                            'rms','rms','rms','rms','rms','rms'),
+                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985, 31985))
 
 
 ###3. Preparar dados demograficos
@@ -152,9 +87,9 @@ juntar_municipios_por_rm <- function (i) {
 
 juntar_setores_por_rm <- function (i) {
   
-  sigla <- munis_df %>% filter(code_muni==i) %>% 
-    mutate(name_muni=as.character(name_muni)) %>%
-    .$name_muni
+  # sigla <- munis_df %>% filter(code_muni==i) %>% 
+  #   mutate(name_muni=as.character(name_muni)) %>%
+  #   .$name_muni
   
   files <- list.files(path = paste0('./', subset(munis_df, code_muni==i)$rm, '/setores'),
                       pattern = "\\.rds$", full.names = TRUE)
@@ -174,14 +109,14 @@ pblapply(list_muni_codes, download_municipios_setores) #aplicar funcao para faze
 pblapply(list_muni_codes, juntar_municipios_por_rm) #aplicar funcao para juntar municipios
 pblapply(list_muni_codes, juntar_setores_por_rm) #aplicar funcao para juntar setores censitarios
 
-# Testar visualização
-# setores_rmb <- read_rds('./rmb/setores/setores_rmb.rds')
-# munis_rmb <- read_rds('./rmb/municipios/municipios_rmb.rds')
-# mapview(munis_rmb) + mapview(setores_rmb)
-
+# Testar visualizacao
+# setores_rms <- read_rds('./rms/setores/setores_rms.rds')
+# munis_rms <- read_rds('./rms/municipios/municipios_rms.rds')
+# mapview(munis_rms) + mapview(setores_rms)
+ #666666666
 #3.2. Preparar dados do censo ----------------------------------------------------------------------------------------------
-#3.2.1. Abrir dados do censo e selecionar variaveis mais impotrnates
-dados <- data.table::fread ('C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados/apoio/dados_censo2010A.csv',
+#3.2.1. Abrir dados do censo e selecionar variaveis mais importantes
+dados <- data.table::fread ('./apoio/dados_censo2010A.csv',
                             select=c('Cod_UF', 'Cod_municipio', 'Cod_setor', 'DomRend_V003', 'BA_V002',
                                      'Dom2_V002', 'Pess3_V002','Pess3_V003', 'Pess3_V004', 'Pess3_V005', 
                                      'Pess3_V006','Pess3_V168', 'Pess3_V170', 'Pess3_V173', 'Pess3_V175', 
@@ -195,128 +130,131 @@ dados <- data.table::fread ('C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS
                                      'DomRend_V011', 'DomRend_V012', 'DomRend_V013', 'DomRend_V014'))
 
 #3.1.2. Calcular variaveis necessarias
-dados$Pop <- dados$BA_V002 #Cria coluna com populacao
-dados$Renda_total <- dados$DomRend_V003 #Cria coluna com renda total
-dados$Renda_per_capita <- dados$Renda_mensal/dados$Pop #Cria coluna com renda per capita
+dados$Pop <- as.numeric(dados$BA_V002) #Cria coluna com populacao
+dados$Renda_total <- as.numeric(dados$DomRend_V003) #Cria coluna com renda total
+dados$Renda_per_capita <- as.numeric(dados$Renda_total/dados$Pop) #Cria coluna com renda per capita
 dados$DR_0_meio <- rowSums(cbind(dados$DomRend_V005, dados$DomRend_V006,dados$DomRend_V007, dados$DomRend_V014)) #Cria coluna com domicilios com renda per capita  ate 1/2 salario minimo
-dados$DR_meio_1 <- dados$DomRend_V008 #Cria coluna com domicilios com renda per capita entre 1/2 e 1 salario minimo
+dados$DR_meio_1 <- as.numeric(dados$DomRend_V008) #Cria coluna com domicilios com renda per capita entre 1/2 e 1 salario minimo
 dados$DR_1_3 <- rowSums(cbind(dados$DomRend_V009, dados$DomRend_V010)) #Cria coluna com domicilios com renda per capita entre 1 e 3 salarios minimos
 dados$DR_3_mais <- rowSums(cbind(dados$DomRend_V011, dados$DomRend_V012, dados$DomRend_V013))  #Cria coluna com domicilios com renda per capita acima de 3 salarios minimos
 dados$Mulheres_negras <- rowSums(dados[,12:41]) #Cria coluna de mulheres negras
 dados$Mulheres_RR_2_SM <- rowSums(dados[,42:44]) #Cria coluna de mulheres com renda ate 2 salarios minimos responsaveis por domicilio
 
-names(dados)
-names(dados_pnt) # mostra nome das colunas da base dade dados
+names(dados) # mostra nome das colunas da base dade dados
 str(dados) # mostra estrutura da base dade dados
-dados_pnt <- dados[,-c(4:54)] #manter somente colunas necessarias
-dados_pnt[is.na(dados_pnt)]<-0 #transforma  dados NA em valor 0
-write_rds(dados_pnt, 'C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados/apoio/dados_pnt.rds') #salvar tabela com dados demograficos
+dados_pnt <- dados[,-c(4:54)] #mantem somente colunas necessarias
+names(dados_pnt) # mostra nome das colunas da base dade dados
+str(dados_pnt) # mostra estrutura da base dade dados
+dados_pnt$Cod_setor <- as.character(dados_pnt$Cod_setor) #transforma em valor numerico
 
+write_rds(dados_pnt, './apoio/dados_pnt.rds') #salva tabela com dados demograficos
 
 ###4. Preparar dados dos corredores de transporte---------------------------------------------------------------------------
 
 #4.1. Abrir estacoes de transporte mapeadas pelo ITDP
 
 #Abrir estacoes de transporte mapeadas pelo ITDP
-# Antes de abir o arquivo é necessario:
+# Antes de abir o arquivo ? necessario:
 #1. baixar o kml de todas as estacoes em https://www.google.com/maps/d/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=10
 #2. abrir, juntar e salvar todas as estacoes no Qgis
-Estacoes <- st_read('C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados/apoio/TMA/Estacoes_2018.shp') 
+Estacoes <- st_read('./apoio/TMA/Estacoes_2018.shp') 
 
 #Selecionar apenas estacoes de transporte de media e alta capacidade
 TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # selecionar apenas estacoes de transporte de meida e alta capacidade
-write_rds(TMA_estacoes, 'C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados/apoio/TMA/TMA_Estacoes_2018.rds') #salva estacoes TMA
+write_rds(TMA_estacoes, './apoio/TMA/TMA_Estacoes_2018.rds') #salva estacoes TMA
 
 #visualizar mapa e tabela de atributos
-mapview(TMA_estacoes)
+mapview(TMA_estacoes) #visualiza arquivo criado
 str(TMA_estacoes)
 
 #4.2. Criar buffer de 1km no entorno das estacoes
-TMA_estacoes <- st_transform(TMA_estacoes, 3857) # transforma projecao
+TMA_estacoes <- st_transform(TMA_estacoes, 3857) #transforma projecao
 TMA_buf_1000m <- st_buffer(TMA_estacoes, dist = 1000) %>% st_union() #cria buffer
-mapview(TMA_buf_1000m)
+mapview(TMA_buf_1000m) #visualiza arquivo criado
 
 
 ###5. Realizar calculo do PNT-----------------------------------------------------------------------------------------------
 #5.1. Definir Regiao Metropolitana onde o calculo sera realizado
 
 # Para realizar os calculos deve-se reprojetar os setores e buffer para o mesmo sistema de projecao geografica
-# Para isso usamos o EPSG, da sigla Sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), 
-# que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. 
-# Os EPSG das regiões metropolitanas e capitais presentes da MobiliDADOS estão detalhadas a seguir: 
+# Para isso usamos o EPSG, da sigla Sigla para do Grupo Europeu de Pesquisa Petrol?fera (European Petroleum Survey Group), 
+# que foi a entidade que organizou por meio desses c?digos num?ricos os Sistemas de Refer?ncia de Coordenadas (SRC) do mundo. 
+# Os EPSG das regi?es metropolitanas e capitais presentes da MobiliDADOS est?o detalhadas a seguir: 
 # EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo. 
 # EPSG 31985 para Recife e Salvador
 # EPSG 31982 para Belem.
 # EPSG 31984 para Fortaleza.
 
-#tabela de correspondencia entre regiao metopolitana e espg
-rm_espg_df <- data.frame(rm = c('rmb', 'rmbh', 'rmc', 'ride-df', 'rmf','rmr', 'rmrj', 'rms', 'rmsp'),
-                         epsg = c(31982, 31983, 31983, 31983, 31984, 31985, 31983, 31985, 31983))
+#5.2. Juntar setores e dados reprojetar - 666666666 Revisar
+
+setores_rm_dados <- function(i) {
+  
+# setores_rm <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '.rds')) %>%   #abre arquivo de setores
+#   st_sf() %>% #transforma em sf
+#   st_transform(., as.numeric(unique(munis_df$espg)))%>% #transforma epsg
+#   mutate(ar_m2 = unclass(st_area(.)), Cod_setor = as.character(code_tract)) #cria area e transforma coluna do cod_setor em caractere
+
+setores_rm <- st_read('./rms/setores/RM_Salvador_dados_setores_censitários_WGS84.shp') %>%
+  st_transform(., as.numeric(unique(munis_df$espg)))%>% #transforma epsg
+  rename(Cod_setor = Cod_str, Situacao_setor = Situc_s, Tipo_setor = Tip_str)%>% #renomeia tabelas
+  mutate(Cod_setor = as.character(Cod_setor), Cd_mncp = NULL) #transforma coluna em caractere
+  
+names(setores_rm)
+setores_rm <- setores_rm[,-c(6:17)] %>% #elimina colunas desnecessarias
+  mutate(ar_m2 = as.numeric(st_area(setores_rm))) #cria coluna com area do setor
+
+dados_pnt_rm <- read_rds('./apoio/dados_pnt.rds')%>% #abre tabela de dados
+  filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
+  mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
+
+setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') #une setores com dados
+setores_rm_dados[is.na(setores_rm_dados)] <- 0 #elimina valores N/A
+
+write_rds(setores_rm_dados, paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '_dados.rds')) #salva setores com dados
+st_write(setores_rm_dados, paste0('./', unique(munis_df$rm), '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
 
 
-#5.2. Juntar setores e dados reprojetar - criar funcao 6666666666666666666
-setores_rm <- read_rds('./rmb/setores/setores_rmb.rds')
+}
 
-setores_rm <- setores_rm %>%
-  filter(code_muni %in% c(munis_df$code_muni))%>%
-  st_sf() %>%
-  st_transform(., 31982) %>% #transforma no epsg 
-  st_buffer(., 0) %>% #cria buffer de contorno %>%
-  mutate(ar_m2 = unclass(st_area(.)), Cod_setor = as.numeric(code_tract)) #cria area
+TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # selecionar apenas estacoes de transporte de meida e alta capacidade
+TMA_estacoes <- st_transform(TMA_estacoes, unique(munis_df$espg))
+TMA_buf_1000m <- st_buffer(TMA_estacoes, 1000)%>% st_union
+mapview(TMA_buf_1000m)
 
-dados <- read_rds('C:/Users/Novo Colaborador/Desktop/Cod_R/MobiliDADOS/MobiliDADOS/dados/apoio/dados_pnt.rds')%>%
-  filter(Cod_municipio %in% c(munis_df$code_muni)) %>%
-  mutate(Cod_setor = as.numeric(Cod_setor))
-
-TMA_buf_1000m <- st_transform(TMA_buf_1000m, 31982) %>% st_buffer(., 0) #transforma no epsg 
-setores_rm_1000m <- st_intersection(st_buffer(setores_rm, 0), TMA_buf_1000m)
-setores_rm_dados <- left_join(setores_rm, dados, by="Cod_setor") 
-
-
-class(setores_rm_1000m_dados)
-str(setores_rm_1000m)
-str(dados)
-dados$Cod_setor <- as.numeric(dados$Cod_setor)
-setores_rm_1000m$Cod_setor <- as.numeric(setores_rm_1000m$Cod_setor)
-
-
-class(setores_rm_1000m_dados)
-names(setores_rm_1000m_dados)
-a <- sum(setores_rm_1000m_dados$Pop, na.rm = T)
-
-
+setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m)
 
 #5.3. Calcular dados na area de influencia do area no entorno das estacoes
 
 #Calcular total de cada variavel na regiao metropolitana
-total_rm <- c((sum(dados$Pop, na.rm = TRUE)), 
-              (sum(dados$DR_0_meio, na.rm = TRUE)), 
-              (sum(dados$DR_meio_1, na.rm = TRUE)), 
-              (sum(dados$DR_1_3, na.rm = TRUE)), 
-              (sum(dados$DR_3_mais, na.rm = TRUE)), 
-              (sum(dados$Mulheres_negras, na.rm = TRUE)), 
-              (sum(dados$Mulheres_RR_2_SM, na.rm = TRUE))) #Realizar a soma total de cada variavel
+total_rm <- c((sum(setores_rm_dados$Pop, na.rm = TRUE)), 
+              (sum(setores_rm_dados$DR_0_meio, na.rm = TRUE)), 
+              (sum(setores_rm_dados$DR_meio_1, na.rm = TRUE)), 
+              (sum(setores_rm_dados$DR_1_3, na.rm = TRUE)), 
+              (sum(setores_rm_dados$DR_3_mais, na.rm = TRUE)), 
+              (sum(setores_rm_dados$Mulheres_negras, na.rm = TRUE)), 
+              (sum(setores_rm_dados$Mulheres_RR_2_SM, na.rm = TRUE))) #Realizar a soma total de cada variavel
 
 #Calcular total de cada variavel na area de entorno de uma estacao de TMA
-setores_rm_1000m %>%
+setores_rm_dados_1000m <- setores_rm_dados_1000m %>%
   mutate(ar_int = unclass(st_area(.)),
          rt = as.numeric(ar_int/ar_m2)) %>%
   mutate_at(.vars = vars(Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, Mulheres_negras , Mulheres_RR_2_SM), 
             funs(int = . * rt)) #Criar coluna com proporcao entre area coberta no entorno das estacoes e colunas com total de cada variavel demografica inserida na area no entorno das estacoes
 
+str(setores_rm_dados_1000m)
 
-total_entorno<- c((sum(setores_rm_1000m$Pop_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$DR_0_meio_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$DR_meio_1_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$DR_1_3_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$DR_3_mais_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$Mulheres_negras_int, na.rm = TRUE)), 
-                  (sum(setores_rm_1000m$Mulheres_RR_2_SM_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
+total_entorno <- c((sum(setores_rm_dados_1000m$Pop_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$DR_0_meio_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$DR_meio_1_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$DR_1_3_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$DR_3_mais_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$Mulheres_negras_int, na.rm = TRUE)), 
+                   (sum(setores_rm_dados_1000m$Mulheres_RR_2_SM_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
   
 #5.5. Resultado Final
-Resultados_rm <-rbind(total_1000m, total_rm, 100*(total_1000m/total_rm)) # cria tabela unica
+Resultados_rm <-rbind(total_entorno, total_rm, round(100*(total_entorno/total_rm))) # cria tabela unica
 colnames(Resultados_rm)<- c("pop", "DR_0_meio","DR_meio_1","DR_1_3","DR_3_mais","Mulheres_Negras","Mulheres_RR_ate_2SM") #Nomear as colunas da tabela criada
-row.names(Resultados_rm)<- c("total_entorno", "total_rm","%") #Nomeia as linhas da tabela criada
-print(Resultados_RM) #Verfica tabela, se desejado
+row.names(Resultados_rm)<- c("total_entorno", "total_rm","resultado_%") #Nomeia as linhas da tabela criada
+print(Resultados_rm) #Verfica tabela, se desejado
   
-write.xlsx(Resultados_RM,"./Resultados_rm.xlsx") #salva arquivo final
+write.xlsx(Resultados_rm,"./Resultados_rm.xlsx") #salva arquivo final
