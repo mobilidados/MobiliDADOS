@@ -36,14 +36,16 @@ setwd('/Users/mackook/Desktop/Treinamento_MDR') #Alterar o caminho para a pasta 
 #2.2 Criar tabela de cidades da RM que sera analisada
 munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
                                      2925204,2927408,2929206,2929503,2930709,2933208),
-                       name_muni=c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
-                                   'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
-                       abrev_state=c('BA','BA','BA','BA','BA','BA','BA',
-                                     'BA','BA','BA','BA','BA','BA'),
-                       rm=c('rms','rms','rms','rms','rms','rms','rms',
-                            'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985, 
-                                31985, 31985, 31985, 31985, 31985, 31985))
+                       name_muni = c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
+                                     'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
+                       abrev_state = c('BA','BA','BA','BA','BA','BA','BA',
+                                       'BA','BA','BA','BA','BA','BA'),
+                       rm = c('rms','rms','rms','rms','rms','rms','rms',
+                              'rms','rms','rms','rms','rms','rms'),
+                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985,
+                                31985, 31985, 31985, 31985, 31985, 31985),
+                       shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
+                               'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
 
 #2.3. Criar pastas para salvar arquivos
 lapply( paste0('./', unique(munis_df$rm)), dir.create) #cria pasta da rm
