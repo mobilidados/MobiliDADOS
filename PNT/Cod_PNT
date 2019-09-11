@@ -6,6 +6,8 @@
 ###5. Realizar calculo do PNT
 
 
+#Passo a passo do codigo
+
 ###1. Instalar e abrir pacotes necessarios ----------------------------------------------------------------------------
 #1.1. Instalar pacotes necessarios
 install.packages("sf")
@@ -155,7 +157,9 @@ Estacoes <- st_read('./dados/Estacoes_2018.shp')
 
 #4.2. Selecionar apenas estacoes de transporte de media e alta capacidade ---------------------------------------------------
 TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # seleciona apenas estacoes de transporte de meida e alta capacidade
+TMA_estacoes_coords <- st_coordinates(TMA_estacoes) #criar tabela com coordenadas das estacoes de TMA
 write_rds(TMA_estacoes, './apoio/TMA_Estacoes_2018.rds') #salva estacoes TMA
+write.xlsx(TMA_estacoes_coords, './dados/TMA_Estacoes_2018_coords.xlsx') #salva coordenadas de estacoes TMA
 
 #visualizar mapa e tabela de atributos
 mapview(TMA_estacoes) #visualiza arquivo criado
