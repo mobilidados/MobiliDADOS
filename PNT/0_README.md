@@ -59,3 +59,5 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 
 Transporte de média e alta capacidade: [Inserir inforgráfico]
 
+
+
