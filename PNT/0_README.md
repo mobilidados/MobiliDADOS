@@ -14,18 +14,13 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 - [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
 
 
-
 ### Cálculo do indicador
-Para calcular o PNT é necessário rodar dois códigos:
+Para calcular o PNT é necessário rodar o código "Cod_PNT com o seguinte passo-a-passo:
+1. Instalar e abrir pacotes necessários;
+2. Definir local para salvar arquivos e criar tabela de referência;
+3. Preparar dados demograficos;
 
-  **1_Preparacao_de_dados.R**
-
-Neste código, você prepara os shapefiles dos setores censitários fornecidos pelo IBGE agregando os dados demográficos necessários para realizar o cálculo do indicador. Esta preparação contempla a organização de dados da população total, de domicílios por faixa de renda, de mulheres negras e de mulheres com renda até dois salários mínimos responsáveis por domicílio.
-
-Passo-a-passo do código 1:
-1. Instalar e abrir todos os pacotes necessários;
-2. Criar o shapefile dos municípios da região metropolitana;
-3. Preparar os dados demográficos da região metropolitana;
+Tabela com variáveis e dados necessários para preparação dos dados demográficos
 
 | Variáveis | Dados do IBGE necessários |
 |-----------|---------------------------|
@@ -37,19 +32,8 @@ Passo-a-passo do código 1:
 |Mulheres_Negras|**Mulheres negras**. A variável é o resultado do somatório de variáveis extraídas da tabela Pessoa03 (V168, V170, V173, V175, V178, V180, V183, V185, V198, V200, V203, V205, V208, V210, V213, V215, V218, V220, V223, V225, V228, V230, V233, V235, V238, V240, V243, V245) e Pessoa05 (V007 e V009).|
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
-4. Unir os dados demográficos com os shapefiles dos setores censitarios;
-5. Realizar o cálculo total de cada variável para a RM (ou cidade) selecionada.
-
-  **2_Calculo_PNTs.R**
-
-Este código abre os shapefiles das estações transporte de média e alta capacidade (TMA) para criar a área no entorno de cada estação e calcular a população residente a partir dos resultados gerados na primeira etapa. Este cálculo pode ser realizado tanto para uma região metropolitana (RM) como para uma cidade específica.
-
-Passo-a-passo do código 2:
-1. Instalar e abrir todos os pacotes necessários para o cálculo;
-2. Importar os dados das estações TMA;
-3. Criar a área no entorno das estações de TMA e recortar os setores censitarios inseridos nesta área;
-4. Calcular os dados totais de cada variável para a RM/Cidade e os dados dentro da area no entorno das estações;
-5. Realizar cálculo final dos indicadores de PNT com as variáveis criadas nos passos anteriores.
+4. Preparar dados dos corredores de transporte;
+5. Realizar cálculo do PNT.
 
 Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Salvador(RMS). 
 
