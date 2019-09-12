@@ -179,8 +179,8 @@ munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,291
                                        'BA','BA','BA','BA','BA','BA'),
                        rm = c('rms','rms','rms','rms','rms','rms','rms',
                               'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31985, 31985, 31985, 31985, 31985, 31985, 31985,
-                                31985, 31985, 31985, 31985, 31985, 31985),
+                       espg = c(31984,31984,31984,31984,31984,31984,31984,
+                               31984,31984,31984,31984,31984,31984,),
                        shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
                                'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
 
