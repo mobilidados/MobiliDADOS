@@ -167,9 +167,9 @@ str(TMA_estacoes)
 # que foi a entidade que organizou por meio desses codigos numericos os Sistemas de Referencia de Coordenadas (SRC) do mundo. 
 # Os EPSG das regioes metropolitanas e capitais presentes da MobiliDADOS estao detalhadas a seguir: 
 # EPSG 31983 para Belo Horizonte, Distrito Federal, Rio De Janeiro e Sao Paulo. 
-# EPSG 31985 para Recife e Salvador
-# EPSG 31982 para Belem.
-# EPSG 31984 para Fortaleza.
+# EPSG 31985 para Recife.
+# EPSG 31982 para Belem e Curitiba.
+# EPSG 31984 para Fortaleza e Salvador.
 
 munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
                                      2925204,2927408,2929206,2929503,2930709,2933208),
