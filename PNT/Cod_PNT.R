@@ -202,7 +202,7 @@ junta_rm_c_dados <- function(sigla) {
 
   message(paste0('leitura de dados')) 
   
-  dados_pnt_rm <- fread('./dados/dados_pnt.csv')%>% #abre tabela de dados
+  dados_pnt_rm <- read_rds('./dados/dados_pnt.rds')%>% #abre tabela de dados
     filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
     mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
   
@@ -227,7 +227,7 @@ TMA_buf_1000m <- st_buffer(TMA_estacoes, 1000)%>% st_union #cria buffer de 1000m
 mapview(TMA_buf_1000m) #visualizacao do buffer
 
 #Pegar dados no entorno das estacoes
-setores_rm_dados <- read_rds(paste0('./', unique(munis_df$rm), '/setores/setores_', unique(munis_df$rm), '_dados.rds')) #abre arquivo setores com dados
+setores_rm_dados <- read_rds(paste0('./dados/setores/', unique(munis_df$shp), '/setores_', unique(munis_df$rm), '_dados.rds')) #abre arquivo setores com dados
 setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m) #corta setores pelo buffer
 mapview(setores_rm_dados_1000m) #vizualiza arquivo de setores
 
