@@ -180,7 +180,7 @@ munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,291
                        rm = c('rms','rms','rms','rms','rms','rms','rms',
                               'rms','rms','rms','rms','rms','rms'),
                        espg = c(31984,31984,31984,31984,31984,31984,31984,
-                               31984,31984,31984,31984,31984,31984,),
+                                31984,31984,31984,31984,31984,31984),
                        shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
                                'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
 
@@ -195,29 +195,25 @@ junta_rm_c_dados <- function(sigla) {
   
   message(paste0('leitura ', sigla)) #aplica mensagem para identificar rm que esta sendo lida
   
-  setores_rm <- st_read(paste0('./dados/setores/', sigla,'/', unique(munis_df$shp), '_dados.shp')) %>%
+  setores_rm <- st_read(paste0('./dados/setores/', unique(munis_df$shp), '/', unique(munis_df$shp), '_setores.shp')) %>%
     st_transform(., as.numeric(unique(munis_df$espg))) %>% #transforma epsg
-    rename(Cod_setor = Cod_str) %>% #transforma coluna em caractere
+    rename(Cod_setor = Cod_str, Situacao_setor = Stc_str) %>% #transforma coluna em caractere
     mutate(Cod_setor = as.character(Cod_setor))
-  
-  message(paste0('ajustes ', sigla)) 
-  setores_rm <- setores_rm[,-c(5:17)] %>% #elimina colunas desnecessarias
-    mutate(ar_m2 = as.numeric(st_area(setores_rm))) #cria coluna com area do setor
-  
+
   message(paste0('leitura de dados')) 
   
-  dados_pnt_rm <- read_rds('./dados/dados_pnt.rds')%>% #abre tabela de dados
+  dados_pnt_rm <- fread('./dados/dados_pnt.csv')%>% #abre tabela de dados
     filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
     mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
   
   message(paste0('unindo setores e dados')) 
-
+  
   setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') #une setores com dados
   setores_rm_dados[is.na(setores_rm_dados)] <- 0 #elimina valores N/A
   
   message(paste0('salvando arquivos finais')) 
   
-  write_rds(setores_rm_dados, paste0('./', sigla, '/setores/setores_', sigla, '_dados.rds')) #salva setores com dados
+  write_rds(setores_rm_dados, paste0('./dados/setores/', unique(munis_df$shp), '/setores_', sigla, '_dados.rds')) #salva setores com dados
   #st_write(setores_rm_dados, paste0('./', sigla, '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
   
 } #funcao para abrir e juntar setores
