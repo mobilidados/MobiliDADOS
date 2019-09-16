@@ -12,10 +12,11 @@ install.packages("readr")
 install.packages("tidyverse")
 install.packages("dplyr")
 install.packages("mapview")
-install.packages("geobr")
-install.packages("pbapply")
+update.packages("geobr")
+update.packages("pbapply")
 install.packages("data.table")
 install.packages("openxlsx")
+install.packages("bit64")
 
 #1.2. Abrir pacotes necessarios
 library(sf)
@@ -27,6 +28,8 @@ library(geobr)
 library(pbapply)
 library(data.table)
 library(openxlsx)
+library(bit64)
+
 
 ###2. Definir local para salvar arquivos e criar tabela de referencia --------------------------------------------------
 
@@ -34,18 +37,13 @@ library(openxlsx)
 setwd('/Users/mackook/Desktop/Treinamento_MDR') #Alterar o caminho para a pasta onde deseja salvar os arquivos
 
 #2.2 Criar tabela de cidades da RM que sera analisada
-munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
-                                     2925204,2927408,2929206,2929503,2930709,2933208),
-                       name_muni = c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
-                                     'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
-                       abrev_state = c('BA','BA','BA','BA','BA','BA','BA',
-                                       'BA','BA','BA','BA','BA','BA'),
-                       rm = c('rms','rms','rms','rms','rms','rms','rms',
-                              'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31984, 31984, 31984, 31984, 31984, 31984, 31984,
-                                31984, 31984, 31984, 31984, 31984, 31984),
-                       shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
-                               'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
+munis_df <- data.frame(code_muni = c(1500800,1501402,1501501,1502400,1504422,1506351,1506500),
+                       name_muni=c('ananindeua','belém','benevides','castanhal','marituba','santa bárbara do pará','santa izabel do pará'),
+                       abrev_state=c('PA','PA','PA','PA','PA','PA','PA'),
+                       rm=c('rmb','rmb','rmb','rmb','rmb','rmb','rmb'),
+                       espg = c(31982,31982,31982,31982,31982,31982,31982),
+                       shp = c('RM_Belem','RM_Belem','RM_Belem','RM_Belem',
+                               'RM_Belem','RM_Belem','RM_Belem'))
 
 #2.3. Criar pastas para salvar arquivos
 lapply( paste0('./', unique(munis_df$rm)), dir.create) #cria pasta da rm
@@ -139,7 +137,7 @@ names(dados_pnt) # mostra nome das colunas da base dade dados
 str(dados_pnt) # mostra estrutura da base dade dados
 dados_pnt$Cod_setor <- as.character(dados_pnt$Cod_setor) #transforma em valor numerico
 
-write_rds(dados_pnt, './dados/dados_pnt.rds') #salva tabela com dados demograficos
+write_rds(dados_pnt, './dados/dados_pnt_v2.rds') #salva tabela com dados demograficos
 
 ###4. Preparar dados dos corredores de transporte ---------------------------------------------------------------------------
 
@@ -147,13 +145,12 @@ write_rds(dados_pnt, './dados/dados_pnt.rds') #salva tabela com dados demografic
 # Antes de abir o arquivo necessario:
 #Baixar o kml de todas as estacoes em https://www.google.com/maps/d/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=10
 #Abrir, juntar e salvar todas as estacoes no Qgis
-Estacoes <- st_read('./dados/Estacoes_2018.shp') 
+Estacoes <- st_read('./dados/tma/Estacoes_2018.shp') 
 
 #4.2. Selecionar apenas estacoes de transporte de media e alta capacidade ---------------------------------------------------
-TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% filter(RT=='Yes', Status=='Operational') # seleciona apenas estacoes de transporte de meida e alta capacidade
-TMA_estacoes_coords <- st_coordinates(TMA_estacoes) #criar tabela com coordenadas das estacoes de TMA
-write_rds(TMA_estacoes, './dados/TMA_Estacoes_2018.rds') #salva estacoes TMA
-write.xlsx(TMA_estacoes_coords, './dados/TMA_Estacoes_2018_coords.xlsx') #salva coordenadas de estacoes TMA
+TMA_estacoes <- Estacoes %>% mutate(ID = row_number()) %>% 
+  filter(RT=='Yes', Status=='Operational') # seleciona apenas estacoes de transporte de meida e alta capacidade
+write_rds(TMA_estacoes, './dados/tma/TMA_Estacoes_2018.rds') #salva estacoes TMA
 
 #visualizar mapa e tabela de atributos
 mapview(TMA_estacoes) #visualiza arquivo criado
@@ -170,21 +167,10 @@ str(TMA_estacoes)
 # EPSG 31985 para Recife.
 # EPSG 31982 para Belem e Curitiba.
 # EPSG 31984 para Fortaleza e Salvador.
+# Neste caso usamo a RM de Belém por meio do munis_df que rodamos no 2.2
 
-munis_df <- data.frame(code_muni = c(2905701,2906501,2910057,2916104,2919207,2919926,2921005,
-                                     2925204,2927408,2929206,2929503,2930709,2933208),
-                       name_muni = c('camaçari','candeias','dias d ávila','itaparica','lauro de freitas','madre de deus',
-                                     'mata de são joão','pojuca','salvador','são francisco do conde','são sebastião do passé','simões filho','vera cruz'),
-                       abrev_state = c('BA','BA','BA','BA','BA','BA','BA',
-                                       'BA','BA','BA','BA','BA','BA'),
-                       rm = c('rms','rms','rms','rms','rms','rms','rms',
-                              'rms','rms','rms','rms','rms','rms'),
-                       espg = c(31984,31984,31984,31984,31984,31984,31984,
-                                31984,31984,31984,31984,31984,31984),
-                       shp = c('RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador',
-                               'RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador','RM_Salvador'))
 
-#5.2. Juntar setores e dados reprojetar -------------------------------------------------------------------------------------
+#5.2. Quando e uma RM nova, e necessario juntar setores e dados reprojetar -------------------------------------------------------------------------------------
 
 # Baixar arquivos dos setores censitarios na pagina da MobiliDADOS
 # Ir em https://mobilidados.org.br/database
@@ -199,10 +185,10 @@ junta_rm_c_dados <- function(sigla) {
     st_transform(., as.numeric(unique(munis_df$espg))) %>% #transforma epsg
     rename(Cod_setor = Cod_str, Situacao_setor = Stc_str) %>% #transforma coluna em caractere
     mutate(Cod_setor = as.character(Cod_setor))
-
+  
   message(paste0('leitura de dados')) 
   
-  dados_pnt_rm <- read_rds('./dados/dados_pnt.rds')%>% #abre tabela de dados
+  dados_pnt_rm <- read_rds('./dados/dados_pnt_v2.rds')%>% #abre tabela de dados
     filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
     mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
   
@@ -213,7 +199,7 @@ junta_rm_c_dados <- function(sigla) {
   
   message(paste0('salvando arquivos finais')) 
   
-  write_rds(setores_rm_dados, paste0('./dados/setores/', unique(munis_df$shp), '/setores_', sigla, '_dados.rds')) #salva setores com dados
+  write_rds(setores_rm_dados, paste0('./dados/setores/', unique(munis_df$shp), '/setores_', (unique(munis_df$rm)), '_dados.rds')) #salva setores com dados
   #st_write(setores_rm_dados, paste0('./', sigla, '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
   
 } #funcao para abrir e juntar setores
@@ -227,7 +213,7 @@ TMA_buf_1000m <- st_buffer(TMA_estacoes, 1000)%>% st_union #cria buffer de 1000m
 mapview(TMA_buf_1000m) #visualizacao do buffer
 
 #Pegar dados no entorno das estacoes
-setores_rm_dados <- read_rds(paste0('./dados/setores/', unique(munis_df$shp), '/setores_', unique(munis_df$rm), '_dados.rds')) #abre arquivo setores com dados
+setores_rm_dados <- read_rds(paste0('./dados/setores/', unique(munis_df$shp), '/setores_', unique(munis_df$rm), '_dados.rds')) %>% st_sf() #abre arquivo setores com dados
 setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m) #corta setores pelo buffer
 mapview(setores_rm_dados_1000m) #vizualiza arquivo de setores
 
