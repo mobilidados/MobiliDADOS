@@ -188,13 +188,13 @@ junta_rm_c_dados <- function(sigla) {
   
   message(paste0('leitura de dados')) 
   
-  dados_pnt_rm <- read_rds('./dados/dados_pnt_v2.rds')%>% #abre tabela de dados
+  dados_pnt_rm <- read_rds('./dados/dados_pnt.rds')%>% #abre tabela de dados
     filter(Cod_municipio %in% c(munis_df$code_muni)) %>% #filtra somente municipios necessarios
     mutate(Cod_setor = as.character(Cod_setor)) #transforma coluna em caractere
   
   message(paste0('unindo setores e dados')) 
   
-  setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') #une setores com dados
+  setores_rm_dados <- left_join(setores_rm, dados_pnt_rm, by = 'Cod_setor') %>% st_sf()#une setores com dados
   setores_rm_dados[is.na(setores_rm_dados)] <- 0 #elimina valores N/A
   
   message(paste0('salvando arquivos finais')) 
@@ -203,6 +203,7 @@ junta_rm_c_dados <- function(sigla) {
   #st_write(setores_rm_dados, paste0('./', sigla, '/RM_Salvador_dados_setores_censitários_WGS84.shp')) #salva setores com dados
   
 } #funcao para abrir e juntar setores
+
 
 #aplicar funcao para juntar setores
 junta_rm_c_dados(unique(munis_df$rm))
@@ -216,7 +217,6 @@ mapview(TMA_buf_1000m) #visualizacao do buffer
 setores_rm_dados <- read_rds(paste0('./dados/setores/', unique(munis_df$shp), '/setores_', unique(munis_df$rm), '_dados.rds')) %>% st_sf() #abre arquivo setores com dados
 setores_rm_dados_1000m <- st_intersection(setores_rm_dados, TMA_buf_1000m) #corta setores pelo buffer
 mapview(setores_rm_dados_1000m) #vizualiza arquivo de setores
-
 
 #5.3. Calcular dados na area de influencia do area no entorno das estacoes -------------------------------------------------------
 
