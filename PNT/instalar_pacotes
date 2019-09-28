@@ -1,0 +1,52 @@
+## instalar pacotes
+
+install.packages('ggplot2')      # visualizacao de dados
+install.packages('sf')           # leitura e manipulacao de dados espaciais
+install.packages('data.table')   # manipulacao de dados
+install.packages('read.dbc')     # leitura de bases relacionais em Microsoft Access
+install.packages('geobr')        # dados espaciais do brasil
+install.packages('pbapply')      # progress bar
+install.packages('readr')        # rapida leitura de dados 
+install.packages('tidyr')        # manipulacao de dados
+install.packages('stringr')      # operacoes em strings
+install.packages('lubridate')    # dados em data/horario
+install.packages('fasttime')     # rapido processamento deddados em data/horario
+install.packages('mapview')      # visualizacao interativa dos dados
+install.packages('RColorBrewer') # paleta de cores
+install.packages('extrafont')    # fontes de texto
+install.packages('bit.64')       # lidar com numeros ee 64bits
+install.packages('knitr')        # geracao de relatorios
+install.packages('furrr')        # 
+install.packages('purrr')        # 
+install.packages('future.apply') # aplicar funcoes em paralelo
+install.packages('h3jsr')        # H3 grade hexagonal
+install.packages('dplyr')        # manipulacao de dados
+install.packages('Hmisc')        # calcular quantis ponderados
+install.packages('openxlsx')     # manipular xlsx
+
+
+## carregar pacotes
+
+library(ggplot2)       
+library(sf)           
+library(data.table)    
+library(read.dbc)      
+library(geobr)         
+library(pbapply)       
+library(readr)         
+library(tidyr)         
+library(stringr)       
+library(lubridate)     
+library(fasttime)     
+library(mapview)      
+library(RColorBrewer)  
+library(extrafont)     
+library(bit.64)      
+library(knitr)
+library(furrr)
+library(purrr)
+library(future.apply)
+library(h3jsr)      
+library(dplyr)
+library(Hmisc)      
+library(openxlsx) 
