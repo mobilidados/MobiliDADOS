@@ -27,7 +27,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 #### Dados necessários:
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
-- Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [Ciclomapa](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22)
+- Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [Ciclomapa](https://ciclomapa.org.br/)
 
 #### Realização do cáculo:
 Para calcular o PNB é necessário rodar o código "cod_pnb" com o seguinte passo-a-passo:
