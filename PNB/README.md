@@ -4,7 +4,7 @@
 
 [A COMPLETAR]
 
-**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](www.mobilidados.org.br).**
+**Os resultados da série histórica do indicador podem ser consultados na [MobiliDADOS](www.mobilidados.org.br).**
 
 
 ### O que é considerado infraestrutura cicloviária?
@@ -14,7 +14,7 @@
 
 #### Fonte dos dados necessários para cacular o indicador
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
-- [Infraestrutura cicloviária](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22) mapeada no OpenStreetMap
+- Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [Ciclomapa](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22)
 
 
 ### Cálculo do indicador
@@ -35,10 +35,10 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
 ### Fontes e Referências
-- Ficha descritivas dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
-- [Link para vídeo Tutorial](INSERIR LINK)
-- [Baixar] o R(https://www.rstudio.com/products/rstudio/download/#download) 
-- [Baixar] R Studio(https://cran.rstudio.com/) 
+- Ficha descritiva dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
+- [Vídeo](INSERIR LINK) com tutorial para realizar mapeamento cicloviário
+- Link pra baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
+- Link para baixar [R Studio](https://cran.rstudio.com/) 
 
 ### Glossário
 
