@@ -7,7 +7,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 
 O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
 
-Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)
+**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)**
 
 ### O que é transporte de média e alta capacidade?
 ![](Sobre_TMA.png)
@@ -19,9 +19,9 @@ Os resultados da série histórica do indicador podem ser consultados em [Mobili
 ### Cálculo do indicador
 Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte passo-a-passo:
 
-1. Instalar e abrir pacotes necessários;
-2. Definir local para salvar arquivos e criar tabela de referência;
-3. Preparar dados demograficos;
+1. Instalar pacotes e definir diretorio;
+2. Abrir arquivos necessarios;
+3. Criar e rodar função de cálculo do PNT.
 
 Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Belém (RMB). Os resultados gerados ao final apresentam o percentual da população total próxima de estações de transporte de média e alta capacidade e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
