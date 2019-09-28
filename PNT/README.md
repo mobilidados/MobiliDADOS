@@ -22,6 +22,8 @@ Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte pa
 2. Abrir arquivos necessarios;
 3. Criar e rodar função de cálculo do PNT.
 
+No código desta pasta apresentamos um exemplo de cálculo de Belém (RMB). 
+
 Os resultados gerados ao final apresentam o percentual da população total próxima da infraestrutura cicloviária e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
 | Variáveis | Dados do IBGE necessários |
@@ -36,7 +38,7 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 
 
 ### Fontes e Referências
-- Explicação dos indicadores na [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
+- Ficha descritiva dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
 - Link para baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
 - Link para baixa o [R Studio](https://cran.rstudio.com/) 
