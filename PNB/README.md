@@ -2,7 +2,11 @@
 
 ### O que é o indicador?
 
-[A COMPLETAR]
+O indicador mensura o percentual da população de uma cidade que reside em um raio de até 300 metros da infraestrutura cicloviária. O resultado é obtido por recursos de geoprocessamento, considerando a distribuição da população e a localização da infraestrutura cicloviária na cidade.
+
+O indicador pode ser utilizado para fins comparativos entre cidades, para avaliar a distribuição da infraestrutura no território e acompanhar a expansão do atendimento da infraestrutura cicloviária em relação à população residente. Ele também pode contribuir para a avaliação do atendimento e capilarização da infraestrutura cicloviária.
+
+O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
 
 **Os resultados da série histórica do indicador podem ser consultados na [MobiliDADOS](www.mobilidados.org.br).**
 
@@ -46,4 +50,4 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 |-------|-----------|
 | Setor censitário | Unidade territorial de coleta das operações censitárias, definido pelo IBGE, com limites físicos identificados, em áreas contínuas e respeitando a divisão político-administrativa do Brasil.|
 | Shapefile | Formato de arquivo contendo dados geoespaciais em forma de vetor usado por Sistemas de Informações Geográficas.|
-| EPSG | Sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG de todas as capitais está contido na tabela de referência (munis_df) criada no início do código apra calcular o PNB (cod_pnb).
+| EPSG | Sigla para do Grupo Europeu de Pesquisa Petrolífera (European Petroleum Survey Group), que foi a entidade que organizou por meio desses códigos numéricos os Sistemas de Referência de Coordenadas (SRC) do mundo. Os EPSG de todas as capitais está contido na tabela de referência ("munis_df") criada no início do código apra calcular o PNB ("cod_pnb').
