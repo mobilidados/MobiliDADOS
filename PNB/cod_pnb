@@ -1,6 +1,6 @@
 #Passo-a-passo do calculo do PNB para todas as capitais
 #1. Instalar pacotes e definir diretorio 
-#2. Criar funcao e realizar calculos do PNB
+#2. Criar e aplicar a funcao para calculo do PNB
 
 
 #1. Instalar pacotes e definir diretorio ----
@@ -45,11 +45,6 @@ munis_df <- data.frame(code_muni = c(3550308, 2927408, 3304557, 2611606,
                                 31981, 	31982))
 
 
-
-rm(i)
-i=3550308
-names(dados)
-names(setores)
 #2. Calculo PNB ----
 #2.1. Criar funcao para calculo do PNB
 PNB  <- function(i){
