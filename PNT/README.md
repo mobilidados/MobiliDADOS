@@ -5,16 +5,16 @@ O indicador mensura o percentual da população de uma cidade ou região metropo
 
 O indicador pode ser utilizado para fins comparativos entre cidades ou regiões metropolitanas, para avaliar a distribuição da infraestrutura de média e alta capacidade no território e acompanhar a evolução da proximidade da população aos sistemas de transporte existentes ou em planejamento.
 
-O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
+O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
+
+Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)
 
 ### O que é transporte de média e alta capacidade?
 ![](Sobre_TMA.png)
 
 #### Fonte dos dados necessários para cacular o indicador
-- [Shapefile dos setores censitários do IBGE](https://bit.ly/2Y6T4In) 
-- [Dados por setores censitários do IBGE](https://bit.ly/2hr75s0)
-- [Estações de transporte média e alta capacidade mapeadas pela ITDP](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-29.651371798676887%2C-34.02013055808925&z=3)
-
+- [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY)  dos setores censitários
+- [Estacoes](https://drive.google.com/drive/folders/1TVTbgFugOBzVMROlMKuAJVMM4ylKYtod) de transporte mapeadas pelo ITDP
 
 ### Cálculo do indicador
 Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte passo-a-passo:
@@ -36,12 +36,7 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
 
-## Arquivos necessários para rodar o código:
-- [Dados](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY)  dos setores censitários
-- [Estacoes](https://drive.google.com/drive/folders/1TVTbgFugOBzVMROlMKuAJVMM4ylKYtod) de transporte mapeadas pelo ITDP
-
 ### Fontes e Referências
-- Resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)
 - Explicação dos indicadores na [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
 - [Estudo](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf) do ITDP com resultados do PNT para diversas cidades do mundo.
