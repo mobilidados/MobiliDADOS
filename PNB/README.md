@@ -18,7 +18,7 @@
 
 
 ### Cálculo do indicador
-Para calcular o PNB é necessário rodar o código "Cod_PNB" com o seguinte passo-a-passo:
+Para calcular o PNB é necessário rodar o código "cod_pnb" com o seguinte passo-a-passo:
 1. Instalar pacotes e definir diretorio 
 2. Criar funcao e realizar calculos do PNB
 
