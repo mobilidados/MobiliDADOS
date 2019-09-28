@@ -13,7 +13,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 ### O que é considerado infraestrutura cicloviária?
 
-[A COMPLETAR]
+![](sobre_infraestrutura_cicloviária.png)
 
 
 #### Fonte dos dados necessários para cacular o indicador
