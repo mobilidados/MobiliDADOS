@@ -11,11 +11,16 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 ### O que é transporte de média e alta capacidade?
 ![](Sobre_TMA.png)
 
-#### Fonte dos dados necessários para cacular o indicador
+
+
+### Como calcular?
+
+#### Dados necessários:
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY)  dos setores censitários
 - [Estacoes](https://drive.google.com/drive/folders/1TVTbgFugOBzVMROlMKuAJVMM4ylKYtod) de transporte mapeadas pelo ITDP
 
-### Cálculo do indicador
+
+#### Realização do cáculo
 Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte passo-a-passo:
 
 1. Instalar pacotes e definir diretorio;
@@ -24,6 +29,8 @@ Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte pa
 
 No código desta pasta apresentamos um exemplo de cálculo de Belém (RMB). 
 
+
+### Sobre os resultados
 Os resultados gerados ao final apresentam o percentual da população total próxima da infraestrutura cicloviária e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
 | Variáveis | Dados do IBGE necessários |
@@ -37,7 +44,7 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
 
-### Fontes e Referências
+### Referências
 - Ficha descritiva dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
 - Link para baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
