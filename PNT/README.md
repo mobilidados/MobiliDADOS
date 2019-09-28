@@ -22,7 +22,7 @@ Para calcular o PNT é necessário rodar o código **cod_pnt** com o seguinte pa
 2. Abrir arquivos necessarios;
 3. Criar e rodar função de cálculo do PNT.
 
-Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Belém (RMB). Os resultados gerados ao final apresentam o percentual da população total próxima de estações de transporte de média e alta capacidade e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
+Os resultados gerados ao final apresentam o percentual da população total próxima da infraestrutura cicloviária e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
 | Variáveis | Dados do IBGE necessários |
 |-----------|---------------------------|
@@ -38,9 +38,6 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 ### Fontes e Referências
 - Explicação dos indicadores na [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
-- [Estudo](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf) do ITDP com resultados do PNT para diversas cidades do mundo.
-- [Post PNT](https://itdpbrasil.org/pnt/) no site do ITDP Brasil
-- [Publicação](http://www.cidades.gov.br/images/stories/ArquivosSEMOB/ArquivosPDF/relatorio-indicadores-efetividade-pnmu.pdf) Ministério do Desenvolvimento Regional com dados de PNT
 - Link para baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
 - Link para baixa o [R Studio](https://cran.rstudio.com/) 
 
