@@ -11,8 +11,12 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 **Os resultados da série histórica do indicador podem ser consultados na [MobiliDADOS](www.mobilidados.org.br).**
 
 
+
+
 ### O que é considerado infraestrutura cicloviária?
 ![](sobre_infraestrutura_cicloviária.png)
+
+
 
 
 
