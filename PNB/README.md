@@ -4,6 +4,8 @@
 
 [A COMPLETAR]
 
+**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](www.mobilidados.org.br).**
+
 
 ### O que é considerado infraestrutura cicloviária?
 
@@ -11,9 +13,8 @@
 
 
 #### Fonte dos dados necessários para cacular o indicador
-- [Shapefile dos setores censitários do IBGE](https://bit.ly/2Y6T4In) 
-- [Dados por setores censitários do IBGE](https://bit.ly/2hr75s0)
-- [Dados de infraestrutura cicloviária mapeados no OpenStreetMap](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22)
+- [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
+- [Infraestrutura cicloviária](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22) mapeada no OpenStreetMap
 
 
 ### Cálculo do indicador
