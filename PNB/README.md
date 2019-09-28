@@ -17,12 +17,15 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 
+
+
+### Cálculo do indicador
+
 #### Fonte dos dados necessários para cacular o indicador
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
 - Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [Ciclomapa](https://cmdalbem.github.io/openbikemap/?lat=-12.8881013&lng=-38.4615564&z=10.22)
 
-
-### Cálculo do indicador
+#### Realização do cáculo
 Para calcular o PNB é necessário rodar o código "cod_pnb" com o seguinte passo-a-passo:
 1. Instalar pacotes e definir diretorio 
 2. Criar funcao e realizar calculos do PNB
