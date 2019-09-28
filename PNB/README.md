@@ -19,11 +19,10 @@
 
 ### Cálculo do indicador
 Para calcular o PNB é necessário rodar o código "Cod_PNB" com o seguinte passo-a-passo:
-1. Instalar e abrir pacotes necessários;
-2. Definir local para salvar arquivos e criar tabela de referência;
-3. Preparar dados demograficos;
+1. Instalar pacotes e definir diretorio 
+2. Criar funcao e realizar calculos do PNB
 
-Tabela com variáveis e dados necessários para preparação dos dados demográficos
+Os resultados gerados ao final apresentam o percentual da população total próxima da infraestrutura cicloviária e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
 | Variáveis | Dados do IBGE necessários |
 |-----------|---------------------------|
@@ -35,19 +34,11 @@ Tabela com variáveis e dados necessários para preparação dos dados demográf
 |Mulheres_Negras|**Mulheres negras**. A variável é o resultado do somatório de variáveis extraídas da tabela Pessoa03 (V168, V170, V173, V175, V178, V180, V183, V185, V198, V200, V203, V205, V208, V210, V213, V215, V218, V220, V223, V225, V228, V230, V233, V235, V238, V240, V243, V245) e Pessoa05 (V007 e V009).|
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
-4. Preparar dados dos corredores de transporte;
-5. Realizar cálculo do PNB.
-
-Nos códigos desta pasta apresentamos um exemplo de cálculo de Salvador(RMS). 
-
-
 ### Fontes e Referências
-- [MobiliDADOS](https://mobilidados.org.br/)
-- [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
+- Ficha descritivas dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Link para vídeo Tutorial](INSERIR LINK)
-- [Baixar R](https://www.rstudio.com/products/rstudio/download/#download) 
-- [Baixar R Studio](https://cran.rstudio.com/) 
-
+- [Baixar] o R(https://www.rstudio.com/products/rstudio/download/#download) 
+- [Baixar] R Studio(https://cran.rstudio.com/) 
 
 ### Glossário
 
