@@ -17,12 +17,13 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 
 ### Cálculo do indicador
-Para calcular o PNT é necessário rodar o código "Cod_PNT com o seguinte passo-a-passo:
+Para calcular o PNT é necessário rodar o código "cod_pnt com o seguinte passo-a-passo:
+
 1. Instalar e abrir pacotes necessários;
 2. Definir local para salvar arquivos e criar tabela de referência;
 3. Preparar dados demograficos;
 
-Tabela com variáveis e dados necessários para preparação dos dados demográficos
+Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Belém (RMB). Os resultados gerados ao final apresentam o percentual da população total próxima de estações de transporte de média e alta capacidade e recortes por faixa de renda, gênero e raça e gênero e renda, utilizando variáveis abaixo:
 
 | Variáveis | Dados do IBGE necessários |
 |-----------|---------------------------|
@@ -33,11 +34,6 @@ Tabela com variáveis e dados necessários para preparação dos dados demográf
 |DR_3_mais|**Domicílios particulares com rendimento nominal mensal domiciliar per capita acima de 3 salários mínimos**. A variável é o resultado do somatório das variáveis Domicílios particulares com rendimento nominal mensal domiciliar per capita de mais de 3 a 5 salários mínimos (V011), Domicílios particulares com rendimento nominal mensal domiciliar per capita de mais de 5 a 10 salários mínimos (V012)  e Domicílios particulares com rendimento nominal mensal domiciliar per capita de mais de 10 salários mínimos (V013) extraídas da tabela DomicilioRenda.|
 |Mulheres_Negras|**Mulheres negras**. A variável é o resultado do somatório de variáveis extraídas da tabela Pessoa03 (V168, V170, V173, V175, V178, V180, V183, V185, V198, V200, V203, V205, V208, V210, V213, V215, V218, V220, V223, V225, V228, V230, V233, V235, V238, V240, V243, V245) e Pessoa05 (V007 e V009).|
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
-
-4. Preparar dados dos corredores de transporte;
-5. Realizar cálculo do PNT.
-
-Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropolitana de Salvador(RMS). 
 
 
 ### Fontes e Referências
