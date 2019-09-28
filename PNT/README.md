@@ -44,7 +44,7 @@ Nos códigos desta pasta apresentamos um exemplo de cálculo da Região Metropol
 - Resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)
 - Explicação dos indicadores na [Ficha dos indicadores da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
-- [Estudo ITDP Global](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf)
+- [Estudo](https://itdpdotorg.wpengine.com/wp-content/uploads/2016/10/People-Near-Transit.pdf) do ITDP com resultados do PNT para diversas cidades do mundo.
 - [Post PNT](https://itdpbrasil.org/pnt/) no site do ITDP Brasil
 - [Publicação](http://www.cidades.gov.br/images/stories/ArquivosSEMOB/ArquivosPDF/relatorio-indicadores-efetividade-pnmu.pdf) Ministério do Desenvolvimento Regional com dados de PNT
 - Link para baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
