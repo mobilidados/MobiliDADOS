@@ -5,7 +5,7 @@ O indicador mensura o percentual da população de uma cidade ou região metropo
 
 O indicador pode ser utilizado para fins comparativos entre cidades ou regiões metropolitanas, para avaliar a distribuição da infraestrutura de média e alta capacidade no território e acompanhar a evolução da proximidade da população aos sistemas de transporte existentes ou em planejamento. O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
 
-**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/)**
+**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/).**
 
 
 ### O que é transporte de média e alta capacidade?
