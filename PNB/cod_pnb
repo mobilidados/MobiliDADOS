@@ -1,0 +1,137 @@
+#Passo-a-passo do calculo do PNB
+#1. Instalar pacotes e definir diretorio 
+#2. Calculo PNB
+
+
+#1. Instalar pacotes e definir diretorio ----
+#1.1. Instalar pacotes
+install.packages('sf')
+install.packages('dplyr')
+install.packages('readr')
+install.packages('openxlsx')
+
+#1.2 Abrir pacotes
+library(sf)
+library(dplyr)
+library(readr)
+library(openxlsx)
+library(mapview)
+
+# 1.3. Defnir diretorio
+setwd('/Users/mackook/Desktop/R/') 
+
+##1.4. Criar tabela de referencia com todas as capitais
+#DF e Vitoria nao foram baixadas do Ciclomapa em funcao de erro do app
+munis_df <- data.frame(code_muni = c(3550308, 2927408, 3304557, 2611606, 
+                                     2304400, 5300108, 4106902,
+                                     3106200, 1501402, 1100205, 1200401,
+                                     1302603, 1400100, 1600303, 1721000, 2111300,
+                                     2211001, 2408102, 2507507, 2704302, 2800308,
+                                     3205309, 4205407, 4314902, 5002704,
+                                     5103403, 5208707),
+                       name_muni=c('sao paulo','salvador', 'rio de janeiro', 'recife',
+                                   'fortaleza', 'distrito federal', 'curitiba', 
+                                   'belo horizonte', 'belem', 'porto velho', 'rio branco', 
+                                   'manaus', 'boa vista', 'macapa', 'palmas', 'sao luis',
+                                   'teresina', 'natal', 'joao pessoa', 'maceio', 'aracaju', 
+                                   'vitoria', 'florianopolis', 'porto alegre', 'campo grande', 
+                                   'cuiaba', 'goiania'),
+                       abrev_state=c('SP', 'BA', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO',
+                                     'AC', 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL',
+                                     'SE', 'ES', 'SC', 'RS', 'MS', 'MT', 'GO'), 
+                       espg = c(31983, 31984, 31983, 31985, 31984, 31983, 31982, 31983, 31982, 
+                                31980, 	31979, 	31980, 	31980, 	31982, 	31982, 	31983, 	31983,
+                                31985, 	31985, 	31985, 	31984, 	31984, 	31982, 	31982, 	31981,
+                                31981, 	31982))
+
+
+
+rm(i)
+i=3550308
+names(dados)
+names(setores)
+#2. Calculo PNB ----
+#2.1. Criar funcao para calculo do PNB
+PNB  <- function(i){
+  
+  message(paste0('ola, ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+  #Abrir infraestrutura cicloviária
+  infra_ciclo <- st_read(paste0('./dados/infra_transporte/infraestrutura cicloviaria/', 
+                                subset(munis_df, code_muni==i)$name_muni,
+                                "_infra_cicloviaria.json"))
+  infra_ciclo$type <- as.character(infra_ciclo$type)
+  
+  message(paste0('abriu e ajustou infra ciclo - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+  #Abrir setores censitarios
+  setores <- read_rds(paste0('./dados/capitais/setores/setores_', 
+                           subset(munis_df, code_muni==i)$name_muni, '.rds')) %>%
+    rename(Cod_setor = code_tract) %>%
+    mutate(Ar_m2 = unclass(st_area(.)), Cod_setor = as.character(Cod_setor))
+  setores <- setores %>% st_set_precision(1000000) %>% lwgeom::st_make_valid() 
+  
+  #Abrir dados do censo
+  dados <- read.xlsx('./dados/IBGE/dados_setores.xlsx') %>% 
+    mutate(Cod_setor=as.character(Cod_setor))
+  
+  #Unir setores com dados do IBGE
+  setores_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf()
+  setores_dados <- st_transform(setores_dados, 4326) #transforma projecao
+  setores_dados <- st_transform(setores_dados, subset(munis_df, code_muni==i)$espg) #transforma projecao
+  
+  message(paste0('abriu e ajustou dados dos setores censitarios - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+  #Selecionar somente infraestrutura cicloviaria necessaria para calculo do PNB
+  infra_ciclo_pnb <- infra_ciclo[(infra_ciclo$type %in% c('Ciclovia','Ciclofaixa','Ciclorota', 'Calçada compartilhada', 'Trilha')),]#filtra infraestrutura cicloviaria para considerar apenas ciclovias, ciclofaixas e ciclorotas
+  infra_ciclo_pnb <- st_transform(infra_ciclo_pnb, subset(munis_df, code_muni==i)$espg) #transforma projecao
+  
+  message(paste0('selecionou infra e reprojetou - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+  #Criar buffer no entorno da infraestrutura cicloviaria
+  infra_ciclo_buf <- st_buffer(infra_ciclo_pnb, 300) %>% st_union  #cria buffer
+  setores_entorno <- st_intersection(setores_dados, infra_ciclo_buf) #recortar setores dentro da area de entorno das estacoes
+  
+  message(paste0('recortou setores no entorno - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+  #Realizar calculos 
+  setores_entorno <- setores_entorno %>%
+    mutate(ar_int = unclass(st_area(.)), #cria area inserida no entorno da estacao
+           rt = as.numeric(ar_int/Ar_m2)) %>% #cria proporcao entre area inserida no entorno da estacao e area total de cada 
+    mutate_at(.vars = vars(Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, M_Negras , M_2SM), 
+              funs(int = . * rt)) #criar variaveis proximas das estacoes
+  
+  total_entorno <- c((sum(setores_entorno$Pop_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$DR_0_meio_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$DR_meio_1_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$DR_1_3_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$DR_3_mais_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$M_Negras_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$M_2SM_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
+  
+  total_cidade <- c((sum(setores_dados$Pop, na.rm = TRUE)), 
+                    (sum(setores_dados$DR_0_meio, na.rm = TRUE)), 
+                    (sum(setores_dados$DR_meio_1, na.rm = TRUE)), 
+                    (sum(setores_dados$DR_1_3, na.rm = TRUE)), 
+                    (sum(setores_dados$DR_3_mais, na.rm = TRUE)), 
+                    (sum(setores_dados$M_Negras, na.rm = TRUE)), 
+                    (sum(setores_dados$M_2SM, na.rm = TRUE))) #Realizar a soma total de cada variavel
+  
+  Resultados_pnb <-rbind(total_entorno, total_cidade, round(100*(total_entorno/total_cidade),0))
+  colnames(Resultados_pnb)<- c("Pop", "DR_0_meio","DR_V008","DR_1_3","DR_3_mais", "M_Negras", "M_2SM") #Nomear as colunas da tabela criada
+  row.names(Resultados_pnb)<- c("total_entorno","total_cidade", "resultado_%") #Nomeia as linhas da tabela criada
+  print(Resultados_pnb) #Verfica tabela
+  
+  write.xlsx(Resultados_pnb, paste0('./pnb/Resultados_2019/', subset(munis_df, code_muni==i)$name_muni, '_pnb_2019.xlsx'))#salvar resultado final
+  
+  message(paste0('salvou resultados - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
+  
+}
+
+#2.2. Aplicar funcao para calcular PNB nas capitais
+#criar lista de codigos dos municipios
+list_code_muni <- munis_df$code_muni
+
+#aplicar funcao para calcular PNB
+pblapply(list_code_muni, PNB)
+
