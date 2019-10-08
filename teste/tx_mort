@@ -1,0 +1,205 @@
+#Etapa 1: Preparar dados dos setores censitarios
+###1. Preparação: instalar e abrir pacotes, definir local para salvar arquivos
+###2. Criar shapefile da RM
+###3. Criar tabelas de dados dos setores censitarios
+###4. Unir dados com shapeflies dos setores censitarios
+
+#1. Preparação: instalar e abrir pacotes, definir local para salvar arquivos --------------
+
+#Instalar pacotes necessários
+install.packages("sf")
+install.packages("rJava")
+install.packages("gdata")
+install.packages("dplyr")
+install.packages("plyr")
+install.packages("tmap")
+install.packages("rgdal")
+install.packages("ggmap")
+install.packages("cowplot")
+install.packages("raster")
+install.packages("sp")
+install.packages("openxlsx")
+install.packages("stringi")
+install.packages("readr")
+install.packages("read.dbc")
+install_github("rpradosiqueira/datasus")
+install.packages("stringr")
+
+#Abrir pacotes necessários
+library(sp)
+library(gdata)
+library(raster)
+library(rgdal)
+library(sf)
+library(dplyr)
+library(plyr)
+library(tmap)
+library(ggmap)
+library(cowplot)
+library(stringi)
+library(rJava)
+library(openxlsx)
+library(readr)
+library(read.dbc)
+library(devtools)
+library(datasus)
+library(stringr)
+
+setwd("/Users/itdpbrasil/Desktop/Mobilidados 2019/R mortalidade")
+
+#Para evitar probelmas de codificacao, preferir arquivos no formato .ods
+##Abrir tabela de populacao
+pop <- st_read("./pop.ods")
+str(pop)
+
+#Colunas: CD_MUN -> codigo com 6 numeros do municipio
+#         MUNICIPIO -> nome do municipio
+#         CAPITAL -> Se o municipio e capital
+
+#Baixar dados do DataSus
+ped <- sim_obt10_mun(linha = "Município", 
+                    coluna = "Ano do Óbito", 
+                    conteudo = 2, 
+                    periodo = c(2000:2017), 
+                    grupo_cid10 = "Pedestre traumatizado em um acidente de transporte")
+str(ped)
+
+ped$CD_MUN <- as.numeric(str_sub(ped$Município, end = 6)) #Criar coluna com o codigo de seis digitos do municipio na tabela do DataSUS
+ped$Município <- NULL #retirar coluna com nome do municipio
+
+str(ped)
+write.xlsx(ped, '/Users/itdpbrasil/Downloads/pedestres.xlsx') ##Salvar - se necessario
+
+#Baixar dados da composicao das RMs, para nao ter probelmas com a codificacao eh recomendado baixar no formado .ODS - atentar para a última atualizacao do IBGE
+download.file("ftp://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2010a2019/Composicao_RMs_RIDEs_AglomUrbanas_2018_12_31.ods", "RMs.ods", quiet = FALSE)
+RMs <- st_read("RMs.ods") # ler o arquivo da composicao das RMs
+str(RMs)
+
+RMs$CD_MUN <- as.numeric(str_sub(RMs$COD_MUN, end = 6)) #Criar coluna com o codigo de seis digitos do municipio na tabela do DataSUS
+str(RMs)
+RMs$RM <- RMs$NOME #renomear
+RM <- RMs[,-c(1:12)] #retirar colunas desnecessarias
+str(RM)
+
+popRM <- left_join(pop, RM, by = "CD_MUN") #unir tabela de populacao e RMs
+View(popRM) #verificar estrutura
+
+df <- left_join(popRM, ped, by = "CD_MUN") #unir tabela populacao com RM e dataSUS
+str(df)
+print(df)
+write.xlsx(df2, './teste9.xlsx') #salvar com valores do datasus e valores da populacao
+View(df)
+
+df["tx_mort_2000"] <- round((df$`2000`/df$Pop_2000)*100000, digits = 1)
+df["tx_mort_2001"] <- round((df$`2001`/df$Pop_2001)*100000, digits = 1)
+df["tx_mort_2002"] <- round((df$`2002`/df$Pop_2002)*100000, digits = 1)
+df["tx_mort_2003"] <- round((df$`2003`/df$Pop_2003)*100000, digits = 1)
+df["tx_mort_2004"] <- round((df$`2004`/df$Pop_2004)*100000, digits = 1)
+df["tx_mort_2005"] <- round((df$`2005`/df$Pop_2005)*100000, digits = 1)
+df["tx_mort_2006"] <- round((df$`2006`/df$Pop_2006)*100000, digits = 1)
+df["tx_mort_2007"] <- round((df$`2007`/df$Pop_2007)*100000, digits = 1)
+df["tx_mort_2008"] <- round((df$`2008`/df$Pop_2008)*100000, digits = 1)
+df["tx_mort_2009"] <- round((df$`2009`/df$Pop_2009)*100000, digits = 1)
+df["tx_mort_2010"] <- round((df$`2010`/df$Pop_2010)*100000, digits = 1)
+df["tx_mort_2011"] <- round((df$`2011`/df$Pop_2011)*100000, digits = 1)
+df["tx_mort_2012"] <- round((df$`2012`/df$Pop_2012)*100000, digits = 1)
+df["tx_mort_2013"] <- round((df$`2013`/df$Pop_2013)*100000, digits = 1)
+df["tx_mort_2014"] <- round((df$`2014`/df$Pop_2014)*100000, digits = 1)
+df["tx_mort_2015"] <- round((df$`2015`/df$Pop_2015)*100000, digits = 1)
+df["tx_mort_2016"] <- round((df$`2016`/df$Pop_2016)*100000, digits = 1)
+df["tx_mort_2017"] <- round((df$`2017`/df$Pop_2017)*100000, digits = 1)
+str(df)
+print(df)
+View(df)
+
+#Filtrar e selecionar colunas
+df_capitais <- df %>%
+  filter(CAPITAL == "Capital") %>%
+  select(CD_MUN, MUNICIPIO, CAPITAL, RM, tx_mort_2000, tx_mort_2001, tx_mort_2002, tx_mort_2003, tx_mort_2004,
+         tx_mort_2005, tx_mort_2006, tx_mort_2007, tx_mort_2008, tx_mort_2009, tx_mort_2010, tx_mort_2011, tx_mort_2012,
+         tx_mort_2013, tx_mort_2014, tx_mort_2015, tx_mort_2016, tx_mort_2017)
+names(df_capitais)
+View(df_capitais)
+
+write.xlsx(df_capitais, './tx_pedestres_capitais.xlsx') #salvar com valores do datasus e valores da populacao
+
+df_RMs <- setDT(df)[, .(pop_2000 = sum(as.numeric(Pop_2000)), pop_2001 = sum(as.numeric(Pop_2001)),
+                        pop_2002 = sum(as.numeric(Pop_2002)), pop_2003 = sum(as.numeric(Pop_2003)),
+                        pop_2004 = sum(as.numeric(Pop_2004)), pop_2005 = sum(as.numeric(Pop_2005)),
+                        pop_2006 = sum(as.numeric(Pop_2006)), pop_2007 = sum(as.numeric(Pop_2007)),
+                        pop_2008 = sum(as.numeric(Pop_2008)), pop_2009 = sum(as.numeric(Pop_2009)),
+                        pop_2010 = sum(as.numeric(Pop_2010)), pop_2011 = sum(as.numeric(Pop_2011)),
+                        pop_2012 = sum(as.numeric(Pop_2012)), pop_2013 = sum(as.numeric(Pop_2013)),
+                        pop_2014 = sum(as.numeric(Pop_2014)), pop_2015 = sum(as.numeric(Pop_2015)),
+                        pop_2016 = sum(as.numeric(Pop_2016)), pop_2017 = sum(as.numeric(Pop_2017)),
+                        morte_2000 = sum(`2000`, na.rm=T), morte_2001 = sum(`2001`, na.rm=T),
+                        morte_2002 = sum(`2002`, na.rm=T), morte_2003 = sum(`2003`, na.rm=T),
+                        morte_2004 = sum(`2004`, na.rm=T), morte_2005 = sum(`2005`, na.rm=T),
+                        morte_2006 = sum(`2006`, na.rm=T), morte_2007 = sum(`2007`, na.rm=T),
+                        morte_2008 = sum(`2008`, na.rm=T), morte_2009 = sum(`2009`, na.rm=T),
+                        morte_2010 = sum(`2010`, na.rm=T), morte_2011 = sum(`2011`, na.rm=T),
+                        morte_2012 = sum(`2012`, na.rm=T), morte_2013 = sum(`2013`, na.rm=T),
+                        morte_2014 = sum(`2014`, na.rm=T), morte_2015 = sum(`2015`, na.rm=T),
+                        morte_2016 = sum(`2016`, na.rm=T), morte_2017 = sum(`2017`, na.rm=T)), by= RM]
+
+#Bel <- df_RMs %>% filter(RM == 'Região Metropolitana de Belém')
+
+str(df_RMs)
+df_mort <- setDT(df_RMs)[,.(tx_mort_2000 = round(100000*(morte_2000/pop_2000), 1),
+                            tx_mort_2001 = round(100000*(morte_2001/pop_2001), 1),
+                            tx_mort_2002 = round(100000*(morte_2002/pop_2002), 1),
+                            tx_mort_2003 = round(100000*(morte_2003/pop_2003), 1),
+                            tx_mort_2004 = round(100000*(morte_2004/pop_2004), 1),
+                            tx_mort_2005 = round(100000*(morte_2005/pop_2005), 1),
+                            tx_mort_2006 = round(100000*(morte_2006/pop_2006), 1),
+                            tx_mort_2007 = round(100000*(morte_2007/pop_2007), 1),
+                            tx_mort_2008 = round(100000*(morte_2008/pop_2008), 1),
+                            tx_mort_2009 = round(100000*(morte_2009/pop_2009), 1),
+                            tx_mort_2010 = round(100000*(morte_2010/pop_2010), 1),
+                            tx_mort_2011 = round(100000*(morte_2011/pop_2011), 1),
+                            tx_mort_2012 = round(100000*(morte_2012/pop_2012), 1),
+                            tx_mort_2013 = round(100000*(morte_2013/pop_2013), 1),
+                            tx_mort_2014 = round(100000*(morte_2014/pop_2014), 1),
+                            tx_mort_2015 = round(100000*(morte_2015/pop_2015), 1),
+                            tx_mort_2016 = round(100000*(morte_2016/pop_2016), 1),
+                            tx_mort_2017 = round(100000*(morte_2017/pop_2017), 1)), by=RM]
+
+df_9 <- df_mort %>%
+  filter(RM %in% c("Região Metropolitana de Belém", "Região Metropolitana de Belo Horizonte", 
+                   "Região Integrada de Desenvolvimento do Distrito Federal e Entorno", 
+                   "Região Metropolitana de Curitiba", "Região Metropolitana de Fortaleza",
+                   "Região Metropolitana de Recife", "Região Metropolitana de Salvador",
+                   "Região Metropolitana de São Paulo", "Região Metropolitana do Rio de Janeiro")) 
+
+write.xlsx(df_9, "./tx_pedestres_RMs.xlsx")
+
+unique(df_mort$RM)
+
+
+
+
+
+
+df_RMs$tx_mort_2000 <- round((df_RMs$morte_2000/df_RMs$Pop_2000)*100000, digits = 1)
+df_RMs$tx_mort_2001 <- round((df_RMs$morte_2001/df_RMs$Pop_2001)*100000, digits = 1)
+df_RMs$tx_mort_2002 <- round((df_RMs$morte_2002/df_RMs$Pop_2002)*100000, digits = 1)
+df_RMs$tx_mort_2003 <- round((df_RMs$morte_2003/df_RMs$Pop_2003)*100000, digits = 1)
+df_RMs$tx_mort_2004 <- round((df_RMs$morte_2004/df_RMs$Pop_2004)*100000, digits = 1)
+df_RMs$tx_mort_2005 <- round((df_RMs$morte_2005/df_RMs$Pop_2005)*100000, digits = 1)
+df_RMs$tx_mort_2006 <- round((df_RMs$morte_2006/df_RMs$Pop_2006)*100000, digits = 1)
+df_RMs$tx_mort_2007 <- round((df_RMs$morte_2007/df_RMs$Pop_2007)*100000, digits = 1)
+df_RMs$tx_mort_2008 <- round((df_RMs$morte_2008/df_RMs$Pop_2008)*100000, digits = 1)
+df_RMs$tx_mort_2009 <- round((df_RMs$morte_2009/df_RMs$Pop_2009)*100000, digits = 1)
+df_RMs$tx_mort_2010 <- round((df_RMs$morte_2010/df_RMs$Pop_2010)*100000, digits = 1)
+df_RMs$tx_mort_2011 <- round((df_RMs$morte_2011/df_RMs$Pop_2011)*100000, digits = 1)
+df_RMs$tx_mort_2012 <- round((df_RMs$morte_2012/df_RMs$Pop_2012)*100000, digits = 1)
+df_RMs$tx_mort_2013 <- round((df_RMs$morte_2013/df_RMs$Pop_2013)*100000, digits = 1)
+df_RMs$tx_mort_2014 <- round((df_RMs$morte_2014/df_RMs$Pop_2014)*100000, digits = 1)
+df_RMs$tx_mort_2015 <- round((df_RMs$morte_2015/df_RMs$Pop_2015)*100000, digits = 1)
+df_RMs$tx_mort_2016 <- round((df_RMs$morte_2016/df_RMs$Pop_2016)*100000, digits = 1)
+df_RMs$tx_mort_2017 <- round((df_RMs$morte_2017/df_RMs$Pop_2017)*100000, digits = 1)
+
+View(df_RMs)
+str(df_RMs)
+library(data.table)  
+  
