@@ -1,0 +1,61 @@
+## Extrair grade estatistica de cada municipio
+
+#1. Instalar biblioteca, definir biblioteca e criar pasta----
+
+# Carregar bibliotecas
+source('./0_setup.R')
+
+# Definir area de trabalho
+setwd('/Users/mackook/Desktop/R/') 
+
+# Criar pastas para salvar arquivos
+lapply( paste0('./dados/capitais/grade_municipio'), dir.create)
+
+
+#2. Criar grades ----
+
+#2.1. Criar funcao para criar grades
+criar_grade_muni <- function(sigla){
+  
+  message(paste0('Rodando ', sigla,"\n"))
+  
+  # codigo do estado do municipio
+  cod_estado <- subset(munis_df, name_muni==sigla)$abrev_state %>% as.character()
+  
+  # Leitura das grades estatisticas dos estados
+  grade <- read_statistical_grid(code_grid = cod_estado, year = 2010)
+  
+  message(paste0('Abri a grade da UF ',"\n"))
+  
+  # Leitura do municipio
+  muni_br <- st_read("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
+  muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
+  muni <- muni_br[muni_br$CD_GEOCMU==subset(munis_df, name_muni==sigla)$code_muni,]
+
+  # mesma projecao geografica
+  grade <- grade %>% st_transform(crs = 4326)
+  muni <- muni   %>%  st_transform(crs = 4326)
+  
+  # Intersecao
+  grade_muni <- sf::st_join(grade, muni)
+  # Tirar grades so do municipio
+  grade_muni_fim <- grade_muni[grade_muni$CD_GEOCMU==subset(munis_df, name_muni==sigla)$code_muni,]
+  
+  # Transformar para sf
+  grade_muni_fim <- sf::st_sf(grade_muni_fim)
+  
+  message(paste0('Selecionei somente a grade de ', sigla,"\n"))
+  
+  # limpa memoria
+  rm(grade, muni)
+  gc(reset=T)
+  
+  # salvar no disco
+  readr::write_rds(grade_muni_fim, paste0('./dados/capitais//grade_municipio/grade_', sigla, '.rds'))
+  st_write(grade_muni_fim, paste0('./dados/capitais/grade_municipio/grade_', sigla, '.shp'))
+  
+  message(paste0('Salvei a grade de ', sigla,' em rds e shp! =)', '\n'))
+}
+
+#2.2. Aplicar funcao para criar grade
+pblapply(X = munis_df$name_muni, FUN=criar_grade_muni)
