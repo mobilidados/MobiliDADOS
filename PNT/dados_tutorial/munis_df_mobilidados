@@ -263,3 +263,8 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606,
                                 31980, 31979, 31980, 31980, 31982, 31982, 31983, 31983,
                                 31985, 31985, 31985, 31984, 31984, 31982, 31982, 31981,
                                 31981, 31982))
+
+#uf_exceto_SP ----
+uf_exceto_sp <-  data.frame(abrev_state=c('BA', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO',
+                    'AC', 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL',
+                    'SE', 'ES', 'SC', 'RS', 'MS', 'MT', 'GO', 'TO'))
