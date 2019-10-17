@@ -260,7 +260,7 @@ uf <-  data.frame(abrev_state=c('BA', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 
                                 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL', 'SE', 
                                 'ES', 'SC', 'RS', 'MS', 'MT', 'GO', 'SP Capital', 'SP Exceto Capital'))
 
-#uf_exceto_SP ----
+# UF_exceto_SP ----
 uf_exceto_sp <-  data.frame(abrev_state=c('BA', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO',
                     'AC', 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL',
                     'SE', 'ES', 'SC', 'RS', 'MS', 'MT', 'GO', 'TO'))
