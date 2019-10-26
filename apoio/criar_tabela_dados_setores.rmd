@@ -204,4 +204,3 @@ total_b <- c(sum(b$Pop, na.rm=T),
              sum(b$DR_3_mais, na.rm=T),
              sum(b$M_Negras, na.rm=T),
              sum(b$M_2SM, na.rm=T))
-
