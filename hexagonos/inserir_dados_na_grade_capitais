@@ -1,0 +1,198 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###### Agregar dados dos setores censitários para a grade do censo
+
+##0. Preparacao ----
+
+# Carregar bibliotecas
+source('./R/outros/setup.R')
+
+# Definir area de trabalho
+setwd('/Users/mackook/Desktop/R/') #Alterar o caminho para a pasta onde deseja salvar os arquivos
+
+# Criar pasta para salvar arquivos
+lapply(paste0('./', unique(munis_df$rm), '/setores_dados'), dir.create)
+
+# Abrir dados
+dados <- read_rds('./dados/IBGE/dados_setores/3_tabela_pais/dados_setores.rds')%>%
+  mutate(Cod_setor = as.character(Cod_setor))
+
+
+## 1. Juntar setores e dados -----
+
+# Funcao para juntar setores e dados
+juntar_setores_dados <- function (i){
+  
+  message('Working on city ', subset(munis_df, code_muni==i)$name_muni, '\n')
+  
+  #caminho <- paste0('./dados/capitais/setores/rds/setores_', subset(munis_df, code_muni==i)$name_muni, '.rds')
+  setor <- read_rds(paste0('./dados/capitais/setores/rds/setores_', subset(munis_df, code_muni==i)$name_muni, '.rds')) %>%
+    rename(Cod_setor = code_tract) %>%
+    mutate(Cod_setor = as.character(Cod_setor))
+  
+  juntar <- left_join(setor, dados, by='Cod_setor')
+  
+  write_rds(juntar, paste0('./dados/capitais/setores_dados/rds/', subset(munis_df, code_muni==i)$name_muni, '_setores_dados.rds'))
+  
+  #st_write(juntar, paste0('./dados/capitais/setores_dados/shp/', subset(munis_df, code_muni==i)$name_muni, '_setores_dados.shp'), layer_options = "ENCODING=UTF-8")
+  
+}
+
+# Aplicar funcao para inserir dados nos setores
+list_muni_codes <- munis_df$code_muni
+
+pblapply(list_muni_codes, juntar_setores_dados)
+
+
+## 2. Inputar dados do setor censitario para grade estatistica  ----
+setor_p_grade <- function(sigla_muni) {
+  
+  # status message
+  message('Ola, ', sigla_muni, '\n')
+  
+  # endereco dos arquivos
+  path_setor <- paste0('./dados/capitais/setores_dados/rds/', sigla_muni, '_setores_dados.rds')
+  path_grade <- paste0('./dados/capitais/grade_municipios/rds/grade_',sigla_muni, '.rds')
+
+  # leitura de shapes de setores censitarios e grade estatistica
+  setor <- readr::read_rds(path_setor)
+  grade <- readr::read_rds(path_grade)
+
+  # mesma projecao
+  setor <- sf::st_transform(setor, sf::st_crs(grade))
+  
+  message('Dados de ', sigla_muni, ' importados', '\n')
+  
+  ##Preparar grades
+  
+  #Criar id unico de cada grade e filtra colunas
+  grade$Id_grade <- 1:nrow(grade)
+  
+  # Cortar grades que estão nos limites da cidade
+  grade_corrigida <- grade %>%
+    mutate(Area_antes = as.numeric(st_area(.))) %>% # calcular area da grade
+    st_intersection(setor %>% dplyr::select(Cod_setor)) %>% # cortar grade inserida na cidade
+    group_by(Id_grade) %>%
+    summarise(Pop_total = first(POP), # manter dado da populacao total original da grade
+              Area_antes = first(Area_antes)) #manter dado da area original da grade
+  
+  # Corrigir populacao das grades de borda que foram cortadas (porque parte da grade caia fora do municipio)
+  grade_corrigida <- grade_corrigida %>%    
+    mutate(Area_depois = as.numeric(st_area(.))) %>% # calcular area depois de cortada
+    mutate(prop = Area_depois/Area_antes) %>% # calcular proporcao daa area depois em relacao a area antes
+    mutate(Pop_total = prop * Pop_total) # atualizar populacao
+  
+  # Limpar dados da grade
+  grade_corrigida <- grade_corrigida %>%
+    rename(Area_grade = Area_depois) %>% # manter somente area da grade depois
+    dplyr::select(Id_grade, Pop_total, Area_grade) # mnanter somente variaveis de id, pop e grade
+  
+  names(grade_corrigida)
+  
+  message('Grade de ', sigla_muni,' corrigida ', '\n')
+  
+  # Criar id unico de cada setor e filtra colunas
+  setor <- setor %>%
+    mutate(Id_setor = 1:n()) %>% # criar id
+    mutate(Area_setor = st_area(.)) %>% # calcular area
+    dplyr::select(Id_setor, Area_setor, Renda_total, Moradores_total, Cor_branca, Cor_preta, 
+                  Cor_amarela, Cor_parda, Cor_indigena, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, 
+                  M_Negras, M_2SM, Perc_calc, Perc_ramp) #manter dados relavantes
+
+  
+  # agrega cor negra
+  setDT(setor)[, Cor_negra := sum(Cor_preta, Cor_parda), by=Id_setor]
+  setor[, c('Cor_preta', 'Cor_parda') := NULL]
+  
+  # Calcular a proporcao que cada domicilio em cada setor censitario
+  setDT(setor)[,  DR_total := sum(DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais),  by=Id_setor]
+  setDT(setor)[,  Pop_total := sum(Cor_branca, Cor_amarela, Cor_indigena, Cor_negra),  by=Id_setor]
+  
+  setor[,  ":="(DR_0_meio_prop = DR_0_meio/DR_total,
+                DR_meio_1_prop = DR_meio_1/DR_total,
+                DR_1_3_prop    = DR_1_3/DR_total,
+                DR_3_mais_prop = DR_3_mais/DR_total, 
+                Cor_b_prop = Cor_branca/Pop_total,
+                Cor_a_prop = Cor_amarela/Pop_total,
+                Cor_i_prop = Cor_indigena/Pop_total,
+                Cor_n_prop = Cor_negra/Pop_total), by=Id_setor]
+  
+  # volta para sf
+  setor <- st_sf(setor)
+  
+  message('Setores de ', sigla_muni,' com dados ajustados', '\n')
+  
+  # funcao de reaportion com duas variaveis de referencia (populacao e area)
+  # Resultado (ui_fim) eh uma grade estatistica com informacao de renda inputada e dados sociodemograficos
+  #a partir do setor censitario
+  ### aplicacao para renda - tip from https://rpubs.com/rural_gis/255550 --------------------------
+  
+  
+  ui <- sf::st_intersection(grade_corrigida, setor) %>%
+    
+    # Calcular a area de cada pedaco de setores inseridos em cada grade
+    dplyr::mutate(Area_pedaco = st_area(.)) %>%
+    
+    # Calcular a proporcao de cada setor inserido em cada grade (essa sera a area a ponderar pela renda)
+    dplyr::mutate(Area_prop_setor = Area_pedaco/Area_setor) %>%
+    
+    # Calcular a proporcao de cada grade que esta naquele pedaco
+    dplyr::mutate(Area_prop_grade =  Area_pedaco/Area_grade) %>%
+    
+    # Calcular a quantidade de populacao em cada pedaco (baseado na grade)
+    dplyr::mutate(Pop_prop_grade = Pop_total * Area_prop_grade) %>%
+    
+    # Calcular a proporcao de populacao de cada grade que esta dentro do setor
+    group_by(Id_setor) %>%
+    dplyr::mutate(sum = sum(Pop_prop_grade, na.rm = TRUE)) %>%
+    ungroup() %>%
+    
+    # Calcular a populacao proporcional de cada pedaco dentro do setor
+    dplyr::mutate(Pop_prop_grade_no_setor =  Pop_prop_grade/sum) %>%
+    
+    # Calcular a renda dentro de cada pedaco
+    dplyr::mutate(M_Negras_pedaco = M_Negras * Pop_prop_grade_no_setor) %>%
+    dplyr::mutate(M_2SM_pedaco = M_2SM * Pop_prop_grade_no_setor) %>%
+    dplyr::mutate(DR_0_meio_pedaco = DR_0_meio_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(DR_meio_1_pedaco = DR_meio_1_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(DR_1_3_pedaco    = DR_1_3_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(DR_3_mais_pedaco = DR_3_mais_prop * Area_prop_grade * Pop_total)%>%
+    dplyr::mutate(Renda_pedaco = Renda_total * Pop_prop_grade_no_setor) %>%
+    dplyr::mutate(Branca_pedaco = Cor_b_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(Amarela_pedaco = Cor_a_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(Indigena_pedaco = Cor_i_prop * Area_prop_grade * Pop_total) %>%
+    dplyr::mutate(Negra_pedaco = Cor_n_prop * Area_prop_grade * Pop_total)
+  
+  # Grand Finale (uniao dos pedacos) - Agrupar por grade e somar a renda
+  ui_fim <- ui %>%
+    st_set_geometry(NULL) %>%
+    group_by(Id_grade, Pop_total) %>%
+    dplyr::summarise(M_Negras = as.numeric(sum(M_Negras_pedaco, na.rm = TRUE)),
+                     M_2SM = as.numeric(sum(M_2SM_pedaco, na.rm = TRUE)),
+                     DR_0_meio = as.numeric(sum(DR_0_meio_pedaco, na.rm = TRUE)),
+                     DR_meio_1 = as.numeric(sum(DR_meio_1_pedaco, na.rm = TRUE)),
+                     DR_1_3 = as.numeric(sum(DR_1_3_pedaco, na.rm = TRUE)),
+                     DR_3_mais = as.numeric(sum(DR_3_mais_pedaco, na.rm = TRUE)),
+                     Renda = as.numeric(sum(Renda_pedaco, na.rm = TRUE)),
+                     Cor_branca = as.numeric(sum(Branca_pedaco, na.rm = TRUE)),
+                     Cor_amarela = as.numeric(sum(Amarela_pedaco, na.rm = TRUE)),
+                     Cor_indigena = as.numeric(sum(Indigena_pedaco, na.rm = TRUE)),
+                     Cor_negra = as.numeric(sum(Negra_pedaco, na.rm = TRUE))) %>%
+    ungroup()
+  
+  ui_fim_sf <- grade_corrigida %>%
+    dplyr::select(Id_grade) %>%
+    left_join(ui_fim, by = "Id_grade")
+  
+  message('Grade de ', sigla_muni, ' finalizada', '\n')
+  
+  # Salvar em disco
+  path_out <- paste0('./dados/capitais/grade_municipios_dados/grade_', sigla_muni, '_dados.rds')
+  readr::write_rds(ui_fim_sf, path_out)
+}
+
+# Aplicar funcao em paralelo para salvar grades com dados 
+# Parallel processing using future.apply
+future::plan(future::multiprocess)
+future.apply::future_lapply(X =munis_df$name_muni, FUN=setor_p_grade, future.packages=c('sf', 'dplyr'))
+
+pblapply(munis_df$name_muni, setor_p_grade)
