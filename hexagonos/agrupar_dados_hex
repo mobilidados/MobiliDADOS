@@ -1,0 +1,107 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###### Agregar informacoes demograficas e uso do solo nos hexagonos
+
+# definir diretorio
+setwd('/Users/mackook/Desktop/R/')
+
+# carregar bibliotecas
+source('./outros/setup.R')
+
+# Criar funcao para agregar dados de uso do solo na grade de hexagonos
+agrupar_variaveis <- function(sigla_muni) {
+  # status message
+  message('ola,  ', sigla_muni, '\n')
+  
+  # abrir hexagonos
+  hex_muni <- readr::read_rds(paste0('./dados/capitais/hexagonos/rds/hex_', sigla_muni,'_09.rds')) %>%
+    mutate(Ar_m2 = as.numeric(st_area(.))) # calcular area do hexagono
+  
+  # pegar caminho para as grades
+  grade_file <- paste0('./dados/capitais/grade_municipios_dados/grade_', sigla_muni,"_dados.rds")
+  
+  # criar centroide da grade de cada municipio
+  centroide_pop <- readr::read_rds(grade_file) %>%
+    dplyr::select(Id_grade, Pop_total, Renda, M_Negras, M_2SM, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, 
+                  Cor_branca, Cor_amarela, Cor_indigena, Cor_negra) %>%
+    st_centroid()
+  
+  # Qual o codigo do municipio em questao?
+  cod_mun_ok <- subset(munis_df, name_muni==sigla_muni)$code_muni
+  
+  
+  # FUNCAO PARA REALIZAR PARA TODAS AS RESOLUCOES ------------------------------
+  
+  # por_resolucao <- function(muni_res) {
+  #   # muni_res <- '09'
+  #   
+  #   # endereco do hexagono na resolucao
+  #   hexf <- paste0('./', subset(munis_df, name_muni==sigla_muni)$rm,
+  #                  '/hexagonos/hex_', muni_res,'/hex_', muni_res, sigla_muni,'.rds')
+  #   
+  #   # Ler arquivo de hexagono  
+  #   hex_muni <- readr::read_rds(hexf)
+  
+  # Agrupar populacao, cor e renda
+  # join espacial 
+  hex_pop <- hex_muni %>% st_join(centroide_pop)
+  names(hex_pop)
+  
+  # Summarize
+  hex_pop <- setDT(hex_pop)[, .(area             = sum(round(Ar_m2           ,0),na.rm=T), 
+                                pop_total        = sum(round(Pop_total       ,0),na.rm=T),
+                                renda_total      = sum(round(Renda           ,0),na.rm=T),
+                                m_2SM            = sum(round(M_2SM           ,0),na.rm=T),
+                                m_negras         = sum(round(M_Negras        ,0),na.rm=T),
+                                DR_0_meio        = sum(round(DR_0_meio       ,0),na.rm=T),
+                                DR_meio_1        = sum(round(DR_meio_1       ,0),na.rm=T),
+                                DR_1_3           = sum(round(DR_1_3          ,0),na.rm=T),
+                                DR_3_mais        = sum(round(DR_3_mais       ,0),na.rm=T), 
+                                cor_branca       = sum(round(Cor_branca      ,0),na.rm = T),
+                                cor_amarela      = sum(round(Cor_amarela     ,0),na.rm = T),
+                                cor_indigena     = sum(round(Cor_indigena    ,0),na.rm = T),
+                                cor_negra        = sum(round(Cor_negra       ,0), na.rm = T)), by = id_hex ]
+  
+  
+  
+  
+  # Calcular quintil e decil de renda
+  # calcula renda per capta de cada hexagono
+  hex_pop[, renda_capta := renda_total / pop_total]
+  hex_pop[, dens := 1000000*(pop_total / area)]
+  names(hex_pop)
+  
+  # calcular quintis ponderados pela populacao
+  deciles  <- Hmisc::wtd.quantile(hex_pop$renda_capta, weights=hex_pop$pop_total, 
+                                  probs=c( seq(0 , 1 , 0.1) ), 
+                                  type=c('quantile','(i-1)/(n-1)','i/(n+1)','i/n'), 
+                                  normwt=FALSE, na.rm=T)
+  
+  quintiles  <- Hmisc::wtd.quantile(hex_pop$renda_capta, weights=hex_pop$pop_total, 
+                                    probs=c( seq(0 , 1 , 0.2) ), 
+                                    type=c('quantile','(i-1)/(n-1)','i/(n+1)','i/n'), 
+                                    normwt=FALSE, na.rm=T)
+  
+  # classificar cada hexagono em cada quintil de renda
+  hex_pop[, quintil := findInterval(renda_capta, quintiles[ -length(quintiles) ] ) ]
+  hex_pop[, decil := findInterval(renda_capta, deciles[ -length(deciles) ] ) ]
+  
+  # check if pop size in each decile are roughly equal
+  hex_pop[, .(po_in_decile = sum(pop_total, na.rm=T)), by = decil]
+  hex_pop[, .(po_in_quintil = sum(pop_total, na.rm=T)), by = quintil]
+  
+  
+  
+  # Junta todos os dados agrupados por hexagonos
+  hex_muni_fim <- left_join(hex_muni, hex_pop)
+  
+  # substitui NAs por zeros
+  hex_muni_fim[is.na(hex_muni_fim)] <- 0
+  
+  # Salva grade de hexagonos com todas informacoes de uso do soloe
+  readr::write_rds(hex_muni_fim, paste0('./dados/capitais/hexagonos_dados/rds/hex_', sigla_muni,'_09.rds'))
+  sf::st_write(hex_muni_fim, paste0('./dados/capitais/hexagonos_dados/shp/hex_', sigla_muni,'_09.shp'))
+}
+
+# Aplica funcao para cada municipio
+pblapply(munis_df$name_muni, agrupar_variaveis)
+
