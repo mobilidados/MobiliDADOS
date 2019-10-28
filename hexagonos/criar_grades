@@ -85,5 +85,3 @@ juntar_grades <- function (i) {
 #3.2. Aplicar funcao para juntar grade
 list_muni_codes <- munis_df$code_muni
 pblapply(list_muni_codes, juntar_grades)
-
-
