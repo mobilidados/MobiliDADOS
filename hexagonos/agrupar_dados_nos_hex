@@ -104,4 +104,3 @@ agrupar_variaveis <- function(sigla_muni) {
 
 # Aplica funcao para cada municipio
 pblapply(munis_df$name_muni, agrupar_variaveis)
-
