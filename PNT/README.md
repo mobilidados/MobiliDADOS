@@ -17,7 +17,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 
 #### Dados necessários:
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY)  dos setores censitários
-- [Estacoes](https://drive.google.com/drive/folders/1TVTbgFugOBzVMROlMKuAJVMM4ylKYtod) de transporte mapeadas pelo ITDP
+- [Estacoes](https://www.google.com/maps/d/u/0/viewer?mid=1iQ9q4KBuH2T2O0972VURU_Ak76s&ll=-22.891436518219443%2C-43.19333559145247&z=11) de transporte mapeadas pelo ITDP
 
 
 #### Realização do cáculo
