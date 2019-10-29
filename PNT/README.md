@@ -9,7 +9,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 
 
 ### O que é transporte de média e alta capacidade?
-![](sobre_tma.png)
+![](sobre_tma.PNG)
 
 
 
@@ -48,7 +48,7 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 - Ficha descritiva dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
 - [Vídeo](INSERIR LINK) com tutorial para rodar o código
 - Link para baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
-- Link para baixa o [R Studio](https://cran.rstudio.com/) 
+- Link para baixar o [R Studio](https://cran.rstudio.com/) 
 
 
 ### Glossário
