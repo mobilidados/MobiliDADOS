@@ -10,7 +10,8 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 
 ### O que é transporte de média e alta capacidade?
 ![](sobre_tma.PNG)
-![](apoio/imagens/sobre_tma.pdf)
+
+![](MobiliDADOS/apoio/imagens/sobre_tma.pdf)
 
 
 
