@@ -1,0 +1,113 @@
+#1. Abrir pacotes
+#2. Abrir arquivos
+#3. Rodar funcao
+
+
+#1. Abrir pacotes necessarios ----
+library(raster)
+library(sp)
+library(readr)
+library(rgdal)
+library(sf)
+library(classInt)
+library(RColorBrewer)
+library(broom)
+library(ggplot2)
+library(ggmap)
+library(tmap)
+library(leaflet)
+library(GISTools)
+library(dplyr)
+library(mapview)
+library(beepr)
+library(ggsn)
+
+install.packages('ggsn')
+install.packages('beepr')
+
+setwd('/Users/itdpbrasil/Desktop/Mobilidados 2019')
+
+
+#2. Abrir arquivos ----
+#Abrir infra de transporte
+infra_rt <- readOGR('/Users/itdpbrasil/Desktop/Qgis/Lines/all_lines_RT.shp')
+infra_rt <- spTransform(infra_rt, CRS("+init=epsg:4326"))
+
+
+
+
+i <- "RMF"
+
+#3. Rodar funcao ----
+mapa_pnt <- function(i){
+  message(paste0('ola, ', i,"\n"))
+  #abrir RM
+  rm <- readOGR(paste0('/Users/itdpbrasil/Desktop/Limites RMs_dissolvidos/', i, '.shp'))
+  rm <- spTransform(rm, CRS("+init=epsg:4326"))
+  
+  #selecionar infra RT apenas da RM desejada
+  infra_rt_rm <- raster::intersect(infra_rt, rm)
+  
+  #abrir setores
+  setores <- readOGR(paste0('./dados/setores_dados/', i, '/', i, '_setores_dados.shp'))
+  setores$dens <- setores$dens_h_km2
+  
+  setores <- spTransform(setores, CRS("+init=epsg:4326"))
+  message(paste0('setores de ', i," abertos"))
+  #funcao para juntar_setores_dados <- function (muni) {
+  #   setores <- st_read(paste0('./dados/capitais/setores/shp/setores_', muni, '.shp'))%>%
+  #     rename(Cod_setor = cd_trct) %>%
+  #     mutate(Cod_setor = as.character(Cod_setor), Ar_m2 = unclass(st_area(.)))
+  #   setores <- st_transform(setores, 3857)
+  #   setores <- st_buffer(setores, 0) #corrigir shapes que podem possuir algum defeito de feicao
+  #   #Se desejar analisar apenas um municipio da Regiao Metropolitana
+  #   #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
+  #   
+  #   #Unir setores com dados do IBGE
+  #   juntar_com_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf() %>%
+  #     mutate(Dens = 1000000*(Pop/Ar_m2))
+  #   st_write(juntar_com_dados, paste0('./dados/capitais/setores_dados/shp/', muni, '_setores_dados.shp'), layer_options = 'ENCODING=UTF-8')
+  # }
+  
+  #mudar shp para dataframe
+  setores_df <- tidy(setores)
+  infra_rt_df <- tidy(infra_rt_rm)
+  
+  #unir informações
+  setores$polyID <- sapply(slot(setores, "polygons"), function(x) slot(x, "ID"))
+  setores_df <- merge(setores_df, setores, by.x = "id", by.y="polyID")
+  names(setores_df)
+  
+  message(paste0('dados de ', i," transformados em df"))
+  #criar mapa PNT
+  PNT <- ggplot () +                                              # initialize ggplot object
+    geom_polygon(                                          # make a polygon
+      data = setores_df,                                    # data frame
+      aes(x = long, y = lat, group = group,     # coordinates, and group them by polygons
+          fill = cut_number(dens, 9)), alpha = 0.8) +                # variable to use for filling
+    scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
+    # north(setores_df, location = "topleft", symbol = 12) +
+    scalebar(setores_df, dist = 10, dist_unit = "km", location = "bottomright",
+             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
+    ggtitle(i) +                      # add title
+    theme(line = element_blank(),                          # remove axis lines .. 
+          axis.text=element_blank(),                       # .. tickmarks..
+          axis.title=element_blank(),                      # .. axis labels..
+          panel.background = element_blank()) +            # .. background gridlines
+    geom_path(
+      data = infra_rt_df, 
+      aes(x = long, y = lat, group = group),
+      colour = "green", size = 2)   +           # mudar espessura da linha 
+    coord_equal()
+  
+  message(paste0('mapa de ', i," criado"))
+  
+  #salvar
+  ggsave(PNT, 
+         file= paste0('./outros/mapas/PNT/', i, '.png'), 
+         dpi = 1500, width = 21, height = 15, units = 'cm')
+  beepr::beep()
+}
+
+mapa_pnt("RMB")
+
