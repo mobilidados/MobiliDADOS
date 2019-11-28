@@ -27,7 +27,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 
 #### Dados necessários:
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
-- Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [Ciclomapa](https://ciclomapa.org.br/)
+- Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [CicloMapa](https://ciclomapa.org.br/)
 
 ![](CicloMapa.png)
 
