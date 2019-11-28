@@ -1,0 +1,126 @@
+#1. Abrir pacotes
+#2. Abrir arquivos
+#3. Rodar funcao
+
+
+#1. Abrir pacotes necessarios ----
+library(raster)
+library(sp)
+library(readr)
+library(rgdal)
+library(sf)
+library(classInt)
+library(RColorBrewer)
+library(broom)
+library(ggplot2)
+library(ggmap)
+library(tmap)
+library(leaflet)
+library(GISTools)
+library(dplyr)
+library(mapview)
+library(beepr)
+library(ggsn)
+
+setwd('/Users/mackook/Desktop/R/')
+
+
+#2. Abrir arquivos ----
+#Abrir infra de transporte
+infra_ciclo <- readOGR('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+
+#Abrir municipio
+muni_br <- readOGR("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
+muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
+
+#Criar tabela munis_df
+munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400, 5300108, 4106902,
+                                     3106200, 1501402, 1100205, 1200401, 1302603, 1400100, 1600303, 
+                                     1721000, 2111300, 2211001, 2408102, 2507507, 2704302, 2800308,
+                                     3205309, 4205407, 4314902, 5002704, 5103403, 5208707),
+                       name_muni=c('salvador', 'sao paulo','rio de janeiro', 'recife', 'fortaleza', 
+                                   'distrito federal', 'curitiba', 'belo horizonte', 'belem', 'porto velho', 
+                                   'rio branco', 'manaus', 'boa vista', 'macapa', 'palmas', 'sao luis',
+                                   'teresina', 'natal', 'joao pessoa', 'maceio', 'aracaju', 'vitoria', 
+                                   'florianopolis', 'porto alegre', 'campo grande', 'cuiaba', 'goiania'),
+                       abrev_state=c('BA', 'SP', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO',
+                                     'AC', 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL',
+                                     'SE', 'ES', 'SC', 'RS', 'MS', 'MT', 'GO'), 
+                       espg = c(31984, 31983, 31983, 31985, 31984, 31983, 31982, 31983, 31982, 31980, 
+                                31979, 31980, 31980, 31982, 31982, 31983, 31983, 31985, 31985, 31985, 
+                                31984, 31984, 31982, 31982, 31981, 31981, 31982))
+
+
+#3. Rodar funcao ----
+mapa_pnb <- function(i){
+  #selecionar municipio
+  muni <- muni_br[muni_br$CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni,]
+  muni <- spTransform(muni, CRS("+init=epsg:4326"))
+  
+  #selecionar infra ciclo apenas da cidade desejada
+  infra_ciclo <- spTransform(infra_ciclo, CRS("+init=epsg:4326"))
+  infra_ciclo_muni <- raster::intersect(infra_ciclo, muni)
+
+  #abrir setores
+  setores <- readOGR(paste0('./dados/capitais/setores_dados/shp/', i, '_setores_dados.shp'))
+  setores <- spTransform(setores, CRS("+init=epsg:4326"))
+
+  #funcao para juntar_setores_dados <- function (muni) {
+#   setores <- st_read(paste0('./dados/capitais/setores/shp/setores_', muni, '.shp'))%>%
+#     rename(Cod_setor = cd_trct) %>%
+#     mutate(Cod_setor = as.character(Cod_setor), Ar_m2 = unclass(st_area(.)))
+#   setores <- st_transform(setores, 3857)
+#   setores <- st_buffer(setores, 0) #corrigir shapes que podem possuir algum defeito de feicao
+#   #Se desejar analisar apenas um municipio da Regiao Metropolitana
+#   #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
+#   
+#   #Unir setores com dados do IBGE
+#   juntar_com_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf() %>%
+#     mutate(Dens = 1000000*(Pop/Ar_m2))
+#   st_write(juntar_com_dados, paste0('./dados/capitais/setores_dados/shp/', muni, '_setores_dados.shp'), layer_options = 'ENCODING=UTF-8')
+# }
+
+  #mudar shp para dataframe
+  setores_df <- tidy(setores)
+  infra_ciclo_df <- tidy(infra_ciclo_muni)
+  
+  #unir informações
+  setores$polyID <- sapply(slot(setores, "polygons"), function(x) slot(x, "ID"))
+  setores_df <- merge(setores_df, setores, by.x = "id", by.y="polyID")
+  
+  #criar mapa PNB
+  PNB <- ggplot () +                                              # initialize ggplot object
+    geom_polygon(                                          # make a polygon
+      data = setores_df,                                    # data frame
+      aes(x = long, y = lat, group = group,     # coordinates, and group them by polygons
+          fill = cut_number(Dens, 9)), alpha = 0.8) +                # variable to use for filling
+    scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
+    # north(setores_df, location = "topleft", symbol = 12) +
+    scalebar(setores_df, dist = 4, dist_unit = "km", location = "bottomright",
+             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
+    ggtitle(i) +                      # add title
+    theme(line = element_blank(),                          # remove axis lines .. 
+          axis.text=element_blank(),                       # .. tickmarks..
+          axis.title=element_blank(),                      # .. axis labels..
+          panel.background = element_blank()) +            # .. background gridlines
+    geom_path(
+      data = infra_ciclo_df, 
+      aes(x = long, y = lat, group = group),
+      colour = "darkturquoise", size = 0.3)   +           # mudar espessura da linha 
+    coord_equal()
+  
+  
+  #salvar
+  ggsave(PNB, 
+         file= paste0('./outros/mapas/PNB/', i, '.png'), 
+         dpi = 1500, width = 21, height = 15, units = 'cm')
+  beepr::beep()
+}
+
+mapa_pnb("fortaleza")
+
+#Cores: PNT - "green" e PNB - "darkturquoise"
+
+
+northSymbols()
+
