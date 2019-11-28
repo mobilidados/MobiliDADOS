@@ -3,7 +3,7 @@
 #2. Abrir arquivos
 #3. Rodar funcao
 
-# Codido para criar mapa de PNB
+# Codigo para criar mapa de PNB
 #1. Abrir pacotes necessarios ----
 library(raster)
 library(sp)
@@ -54,6 +54,9 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400
 
 #3. Rodar funcao ----
 mapa_pnb <- function(i){
+  
+  message(paste0('ola, ', i,"\n"))
+  
   #selecionar municipio
   muni <- muni_br[muni_br$CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni,]
   muni <- spTransform(muni, CRS("+init=epsg:4326"))
@@ -66,6 +69,8 @@ mapa_pnb <- function(i){
   setores <- readOGR(paste0('./dados/capitais/setores_dados/shp/', i, '_setores_dados.shp'))
   setores <- spTransform(setores, CRS("+init=epsg:4326"))
 
+  message(paste0('setores de ', i," abertos"))
+  
   #funcao para juntar_setores_dados <- function (muni) {
 #   setores <- st_read(paste0('./dados/capitais/setores/shp/setores_', muni, '.shp'))%>%
 #     rename(Cod_setor = cd_trct) %>%
@@ -89,6 +94,8 @@ mapa_pnb <- function(i){
   setores$polyID <- sapply(slot(setores, "polygons"), function(x) slot(x, "ID"))
   setores_df <- merge(setores_df, setores, by.x = "id", by.y="polyID")
   
+  message(paste0('dados ', i," transformados em dataframe"))
+  
   #criar mapa PNB
   PNB <- ggplot () +                                              # initialize ggplot object
     geom_polygon(                                          # make a polygon
@@ -110,6 +117,7 @@ mapa_pnb <- function(i){
       colour = "darkturquoise", size = 1.5)   +           # mudar espessura da linha 
     coord_equal()
   
+  message(paste0('mapa de ', i," criado"))
   
   #salvar
   ggsave(PNB, 
