@@ -1,8 +1,9 @@
+## Etapas para criar mapas de PNB no ggplot
 #1. Abrir pacotes
 #2. Abrir arquivos
 #3. Rodar funcao
 
-
+# Codido para criar mapa de PNB
 #1. Abrir pacotes necessarios ----
 library(raster)
 library(sp)
@@ -96,9 +97,9 @@ mapa_pnb <- function(i){
           fill = cut_number(Dens, 9)), alpha = 0.8) +                # variable to use for filling
     scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
     # north(setores_df, location = "topleft", symbol = 12) +
-    scalebar(setores_df, dist = 4, dist_unit = "km", location = "bottomright",
+    scalebar(setores_df, dist = 4, dist_unit = "km", location = "bottomleft",
              transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
-    ggtitle(i) +                      # add title
+    ggtitle(i) +                                           # add title
     theme(line = element_blank(),                          # remove axis lines .. 
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
@@ -106,7 +107,7 @@ mapa_pnb <- function(i){
     geom_path(
       data = infra_ciclo_df, 
       aes(x = long, y = lat, group = group),
-      colour = "darkturquoise", size = 0.3)   +           # mudar espessura da linha 
+      colour = "darkturquoise", size = 1.5)   +           # mudar espessura da linha 
     coord_equal()
   
   
@@ -117,10 +118,9 @@ mapa_pnb <- function(i){
   beepr::beep()
 }
 
-mapa_pnb("fortaleza")
-
-#Cores: PNT - "green" e PNB - "darkturquoise"
+mapa_pnb("recife")
 
 
-northSymbols()
-
+#size_infra_ciclo: 
+#belem = 0.5; 
+#belo horizonte, fortaleza, recife, curitiba, salvador, sao paulo, rio de janeiro = 1.5
