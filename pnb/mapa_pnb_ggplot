@@ -12,12 +12,7 @@ library(rgdal)
 library(sf)
 library(classInt)
 library(RColorBrewer)
-library(broom)
 library(ggplot2)
-library(ggmap)
-library(tmap)
-library(leaflet)
-library(GISTools)
 library(dplyr)
 library(mapview)
 library(beepr)
@@ -104,7 +99,7 @@ mapa_pnb <- function(i){
           fill = cut_number(Dens, 9)), alpha = 0.8) +                # variable to use for filling
     scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
     # north(setores_df, location = "topleft", symbol = 12) +
-    scalebar(setores_df, dist = 4, dist_unit = "km", location = "bottomleft",
+    scalebar(setores_df, dist = 5, dist_unit = "km", location = "bottomleft",
              transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
     ggtitle(i) +                                           # add title
     theme(line = element_blank(),                          # remove axis lines .. 
@@ -115,7 +110,8 @@ mapa_pnb <- function(i){
       data = infra_ciclo_df, 
       aes(x = long, y = lat, group = group),
       colour = "darkturquoise", size = 1.5)   +           # mudar espessura da linha 
-    coord_equal()
+    coord_sf(expand = F, xlim = c(st_bbox(infra_ciclo_muni)[[1]], st_bbox(infra_ciclo_muni)[[3]]),
+             ylim = c(st_bbox(infra_ciclo_muni)[[2]], st_bbox(infra_ciclo_muni)[[4]])) # coord_cartesian Coordinates Zoom
   
   message(paste0('mapa de ', i," criado"))
   
@@ -126,7 +122,7 @@ mapa_pnb <- function(i){
   beepr::beep()
 }
 
-mapa_pnb("recife")
+mapa_pnb("salvador")
 
 
 #size_infra_ciclo: 
