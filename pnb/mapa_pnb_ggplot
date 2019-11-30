@@ -5,30 +5,25 @@
 
 # Codigo para criar mapa de PNB
 #1. Abrir pacotes necessarios ----
-library(raster)
-library(sp)
 library(readr)
 library(rgdal)
 library(sf)
-library(classInt)
 library(RColorBrewer)
 library(ggplot2)
 library(dplyr)
 library(mapview)
 library(beepr)
 library(ggsn)
-library(broom)
-
 
 setwd('/Users/mackook/Desktop/R/')
 
 
 #2. Abrir arquivos ----
 #Abrir infra de transporte
-infra_ciclo <- readOGR('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
 
 #Abrir municipio
-muni_br <- readOGR("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
+muni_br <- st_read("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
 muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
 
 #Criar tabela munis_df
@@ -54,66 +49,48 @@ mapa_pnb <- function(i){
   
   message(paste0('ola, ', i,"\n"))
   
-  #selecionar municipio
-  muni <- muni_br[muni_br$CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni,]
-  muni <- spTransform(muni, CRS("+init=epsg:4326"))
+  #abrir muni da uf
+  muni_uf <- st_read('./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp')%>%
+    mutate(UF = substr(CD_GEOCMU,0,2)) %>% filter(UF == substr((subset(munis_df, name_muni==i)$code_muni),0,2))
+  muni_uf <- st_transform(muni_uf, 4326)
+  muni <- muni_br %>% filter(CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni)
+  muni <- st_transform(muni, 4326)
+  
   
   #selecionar infra ciclo apenas da cidade desejada
-  infra_ciclo <- spTransform(infra_ciclo, CRS("+init=epsg:4326"))
-  infra_ciclo_muni <- raster::intersect(infra_ciclo, muni)
-
+  infra_ciclo <- st_transform(infra_ciclo, 4326)
+  infra_ciclo_muni <- st_intersection(infra_ciclo, muni)
+  
+  infra_ciclo_muni <- st_transform(infra_ciclo_muni, 3857)
+  infra_ciclo_buf <- st_buffer(infra_ciclo_muni, 300) %>% st_union()
+  infra_ciclo_buf <- st_transform(infra_ciclo_buf, 4326)
+  
   #abrir setores
-  setores <- readOGR(paste0('./dados/capitais/setores_dados/shp/', i, '_setores_dados.shp'))
-  setores <- spTransform(setores, CRS("+init=epsg:4326"))
+  setores <- st_read(paste0('./dados/capitais/setores_dados/shp/', i, '_setores_dados.shp'))
+  setores <- st_transform(setores, 4326)
 
-  message(paste0('setores de ', i," abertos"))
+  message(paste0('municipio, infra ciclo e setores de ', i," abertos"))
   
-  #funcao para juntar_setores_dados <- function (muni) {
-#   setores <- st_read(paste0('./dados/capitais/setores/shp/setores_', muni, '.shp'))%>%
-#     rename(Cod_setor = cd_trct) %>%
-#     mutate(Cod_setor = as.character(Cod_setor), Ar_m2 = unclass(st_area(.)))
-#   setores <- st_transform(setores, 3857)
-#   setores <- st_buffer(setores, 0) #corrigir shapes que podem possuir algum defeito de feicao
-#   #Se desejar analisar apenas um municipio da Regiao Metropolitana
-#   #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
-#   
-#   #Unir setores com dados do IBGE
-#   juntar_com_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf() %>%
-#     mutate(Dens = 1000000*(Pop/Ar_m2))
-#   st_write(juntar_com_dados, paste0('./dados/capitais/setores_dados/shp/', muni, '_setores_dados.shp'), layer_options = 'ENCODING=UTF-8')
-# }
-
-  #mudar shp para dataframe
-  setores_df <- tidy(setores)
-  infra_ciclo_df <- tidy(infra_ciclo_muni)
-  
-  #unir informações
-  setores$polyID <- sapply(slot(setores, "polygons"), function(x) slot(x, "ID"))
-  setores_df <- merge(setores_df, setores, by.x = "id", by.y="polyID")
-  
-  message(paste0('dados ', i," transformados em dataframe"))
+  mapview(infra_ciclo_muni) + mapview(muni_uf) + 
+    mapview(muni) +   mapview(setores) +   mapview(infra_ciclo_muni) + mapview(infra_ciclo_buf)
   
   #criar mapa PNB
-  PNB <- ggplot () +                                              # initialize ggplot object
-    geom_polygon(                                          # make a polygon
-      data = setores_df,                                    # data frame
-      aes(x = long, y = lat, group = group,     # coordinates, and group them by polygons
-          fill = cut_number(Dens, 9)), alpha = 0.8) +                # variable to use for filling
-    scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
-    # north(setores_df, location = "topleft", symbol = 12) +
-    scalebar(setores_df, dist = 5, dist_unit = "km", location = "bottomleft",
-             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
-    ggtitle(i) +                                           # add title
-    theme(line = element_blank(),                          # remove axis lines .. 
+  PNB <- ggplot()+
+    geom_sf(data=muni_uf, fill="gray85", colour = "gray89", alpha = 0.2)+
+    geom_sf(data=muni, fill="gray85", colour = "black", alpha = 0.4)+
+    geom_sf(data=setores, aes(fill = cut_number(Dens,9)), colour=NA, alpha = 0.6) +
+    scale_fill_brewer('Dens', palette = "Reds")+
+    scalebar(setores, dist = 5, dist_unit = "km", location = "bottomleft",
+             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+             st.size = 3, border.size = 0.1)+
+    theme(line = element_blank(),                          # remove axis lines ..
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
-          panel.background = element_blank()) +            # .. background gridlines
-    geom_path(
-      data = infra_ciclo_df, 
-      aes(x = long, y = lat, group = group),
-      colour = "darkturquoise", size = 1.5)   +           # mudar espessura da linha 
-    coord_sf(expand = F, xlim = c(st_bbox(infra_ciclo_muni)[[1]], st_bbox(infra_ciclo_muni)[[3]]),
-             ylim = c(st_bbox(infra_ciclo_muni)[[2]], st_bbox(infra_ciclo_muni)[[4]])) # coord_cartesian Coordinates Zoom
+          panel.background = element_blank())+
+    geom_sf(data = infra_ciclo_buf, fill="blue", colour = "black", size = 0.05, alpha = 0.02)+           # mudar espessura da linha
+    geom_sf(data = infra_ciclo_muni, colour = "darkturquoise", size = 0.5)+           # mudar espessura da linha
+    coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.05, st_bbox(muni)[[3]]+0.05),
+             ylim = c(st_bbox(muni)[[2]]-0.07, st_bbox(muni)[[4]]+0.05)) #Zoom
   
   message(paste0('mapa de ', i," criado"))
   
