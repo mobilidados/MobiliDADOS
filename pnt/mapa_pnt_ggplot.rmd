@@ -4,12 +4,12 @@
 
 
 #1. Abrir pacotes necessarios ----
-library(raster)
-library(sp)
+#library(raster)
+#library(sp)
 library(readr)
 library(rgdal)
 library(sf)
-library(classInt)
+#library(classInt)
 library(RColorBrewer)
 library(ggplot2)
 library(dplyr)
@@ -25,6 +25,8 @@ setwd('/Users/mackook/Desktop/R/')
 #Abrir infra de transporte
 infra_rt <- st_read('./dados/infra_transporte/TMA/2018/linhas/all_lines_RT.shp')
 infra_rt <- st_transform(infra_rt, 4326)
+estacoes <- st_read('./dados/infra_transporte/TMA/2018/estacoes_2018.shp') #Open the stations file inserting the directory between 'quotation marks'
+estacoes$Ano <- as.numeric(as.character(estacoes$Year)) #Transform the data in year column in numeric
 
 #Criar tabela de referencia
 munis_df <- data.frame(code_muni = c(2301000,2303501,2303709,2303956,2304285,
@@ -63,6 +65,10 @@ mapa_pnt <- function(i){
 
   #selecionar infra RT apenas da RM desejada
   infra_rt_rm <- st_intersection(infra_rt, muni_rm)
+  TMA_estacoes <- estacoes %>% filter(Ano<(2019), Status =='Operational', RT == 'Yes') # Filter the Rapid Transit stations by year
+  TMA_estacoes <- st_transform(TMA_estacoes, 3857) #Transform the stations ESPG projection
+  TMA_buf <- st_buffer(TMA_estacoes, 1000) %>% st_union  #create the 1km buffer (~0.6mi) around the stations
+  TMA_buf <- st_transform(TMA_buf, 4326) #Transform the stations ESPG projection
   
   #abrir setores
   setores <- read_rds(paste0('./dados/regioes_metropolitanas/setores/setores_', tolower(i),'.rds'))%>% st_sf()
@@ -90,6 +96,7 @@ mapa_pnt <- function(i){
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
           panel.background = element_blank())+
+    geom_sf(data = TMA_buf, fill="blue", colour = "black", size = 0.05, alpha = 0.2)+           # mudar espessura da linha
     geom_sf(data = infra_rt_rm, colour = "green", size = 0.3)+           # mudar espessura da linha
     coord_sf(expand = F, xlim = c(st_bbox(muni_rm)[[1]]-0.05, st_bbox(muni_rm)[[3]]+0.05),
              ylim = c(st_bbox(muni_rm)[[2]]-0.07, st_bbox(muni_rm)[[4]]+0.05)) #Zoom
@@ -103,4 +110,4 @@ mapa_pnt <- function(i){
   beepr::beep()
 }
 
-mapa_pnt("RMRJ")
+mapa_pnt("RMF")
