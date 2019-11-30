@@ -18,85 +18,82 @@ library(beepr)
 library(ggsn)
 library(broom)
 
-install.packages('ggsn')
-install.packages('beepr')
-
-setwd('/Users/itdpbrasil/Desktop/Mobilidados 2019')
+setwd('/Users/mackook/Desktop/R/')
 
 
 #2. Abrir arquivos ----
 #Abrir infra de transporte
-infra_rt <- readOGR('/Users/itdpbrasil/Desktop/Qgis/Lines/all_lines_RT.shp')
-infra_rt <- spTransform(infra_rt, CRS("+init=epsg:4326"))
+infra_rt <- st_read('./dados/infra_transporte/TMA/2018/linhas/all_lines_RT.shp')
+infra_rt <- st_transform(infra_rt, 4326)
 
-
-
-
-i <- "RMF"
+#Criar tabela de referencia
+munis_df <- data.frame(code_muni = c(2301000,2303501,2303709,2303956,2304285,
+                                     2304400,2304954,2305233,2306256,2307650,
+                                     2307700,2309607,2309706,2310209,2310258,
+                                     2310852,2312403,2312601,2313500),
+                       name_muni=c('aquiraz','cascavel','caucaia','chorozinho','eusébio',
+                                   'fortaleza','guaiúba','horizonte','itaitinga','maracanaú',
+                                   'maranguape','pacajus','pacatuba','paracuru','paraipaba',
+                                   'pindoretama','são gonçalo do amarante','são luís do curu','trairi'),
+                       rm=c('rmf','rmf','rmf','rmf','rmf','rmf',
+                            'rmf','rmf','rmf','rmf','rmf','rmf',
+                            'rmf','rmf','rmf','rmf','rmf','rmf','rmf'),
+                       abrev_state=c('CE','CE','CE','CE','CE','CE','CE','CE','CE',
+                                     'CE','CE','CE','CE','CE','CE','CE','CE','CE','CE'),
+                       espg = c(31984, 31984, 31984, 31984, 31984, 31984, 31984,
+                                31984, 31984, 31984, 31984, 31984, 31984, 31984,
+                                31984, 31984, 31984, 31984, 31984),
+                       shp = c('RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza',
+                               'RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza',
+                               'RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza',
+                               'RM Fortaleza','RM Fortaleza','RM Fortaleza','RM Fortaleza'))
 
 #3. Rodar funcao ----
 mapa_pnt <- function(i){
   message(paste0('ola, ', i,"\n"))
-  #abrir RM
-  rm <- readOGR(paste0('/Users/itdpbrasil/Desktop/Limites RMs_dissolvidos/', i, '.shp'))
-  rm <- spTransform(rm, CRS("+init=epsg:4326"))
   
+  #abrir muni da uf
+  muni_uf <- st_read('./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp')%>%
+    mutate(UF = substr(CD_GEOCMU,0,2)) %>% filter(UF == substr(munis_df$code_muni,0,2))
+  muni_uf <- st_transform(muni, 4326)
+
+  #abrir muni da uf
+  muni_rm <- muni_uf %>% filter(CD_GEOCMU%in% munis_df$code_muni)
+  muni_rm <- st_transform(muni_rm, 4326)
+
   #selecionar infra RT apenas da RM desejada
-  infra_rt_rm <- raster::intersect(infra_rt, rm)
+  infra_rt_rm <- st_intersection(infra_rt, muni_rm)
   
   #abrir setores
-  setores <- readOGR(paste0('./dados/setores_dados/', i, '/', i, '_setores_dados.shp'))
-  setores$dens <- setores$dens_h_km2
+  setores <- read_rds(paste0('./dados/regioes_metropolitanas/setores/setores_', tolower(i),'.rds'))%>% st_sf()
   
-  setores <- spTransform(setores, CRS("+init=epsg:4326"))
-  message(paste0('setores de ', i," abertos"))
-  #funcao para juntar_setores_dados <- function (muni) {
-  #   setores <- st_read(paste0('./dados/capitais/setores/shp/setores_', muni, '.shp'))%>%
-  #     rename(Cod_setor = cd_trct) %>%
-  #     mutate(Cod_setor = as.character(Cod_setor), Ar_m2 = unclass(st_area(.)))
-  #   setores <- st_transform(setores, 3857)
-  #   setores <- st_buffer(setores, 0) #corrigir shapes que podem possuir algum defeito de feicao
-  #   #Se desejar analisar apenas um municipio da Regiao Metropolitana
-  #   #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
-  #   
-  #   #Unir setores com dados do IBGE
-  #   juntar_com_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf() %>%
-  #     mutate(Dens = 1000000*(Pop/Ar_m2))
-  #   st_write(juntar_com_dados, paste0('./dados/capitais/setores_dados/shp/', muni, '_setores_dados.shp'), layer_options = 'ENCODING=UTF-8')
-  # }
+  #abrir dados
+  dados <- read_rds('./dados/IBGE/dados_setores/3_tabela_pais/dados_setores.rds') %>% 
+    mutate(Cod_setor=as.character(Cod_setor)) #Open the census data file inserting the directory between 'quotation marks'
   
-  #mudar shp para dataframe
-  setores_df <- tidy(setores)
-  infra_rt_df <- tidy(infra_rt_rm)
+  setores <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf()
+    
+  setores$dens <- 1000000*(setores$Pop/setores$Ar_m2)
+  setores <- st_transform(setores, 4326)
   
-  #unir informações
-  setores$polyID <- sapply(slot(setores, "polygons"), function(x) slot(x, "ID"))
-  setores_df <- merge(setores_df, setores, by.x = "id", by.y="polyID")
-  names(setores_df)
+  message(paste0('municipios, setores e infra tma de ', i," abertos"))
   
-  message(paste0('dados de ', i," transformados em df"))
-  #criar mapa PNT
-  PNT <- ggplot () +                                              # initialize ggplot object
-    geom_polygon(                                          # make a polygon
-      data = setores_df,                                    # data frame
-      aes(x = long, y = lat, group = group,     # coordinates, and group them by polygons
-          fill = cut_number(dens, 9)), alpha = 0.8) +                # variable to use for filling
-    scale_fill_brewer("Densidade", palette = "Reds") + # fill with brewer colors
-    # north(setores_df, location = "topleft", symbol = 12) +
-    scalebar(setores_df, dist = 10, dist_unit = "km", location = "bottomright",
-             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, st.size = 3, border.size = 0.2)+
-    ggtitle(i) +                      # add title
-    theme(line = element_blank(),                          # remove axis lines .. 
+  PNT <- ggplot()+
+    geom_sf(data=muni_uf, fill="gray85", colour = "gray89", alpha = 0.4)+
+    geom_sf(data=muni_rm, fill=NA, colour = "gray90", alpha = 0.7)+
+    geom_sf(data=setores, aes(fill = cut_number(dens,9)), colour=NA, alpha = 0.6) +
+    scale_fill_brewer('dens', palette = "Reds")+
+    scalebar(muni_rm, dist = 20, dist_unit = "km", location = "bottomleft",
+             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+             st.size = 3, border.size = 0.1)+
+    theme(line = element_blank(),                          # remove axis lines ..
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
-          panel.background = element_blank()) +            # .. background gridlines
-    geom_path(
-      data = infra_rt_df, 
-      aes(x = long, y = lat, group = group),
-      colour = "green", size = 2)   +           # mudar espessura da linha 
- coord_sf(expand = F, xlim = c(st_bbox(infra_ciclo_muni)[[1]], st_bbox(infra_ciclo_muni)[[3]]),
-             ylim = c(st_bbox(infra_ciclo_muni)[[2]], st_bbox(infra_ciclo_muni)[[4]])) # coord_cartesian Coordinates Zoom
-    
+          panel.background = element_blank())+
+    geom_sf(data = infra_rt_rm, colour = "green", size = 2)+           # mudar espessura da linha
+    coord_sf(expand = F, xlim = c(st_bbox(muni_rm)[[1]]-0.05, st_bbox(muni_rm)[[3]]+0.05),
+             ylim = c(st_bbox(muni_rm)[[2]]-0.07, st_bbox(muni_rm)[[4]]+0.05)) #Zoom
+  
   message(paste0('mapa de ', i," criado"))
   
   #salvar
@@ -106,5 +103,4 @@ mapa_pnt <- function(i){
   beepr::beep()
 }
 
-mapa_pnt("RMB")
-
+mapa_pnt("RMF")
