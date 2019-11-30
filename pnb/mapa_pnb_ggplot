@@ -17,6 +17,8 @@ library(dplyr)
 library(mapview)
 library(beepr)
 library(ggsn)
+library(broom)
+
 
 setwd('/Users/mackook/Desktop/R/')
 
@@ -123,7 +125,6 @@ mapa_pnb <- function(i){
 }
 
 mapa_pnb("salvador")
-
 
 #size_infra_ciclo: 
 #belem = 0.5; 
