@@ -55,7 +55,7 @@ mapa_pnt <- function(i){
   #abrir muni da uf
   muni_uf <- st_read('./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp')%>%
     mutate(UF = substr(CD_GEOCMU,0,2)) %>% filter(UF == substr(munis_df$code_muni,0,2))
-  muni_uf <- st_transform(muni, 4326)
+  muni_uf <- st_transform(muni_uf, 4326)
 
   #abrir muni da uf
   muni_rm <- muni_uf %>% filter(CD_GEOCMU%in% munis_df$code_muni)
@@ -90,7 +90,7 @@ mapa_pnt <- function(i){
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
           panel.background = element_blank())+
-    geom_sf(data = infra_rt_rm, colour = "green", size = 2)+           # mudar espessura da linha
+    geom_sf(data = infra_rt_rm, colour = "green", size = 0.3)+           # mudar espessura da linha
     coord_sf(expand = F, xlim = c(st_bbox(muni_rm)[[1]]-0.05, st_bbox(muni_rm)[[3]]+0.05),
              ylim = c(st_bbox(muni_rm)[[2]]-0.07, st_bbox(muni_rm)[[4]]+0.05)) #Zoom
   
@@ -103,4 +103,4 @@ mapa_pnt <- function(i){
   beepr::beep()
 }
 
-mapa_pnt("RMF")
+mapa_pnt("RMRJ")
