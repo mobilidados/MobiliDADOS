@@ -45,6 +45,8 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400
 
 
 #3. Rodar funcao ----
+
+#Criar funcao
 mapa_pnb <- function(i){
   
   message(paste0('ola, ', i,"\n"))
@@ -89,8 +91,8 @@ mapa_pnb <- function(i){
           panel.background = element_blank())+
     geom_sf(data = infra_ciclo_buf, fill="blue", colour = "black", size = 0.05, alpha = 0.02)+           # mudar espessura da linha
     geom_sf(data = infra_ciclo_muni, colour = "darkturquoise", size = 0.5)+           # mudar espessura da linha
-    coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.05, st_bbox(muni)[[3]]+0.05),
-             ylim = c(st_bbox(muni)[[2]]-0.07, st_bbox(muni)[[4]]+0.05)) #Zoom
+    coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.02, st_bbox(muni)[[3]]+0.02),
+             ylim = c(st_bbox(muni)[[2]]-0.02, st_bbox(muni)[[4]]+0.02)) #Zoom
   
   message(paste0('mapa de ', i," criado"))
   
@@ -101,6 +103,7 @@ mapa_pnb <- function(i){
   beepr::beep()
 }
 
+#aplicar funcao
 mapa_pnb("salvador")
 
 #size_infra_ciclo: 
