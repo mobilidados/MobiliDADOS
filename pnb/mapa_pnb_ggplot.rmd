@@ -14,7 +14,6 @@ library(dplyr)
 library(mapview)
 library(beepr)
 library(ggsn)
-library(ggnewscale)
 
 setwd('/Users/mackook/Desktop/R/')
 
@@ -80,7 +79,7 @@ mapa_pnb <- function(i){
     #geom_sf(data=hex_nn, aes(fill = cut_number(dens,9)), colour=NA, alpha = 0.4) +
     #scale_fill_brewer('Densidade (hab/km2)', palette = "Reds")+
     scale_fill_gradient('Densidade (hab/km2)', low = '#FADBDB', high = 'red')+
-    geom_sf(data = infra_ciclo_muni, colour = "darkturquoise", size = 0.2)+ # mudar espessura da linha
+    geom_sf(data = infra_ciclo_muni, colour = "darkturquoise", size = 0.5)+ # mudar espessura da linha
     geom_sf(data=muni, fill=NA, colour = "black", alpha = 0.4)+
     geom_sf(data = infra_ciclo_buf, fill="gray85", colour = "black", size = 0.05, alpha = 0.2)+  
     # mudar espessura da linha
@@ -89,11 +88,11 @@ mapa_pnb <- function(i){
           axis.title=element_blank(),                      # .. axis labels..
           legend.position="bottom",
           panel.background = element_blank())+
-    scalebar(muni, dist = 5, dist_unit = "km", location = "bottomright",
-             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
-             st.size = 3, border.size = 0.1)+
+    scalebar(st_buffer(hex_nn, 0.02), dist = 5, dist_unit = "km", location = "bottomright",
+            transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+            st.size = 3, border.size = 0.1)+
     coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.05, st_bbox(muni)[[3]]+0.05),
-             ylim = c(st_bbox(muni)[[2]]-0.03, st_bbox(muni)[[4]]+0.03))  #Zoom
+             ylim = c(st_bbox(muni)[[2]]-0.05, st_bbox(muni)[[4]]+0.05))  #Zoom
   
   message(paste0('mapa de ', i," criado"))
   
@@ -105,7 +104,7 @@ mapa_pnb <- function(i){
 }
 
 #aplicar funcao
-mapa_pnb("belem")
+mapa_pnb("salvador")
 
 
 #size_infra_ciclo: 
