@@ -1,9 +1,8 @@
-## Etapas para criar mapas de PNB no ggplot
 #1. Abrir pacotes
 #2. Abrir arquivos
 #3. Rodar funcao
 
-# Codigo para criar mapa de PNB
+
 #1. Abrir pacotes necessarios ----
 library(readr)
 library(rgdal)
@@ -14,18 +13,20 @@ library(dplyr)
 library(mapview)
 library(beepr)
 library(ggsn)
+library(broom)
+library(data.table)
 
 setwd('/Users/mackook/Desktop/R/')
 
+
 #2. Abrir arquivos ----
 #Abrir infra de transporte
-infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+infra_rt <- st_read('./dados/infra_transporte/TMA/2018/linhas/all_lines_RT.shp')
+infra_rt <- st_transform(infra_rt, 4326)
+estacoes <- st_read('./dados/infra_transporte/TMA/2018/estacoes_2018.shp') #Open the stations file inserting the directory between 'quotation marks'
+estacoes$Ano <- as.numeric(as.character(estacoes$Year)) #Transform the data in year column in numeric
 
-#Abrir municipio
-muni_br <- st_read("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
-muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
-
-#Criar tabela munis_df
+#Criar tabela de referencia
 munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400, 5300108, 4106902,
                                      3106200, 1501402, 1100205, 1200401, 1302603, 1400100, 1600303, 
                                      1721000, 2111300, 2211001, 2408102, 2507507, 2704302, 2800308,
@@ -42,71 +43,135 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400
                                 31979, 31980, 31980, 31982, 31982, 31983, 31983, 31985, 31985, 31985, 
                                 31984, 31984, 31982, 31982, 31981, 31981, 31982))
 
-#3. Rodar funcao ----
 
-#Criar funcao
-mapa_pnb <- function(i){
-  
+#3. Rodar funcao ----
+mapa_pnt <- function(i){
   message(paste0('ola, ', i,"\n"))
   
   #abrir muni da uf
   muni_uf <- st_read('./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp')%>%
-    mutate(UF = substr(CD_GEOCMU,0,2)) %>% filter(UF == substr((subset(munis_df, name_muni==i)$code_muni),0,2))
+    mutate(UF = substr(CD_GEOCMU,0,2)) %>% filter(UF == substr(subset(munis_df, name_muni==i)$code_muni,0,2))
   muni_uf <- st_transform(muni_uf, 4326)
-  muni <- muni_br %>% filter(CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni)
+  
+    #abrir muni da uf
+  # muni_rm <- muni_uf %>% filter(CD_GEOCMU%in% munis_df$code_muni)
+  # muni_rm <- st_transform(muni_rm, 4326)
+  
+  #muni
+  muni <- muni_uf %>% filter(CD_GEOCMU==subset(munis_df, name_muni==i)$code_muni)
   muni <- st_transform(muni, 4326)
+
+  #selecionar infra RT apenas da RM desejada
+  infra_rt_rm <- st_intersection(infra_rt, muni)
+  TMA_estacoes <- estacoes %>% filter(Ano<(2019), Status =='Operational', RT == 'Yes') # Filter the Rapid Transit stations by year
+  TMA_estacoes <- st_transform(TMA_estacoes, 3857) #Transform the stations ESPG projection
+  TMA_buf <- st_buffer(TMA_estacoes, 1000) %>% st_union  #create the 1km buffer (~0.6mi) around the stations
+  TMA_buf <- st_transform(TMA_buf, 4326) #Transform the stations ESPG projection
+  TMA_estacoes <- st_transform(TMA_estacoes, 4326) #Transform the stations ESPG projection
+  TMA_estacoes <- st_intersection(TMA_estacoes, muni)
+  TMA_buf <- st_intersection(TMA_buf, muni)
   
-  
-  #selecionar infra ciclo apenas da cidade desejada
-  infra_ciclo <- st_transform(infra_ciclo, 4326)
-  infra_ciclo_muni <- st_intersection(infra_ciclo, muni)
-  
-  infra_ciclo_muni <- st_transform(infra_ciclo_muni, 3857)
-  infra_ciclo_buf <- st_buffer(infra_ciclo_muni, 300) %>% st_union()
-  infra_ciclo_buf <- st_transform(infra_ciclo_buf, 4326)
   
   #abrir setores
   hex <- st_read(paste0('./dados/capitais/hexagonos_dados/shp/hex_', i, '_09.shp'))
   hex <- st_transform(hex, 4326)
   hex_nn <- hex %>% filter(pop_ttl>0)
   
-  message(paste0('municipio, infra ciclo e setores de ', i," abertos"))
+  hex_nn1 <- setDT(hex_nn)[,.(DR_3_ms= DR_3_ms, 
+                             DR_tot = sum(DR_0_me, DR_me_1, DR_1_3, DR_3_ms, na.rm=T)),
+                          by=id_hex]
   
-  #criar mapa PNB
-  PNB <- ggplot()+
+  hex_nn_renda <- setDT(hex_nn1)[,.(Perc_DR_3_mais= 100*(DR_3_ms/DR_tot)),
+                               by=id_hex]
+  
+  hex_nn <- left_join(hex_nn, hex_nn_renda, by='id_hex') %>% st_sf()
+  hex_nn$Perc_DR_3_mais[is.na(hex_nn$Perc_DR_3_mais)] <- 0  
+  
+  hex_nn <- st_transform(hex_nn, 4326)
+  names(hex_nn)
+  
+  message(paste0('municipios, setores e infra tma de ', i," abertos"))
+  
+  PNT_income <- ggplot()+
     geom_sf(data=muni_uf, fill="gray85", colour = "gray89", alpha = 0.2)+
-    geom_sf(data=hex_nn, aes(fill = dens), colour = NA, alpha = 0.8) +
-    #geom_sf(data=hex_nn, aes(fill = cut_number(dens,9)), colour=NA, alpha = 0.4) +
-    #scale_fill_brewer('Densidade (hab/km2)', palette = "Reds")+
-    scale_fill_gradient('Densidade (hab/km2)', low = '#FADBDB', high = 'red')+
-    geom_sf(data = infra_ciclo_muni, colour = "darkturquoise", size = 0.5)+ # mudar espessura da linha
-    geom_sf(data=muni, fill=NA, colour = "black", alpha = 0.4)+
-    geom_sf(data = infra_ciclo_buf, fill="gray85", colour = "black", size = 0.05, alpha = 0.2)+  
-    # mudar espessura da linha
+    #geom_sf(data=setores, aes(fill = cut_number(dens,9)), colour=NA, alpha = 0.6) +
+    #scale_fill_brewer('dens', palette = "Reds")+
+    geom_sf(data=hex_nn, aes(fill = Perc_DR_3_mais), colour=NA, alpha = 0.6) +
+    scale_fill_viridis_c('Percentage of high income households',option = "plasma", direction = -1, alpha = 0.6,
+                         breaks=c(0,25,50,75,100),
+                         labels=c("","","","",""))+
+    #scale_fill_viridis()
+    geom_sf(data=muni, fill='white', colour = "black", size = 0.2, alpha =0.2)+
+    scalebar(st_buffer(hex_nn, 0.02), dist = 5, dist_unit = "km", location = "bottomright",
+             transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+             st.size = 3, border.size = 0.1)+
     theme(line = element_blank(),                          # remove axis lines ..
           axis.text=element_blank(),                       # .. tickmarks..
-          axis.title=element_blank(),                      # .. axis labels..
-          legend.position="bottom",
+          axis.title=element_blank(),
+          legend.direction='horizontal',
+          legend.position = "bottom",
+          legend.box='vertical',
+          legend.title=element_text(size=8),
+          legend.text=element_text(size=8),
+          plot.title = element_text(hjust = 0.5, size=22),
           panel.background = element_blank())+
-    scalebar(st_buffer(hex_nn, 0.02), dist = 5, dist_unit = "km", location = "bottomright",
-            transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
-            st.size = 3, border.size = 0.1)+
+    guides(color = guide_legend(nrow = 1, title.position = "top", label.position = "bottom"))+
+    labs(title="BELÉM")+
+    geom_sf(data = TMA_buf, fill='gray50', colour = "blue", 
+            size = 0.1, alpha = 0.1)+           # mudar espessura da linha
+    geom_sf(data = infra_rt_rm, colour = "gray50", size = 1)+           # mudar espessura da linha
     coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.05, st_bbox(muni)[[3]]+0.05),
-             ylim = c(st_bbox(muni)[[2]]-0.05, st_bbox(muni)[[4]]+0.05))  #Zoom
+             ylim = c(st_bbox(muni)[[2]]-0.05, st_bbox(muni)[[4]]+0.05)) #Zoom
   
-  message(paste0('mapa de ', i," criado"))
+  PNT_income
+  
+  
+  # PNT <- ggplot()+
+  #   geom_sf(data=muni_uf, fill="gray85", colour = "gray89", alpha = 0.2)+
+  #   #geom_sf(data=setores, aes(fill = dens), colour=NA, alpha = 0.6) +
+  #   geom_sf(data=hex_nn, aes(fill = dens), colour = NA, alpha = 0.9) +
+  #   #geom_sf(data=hex_nn, aes(fill = cut_number(dens,9)), colour=NA, alpha = 0.4) +
+  #   #scale_fill_brewer('Densidade (hab/km2)', palette = "Reds")+
+  #   scale_fill_gradient('Density', low = '#FADBDB', high = 'red', labels=c("","","",""))+
+  #   # geom_sf(data=setores, aes(fill = Perc_DR_3_mais), colour=NA, alpha = 0.6) +
+  #   # scale_fill_viridis_c('Percentage of high income households',option = "plasma", direction = -1, alpha = 0.6,
+  #   #                      breaks=c(0,25,50,75,100),
+  #   #                      labels=c("","Low","","High",""))+
+  #   # scale_fill_viridis()
+  #   geom_sf(data=muni, fill='white', colour = "black", size = 0.2, alpha =0.2)+
+  #   scalebar(muni, dist = 5, dist_unit = "km", location = "bottomright",
+  #            transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+  #            st.size = 3, border.size = 0.1)+
+  #   theme(line = element_blank(),                          # remove axis lines ..
+  #         axis.text=element_blank(),                       # .. tickmarks..
+  #         axis.title=element_blank(),
+  #         legend.direction='horizontal',
+  #         legend.position = "bottom",
+  #         legend.box='vertical',
+  #         legend.title=element_text(size=8),
+  #         legend.text=element_text(size=8),
+  #         plot.title = element_text(hjust = 0.5, size=22),
+  #         panel.background = element_blank())+
+  #   guides(color = guide_legend(nrow = 1, title.position = "top", label.position = "bottom"))+
+  #   labs(title="DISTRITO FEDERAL")+
+  #   geom_sf(data = TMA_buf, fill='gray50', colour = "blue", 
+  #           size = 0.1, alpha = 0.1)+           # mudar espessura da linha
+  #   geom_sf(data = infra_rt_rm, colour = "gray50", size = 1)+           # mudar espessura da linha
+  #   coord_sf(expand = F, xlim = c(st_bbox(muni)[[1]]-0.1, st_bbox(muni)[[3]]+0.1),
+  #            ylim = c(st_bbox(muni)[[2]]-0.1, st_bbox(muni)[[4]]+0.1)) #Zoom
+  # 
+  # PNT
+  # message(paste0('mapa de ', i," criado"))
   
   #salvar
-  ggsave(PNB, 
-         file= paste0('./outros/mapas/PNB/hex/', i, '.png'), 
+  # ggsave(PNT, 
+  #        file= paste0('./outros/mapas/PNT/PNT_', i, '.png'), 
+  #        dpi = 1500, width = 21, height = 15, units = 'cm')
+  
+  ggsave(PNT_income, 
+         file= paste0('./outros/mapas/PNT/PNT_income_', i, '.png'), 
          dpi = 1500, width = 21, height = 15, units = 'cm')
   beepr::beep()
 }
 
-#aplicar funcao
-mapa_pnb("salvador")
-
-
-#size_infra_ciclo: 
-#belem = 0.5; 
-#belo horizonte, fortaleza, recife, curitiba, salvador, sao paulo, rio de janeiro = 1.5
+mapa_pnt('belem')
