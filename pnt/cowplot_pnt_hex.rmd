@@ -1,0 +1,131 @@
+library(sf)
+library(geobr)
+library(mapview)
+library(ggplot2)
+library(gridExtra)
+library(cowplot)
+library(beepr)
+library(ggsn)
+library(dplyr)
+library(data.table)
+library(tidyverse)
+library(viridis)
+library(readr)
+library(rgdal)
+library(RColorBrewer)
+library(broom)
+
+#Definir diretorio
+setwd('/Users/mackook/Desktop/R/')
+
+#Abrir arquivos
+
+#Municipios
+muni_br <- st_read("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
+muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
+
+muni8 <- muni_br %>% filter(CD_GEOCMU %in% c(2927408, 3550308, 3304557, 
+                                2611606, 2304400,4106902,3106200, 1501402)) #filtra municipios relevantes
+muni8 <- st_transform(muni8, 4326) #reprojta crs
+muni8 <- muni8[order(muni8$NM_MUNICIP),] #ordenar por ordem alfabetica
+
+#Infraestrutura cicloviaria
+infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+infra_ciclo8 <- st_intersection(infra_ciclo, muni8) #corta apenas infraestrutura das cidades desejadas
+mapview(infra_ciclo8)
+
+#TMA
+infra_rt <- st_read('./dados/infra_transporte/TMA/2018/linhas/all_lines_RT.shp')
+infra_rt <- st_transform(infra_rt, 4326)
+estacoes <- st_read('./dados/infra_transporte/TMA/2018/estacoes_2018.shp') #Open the stations file inserting the directory between 'quotation marks'
+estacoes$Ano <- as.numeric(as.character(estacoes$Year)) #Transform the data in year column in numeric
+infra_rt8 <- st_intersection(infra_rt, muni8) #corta apenas infraestrutura das cidades desejadas
+estacoes8 <- st_intersection(estacoes, muni8) #corta apenas infraestrutura das cidades desejadas
+
+
+#Hexagonos
+hex_nn <- st_read('./dados/capitais/hexagonos_dados/shp/hex_capitais_nn_09.shp')
+hex_nn8 <- st_intersection(hex_nn, muni8)  #corta apenas hexagonos das cidades desejadas
+
+hex_calc1 <- setDT(hex_nn8)[,.(DR_3_ms= DR_3_ms, 
+                            DR_tot = sum(DR_0_me, DR_me_1, DR_1_3, DR_3_ms, na.rm=T)),
+                         by=id_hex]
+
+hex_calc2 <- setDT(hex_calc1)[,.(Perc_DR_3_mais= 100*(DR_3_ms/DR_tot)),
+                               by=id_hex]
+
+hex_nn8 <- left_join(hex_nn8, hex_calc2, by='id_hex') %>% st_sf()
+hex_nn8$Perc_DR_3_mais[is.na(hex_nn8$Perc_DR_3_mais)] <- 0  
+
+hex_nn8 <- st_transform(hex_nn8, 4326)
+unique(hex_nn8$Perc_DR_3_mais)
+
+#Cria centroide dos municipios
+muni8$centroid <- 
+  sf::st_transform(muni8, 4326) %>% 
+  sf::st_centroid() %>% 
+  sf::st_transform(., 4326)  %>% 
+  sf::st_geometry()
+
+padding <- 0.35 #define distancia entre limite dos municpios e borda dos mapas
+beep()
+
+graph <- function(x){
+  ggplot2::ggplot(muni8[x,]) +
+    geom_sf(data = muni_br, fill='gray85', colour = 'gray95', size = 0.2, alpha = 0.2) +
+    geom_sf(data=hex_nn8, aes(fill = Perc_DR_3_mais), colour = NA) +
+    scale_fill_viridis_c('Percentage of high income households',option = "plasma", direction = -1, alpha = 0.6,
+                         breaks=c(0,25,50,75,100),
+                         labels=c("","","","",""))+
+    geom_sf(data = muni8, fill=NA, colour = 'black', alpha = 0.7) +
+    geom_sf(data = infra_rt8, colour = "gray50", size = 1)+           # mudar espessura da linha
+    theme(line = element_blank(),                          # remove axis lines ..
+          axis.text=element_blank(),                       # .. tickmarks..
+          axis.title=element_blank(),                      # .. axis labels..
+          legend.position="none",
+          plot.title = element_text(size=8, hjust = 0.5),
+          #legend.text=element_text(size=8),
+          panel.background = element_blank())+
+    ggtitle(muni8$NM_MUNICIP[x])+
+    # scalebar(st_buffer(muni9, 0.02), dist = 5, dist_unit = "km", location = "bottomright",
+    #          transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+    #          st.size = 3, border.size = 0.1)+
+    coord_sf(xlim = c(muni8$centroid[[x]][1]-padding, muni8$centroid[[x]][1]+padding), 
+             ylim = c(muni8$centroid[[x]][2]-padding, muni8$centroid[[x]][2]+padding), expand = FALSE)
+} #funcao para criar mapas de cada cidade
+
+plot_list <- lapply(X = 1:nrow(muni8), FUN = graph) #aplicar funcao para criar mapas de cada cidade
+beep()
+
+#Criar legenda
+p1 <- ggplot()+
+  geom_sf(data=hex_nn8, aes(fill = Perc_DR_3_mais), colour=NA, alpha = 0.6) +
+  scale_fill_viridis_c('Percentage of high income households',option = "plasma", direction = -1, alpha = 0.6,
+                       breaks=c(0,25,50,75,100),
+                       labels=c("","","","",""))+
+  guides(fill = guide_colourbar(title.position = "top",
+                                title.hjust = .5))+ #posicao titulo da legenda
+  theme(legend.direction='horizontal',
+        legend.position = "bottom",
+        legend.title=element_text(vjust = 1, size=8)) #tamanho fonte, posicao e direcionamento da legenda 
+
+#ggsave(p1, file= './teste_p1.png', dpi = 100) # salvar
+beep()
+
+g_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)} #funcao para criar legenda
+
+mylegend<-g_legend(p1) #aplicar funcao para criar legenda relevante
+
+#Criar titulo
+title <- ggdraw() + draw_label("PEOPLE NEAR RAPID TRANSIT", size = 22, fontface='bold') #criar titulo
+
+g <- cowplot::plot_grid(NULL, title, NULL, mylegend,
+                        plotlist = plot_list, ncol = 4, nrow=3,
+                        rel_heights = c(0.3, 1, 1)) #criar imagem com todos os mapas
+                        
+ggsave(g, file= './pnt.png', dpi = 500, width = 21, height = 15, units = 'cm') # salvar
+beep()
