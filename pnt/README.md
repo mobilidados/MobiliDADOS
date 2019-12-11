@@ -43,7 +43,7 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 |Mulheres_RR_ate_2SM|**Mulheres com renda de até dois salários mínimos responsáveis por domicílio**. A variável é o resultado do somatório das variáveis Pessoas responsáveis com rendimento nominal mensal de até ½ salário mínimo, do sexo feminino (V045); Pessoas responsáveis com rendimento nominal mensal de mais de 1/2 a 1 salário mínimo, do sexo feminino (V046); Pessoas responsáveis com rendimento nominal mensal de mais de 1 a 2 salários mínimos, do sexo feminino (V047) extraídas da tabela ResponsavelRenda.|
 
 #### Exemplo de resultados:
-![](pnt_income.png)
+![](coxplot_pnt_income.png)
 
 
 ### Referências
