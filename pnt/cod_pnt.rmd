@@ -1,129 +1,102 @@
-#Passo-a-passo do calculo do PNT
-#1. Instalar pacotes e definir diretorio
-#2. Abrir arquivos necessarios
-#3. Realizar calculo do PNT
-
-
-#1. Instalar pacotes e definir diretorio ----
-#1.1. Instalar pacotes
-install.packages('sf')
-install.packages('dplyr')
-install.packages('readr')
-install.packages('openxlsx')
-install.packages('lwgeom')
-install.packages('mapview')
-
-#1.2 Abrir pacotes
 library(sf)
-library(dplyr)
-library(readr)
-library(openxlsx)
-library(lwgeom)
+library(geobr)
 library(mapview)
+library(ggplot2)
+library(gridExtra)
+library(cowplot)
+library(beepr)
+library(ggsn)
+library(dplyr)
+library(tidyverse)
 
-# Defnir diretorio
-setwd('/Users/mackook/Desktop/Tutorial_PNT') #altere o caminho para a pasta onde deseja salvar os arquivos
 
-#2. Abrir arquivos necessarios -----
-#2.1. Abrir estacoes 
-# Antes de abir o arquivo necessario baixar as estacoes:
-   #Neste link http://bit.ly/TMABrasil , acessando o menu 'Fazer download do arquivo kml' e selecionando Mapa inteiro. Necessario abrir, juntar e salvar todas as estacoes no Qgis em shp
-   #Para baixar as estacoes ja organizadas em um unico shapefile, ir em https://mobilidados.org.br/database e acessar 'Corredores de media e alta capacidade'
-estacoes <- st_read('./dados/tma/estacoes_2018.shp') #insere o nome do arquivo no qual salvou as estacoes para abri-lo
-estacoes$Ano <- as.numeric(as.character(estacoes$Year)) #transforma a coluna de ano em valor numerico
+#Definir diretorio
+setwd('/Users/mackook/Desktop/R/')
 
-#2.2. Abrir dados dos setores censitarios
-#Baixar dados dos setores censitarios na pagina da MobiliDADOS
-# Ir em https://mobilidados.org.br/database
-# Acessar pasta 'Dados das regioes metropolitanas por setor censitario'
-# Baixar tabela de dados
-dados <- read_rds('./dados/dados_ibge/dados_setores.rds') %>% mutate(Cod_setor=as.character(Cod_setor))
+###Abrir arquivos com dados que deseja incluir no mapa
 
-#2.3. Definir a regiao metropolitana que sera calculada
-#Abrir dados da regiao metropolitana
-#Criar tabela de referencia para puxar dados
-munis_df <- data.frame(code_muni = c(1500800,1501402,1501501,1502400,1504422,1506351,1506500),
-                       name_muni=c('ananindeua','belem','benevides','castanhal','marituba','santa barbara do para','santa izabel do para'),
-                       rm=c('rmb','rmb','rmb','rmb','rmb','rmb','rmb'),
-                       espg = c(31982,31982,31982,31982,31982,31982,31982))
-#As tabelas para as 9 regioes metropolitanas estao disponiveis na paginas do GITHUB da MobiliDADOS: https://github.com/mobilidados/MobiliDADOS/tree/master/PNT
+#Municipios
+muni_br <- st_read("./dados/IBGE/br_municipios/BRMUE250GC_SIR.shp")
+muni_br$CD_GEOCMU <- as.numeric(as.character(muni_br$CD_GEOCMU)) #transformar coluna em numero
+muni8 <- muni_br %>% filter(CD_GEOCMU %in% c(2927408, 3550308, 3304557, 
+                                2611606, 2304400,4106902,3106200, 1501402)) #filtra municipios relevantes
+muni8 <- st_transform(muni8, 4326) #reprojta crs
+muni8 <- muni8[order(muni8$NM_MUNICIP),] #ordenar por ordem alfabetica
 
-##2.4. Abrir setores da regiao metropolitana e juntar com dados
-# Baixar arquivos dos setores censitarios na pagina da MobiliDADOS
-   # Ir em https://mobilidados.org.br/database
-   # Acessar pasta 'Dados das regioes metropolitanas por setor censitario'
+#Infraestrutura cicloviaria
+infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+infra_ciclo8 <- st_intersection(infra_ciclo, muni8) #corta apenas infraestrutura das cidades desejadas
 
-# Criar funcao para juntar setores com dados do censo
-juntar_setores_dados <- function (rm) {
-  setores <- read_rds(paste0('./dados/setores/setores_', rm, '.rds')) %>% st_sf() #inserir o nome do arquivo no qual salvou os setores para abri-lo
-  setores <- setores %>% st_set_precision(1000000) %>% lwgeom::st_make_valid() #corrigir shapes que podem possuir algum defeito de feicao
-  #Se desejar analisar apenas um municipio da Regiao Metropolitana
-  #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
-  
-  #Unir setores com dados do IBGE
-  juntar_com_dados <- left_join(setores, dados, by = 'Cod_setor') %>% st_sf()
-  
-}
+#Hexagonos
+hex_nn <- st_read('./dados/capitais/hexagonos_dados/shp/hex_capitais_nn_09.shp')
+hex_nn8 <- st_intersection(hex_nn, muni8)  #corta apenas hexagonos das cidades desejadas
 
-setores_dados <- juntar_setores_dados(unique(munis_df$rm)) #junta setores com dados do censo rodando a funcao criada acima
-setores_dados <- setores_dados %>% st_set_precision(1000000) %>% lwgeom::st_make_valid() #corrige shapes que podem possuir algum defeito de feicao
 
-# setores_dados <- left_join(setores, dados, by = 'Cod_setor')
-# names(setores_dados)
-#3. Realizar calculo do PNT ----
-#3.1. Criar Funcao para aplicar PNT
-PNT_ano <- function(i) {
- 
-  message(paste0('Olá, ', unique(munis_df$rm),'! =)', "\n"))
-  
-  TMA_estacoes <- estacoes %>% filter(Ano<(i+1), Status =='Operational', RT == 'Yes') #filtra as estacoes de TMA por ano de referencia
+### Criar centroide dos municipios
+muni8$centroid <- 
+  sf::st_transform(muni8, 4326) %>% 
+  sf::st_centroid() %>% 
+  sf::st_transform(., 4326)  %>% 
+  sf::st_geometry()
 
-  TMA_estacoes<- st_transform(TMA_estacoes, unique(munis_df$espg)) #transforma projecao
-  
-  TMA_buf <- st_buffer(TMA_estacoes, 1000) %>% st_union  #cria buffer de 1.000 m
+padding <- 0.35 #define distancia entre limite dos municpios e borda dos mapas
 
-  message(paste0('Estacoes filtradas e buffer criado.',"\n"))
-  
-  setores_dados <- st_transform(setores_dados, 3857) #transforma projecao
-  setores_dados <- st_transform(setores_dados, unique(munis_df$espg)) #transforma projecao
-  setores_dados <- setores_dados %>% st_set_precision(1000000) %>% lwgeom::st_make_valid() #corrigir shapes que podem possuir algum defeito de feicao
-  
-  setores_entorno <- st_intersection(setores_dados, TMA_buf) #recorta setores dentro da area de entorno das estacoes
-  message(paste0('Recorte dos setores realizado.',"\n"))
 
-  setores_entorno <- setores_entorno %>%
-    mutate(Ar_int = unclass(st_area(.)), #cria area inserida no entorno da estacao
-           rt = as.numeric(Ar_int/Ar_m2)) %>% #cria proporcao entre area inserida no entorno da estacao e area total de cada 
-    mutate_at(.vars = vars(Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, M_Negras , M_2SM), 
-              funs(int = . * rt))
+### Criar funcao para gerar mapa
+graph <- function(x){
+  ggplot2::ggplot(muni8[x,]) +
+    geom_sf(data = muni_br, fill='gray85', colour = 'gray95', size = 0.2, alpha = 0.2) +
+    geom_sf(data = muni8, fill=NA, colour = 'black', alpha = 0.7) +
+    geom_sf(data=hex_nn8, aes(fill = dens), colour = NA) +
+    scale_fill_gradient('Density', low = '#FADBDB', high = 'red', labels=c("","","","","",""))+
+    geom_sf(data = infra_ciclo8, fill=NA, colour = "darkturquoise", size = 0.5, alpha = 0.95)+
+    theme(line = element_blank(),                          # remove axis lines ..
+          axis.text=element_blank(),                       # .. tickmarks..
+          axis.title=element_blank(),                      # .. axis labels..
+          legend.position="none",
+          plot.title = element_text(size=8, hjust = 0.5),
+          #legend.text=element_text(size=8),
+          panel.background = element_blank())+
+    ggtitle(muni8$NM_MUNICIP[x])+
+  # scalebar(st_buffer(muni9, 0.02), dist = 5, dist_unit = "km", location = "bottomright",
+    #          transform = TRUE, model = "WGS84", st.dist = 0.03, st.bottom = TRUE, 
+    #          st.size = 3, border.size = 0.1)+
+    coord_sf(xlim = c(muni8$centroid[[x]][1]-padding, muni8$centroid[[x]][1]+padding), 
+             ylim = c(muni8$centroid[[x]][2]-padding, muni8$centroid[[x]][2]+padding), expand = FALSE)
+} #funcao para criar mapas de cada cidade
 
-  total_entorno <- c((sum(setores_entorno$Pop_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_0_meio_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_meio_1_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_1_3_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_3_mais_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$M_Negras_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$M_2SM_int, na.rm = TRUE))) #realiza a soma total de cada variavel
+plot_list <- lapply(X = 1:nrow(muni8), FUN = graph) #aplicar funcao para criar mapas de cada cidade
+beep()
 
-  total_rm <- c((sum(setores_dados$Pop, na.rm = TRUE)), 
-                (sum(setores_dados$DR_0_meio, na.rm = TRUE)), 
-                (sum(setores_dados$DR_meio_1, na.rm = TRUE)), 
-                (sum(setores_dados$DR_1_3, na.rm = TRUE)), 
-                (sum(setores_dados$DR_3_mais, na.rm = TRUE)), 
-                (sum(setores_dados$M_Negras, na.rm = TRUE)), 
-                (sum(setores_dados$M_2SM, na.rm = TRUE))) #realiza a soma total de cada variavel
-  
-  
-  Resultados_rm <-rbind(total_entorno, total_rm, round(100*(total_entorno/total_rm),0))
-  colnames(Resultados_rm)<- c("Pop", "DR_0_meio","DR_meio_1","DR_1_3","DR_3_mais", "M_Negras", "M_2SM") #nomeia as colunas da tabela criada
-  row.names(Resultados_rm)<- c("total_entorno","total_rm", "resultado_%") #nomeia as linhas da tabela criada
-  
-  message(paste0('E o resultado do PNT é...',"\n"))
-  
-  print(Resultados_rm) #se desejar verficar a tabela, rode esta linha de codigo
-  
-  write.xlsx(Resultados_rm, paste0('./resultados/resultados_pnt_', unique(munis_df$rm),'_', i, '_.xlsx')) #salva os resultados finais na pasta com o nome da RM  
-}
+# Criar legenda
+p1 <- ggplot()+
+  geom_sf(data=hex_nn8, aes(fill = dens), colour = NA) + #dado que sera plotado
+  scale_fill_gradient('Density', low = '#FADBDB', high = 'red', 
+                      labels=c("","","","","",""))+ #estilo
+  guides(fill = guide_colourbar(title.position = "top",
+                                title.hjust = .5))+ #posicao titulo da legenda
+  theme(legend.direction='horizontal',
+        legend.position = "bottom",
+        legend.title=element_text(vjust = 1, size=8)) #tamanho fonte, posicao e direcionamento da legenda 
 
-#3.2. Aplicar funcao com o ano escolhido 
-PNT_ano(2018) #se desejar calcular para outro ano, basta trocar
+#ggsave(p1, file= './teste_p1.png', dpi = 100) # salvar
+#beep()
+
+g_legend<-function(a.gplot){
+  tmp <- ggplot_gtable(ggplot_build(a.gplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)} #funcao para criar legenda
+
+mylegend<-g_legend(p1) #aplicar funcao para criar legenda relevante
+
+#Criar titulo
+title <- ggdraw() + draw_label("PEOPLE NEAR BIKEWAYS", size = 24, fontface='bold') #criar titulo
+
+#Gerar cowplot mapa
+g <- cowplot::plot_grid(NULL, title, NULL, mylegend,
+                        plotlist = plot_list, ncol = 4, nrow=3,
+                        rel_heights = c(0.3, 1,1)) #criar imagem com todos os mapas
+                        
+ggsave(g, file= './resultados/mapas/cowplot_pnb.png', dpi = 500, width = 21, height = 15, units = 'cm') # salvar
+beep()
