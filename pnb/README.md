@@ -29,7 +29,7 @@ O ideal é que o indicador apresente tendência de crescimento ao longo do tempo
 - [Dados e feicoes](https://drive.google.com/drive/folders/1LZujtQv9Q3R_w096gI0tHQ6WJhlMbxcY) dos setores censitários
 - Infraestrutura cicloviária mapeada no OpenStreetMap disponibilizada no [CicloMapa](https://ciclomapa.org.br/). O Projeto CicloMapa é opensource e pode ser consultado [aqui](https://github.com/cmdalbem/ciclomapa)
 
-![](CicloMapa.png)
+![](mockups.png)
 
 
 #### Realização do cáculo:
