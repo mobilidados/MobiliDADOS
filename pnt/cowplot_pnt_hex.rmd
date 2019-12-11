@@ -29,10 +29,9 @@ muni8 <- muni_br %>% filter(CD_GEOCMU %in% c(2927408, 3550308, 3304557,
 muni8 <- st_transform(muni8, 4326) #reprojta crs
 muni8 <- muni8[order(muni8$NM_MUNICIP),] #ordenar por ordem alfabetica
 
-#Infraestrutura cicloviaria
-infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
-infra_ciclo8 <- st_intersection(infra_ciclo, muni8) #corta apenas infraestrutura das cidades desejadas
-mapview(infra_ciclo8)
+# #Infraestrutura cicloviaria
+# infra_ciclo <- st_read('./dados/infra_transporte/infra_cicloviaria/2019/infra_ciclo_filtrada_2019.shp')
+# infra_ciclo8 <- st_intersection(infra_ciclo, muni8) #corta apenas infraestrutura das cidades desejadas
 
 #TMA
 infra_rt <- st_read('./dados/infra_transporte/TMA/2018/linhas/all_lines_RT.shp')
@@ -41,7 +40,6 @@ estacoes <- st_read('./dados/infra_transporte/TMA/2018/estacoes_2018.shp') #Open
 estacoes$Ano <- as.numeric(as.character(estacoes$Year)) #Transform the data in year column in numeric
 infra_rt8 <- st_intersection(infra_rt, muni8) #corta apenas infraestrutura das cidades desejadas
 estacoes8 <- st_intersection(estacoes, muni8) #corta apenas infraestrutura das cidades desejadas
-
 
 #Hexagonos
 hex_nn <- st_read('./dados/capitais/hexagonos_dados/shp/hex_capitais_nn_09.shp')
@@ -78,7 +76,7 @@ graph <- function(x){
                          breaks=c(0,25,50,75,100),
                          labels=c("","","","",""))+
     geom_sf(data = muni8, fill=NA, colour = 'black', alpha = 0.7) +
-    geom_sf(data = infra_rt8, colour = "gray50", size = 1)+           # mudar espessura da linha
+    geom_sf(data = infra_rt8, colour = "gray50", size = 0.5)+           # mudar espessura da linha
     theme(line = element_blank(),                          # remove axis lines ..
           axis.text=element_blank(),                       # .. tickmarks..
           axis.title=element_blank(),                      # .. axis labels..
@@ -127,5 +125,5 @@ g <- cowplot::plot_grid(NULL, title, NULL, mylegend,
                         plotlist = plot_list, ncol = 4, nrow=3,
                         rel_heights = c(0.3, 1, 1)) #criar imagem com todos os mapas
                         
-ggsave(g, file= './pnt.png', dpi = 500, width = 21, height = 15, units = 'cm') # salvar
+ggsave(g, file= './resultados/mapas/cowplot_pnt.png', dpi = 500, width = 21, height = 15, units = 'cm') # salvar
 beep()
