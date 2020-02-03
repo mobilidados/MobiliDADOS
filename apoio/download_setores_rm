@@ -1,0 +1,16 @@
+library(geobr)
+library(dplyr)
+library(readr)
+
+
+setores_uf <- read_census_tract(code_tract = toupper(unique(munis_df$abrev_state)), 2010)
+beep()
+
+rm <- setores_uf %>% filter(code_muni %in% munis_df$code_muni)
+
+setores <- st_buffer(rm, 0)
+setores <- setores %>% mutate(Cod_setor = code_tract, Ar_m2 = unclass(st_area(.)))
+mapview(setores)
+
+write_rds(setores, paste0('./dados/IBGE/setores/setores_', 
+                          unique(munis_df$rm), '.rds'))
