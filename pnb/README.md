@@ -8,7 +8,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades, para avalia
 
 O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
 
-Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer simples que considera a distância linear no entorno da infraestrutura cicloviária (pasta simples) e a distância pela rede de ruas no entorno da infraestrutura cicloviária (network)
+Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer simples que considera a distância linear no entorno da infraestrutura cicloviária (*pasta simples*) e a distância pela rede de ruas no entorno da infraestrutura cicloviária (*pasta network*)
 
 **Os resultados do indicador podem ser consultados na [MobiliDADOS](www.mobilidados.org.br).**
 
