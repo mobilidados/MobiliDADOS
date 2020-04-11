@@ -1,4 +1,4 @@
-# Percentual de pessoas próximas da rede de transporte de média e alta capacidade - PNT
+# Percentual de pessoas próximas da rede de transporte de média e alta capacidade - PNT [ATUALIZAR]
 
 ### O que é o indicador?
 O indicador mensura o percentual da população de uma cidade ou região metropolitana que reside em um raio de até 1 km de uma estação do sistema de transporte público de média e alta capacidade. O dado é obtido por recursos de geoprocessamento, considerando a distribuição da população no território e a localização das estações e terminais de transporte público de média e alta capacidade. Na plataforma MobiliDADOS, este indicador é calculado considerando recorte de faixa de renda, gênero e raça e gênero e renda.
