@@ -55,7 +55,7 @@ Os resultados gerados ao final apresentam o percentual da população total pró
 
 ### Referências
 - Ficha descritiva dos [indicadores apurados da MobiliDADOS](https://docs.google.com/spreadsheets/d/1Q5QuhNEcaMmNY9Wzke7DQ_ERiqcDiP6uGNtD5MwSsaY/edit#gid=0)
-- [Vídeo](INSERIR LINK) com tutorial para realizar mapeamento cicloviário
+- [Vídeo](https://uniaodeciclistas.org.br/atuacao/ciclomapa/) com tutorial para realizar mapeamento cicloviário
 - Link pra baixar o [R](https://www.rstudio.com/products/rstudio/download/#download) 
 - Link para baixar [R Studio](https://cran.rstudio.com/) 
 
