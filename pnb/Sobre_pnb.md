@@ -1,4 +1,4 @@
-# Percentual de pessoas próximas da infraestrutura cicloviária - PNB [ATUALIZAR]
+# Percentual de pessoas próximas da infraestrutura cicloviária - PNB
 
 ### O que é o indicador?
 
