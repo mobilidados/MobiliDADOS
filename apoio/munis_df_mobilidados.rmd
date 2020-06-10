@@ -154,30 +154,31 @@ munis_df <- data.frame(code_muni = c(2606200, 2601052, 2600054, 2603454, 2607208
                                    'RM Recife','RM Recife','RM Recife'))
 
 
-# Munis_df RM_Rio_de_Janeiro -----
+#Munis_df RM_Rio_de_Janeiro -----
 munis_df <- data.frame(code_muni = c(3300456,3300803,3301702,3301850,3301900,3302007,
                                      3302270,3302502,3302700,3302858,3303203,3303302,
-                                     3303500,3303609,3304144,3304300,3304904,3305109,
-                                     3305554,3305752,3304557),
+                                     3303500,3303609,3303906,3304144,3304300,3304904,
+                                     3305109,3305554,3305752,3304557),
                        name_muni=c('belford roxo','cachoeiras de macacu','duque de caxias','guapimirim','itaborai',
                                    'itaguai','japeri','mage','marica','mesquita',
-                                   'nilopolis','niteroi','nova iguacu','paracambi','queimados',
+                                   'nilopolis','niteroi','nova iguacu','paracambi','petropolis','queimados',
                                    'rio bonito','sao goncalo','sao joao de meriti','seropedica','tangua',
                                    'rio de janeiro'),
                        abrev_state=c('RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ',
-                                     'RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ'),
+                                     'RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ','RJ'),
                        rm=c('rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj',
-                            'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj'), 
+                            'rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj','rmrj'), 
                        espg = c(31983,31983,31983,31983,31983,31983,31983,31983,31983,31983,
                                 31983,31983,31983,31983,31983,31983,31983,31983,31983,31983,
-                                31983),
+                                31983,31983),
                        shp = c('RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
                                'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
                                'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
                                'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
                                'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
                                'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
-                               'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro'))
+                               'RM_Rio_de_Janeiro','RM_Rio_de_Janeiro','RM_Rio_de_Janeiro',
+                               'RM_Rio_de_Janeiro'))
 
 
 
