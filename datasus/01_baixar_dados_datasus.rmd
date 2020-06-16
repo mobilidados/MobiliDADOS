@@ -1,0 +1,209 @@
+# Abrir pacotes e definir diretorio ----
+library(sf)
+library(beepr)
+library(geobr)
+library(openxlsx)
+library(dplyr)
+library(data.table)
+library(mapview)
+library(Hmisc)
+library(datasus)
+
+# Definir diretorio
+setwd('E:/R')
+
+prep_datasus <- function(i){
+  
+  message("abrindo composição da regiões metropolitanas...")
+  # Abrir tabela de composicao de RMs mais recente baixada daqui: 
+  #ftp://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2010a2019/
+  RMs <- read.xlsx(paste0("./dados/IBGE/composicao_rm/Composicao_RMs_RIDEs_AglomUrbanas_", i+1, "_12_31.xlsx"), sheet = 1) %>%
+    select(COD_MUN, NOME) %>% mutate(code_muni6 = as.character(substr(COD_MUN, 1, 6)), regiao_metro = NOME, NOME = NULL)
+  
+  
+  message("baixando dados datasus...")
+  # total
+  tot <- sim_obt10_mun(linha = "Município", #dados por municipio
+                       coluna = "Ano do Óbito", #por ano de obito
+                       conteudo = 2, #por local de ocorrencia
+                       periodo =  c(2000:i), # definir periodo desejado
+                       grupo_cid10 = c("Pedestre traumatizado em um acidente de transporte",
+                                       "Ciclista traumatizado em um acidente de transporte",
+                                       "Motociclista traumat em um acidente de transporte",
+                                       "Ocupante triciclo motorizado traumat acid transp",
+                                       "Ocupante automóvel traumat acidente transporte",
+                                       "Ocupante caminhonete traumat acidente transporte",
+                                       "Ocupante veíc transp pesado traumat acid transp",
+                                       "Ocupante ônibus traumat acidente de transporte",
+                                       "Outros acidentes de transporte terrestre")) #grupo cid10 desejado 
+  message("total - ok!")
+  
+  beep()
+  
+  # pedestres
+  ped <- sim_obt10_mun(linha = "Município", #dados por municipio
+                       coluna = "Ano do Óbito", #por ano de obito
+                       conteudo = 2, #por local de ocorrencia
+                       periodo = c(2000:i), #periodo desejado
+                       grupo_cid10 = c("Pedestre traumatizado em um acidente de transporte"))
+ 
+  message("pedestres - ok!")
+  beep()
+  
+  # ciclistas
+  cicl <- sim_obt10_mun(linha = "Município", #dados por municipio
+                        coluna = "Ano do Óbito", #por ano de obito
+                        conteudo = 2, #por local de ocorrencia
+                        periodo = c(2000:i), #periodo desejado
+                        grupo_cid10 = c("Ciclista traumatizado em um acidente de transporte"))
+  
+  message("ciclistas - ok!")
+  beep()
+  
+  # motociclistas
+  moto <- sim_obt10_mun(linha = "Município", #dados por municipio
+                        coluna = "Ano do Óbito", #por ano de obito
+                        conteudo = 2, #por local de ocorrencia
+                        periodo = c(2000:i), #periodo desejado
+                        grupo_cid10 = "Motociclista traumat em um acidente de transporte") 
+  
+  message("motociclistas - ok!")
+  beep()
+  
+  #automoveis
+  auto <- sim_obt10_mun(linha = "Município", #dados por municipio
+                        coluna = "Ano do Óbito", #por ano de obito
+                        conteudo = 2, #por local de ocorrencia
+                        periodo = c(2000:i), #periodo desejado
+                        grupo_cid10 =   "Ocupante automóvel traumat acidente transporte")
+
+  message("ocupantes de automoveis - ok!")
+  beep()
+  
+  # outros
+  outros <- sim_obt10_mun(linha = "Município", #dados por municipio
+                          coluna = "Ano do Óbito", #por ano de obito
+                          conteudo = 2, #por local de ocorrencia
+                          periodo = c(2000:i), #periodo desejado
+                          grupo_cid10 = c("Ocupante triciclo motorizado traumat acid transp",
+                                          "Ocupante caminhonete traumat acidente transporte",
+                                          "Ocupante veíc transp pesado traumat acid transp",
+                                          "Ocupante ônibus traumat acidente de transporte",
+                                          "Outros acidentes de transporte terrestre"))
+  
+  message("outros - ok!")
+  beep()
+  
+  # transforma na em 0
+  tot[is.na(tot)] <- 0
+  ped[is.na(ped)] <- 0
+  cicl[is.na(cicl)] <- 0
+  moto[is.na(moto)] <- 0
+  auto[is.na(auto)] <- 0
+  outros[is.na(outros)] <- 0
+  
+  message("limpando tabelas datasus...")
+  
+  # limpar tabela total 
+  tot_temp  <- tot %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Total") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  tot_fim <- left_join(tot_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  # limpar tabela de pedestres
+  ped_temp  <- ped %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Pedestres") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  ped_fim <- left_join(ped_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  # limpar tabela de ciclistas
+  cicl_temp  <- cicl %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Ciclistas") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  cicl_fim <- left_join(cicl_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  
+  # limpar tabela de motociclista
+  moto_temp  <- moto %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Motocilistas") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  moto_fim <- left_join(moto_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  # limpar tabela de ocupantes de automóvel
+  auto_temp  <- auto %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Ocupantes de automovel") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  auto_fim <- left_join(auto_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  # limpar tabela de outros
+  outros_temp  <- outros %>% filter(Município != "TOTAL") %>% 
+    mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "Outros") %>%
+    select(code_muni6, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+           `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+           `2016`, `2017`, `2018`)
+  
+  outros_fim <- left_join(outros_temp, RMs %>% select(code_muni6, regiao_metro), by = "code_muni6") %>%
+    mutate(regiao_metro = ifelse(regiao_metro %nin% unique(RMs$regiao_metro), "-", regiao_metro))
+  
+  beep()
+  
+  message("salvando tabelas datasus...")
+  
+  lapply(paste0('./dados/datasus/', i), dir.create)
+  
+  #salvar
+  write.xlsx(tot_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/total_mortes_", i,".xlsx"))
+  
+  write.xlsx(ped_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/pedestres_mortes_", i,".xlsx"))
+  
+  write.xlsx(cicl_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                 `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                 `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/ciclistas_mortes_", i,".xlsx"))
+  
+  write.xlsx(moto_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                 `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                 `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/motocilistas_mortes_", i,".xlsx"))
+  
+  write.xlsx(auto_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                 `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                 `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/ocupantes_auto_mortes_", i,".xlsx"))
+  
+  write.xlsx(outros_fim %>% select(code_muni6, regiao_metro, tipo, `2000`, `2001`, `2002`, `2003`, `2004`, `2005`, `2006`,
+                                   `2007`, `2008`, `2009`, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`,
+                                   `2016`, `2017`, `2018`), 
+             paste0("./dados/datasus/", i, "/outros_mortes_", i,".xlsx"))
+  beep()
+  
+  
+}
+
+prep_datasus(2018)
