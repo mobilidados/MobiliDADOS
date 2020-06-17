@@ -1,0 +1,105 @@
+# abrir pacotes e definir diretorio ----
+library(sf)
+library(beepr)
+library(geobr)
+library(openxlsx)
+library(readxl)
+library(dplyr)
+library(data.table)
+library(mapview)
+library(Hmisc)
+library(datasus)
+
+# definir diretorio
+setwd('E:/R')
+
+pop_ano_novo <- function(i){
+  
+  # abrir arquivo com poulacao nova baixado de ftp://ftp.ibge.gov.br/Estimativas_de_Populacao/
+  pop <- read_excel(paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_dou_", i, ".xls"), sheet=2)
+ 
+  colnames(pop) <- as.character(unlist(pop[1,])) #pegar nome das colunas
+  
+  pop <- pop[-c(1),] %>% #eliminar linhas desnecessarias
+    mutate(code_muni = paste(`COD. UF`,`COD. MUNIC`, sep = ""), #juntar coluna de cod UF e cod Muni
+           code_muni6 = substr(code_muni, 1, 6), #criar coluna code_muni6
+           Pop_2019 = as.numeric(`POPULAÇÃO ESTIMADA`)) # transformar coluna em valor numerico ## mudar ano
+  
+  names(pop)
+  
+  # selecionar apenas colunas necessarias
+  pop_fim <- pop %>% select(code_muni6, Pop_2019, `POPULAÇÃO ESTIMADA`)%>% filter(code_muni6!="NANA")  ## mudar ano
+  pop_fim$Pop_2019[is.na(pop_fim$Pop_2019)] <- 0 #transformar NA em 0  ## mudar ano
+  
+  return(pop_fim)
+
+}
+
+pop_ano <- pop_ano_novo(2019) 
+
+
+
+# correcao de valores com caracteres diferentes ----
+
+# verificar dados com problemas com populacao de algumas cidades
+pop_zerada <- pop_ano %>% filter(Pop_2019 == 0) #mudar ano
+
+# criar tabelas com dados para corrigir
+correcao <- data.frame(code_muni6 = c(pop_zerada$code_muni6), 
+                       Pop_2019 = c(529544, 32105, 25156, 16256, 8239, 122197, 102400, 
+                                    17040, 37241, 13229, 15895, 60585, 13031, 9224,
+                                    9331, 16979, 43223, 10139, 9667)) %>% #mudar ano
+  mutate(code_muni6 = as.character(code_muni6))
+
+setDT(correcao)
+pop_ano_fim <- setDT(pop_ano) %>% mutate(`POPULAÇÃO ESTIMADA` = NULL) 
+
+# names(pop_ano_fim)
+# names(correcao)
+
+# verificar correcao
+# teste <- left_join(correcao, pop_ano, by = "code_muni6")
+# print(teste)
+
+# tabela final para correcao
+code_muni_corrected <- correcao$code_muni6
+pop_ano_final <- rbind(pop_ano_fim %>% filter(code_muni6 %nin% code_muni_corrected), correcao) 
+sum(pop_ano_final$Pop_2019,na.rm=T) #mudar ano
+
+i = 2019
+write.xlsx(pop_ano_final, paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_", i, "_corrigida.xlsx")) #mudar ano
+
+
+# agregagacao de dados na serir historica ----
+
+juntar_serie <- function (i) {
+  
+  # abrir populacao do ultimo ano
+  pop_ano_final <- read.xlsx(paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_", i, "_corrigida.xlsx"))%>%
+    mutate(code_muni6 = as.character(code_muni6))
+  
+  # abrir serie historica
+  pop_serie <- read.xlsx(paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i-1, ".xlsx"))%>%
+    mutate(CD_MUN6 = as.character(CD_MUN6))
+  
+  # names(pop_serie)
+  # names(pop_ano_final)
+  
+  # join das tabelas
+  pop_serie_fim  <- left_join(pop_serie, pop_ano_final %>% select(code_muni6, Pop_2019), #mudar ano
+                              by = c("CD_MUN6"="code_muni6")) #%>% mutate(Pop_2018_verif = NULL)
+   
+  # names(pop_serie_fim)
+  print(sum(pop_serie_fim$Pop_2019))
+  
+  
+  # salvar tabela final
+  write.xlsx(pop_serie_fim, paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))
+  
+  return(pop_serie_fim)
+  beep()
+      
+}
+
+
+fim <- juntar_serie(2019)
