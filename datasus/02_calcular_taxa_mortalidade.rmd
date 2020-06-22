@@ -51,7 +51,7 @@ taxa_mortalidade <- function(i) {
                                         tx_mort_2015 = round((`2015`/Pop_2015)*100000, digits = 1),
                                         tx_mort_2016 = round((`2016`/Pop_2016)*100000, digits = 1),
                                         tx_mort_2017 = round((`2017`/Pop_2017)*100000, digits = 1),
-                                        tx_mort_2018 = round((`2017`/Pop_2018)*100000, digits = 1)), 
+                                        tx_mort_2018 = round((`2018`/Pop_2018)*100000, digits = 1)), 
                                     by = CD_MUN6]
   
   # agregar variaveis para arquivo final
@@ -103,7 +103,7 @@ taxa_mortalidade <- function(i) {
 }
 
 # aplicar funcao para um caso
-resultado <- taxa_mortalidade("ciclistas")
+resultado <- taxa_mortalidade("outros")
 
 
 # aplicar funcao para todos
