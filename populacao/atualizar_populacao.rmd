@@ -93,6 +93,18 @@ juntar_serie <- function (i) {
   print(sum(pop_serie_fim$Pop_2019))
   
   
+  # join com RMs
+  RMs <- read.xlsx("./dados/IBGE/composicao_rm/Composicao_RMs_RIDEs_AglomUrbanas_2019_12_31.xlsx", sheet = 1) %>%
+  select(COD_MUN, NOME) %>% mutate(RM = NOME, NOME = NULL)
+  
+  #names(RMs)
+  
+  pop_serie_fim <- left_join(pop_serie_fim, RMs, by = c("CD_MUN"= "COD_MUN"))
+  
+  pop_serie_fim <- pop_serie_fim[,c(1, 2, 3, 4, 5, 26, 6, 7, 8, 9, 
+                          10, 11, 12, 13, 14, 15, 16, 17, 18, 
+                          19, 20, 21, 22, 23, 24, 25)]
+
   # salvar tabela final
   write.xlsx(pop_serie_fim, paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))
   
