@@ -105,6 +105,25 @@ juntar_serie <- function (i) {
                           10, 11, 12, 13, 14, 15, 16, 17, 18, 
                           19, 20, 21, 22, 23, 24, 25)]
 
+  # corrigir RMBH - Colar Metropolitano
+  bh_colar_metropolitano = pop_serie_fim$CD_MUN %in% c(3105400,
+                                                       3106408,
+                                                       3107703,
+                                                       3108107,
+                                                       3126406,
+                                                       3127206,
+                                                       3131000,
+                                                       3131901,
+                                                       3133808,
+                                                       3142304,
+                                                       3147105,
+                                                       3153608,
+                                                       3157203,
+                                                       3161908,
+                                                       3163102,
+                                                       3167202)
+  pop_serie_fim$RM[bh_colar_metropolitano] <- "Região Metropolitana de Belo Horizonte - Colar Metropolitano"
+
   # salvar tabela final
   write.xlsx(pop_serie_fim, paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))
   
