@@ -21,12 +21,42 @@ taxa_mortalidade <- function(i) {
   # abrir tabelas de mortes
   mortes <- read.xlsx(paste0("./dados/datasus/2018/", i, "_mortes_2018.xlsx"))
   
+  mortes_rm <- setDT(mortes_pop) [, .(mortes_2000 = sum(`2000`, na.rm = T),
+                                   mortes_2001 = sum(`2001`, na.rm = T),
+                                   mortes_2002 = sum(`2002`, na.rm = T),
+                                   mortes_2003 = sum(`2003`, na.rm = T),
+                                   mortes_2004 = sum(`2004`, na.rm = T),
+                                   mortes_2005 = sum(`2005`, na.rm = T),
+                                   mortes_2006 = sum(`2006`, na.rm = T),
+                                   mortes_2007 = sum(`2007`, na.rm = T),
+                                   mortes_2008 = sum(`2008`, na.rm = T),
+                                   mortes_2009 = sum(`2009`, na.rm = T),
+                                   mortes_2010 = sum(`2010`, na.rm = T),
+                                   mortes_2011 = sum(`2011`, na.rm = T),
+                                   mortes_2012 = sum(`2012`, na.rm = T),
+                                   mortes_2013 = sum(`2013`, na.rm = T),
+                                   mortes_2014 = sum(`2014`, na.rm = T),
+                                   mortes_2015 = sum(`2015`, na.rm = T),
+                                   mortes_2016 = sum(`2016`, na.rm = T),
+                                   mortes_2017 = sum(`2017`, na.rm = T),
+                                   mortes_2018 = sum(`2018`, na.rm = T)),
+                               by = RM]
+  
+  # organizar tabela
+  mortes_fim <- mortes_rm %>% mutate(tipo = i)
+  mortes_final <- mortes_fim[,c(1, 21, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)]
+  mortes_final[is.na(mortes_final)]<- 0
+  
+  names(mortes_final)
+  
+  write.xlsx(mortes_final, paste0("./resultados/datasus/2018/rm_", i, "_mortes.xlsx"))
+  
+  
   # abrir tabela de população
   pop <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_2019.xlsx") %>%
     filter(CD_MUN != 1)
   
   beep()
-  
   
   message("unindo mortes e populacao...")
   # unir 
@@ -59,11 +89,16 @@ taxa_mortalidade <- function(i) {
                                     by = RM]
                                            
   
+  fim <- mortalidade %>% mutate(tipo = i)
+  names(fim)
+  
+  final <- fim[,c(1, 21, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)]
+  final[is.na(final)]<- 0
   
 
   # salvar arquivo final
   message("salvando arquivo final...")
-  write.xlsx(mortalidade, paste0("./resultados/datasus/2018/rm_", i, "_taxa_mortalidade.xlsx"))
+  write.xlsx(final, paste0("./resultados/datasus/2018/rm_", i, "_taxa_mortalidade.xlsx"))
   
   return(mortalidade)
   beep()
@@ -72,7 +107,7 @@ taxa_mortalidade <- function(i) {
 }
 
 # aplicar funcao para um caso
-resultado <- taxa_mortalidade("ocupantes_auto")
+resultado <- taxa_mortalidade("outros")
 
 
 # aplicar funcao para todos
