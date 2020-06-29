@@ -1,0 +1,81 @@
+# definir diretorio
+setwd('E:/R/')
+
+# abrir pacotes necessarios
+library(datasus)
+library(stringi)
+library(sf)
+library(dplyr)
+library(data.table)
+library(openxlsx)
+library(pbapply)
+library(beepr)
+
+i = "total"
+
+# criar funcao 
+taxa_mortalidade <- function(i) {
+  
+  message(paste0("abrindo arquivos para calcular mortalidade de ", i , "..."))
+  
+  # abrir tabelas de mortes
+  mortes <- read.xlsx(paste0("./dados/datasus/2018/", i, "_mortes_2018.xlsx"))
+  
+  # abrir tabela de população
+  pop <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_2019.xlsx") %>%
+    filter(CD_MUN != 1)
+  
+  beep()
+  
+  
+  message("unindo mortes e populacao...")
+  # unir 
+  mortes_pop <- left_join(pop, mortes, by = c("CD_MUN6"= "code_muni6"))
+  
+  
+  message("calculando taxa de mortalidade...")
+  # calcular taxa de mortalidade
+  setDT(mortes_pop)
+  
+  mortalidade <- setDT(mortes_pop) [, .(tx_mort_2000 = round(sum(`2000`, na.rm = T)/sum(Pop_2000, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2001 = round(sum(`2001`, na.rm = T)/sum(Pop_2001, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2002 = round(sum(`2002`, na.rm = T)/sum(Pop_2002, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2003 = round(sum(`2003`, na.rm = T)/sum(Pop_2003, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2004 = round(sum(`2004`, na.rm = T)/sum(Pop_2004, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2005 = round(sum(`2005`, na.rm = T)/sum(Pop_2005, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2006 = round(sum(`2006`, na.rm = T)/sum(Pop_2006, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2007 = round(sum(`2007`, na.rm = T)/sum(Pop_2007, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2008 = round(sum(`2008`, na.rm = T)/sum(Pop_2008, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2009 = round(sum(`2009`, na.rm = T)/sum(Pop_2009, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2010 = round(sum(`2010`, na.rm = T)/sum(Pop_2010, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2011 = round(sum(`2011`, na.rm = T)/sum(Pop_2011, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2012 = round(sum(`2012`, na.rm = T)/sum(Pop_2012, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2013 = round(sum(`2013`, na.rm = T)/sum(Pop_2013, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2014 = round(sum(`2014`, na.rm = T)/sum(Pop_2014, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2015 = round(sum(`2015`, na.rm = T)/sum(Pop_2015, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2016 = round(sum(`2016`, na.rm = T)/sum(Pop_2016, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2017 = round(sum(`2017`, na.rm = T)/sum(Pop_2017, na.rm = T)*100000, digits = 1),
+                                        tx_mort_2018 = round(sum(`2018`, na.rm = T)/sum(Pop_2018, na.rm = T)*100000, digits = 1)),
+                                    by = RM]
+                                           
+  
+  
+
+  # salvar arquivo final
+  message("salvando arquivo final...")
+  write.xlsx(mortalidade, paste0("./resultados/datasus/2018/rm_", i, "_taxa_mortalidade.xlsx"))
+  
+  return(mortalidade)
+  beep()
+  
+  
+}
+
+# aplicar funcao para um caso
+resultado <- taxa_mortalidade("ocupantes_auto")
+
+
+# aplicar funcao para todos
+pblapply(c("total", "pedestres", "ciclistas", 
+           "motociclistas", "ocupantes_auto", "outros"), 
+         taxa_mortalidade)
