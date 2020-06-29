@@ -1,0 +1,29 @@
+
+i = 2019
+pop_serie <- read.xlsx(paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))%>%
+  mutate(CD_MUN6 = as.character(substr(CD_MUN, 1, 6)), CAPITAL = ifelse(CD_MUN %in% munis_df$code_muni, "Sim", "Não"))
+
+
+# incluir RM e corrigir RMBH
+RMs <- read.xlsx(paste0("./dados/IBGE/composicao_rm/Composicao_RMs_RIDEs_AglomUrbanas_", i, "_12_31.xlsx"), sheet = 1) %>%
+  select(COD_MUN, NOME) %>% mutate(COD_MUN = as.character(COD_MUN), RM = NOME, NOME = NULL)
+
+pop_serie_fim <- left_join(pop_serie, RMs, by = c("CD_MUN" = "COD_MUN")) %>%
+  mutate(RM = ifelse(pop_serie_fim$RM %in% RMs$RM, RM, "-"))
+
+
+# corrigir RMBH - Colar Metropolitano
+bh_colar_metropolitano <- pop_serie_fim$CD_MUN%in%c(3105400, 3106408, 3107703, 3108107, 3126406, 3127206, 
+                                                 3131000, 3131901, 3133808, 3142304, 3147105, 3153608, 
+                                                 3157203, 3161908, 3163102, 3167202)
+pop_serie_fim$RM[bh_colar_metropolitano] <- "Região Metropolitana de Belo Horizonte - Colar Metropolitano"
+
+
+# reordenar colunas
+names(pop_serie_fim)
+pop_serie_final <- pop_serie_fim[, c(1, 2, 3, 23, 24, 4, 5, 6, 7, 8, 9, 
+                                  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)]
+
+names(pop_serie_final)
+
+write.xlsx(pop_serie_final, paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))
