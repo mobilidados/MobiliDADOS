@@ -62,7 +62,7 @@ taxa_mortalidade <- function(i) {
   
   # agregar variaveis para arquivo final
   message("organizando arquivo final...")
-  fim <- left_join(pop %>% select(CD_MUN, CD_MUN6, MUN, RM), mortalidade, by = "CD_MUN6")
+  fim <- left_join(pop %>% select(CD_MUN, CD_MUN6, MUN, CAPITAL, RM), mortalidade, by = "CD_MUN6")
   # final <- left_join(fim, mortes %>% select(code_muni6, tipo), by = c("CD_MUN6"="code_muni6"))
   
   names(fim)
