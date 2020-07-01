@@ -1,0 +1,75 @@
+#carregar pacotes
+library(datasus)
+library(openxlsx)
+library(dplyr)
+library(pbapply)
+library(beepr)
+
+#definir diretorio
+setwd("E:/R/")
+
+#funcao para baixar dados
+baixar_dados_raca <- function (i){
+  
+  tot <- sim_obt10_mun(linha = "Município", #dados por municipio
+                       coluna = "Cor/raça", #por ano de obito
+                       conteudo = 2, #por local de ocorrencia
+                       periodo = i, #periodo desejado
+                       grupo_cid10 = c("Pedestre traumatizado em um acidente de transporte",
+                                       "Ciclista traumatizado em um acidente de transporte",
+                                       "Motociclista traumat em um acidente de transporte",
+                                       "Ocupante triciclo motorizado traumat acid transp",
+                                       "Ocupante automóvel traumat acidente transporte",
+                                       "Ocupante caminhonete traumat acidente transporte",
+                                       "Ocupante veíc transp pesado traumat acid transp",
+                                       "Ocupante ônibus traumat acidente de transporte",
+                                       "Outros acidentes de transporte terrestre")) #grupo cid10 desejado 
+  
+  message(paste0("total por raça para ", i, " baixado!"))
+  tot[is.na(tot)] <- 0
+  
+  beep()
+  
+  
+  tot_fim <- tot %>% mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "pedestres", 
+                            !!paste0("negros_", i) := Preta+Parda, !!paste0("total_", i) := Total)
+  # head(tot_fim)
+  
+  
+  tot_final <- tot_fim %>% select(code_muni6, paste0("negros_", i), paste0("total_", i))
+  # head(tot_final)
+  
+  write.xlsx(tot_final, paste0("./dados/datasus/2018/por_raça/por_ano/morte_raca_", i, ".xlsx"))
+  message(paste0("arquivo por raça para ", i, " salvo!"))
+  
+  
+}
+
+# aplicar função
+baixar_dados_raca("2014")
+
+pblapply(2015:2018, baixar_dados_raca)
+
+
+#abrir todos os arquivos baixados
+files <- list.files(path = './dados/datasus/2018/por_raça/por_ano/',
+                    pattern = "\\.xlsx$", full.names = TRUE)
+
+#ler todos os arquivos baixados
+ler <- lapply(files, read.xlsx)
+
+#juntar todos os arquivos baixados
+mortes <- plyr::join_all(ler, by="code_muni6", type='left')
+mortes[is.na(mortes)] <- 0
+
+#abrir tabela com informacao sobre municipios
+tab <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_2019.xlsx") %>%
+  select(CD_MUN, CD_MUN6, MUN, CAPITAL, RM)
+
+#criar tabela final
+grand_final <- left_join(tab, mortes, by = c("CD_MUN6" = "code_muni6"))
+grand_final[is.na(grand_final)] <- 0
+
+#salvar
+#i = 2018  ################## definir ano final
+write.xlsx(grand_final, paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, ".xlsx"))
