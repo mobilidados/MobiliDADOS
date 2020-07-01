@@ -30,13 +30,15 @@ baixar_dados_raca <- function (i){
   
   beep()
   
+  tot_fim <- tot %>% 
+    dplyr::mutate(code_muni6 = as.character(substr(Município, 1, 6)), 
+           !!paste0("negros_", i) := Preta+Parda, !!paste0("total_", i) := Total) %>%
+    dplyr::mutate(code_muni6 = ifelse(code_muni6 == "TOTAL", 1, code_muni6))
   
-  tot_fim <- tot %>% mutate(code_muni6 = as.character(substr(Município, 1, 6)), tipo = "pedestres", 
-                            !!paste0("negros_", i) := Preta+Parda, !!paste0("total_", i) := Total)
   # head(tot_fim)
   
   
-  tot_final <- tot_fim %>% select(code_muni6, paste0("negros_", i), paste0("total_", i))
+  tot_final <- tot_fim %>% dplyr::select(code_muni6, paste0("negros_", i), paste0("total_", i))
   # head(tot_final)
   
   write.xlsx(tot_final, paste0("./dados/datasus/2018/por_raça/por_ano/morte_raca_", i, ".xlsx"))
@@ -46,9 +48,9 @@ baixar_dados_raca <- function (i){
 }
 
 # aplicar função
-baixar_dados_raca("2014")
+baixar_dados_raca("2007")
 
-pblapply(2015:2018, baixar_dados_raca)
+pblapply(2013:2018, baixar_dados_raca)
 
 
 #abrir todos os arquivos baixados
@@ -56,7 +58,7 @@ files <- list.files(path = './dados/datasus/2018/por_raça/por_ano/',
                     pattern = "\\.xlsx$", full.names = TRUE)
 
 #ler todos os arquivos baixados
-ler <- lapply(files, read.xlsx)
+ler <- lapply(files, openxlsx::read.xlsx)
 
 #juntar todos os arquivos baixados
 mortes <- plyr::join_all(ler, by="code_muni6", type='left')
@@ -69,6 +71,8 @@ tab <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_20
 #criar tabela final
 grand_final <- left_join(tab, mortes, by = c("CD_MUN6" = "code_muni6"))
 grand_final[is.na(grand_final)] <- 0
+
+head(grand_final)
 
 #salvar
 #i = 2018  ################## definir ano final
