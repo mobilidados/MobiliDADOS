@@ -1,5 +1,5 @@
 i = 2018
-mortes_por_raca <- openxlsx::read.xlsx(paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, ".xlsx"))
+mortes_por_raca <- openxlsx::read.xlsx(paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, "_muni.xlsx"))
 mortes_por_raca[is.na(mortes_por_raca)]<- 0
 
 
@@ -30,10 +30,10 @@ tab <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_20
   select(CD_MUN, CD_MUN6, MUN, CAPITAL, RM)
 
 #criar tabela final
-grand_final <- left_join(tab, perc_negros, by = "CD_MUN6") %>% filter
+grand_final <- left_join(tab, perc_negros, by = "CD_MUN6")
 grand_final[is.na(grand_final)] <- 0
 head(grand_final)
 
 #salvar
 #i = 2018  ################## definir ano final
-write.xlsx(grand_final, paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, ".xlsx"))
+write.xlsx(grand_final, paste0("./dados/datasus/2018/por_raça/perc_morte_raca_2000_", i, "_muni.xlsx"))
