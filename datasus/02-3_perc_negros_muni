@@ -1,0 +1,39 @@
+i = 2018
+mortes_por_raca <- openxlsx::read.xlsx(paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, ".xlsx"))
+mortes_por_raca[is.na(mortes_por_raca)]<- 0
+
+
+perc_negros <- data.table::setDT(mortes_por_raca) [, .(perc_negros_2000 = round((negros_2000/total_2000)*100, digits = 1),
+                                                       perc_negros_2001 = round((negros_2001/total_2001)*100, digits = 1),
+                                                       perc_negros_2002 = round((negros_2002/total_2002)*100, digits = 1),
+                                                       perc_negros_2003 = round((negros_2003/total_2003)*100, digits = 1),
+                                                       perc_negros_2004 = round((negros_2004/total_2004)*100, digits = 1),
+                                                       perc_negros_2005 = round((negros_2005/total_2005)*100, digits = 1),
+                                                       perc_negros_2006 = round((negros_2006/total_2006)*100, digits = 1),
+                                                       perc_negros_2007 = round((negros_2007/total_2007)*100, digits = 1),
+                                                       perc_negros_2008 = round((negros_2008/total_2008)*100, digits = 1),
+                                                       perc_negros_2009 = round((negros_2009/total_2009)*100, digits = 1),
+                                                       perc_negros_2010 = round((negros_2010/total_2010)*100, digits = 1),
+                                                       perc_negros_2011 = round((negros_2011/total_2011)*100, digits = 1),
+                                                       perc_negros_2012 = round((negros_2012/total_2012)*100, digits = 1),
+                                                       perc_negros_2013 = round((negros_2013/total_2013)*100, digits = 1),
+                                                       perc_negros_2014 = round((negros_2014/total_2014)*100, digits = 1),
+                                                       perc_negros_2015 = round((negros_2015/total_2015)*100, digits = 1),
+                                                       perc_negros_2016 = round((negros_2016/total_2016)*100, digits = 1),
+                                                       perc_negros_2017 = round((negros_2017/total_2017)*100, digits = 1),
+                                                       perc_negros_2018 = round((negros_2018/total_2018)*100, digits = 1)), 
+                                                   by = CD_MUN6]
+
+perc_negros[is.na(perc_negros)]<- 0
+
+tab <- read.xlsx("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_2019.xlsx") %>%
+  select(CD_MUN, CD_MUN6, MUN, CAPITAL, RM)
+
+#criar tabela final
+grand_final <- left_join(tab, perc_negros, by = "CD_MUN6") %>% filter
+grand_final[is.na(grand_final)] <- 0
+head(grand_final)
+
+#salvar
+#i = 2018  ################## definir ano final
+write.xlsx(grand_final, paste0("./dados/datasus/2018/por_raça/morte_raca_2000_", i, ".xlsx"))
