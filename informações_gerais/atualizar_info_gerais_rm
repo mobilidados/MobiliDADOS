@@ -1,0 +1,59 @@
+# abrir pacotes
+library(sf)
+library(readr)
+library(dplyr)
+library(data.table)
+
+# definir diretorios
+setwd('E:/R/')
+
+# abrir dadosdos setores
+dados <- read_rds('./dados/IBGE/dados_setores/3_tabela_pais/dados_setores.rds') %>% 
+  mutate(Cod_setor=as.character(Cod_setor))
+
+# criar funcao
+
+# i = "rmsp" teste com rmsp
+
+atualizar_info <- function(i){
+  setores <- read_rds(paste0('./dados/regioes_metropolitanas/setores/setores_', i, '.rds' )) %>% 
+    mutate(Ar_m2 = unclass(st_area(.)), Cod_setor = as.character(Cod_setor)) 
+  
+  
+  setores_dados <- left_join(setores, dados, by = "Cod_setor") %>%
+    mutate(DR_1SM = DR_0_meio + DR_meio_1,
+           Negros = Cor_preta + Cor_parda,
+           Pop_cor = Cor_preta + Cor_parda + Cor_branca + Cor_amarela + Cor_indigena,
+           Dom = DR_0_meio + DR_meio_1 + DR_1_3 + DR_3_mais)
+  
+  fim <- setDT(setores_dados)[, .(rm = i, 
+                                  pop = sum(Pop, na.rm =  T), 
+                                  pop_cor = sum(Pop_cor, na.rm = T),
+                                  pop_negro = sum(Negros, na.rm = T),
+                                  dr_1SM = sum(DR_1SM, na.rm = T),
+                                  dom = sum(Dom, na.rm = T))]
+  
+  final <- fim %>% 
+    mutate(perc_negros = round(100*(pop_negro/pop_cor),0),
+           perc_DR_1SM = round(100*(dr_1SM/dom),0))                             
+  
+  return(final)  
+  
+}
+
+# aplicar funcao
+rmrj <- atualizar_info("rmrj")
+rmr  <- atualizar_info("rmr")
+rmb  <- atualizar_info("rmb")
+rmbh <- atualizar_info("rmbh")
+rmc  <- atualizar_info("rmc")
+rmf  <- atualizar_info("rmf")
+rmsp <- atualizar_info("rmsp")
+rms  <- atualizar_info("rms")
+ride <- atualizar_info("ride")
+
+# juntar em tabela unica
+info_gerais_rm <- rbind(rmrj, rmr, rmb, rmbh,
+                        rmc, rmf, rmsp, rms, ride)
+
+info_gerais_rm[order(info_gerais_rm$rm)] # ordernar tabela pela coluna de rm
