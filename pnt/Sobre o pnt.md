@@ -12,7 +12,7 @@ Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer
 
 
 ### O que é transporte de média e alta capacidade?
-![](sobre_tma.png)
+![](Infografico_tma_2020.pdf)
 
 
 ### Como calcular?
