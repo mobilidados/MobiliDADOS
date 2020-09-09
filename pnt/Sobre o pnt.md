@@ -8,7 +8,7 @@ O indicador pode ser utilizado para fins comparativos entre cidades ou regiões 
 Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer simples que considera a distância linear no entorno da das estações de transporte (*pasta simples*) e a distância pela rede de ruas no entorno das estações de transporte (*pasta network*).
 
 
-**Os resultados da série histórica do indicador podem ser consultados em [MobiliDADOS](https://mobilidados.org.br/).**
+**Os resultados da série histórica do indicador podem ser consultados na plataforma [MobiliDADOS](https://mobilidados.org.br/).**
 
 
 ### O que é transporte de média e alta capacidade?
