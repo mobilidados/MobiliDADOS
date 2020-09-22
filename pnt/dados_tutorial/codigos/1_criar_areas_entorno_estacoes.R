@@ -1,7 +1,14 @@
-# definir diretorio
+#Passo-a-passo do calculo do PNT
+#1. Instalar pacotes e definir diretorio
+#2. Conectar com OTP, abrir e limpar arquivos necessarios
+#3. Criar areas no entorno das estacoes de transporte
+
+
+#1. Instalar pacotes e definir diretorio
+#1.1. Definir diretorio
 setwd('C:/Users/berna/Desktop/tutorial_pnt')
 
-# instalar pacote necessarios
+#1.2.instalar pacote necessarios
 install.packages('readr') #leitura e manipulacoes de dados em formato rds
 install.packages('dplyr') #leitura e operacoes com tabelas
 install.packages('data.table') #leitura e operacoes com tabelas
@@ -13,8 +20,7 @@ install.packages('devtools') #ferramentas para desenvolvimento
 devtools::install_local("./misc/opentripplanner-master_mode.zip") #interface com opentripplanner para roteamento de viagem
 
 
-
-# carregar pacotes necessarios
+#1.3. Carregar pacotes necessarios
 library(readr)
 library(dplyr)
 library(data.table)
@@ -25,19 +31,55 @@ library(purrr)
 library(opentripplanner)
 
 
-# baixar o OTP - fazer uma unica vez
+#1.4. Abrir o OTP
 otp_dl_jar(path = "./otp/programs") #download otp
 beep()
 
 
-# construir graph da rmb a partir da malha de rua.pbf - fazer uma unica vez
+#1.5. Construir graph da rmb a partir da malha de rua.pbf - fazer uma unica vez
 opentripplanner::otp_build_graph(otp = "otp/programs/otp.jar", 
                                  memory = 3000,
                                  dir = "otp", 
                                  router = "rmb") #inserir sigal da cidade ou rm desejada
 
 
-# criar funcao para gerar areas no entorno das estacoes de transporte
+#2. Conectar com OTP, abrir e limpar arquivos necessarios
+#2.1. Abrir otp
+otp_setup(otp = "otp/programs/otp.jar", 
+          dir = "otp", 
+          router = 'rmb', 
+          port = 8080, 
+          wait = FALSE)
+beep()
+
+#2.2. Conectar com malha da regiao metropolitana de Belem
+otp_rm <- otp_connect(router = 'rmb')
+beep()
+
+#2.3. Abrir e filtrar  estacoes de transporte de media e alta capacidade para regiao e cidade desejada
+tma_rm <- sf::st_read('./dados/estacoes_2019.shp') %>%
+  mutate(Year = as.numeric(as.character(Year))) %>% #transforma a coluna de ano em valor numerico
+  filter(Year < 2020, RT == 'Yes', Status == 'Operational', #filtrar estacoes de media e alta capacidade
+         City == 'Belém') %>% #MUDAR NOME DA CIDADE PARA NUCLEO DA RM
+  st_transform(., 4326)
+
+
+#2.4. Limpar arquivo com latitude e longitude das estacoes
+coords_tma_rm <- setDT(tma_rm) %>% select(City, Mode, Station, Year, Y, X) # criar arquivo com coordenadas
+coords_tma_rm <- coords_tma_rm[, id_stop := 1:.N] #criar coluna de id das estacoes
+coords_tma_rm <- coords_tma_rm[, .(lat = Y, lon = X), by = id_stop] #renomear colunas
+
+# visualizar se estacoes estao corretas
+coords_tma_rm_sf <- st_as_sf(coords_tma_rm, coords = c("lon", "lat"), crs = 4326)
+mapview::mapview(coords_tma_rm_sf)
+
+# criar lista de coordenadas para otp rotear areas de entorno
+coords_list <- purrr::map2(as.numeric(coords_tma_rm$lon), as.numeric(coords_tma_rm$lat), c)
+
+message('stations lat lon - ok')
+
+#3. Criar areas no entorno das estacoes de transporte
+#3.1. Criar funcao para gerar areas no entorno das estacoes de transporte
 get_isochrone <- function(fromPlace, dist, walk_speed = 3.6, ...) {
   
   # modificar funcao do OTP para considerar metro por segundo
@@ -53,48 +95,10 @@ get_isochrone <- function(fromPlace, dist, walk_speed = 3.6, ...) {
   
 }
 
-# apply fucntion to rm 
-# turn on localhost for rm
-
-
-# abrir otp
-otp_setup(otp = "otp/programs/otp.jar", 
-          dir = "otp", 
-          router = 'rmb', 
-          port = 8080, 
-          wait = FALSE)
-beep()
-
-# conectar com malha da regiao metropolitana de Belem
-otp_rm <- otp_connect(router = 'rmb')
-beep()
-
-# filtrar somente estacoes de transporte de media e alta capacidade no ano desejado
-tma_rm <- sf::st_read('./dados/estacoes_2019.shp') %>%
-  mutate(Year = as.numeric(as.character(Year))) %>% #transforma a coluna de ano em valor numerico
-  filter(Year < 2020, RT == 'Yes', Status == 'Operational', #filtrar estacoes de media e alta capacidade
-         City == 'Belém') %>% #MUDAR NOME DA CIDADE PARA NUCLEO DA RM
-  st_transform(., 4326)
-
-
-# gerar txt com latitude e longitude das estacoes
-coords_tma_rm <- setDT(tma_rm) %>% select(City, Mode, Station, Year, Y, X) # criar arquivo com coordenadas
-coords_tma_rm <- coords_tma_rm[, id_stop := 1:.N] #criar coluna de id das estacoes
-coords_tma_rm <- coords_tma_rm[, .(lat = Y, lon = X), by = id_stop]
-
-# visualizar se estacoes estao corretas
-coords_tma_rm_sf <- st_as_sf(coords_tma_rm, coords = c("lon", "lat"), crs = 4326)
-mapview::mapview(coords_tma_rm_sf)
-
-# criar lista de coordenadas para otp rotear areas de entorno
-coords_list <- purrr::map2(as.numeric(coords_tma_rm$lon), as.numeric(coords_tma_rm$lat), c)
-
-message('stations lat lon - ok')
-
 # transformar funcao para criar areas no entorno das estacoes
 get_isochrone_safe <- purrr::safely(get_isochrone)
 
-# aplicar funcao para criar entorno das estacoes a partir do OTP
+#3.2. aplicar funcao para criar entorno das estacoes a partir do OTP
 buffer <- lapply(coords_list, get_isochrone_safe, 
                  dist = 1000,
                  mode = "WALK",
