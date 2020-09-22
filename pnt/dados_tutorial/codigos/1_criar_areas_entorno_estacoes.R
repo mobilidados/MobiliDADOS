@@ -73,7 +73,7 @@ beep()
 tma_rm <- sf::st_read('./dados/estacoes_2019.shp') %>%
   mutate(Year = as.numeric(as.character(Year))) %>% #transforma a coluna de ano em valor numerico
   filter(Year < 2020, RT == 'Yes', Status == 'Operational', #filtrar estacoes de media e alta capacidade
-         City == 'Belém') %>% #MUDAR NOME DA CIDADE PARA NUCLEO DA RM
+         City == 'BelÃ©m') %>% #MUDAR NOME DA CIDADE PARA NUCLEO DA RM
   st_transform(., 4326)
 
 
