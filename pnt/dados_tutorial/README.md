@@ -6,5 +6,6 @@ Nesta pasta você encontra os dados para realizar tutorial de cálculo do pnt pa
 - **munis_df_mobilidados:** tabelas de referência com composição de municípios que integram as regiões metropolitanas monitoradas na plataforma [MobiliDADOS](https://mobilidados.org.br/)
 - **estacoes_2019.rar:** arquivos georreferenciado das estações de transporte de média e alta capacidade (TMA) no Brasil em 2019 
 - **dados_censo.md:** link para acessar dados dos setores censitários de todas as regiões metropolitanas monitoradas na plataforma [MobiliDADOS](https://mobilidados.org.br/)
+- pasta **otp** pasta com link para baixar arquivos do OTP e malha viária necessária para calcular distância pela rede de ruas
 
 
