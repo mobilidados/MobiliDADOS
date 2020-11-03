@@ -6,6 +6,5 @@ Etapas de cálculo:
 
 
 Observação:
-
 Na pasta buffer encontram-se todas as áreas no entorno das infraestrutura cicloviária mapeada no CicloMapa.org.br até dezembro de 2019.
 
