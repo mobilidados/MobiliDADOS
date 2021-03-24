@@ -16,7 +16,7 @@ Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer
 
 ### O que é considerado infraestrutura cicloviária?
 
-É considerado infraestrutura cicloviária ciclovias e ciclofaixas.
+Consideram-se como infraestrutura cicloviária ciclovias e ciclofaixas.
 
 
 
