@@ -15,7 +15,8 @@ Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer
 
 
 ### O que é considerado infraestrutura cicloviária?
-![](infra_ciclo.png)
+
+É considerado infraestrutura cicloviária ciclovias e ciclofaixas.
 
 
 
