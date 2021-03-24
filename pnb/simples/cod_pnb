@@ -76,7 +76,7 @@ PNB  <- function(i){
                                 str_to_title(subset(munis_df, code_muni==i)$name_muni),
                                 ".json"))
   infra_ciclo$type <- as.character(infra_ciclo$type)
-  infra_ciclo_pnb <- infra_ciclo[(infra_ciclo$type %in% c('Ciclovia','Ciclofaixa','Ciclorota', 'CalÃ§ada compartilhada', 'Trilha')),]#filtra infraestrutura cicloviaria para considerar apenas ciclovias, ciclofaixas e ciclorotas
+  infra_ciclo_pnb <- infra_ciclo[(infra_ciclo$type %in% c('Ciclovia','Ciclofaixa','Ciclorota'),]#filtra infraestrutura cicloviaria para considerar apenas ciclovias e ciclofaixas
   infra_ciclo_pnb <- st_transform(infra_ciclo_pnb, subset(munis_df, code_muni==i)$espg) #transforma projecao
   
   message(paste0('abriu, filtrou e ajustou infra ciclo - ', subset(munis_df, code_muni==i)$name_muni,"\n"))
