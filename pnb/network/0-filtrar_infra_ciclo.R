@@ -33,7 +33,7 @@ filtrar_infra_ciclo <- function(i){
   message(paste0('Ajustando infra ciclo - ', subset(munis_df, code_muni==i)$name_muni,"..."))
   
   infra_ciclo_pnb <- infra_ciclo[(infra_ciclo$type %in% 
-                                    c('Ciclovia','Ciclofaixa','Ciclorota', 'Calçada compartilhada')),]#filtra infraestrutura cicloviaria para considerar apenas ciclovias, ciclofaixas e ciclorotas
+                                    c('Ciclovia','Ciclofaixa')),]#filtra infraestrutura cicloviaria para considerar apenas ciclovias e ciclofaixas
   
   infra_ciclo_pnb <- st_transform(infra_ciclo_pnb, 4326)#transforma projecao
   unique(infra_ciclo_pnb$type)
