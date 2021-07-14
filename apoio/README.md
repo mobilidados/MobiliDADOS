@@ -1,7 +1,7 @@
 # Pasta de apoio
 
 
-Pastas e arquivos que servem de apoio a cálculos de indicadores da mobiliDADOS e repositório de imagens
+Pastas e arquivos que servem de apoio a cálculos de indicadores da mobiliDADOS e repositório de imagens.
 
 ## Lista de arquivos
 
