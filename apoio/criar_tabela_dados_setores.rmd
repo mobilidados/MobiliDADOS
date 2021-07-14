@@ -1,163 +1,393 @@
-#0. Definir diretorio e carregar pacotes 
-#1. Baixar arquivos da UF
-#2. Abrir e editar as tabelas das UFs
-#3. Juntar e salvar tabelas
+#Leitura de arquivos do Censo 2010
 
-#0. Definir diretorio e carregar pacotes ----
+setwd("F:/Projetos/mobilidados/0_dados_ibge1/")
 
-# Definir area de trabalho
-setwd('/Users/mackook/Desktop/R/dados/IBGE/dados_setores/') #Alterar o caminho para a pasta onde deseja salvar os arquivos
+#Para cada pasta da UF, lê todos os arquivos, e extrai as variáveis de interesse
+#Quando variáveis precisam ser calculadas, as tabelas provisórias recebem _calc
 
-# Carregar pacotes
-source('/Users/mackook/Desktop/R/outros/setup.R')
+#Carrega os pacotes necessários
 
+library(readxl)
+library(dplyr)
+library(openxlsx)
+library(pbapply)
 
-#1. Baixar arquivos da UF ----
-#Obs: Os dados para o estado de Sao Paulo precisam ser baixados individualmente 
-#pois possuem outro padrão de organização das pastas
+#Antes de começar baixe as tabelas 'Download -> Censo_Demografico_2010 -> Resultados_do_Universo'
+#https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?edicao=10503&t=downloads
 
-baixar_dados_uf_exceto_sp <- function(uf){
-  download.file(paste0("ftp://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores_Censitarios/", uf, "_20171016.zip"), paste0(uf,"_dados_censo_2010.zip"), quiet = FALSE) #Alterar url conforme Estado da cidade ou regiÃ£o metropolitana desejada. Neste exemplo usamos a Bahia (BA).
-  
-}
+##Padronize os nomes das pastas. Exemplo com a unidade federativa da Bahia:
+### "./Base informações setores2010 universo /BA" # Replicar o padrão para todas as pastas
 
-list_uf <- uf_exceto_sp
-pblapply(list_uf, baixar_dados_uf_exceto_sp)
+#Procedimento de abrir as tabelas e salvar por UF
+
+uf <- "RO"
 
 
-
-#2. Abrir e editar as tabelas das UFs ----
-ajustar_tabelas_censo <- function (uf){
+tabela_PNT<-function (uf) {
   
-  # Ajustes tabela Basico
-  basico <- read_xls(paste0('./', uf,'/Base setores2010 universo ', uf,'/EXCEL/Basico_', uf,'.xls')) %>%
-    select(Cod_setor, Cod_UF, Nome_da_UF, Cod_RM, Nome_da_RM, Cod_municipio, Nome_do_municipio, 
-           Situacao_setor, Tipo_setor, V002) %>%
-    setNames(c(names(.)[1:9], paste0("BA_", names(.)[10]))) 
-  
-  message(paste0('Tabela basico de ', uf, ' realizada',"\n"))
-  
-  # Ajustes tabela Entorno01
-  ent1 <- read_xls(paste0('./', uf , '/Base setores2010 universo ', uf ,'/EXCEL/Entorno01_', uf,'.xls')) %>%
-    select(Cod_setor, V001, V020, V022, V024, V038, V040, V042) %>%
-    setNames(c(names(.)[1], paste0("Ent01_", names(.)[-1]))) 
-  
-  ent_01 <- lapply(ent1, as.numeric) 
-  ent_01 <- as.data.frame(ent_01)
-  
-  message(paste0('Tabela entorno 01 de ', uf, ' realizada',"\n"))
-  
-  
-  # Ajustes tabela Pessoa03 
-  Pes_03 <- read_xls(paste0('./', uf, '/Base setores2010 universo ', uf,'/EXCEL/Pessoa03_', uf,'.xls')) %>%
-    select(Cod_setor, V002, V003, V004, V005, V006, V168, V170, V173, V175,
-           V178, V180, V183, V185, V198, V200, V203, V205, V208, V210, V213,
-           V215, V218, V220, V223, V225, V228, V230, V233, V235, V238, V240, 
-           V243, V245) %>% 
-    setNames(c(names(.)[1], paste0("Pess03_", names(.)[-1])))
-  
-  pess03 <- lapply(Pes_03, as.numeric)
-  pess03 <- as.data.frame(pess03)
-  
-  message(paste0('Tabela pessoas 03 de ', uf, ' realizada',"\n"))
-  
-  # Ajustes tabela Pessoa05
-  Pes_05 <- read_xls(paste0('./', uf, '/Base setores2010 universo ', uf,'/EXCEL/Pessoa05_', uf,'.xls')) %>%
-    select(Cod_setor, V007, V009) %>%
-    setNames(c(names(.)[1], paste0("Pess05_", names(.)[-1]))) 
-  
-  pess05 <- lapply(Pes_05, as.numeric)
-  pess05 <- as.data.frame(pess05)
-  
-  message(paste0('Tabela pessoas 05 de ', uf, ' realizada',"\n"))
-  
-  # Ajustes tabela DomicilioRenda
-  Dom_Rda <- read_xls(paste0('./', uf, '/Base setores2010 universo ', uf,'/EXCEL/DomicilioRenda_',  uf, '.xls')) %>%
-    select(Cod_setor, V003, V005, V006, V007, V008, V009, V010, V011, V012, V013, V014)%>%
-    setNames(c(names(.)[1], paste0("DomRda_", names(.)[-1])))
-  
-  domrda <- lapply(Dom_Rda, as.numeric)
-  domrda <- as.data.frame(domrda)
-  
-  message(paste0('Tabela domicilio e renda de ', uf, ' realizada',"\n"))
-  
-  # Ajustes tabela ResponsavelRenda
-  Resp_Rd <- read_xls(paste0('./', uf, '/Base setores2010 universo ', uf,'/EXCEL/ResponsavelRenda_',  uf, '.xls'))%>%
-    select(Cod_setor, V045, V046, V047) %>%
-    setNames(c(names(.)[1], paste0("RespRd_", names(.)[-1])))
-  
-  resprd <- lapply(Resp_Rd, as.numeric)
-  resprd <-  as.data.frame(resprd)
-  
-  message(paste0('Tabela responsaveis e renda de ', uf, ' realizada',"\n"))
-  
-  # Ajustes tabela Domicilio02
-  Dom2 <- read_xls(paste0('./', uf, '/Base setores2010 universo ', uf,'/EXCEL/Domicilio02_',  uf, '.xls')) %>%
-    select(Cod_setor, V002) %>%
-    setNames(c(names(.)[1], paste0("Dom02_", names(.)[-1])))
-  
-  dom_02 <- lapply(Dom2, as.numeric)
-  dom_02 <- as.data.frame(dom_02)
-  
-  message(paste0('Tabela domicilio 02 de ', uf, ' realizada',"\n"))
-  
-  a   <- left_join(basico, ent_01, by= 'Cod_setor')
-  b   <- left_join(a, dom_02, by= 'Cod_setor')
-  c   <- left_join(b, pess03, by= 'Cod_setor')
-  d   <- left_join(c, pess05, by= 'Cod_setor')
-  e   <- left_join(d, domrda, by= 'Cod_setor')
-  fim <- left_join(e, resprd, by= 'Cod_setor')
-
-  message(paste0('Join da tabela de ', uf,' realizada',"\n"))
-  
-  write.xlsx(fim, paste0('./1_tratados/intermediario/',  uf, '_dados_intermediario.xlsx'))
-  
-  message(paste0('Tabela intermediaria de ', uf,' realizada',"\n"))
-  
-  final <- setDT(fim)[,.(Cod_UF = Cod_UF,
-                         Cod_municipio = Cod_municipio,
-                         Nome_municipio = Nome_do_municipio,
-                         Situacao_setor = Situacao_setor,
-                         Pop = BA_V002,
-                         Moradores_total = Dom02_V002, 
-                         Cor_branca=Pess03_V002, 
-                         Cor_preta=Pess03_V003, 
-                         Cor_amarela=Pess03_V004, 
-                         Cor_parda=Pess03_V005, 
-                         Cor_indigena=Pess03_V006,
-                         Renda_total = DomRda_V003, 
-                         DR_0_meio = sum(DomRda_V005, DomRda_V006, DomRda_V007, DomRda_V014, na.rm=T),
-                         DR_meio_1 = DomRda_V008, 
-                         DR_1_3 = sum(DomRda_V009, DomRda_V010, na.rm=T),
-                         DR_3_mais = sum(DomRda_V011, DomRda_V012, DomRda_V013, na.rm=T),
-                         M_Negras = sum(Pess03_V168, Pess03_V170, Pess03_V173, Pess03_V175, Pess03_V178, Pess03_V180,Pess03_V183, 
-                                        Pess03_V185, Pess03_V198, Pess03_V200, Pess03_V203, Pess03_V205, Pess03_V208, Pess03_V210,
-                                        Pess03_V213, Pess03_V215, Pess03_V218, Pess03_V220, Pess03_V223, Pess03_V225, Pess03_V228, 
-                                        Pess03_V230, Pess03_V233, Pess03_V235, Pess03_V238, Pess03_V240, Pess03_V243, Pess03_V245, 
-                                        Pess05_V007, Pess05_V009, na.rm=T),
-                         M_2SM = sum(RespRd_V045, RespRd_V046, RespRd_V047, na.rm=T),
-                         Perc_calc = 100*(sum(Ent01_V020, Ent01_V022, Ent01_V024, na.rm=T)/Ent01_V001),
-                         Perc_ramp = 100*(sum(Ent01_V038, Ent01_V040, Ent01_V042, na.rm=T)/Ent01_V001)), by=Cod_setor]
+basico <-read_xls(paste0("./",uf,'/Base informações setores2010 universo ', uf, '/EXCEL', '/Basico_',uf,'.xls'))
+  basico <-select(basico, Cod_setor, Cod_UF, Nome_da_UF, Cod_RM, Nome_da_RM, Cod_municipio, Nome_do_municipio, Situacao_setor, Tipo_setor, V001, V002)
+  names(basico)[grep('V001', names(basico))] <- 'Dom'
+  names(basico)[grep('V002', names(basico))] <- 'Pop'
+  as.numeric(basico$Dom)
+  as.numeric(basico$Pop)
   
 
-  write.xlsx(final, paste0('./1_tratados/dados_ajustados/',  uf, '_dados.xlsx'))
+
+domicilio01<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Domicilio01_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+  domicilio01$Dom_Banh03_mais<-domicilio01$V027+domicilio01$V028+domicilio01$V029+
+                               domicilio01$V030+domicilio01$V031+domicilio01$V032+domicilio01$V033
+  DOM01<-select(domicilio01,Cod_setor,V008,V050,V034,V025,V026,Dom_Banh03_mais)
+  nomecolunas<-c("Cod_setor","Dom_Alugado","Dom_Morador01","Dom_SemBanh","Dom_Banh01","Dom_Banh02","Dom_Banh03_mais")
+  colnames(DOM01)<-nomecolunas
+  as.character(DOM01$Cod_setor)
+  rm(domicilio01) 
   
-  message(paste0('Tabela final de ', uf,' salva',"\n"))
+#Sexo  
+domicilio02<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Domicilio02_',uf,'.xls'))%>% mutate_all(funs(as.numeric(.)))
+  DOM02<-select(domicilio02,Cod_setor,V008,V045,V089)
+  nomecolunas<-c("Cod_setor","Morador_Alugado","Homem","Mulher")
+  colnames(DOM02)<-nomecolunas
+  as.character(DOM02$Cod_setor)
+  rm(domicilio02)
+  
+responsavel01<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Responsavel01_',uf,'.xls'))%>% mutate_all(funs(as.numeric(.)))
+  RESP01<-select(responsavel01,Cod_setor,V001)
+  nomecolunas<-c("Cod_setor","Responsavel_Mulher")
+  colnames(RESP01)<-nomecolunas
+  as.character(RESP01$Cod_setor)
+  rm(responsavel01)
+
+responsavel02<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Responsavel02_',uf,'.xls'))%>% mutate_all(funs(as.numeric(.)))
+  RESP02<-select(responsavel02,Cod_setor,V001,V109)
+  nomecolunas<-c("Cod_setor","Responsavel","Responsavel_Homem")
+  colnames(RESP02)<-nomecolunas
+  as.character(RESP02$Cod_setor)
+  rm(responsavel02)
+
+pessoa03<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL', '/Pessoa03_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+
+#Raça/Cor
+pessoa03$Negros<-pessoa03$V003+pessoa03$V005
+pessoa03$Nao_Negros<-pessoa03$V002+pessoa03$V004+pessoa03$V006
+pessoa03$brancas <- pessoa03$V002
+
+#Geração
+pessoa03$G_00_04<-pessoa03$V007+pessoa03$V008+pessoa03$V009+pessoa03$V010+pessoa03$V011
+pessoa03$G_05_14<-pessoa03$V012+pessoa03$V013+pessoa03$V014+pessoa03$V015+pessoa03$V016+
+                  pessoa03$V017+pessoa03$V018+pessoa03$V019+pessoa03$V020+pessoa03$V021
+pessoa03$G_15_19<-pessoa03$V022+pessoa03$V023+pessoa03$V024+pessoa03$V025+pessoa03$V026
+pessoa03$G_20_59<-pessoa03$V037+pessoa03$V038+pessoa03$V039+pessoa03$V040+pessoa03$V041+
+                  pessoa03$V042+pessoa03$V043+pessoa03$V044+pessoa03$V045+pessoa03$V046+
+                  pessoa03$V047+pessoa03$V048+pessoa03$V049+pessoa03$V050+pessoa03$V051+
+                  pessoa03$V052+pessoa03$V053+pessoa03$V054+pessoa03$V055+pessoa03$V056+
+                  pessoa03$V057+pessoa03$V058+pessoa03$V059+pessoa03$V060+pessoa03$V061+
+                  pessoa03$V062+pessoa03$V063+pessoa03$V064+pessoa03$V065+pessoa03$V066+
+                  pessoa03$V067+pessoa03$V068+pessoa03$V069+pessoa03$V070+pessoa03$V071+
+                  pessoa03$V072+pessoa03$V073+pessoa03$V074+pessoa03$V075+pessoa03$V076
+pessoa03$G_60_mais<-pessoa03$V077+pessoa03$V078+pessoa03$V079+pessoa03$V080+pessoa03$V081+
+                    pessoa03$V082+pessoa03$V083+pessoa03$V084+pessoa03$V085+pessoa03$V086               
+  
+
+#Raça/Cor - Geração
+pessoa03$Negros_00_04<-pessoa03$V008+pessoa03$V010
+pessoa03$Nao_Negros_00_04<-pessoa03$V007+pessoa03$V009+pessoa03$V011
+
+pessoa03$Negros_05_14<-pessoa03$V013+pessoa03$V015+pessoa03$V018+pessoa03$V020
+pessoa03$Nao_Negros_05_14<-pessoa03$V012+pessoa03$V014+pessoa03$V016+pessoa03$V017+pessoa03$V019+pessoa03$V021
+
+pessoa03$Negros_15_19<-pessoa03$V023+pessoa03$V025
+pessoa03$Nao_Negros_15_19<-pessoa03$V022+pessoa03$V024+pessoa03$V026
+
+pessoa03$Negros_20_59<-pessoa03$V038+pessoa03$V040+pessoa03$V043+pessoa03$V045+
+                       pessoa03$V048+pessoa03$V050+pessoa03$V053+pessoa03$V055+
+                       pessoa03$V058+pessoa03$V060+pessoa03$V063+pessoa03$V065+
+                       pessoa03$V068+pessoa03$V070+pessoa03$V073+pessoa03$V075
+pessoa03$Nao_Negros_20_59<-pessoa03$V037+pessoa03$V039+pessoa03$V041+
+                           pessoa03$V042+pessoa03$V044+pessoa03$V046+
+                           pessoa03$V047+pessoa03$V049+pessoa03$V051+
+                           pessoa03$V052+pessoa03$V054+pessoa03$V056+
+                           pessoa03$V057+pessoa03$V059+pessoa03$V061+
+                           pessoa03$V062+pessoa03$V064+pessoa03$V066+
+                           pessoa03$V067+pessoa03$V069+pessoa03$V071+
+                           pessoa03$V072+pessoa03$V074+pessoa03$V076
+
+pessoa03$Negros_60mais<-pessoa03$V078+pessoa03$V080+pessoa03$V083+pessoa03$V085
+pessoa03$Nao_Negros_60mais<-pessoa03$V077+pessoa03$V079+pessoa03$V081+
+                            pessoa03$V082+pessoa03$V084+pessoa03$V086
+
+#Raça/Cor - Sexo
+
+pessoa03$Negros_Homem_5mais<-pessoa03$V088+pessoa03$V090+pessoa03$V093+pessoa03$V095+
+                             pessoa03$V098+pessoa03$V100+pessoa03$V103+pessoa03$V105+
+                             pessoa03$V118+pessoa03$V120+pessoa03$V123+pessoa03$V125+
+                             pessoa03$V128+pessoa03$V130+pessoa03$V133+pessoa03$V135+
+                             pessoa03$V138+pessoa03$V140+pessoa03$V143+pessoa03$V145+
+                             pessoa03$V148+pessoa03$V150+pessoa03$V153+pessoa03$V155+
+                             pessoa03$V158+pessoa03$V160+pessoa03$V163+pessoa03$V165
+
+pessoa03$Nao_Negros_Homem_5mais<-pessoa03$V087+pessoa03$V089+pessoa03$V091+
+                                 pessoa03$V092+pessoa03$V094+pessoa03$V096+
+                                 pessoa03$V097+pessoa03$V099+pessoa03$V101+
+                                 pessoa03$V102+pessoa03$V104+pessoa03$V106+
+                                 pessoa03$V117+pessoa03$V119+pessoa03$V121+
+                                 pessoa03$V122+pessoa03$V124+pessoa03$V126+
+                                 pessoa03$V127+pessoa03$V129+pessoa03$V131+
+                                 pessoa03$V132+pessoa03$V134+pessoa03$V136+
+                                 pessoa03$V137+pessoa03$V139+pessoa03$V141+
+                                 pessoa03$V142+pessoa03$V144+pessoa03$V146+
+                                 pessoa03$V147+pessoa03$V149+pessoa03$V151+
+                                 pessoa03$V152+pessoa03$V154+pessoa03$V156+
+                                 pessoa03$V157+pessoa03$V159+pessoa03$V161+
+                                 pessoa03$V162+pessoa03$V164+pessoa03$V166
+
+pessoa03$brancos_homens_5mais <- pessoa03$V087 +
+  pessoa03$V092 +
+  pessoa03$V097 +
+  pessoa03$V102 +
+  pessoa03$V117 +
+  pessoa03$V122 +
+  pessoa03$V127 +
+  pessoa03$V132 +
+  pessoa03$V137 +
+  pessoa03$V142 +
+  pessoa03$V147 +
+  pessoa03$V152 +
+  pessoa03$V157 +
+  pessoa03$V162 
   
   
+pessoa03$brancos_mulheres_5mais<-pessoa03$V167+
+  pessoa03$V172+
+  pessoa03$V177+
+  pessoa03$V182+
+  pessoa03$V197+
+  pessoa03$V202+
+  pessoa03$V207+
+  pessoa03$V212+
+  pessoa03$V217+
+  pessoa03$V222+
+  pessoa03$V227+
+  pessoa03$V232+
+  pessoa03$V237+
+  pessoa03$V242
+  
+  
+pessoa03$Negros_Mulher_5mais<-pessoa03$V168+pessoa03$V170+pessoa03$V173+pessoa03$V175+
+                              pessoa03$V178+pessoa03$V180+pessoa03$V183+pessoa03$V185+
+                              pessoa03$V198+pessoa03$V200+pessoa03$V203+pessoa03$V205+
+                              pessoa03$V208+pessoa03$V210+pessoa03$V213+pessoa03$V215+
+                              pessoa03$V218+pessoa03$V220+pessoa03$V223+pessoa03$V225+
+                              pessoa03$V228+pessoa03$V230+pessoa03$V233+pessoa03$V235+
+                              pessoa03$V238+pessoa03$V240+pessoa03$V243+pessoa03$V245
+
+pessoa03$Nao_Negros_Mulher_5mais<-pessoa03$V167+pessoa03$V169+pessoa03$V171+
+                                  pessoa03$V172+pessoa03$V174+pessoa03$V176+
+                                  pessoa03$V177+pessoa03$V179+pessoa03$V181+
+                                  pessoa03$V182+pessoa03$V184+pessoa03$V186+
+                                  pessoa03$V197+pessoa03$V199+pessoa03$V201+
+                                  pessoa03$V202+pessoa03$V204+pessoa03$V206+
+                                  pessoa03$V207+pessoa03$V209+pessoa03$V211+
+                                  pessoa03$V212+pessoa03$V214+pessoa03$V216+
+                                  pessoa03$V217+pessoa03$V219+pessoa03$V221+
+                                  pessoa03$V222+pessoa03$V224+pessoa03$V226+
+                                  pessoa03$V227+pessoa03$V229+pessoa03$V231+
+                                  pessoa03$V232+pessoa03$V234+pessoa03$V236+
+                                  pessoa03$V237+pessoa03$V239+pessoa03$V241+
+                                  pessoa03$V242+pessoa03$V244+pessoa03$V246
+
+#Geração - Sexo
+pessoa03$G_05_14_Homem<-pessoa03$V087+pessoa03$V088+pessoa03$V089+pessoa03$V090+pessoa03$V091+
+                        pessoa03$V092+pessoa03$V093+pessoa03$V094+pessoa03$V095+pessoa03$V096+
+                        pessoa03$V097+pessoa03$V098+pessoa03$V099+pessoa03$V100+pessoa03$V101
+pessoa03$G_15_19_Homem<-pessoa03$V102+pessoa03$V103+pessoa03$V104+pessoa03$V105+pessoa03$V106
+pessoa03$G_20_59_Homem<-pessoa03$V117+pessoa03$V118+pessoa03$V119+pessoa03$V120+pessoa03$V121+
+                        pessoa03$V122+pessoa03$V123+pessoa03$V124+pessoa03$V125+pessoa03$V126+
+                        pessoa03$V127+pessoa03$V128+pessoa03$V129+pessoa03$V130+pessoa03$V131+
+                        pessoa03$V132+pessoa03$V133+pessoa03$V134+pessoa03$V135+pessoa03$V136+
+                        pessoa03$V137+pessoa03$V138+pessoa03$V139+pessoa03$V140+pessoa03$V141+
+                        pessoa03$V142+pessoa03$V143+pessoa03$V144+pessoa03$V145+pessoa03$V146+
+                        pessoa03$V147+pessoa03$V148+pessoa03$V149+pessoa03$V150+pessoa03$V151+
+                        pessoa03$V152+pessoa03$V153+pessoa03$V154+pessoa03$V155+pessoa03$V156
+pessoa03$G_60mais_Homem<-pessoa03$V157+pessoa03$V158+pessoa03$V159+pessoa03$V160+pessoa03$V161+
+                         pessoa03$V162+pessoa03$V163+pessoa03$V164+pessoa03$V165+pessoa03$V166
+
+pessoa03$G_05_14_Mulher<-pessoa03$V167+pessoa03$V168+pessoa03$V169+pessoa03$V170+pessoa03$V171+
+                         pessoa03$V172+pessoa03$V173+pessoa03$V174+pessoa03$V175+pessoa03$V176+
+                         pessoa03$V177+pessoa03$V178+pessoa03$V179+pessoa03$V180+pessoa03$V181
+pessoa03$G_15_19_Mulher<-pessoa03$V182+pessoa03$V183+pessoa03$V184+pessoa03$V185+pessoa03$V186
+pessoa03$G_20_59_Mulher<-pessoa03$V197+pessoa03$V198+pessoa03$V199+pessoa03$V200+pessoa03$V201+
+                         pessoa03$V202+pessoa03$V203+pessoa03$V204+pessoa03$V205+pessoa03$V206+
+                         pessoa03$V207+pessoa03$V208+pessoa03$V209+pessoa03$V210+pessoa03$V211+
+                         pessoa03$V212+pessoa03$V213+pessoa03$V214+pessoa03$V215+pessoa03$V216+
+                         pessoa03$V217+pessoa03$V218+pessoa03$V219+pessoa03$V220+pessoa03$V221+
+                         pessoa03$V222+pessoa03$V223+pessoa03$V224+pessoa03$V225+pessoa03$V226+
+                         pessoa03$V227+pessoa03$V228+pessoa03$V229+pessoa03$V230+pessoa03$V231+
+                         pessoa03$V232+pessoa03$V233+pessoa03$V234+pessoa03$V235+pessoa03$V236
+pessoa03$G_60mais_Mulher<-pessoa03$V237+pessoa03$V238+pessoa03$V239+pessoa03$V240+pessoa03$V241+
+                         pessoa03$V242+pessoa03$V243+pessoa03$V244+pessoa03$V245+pessoa03$V246
+
+
+
+pessoa03_calc<-select(pessoa03,Cod_setor,Negros,Nao_Negros,G_00_04,G_05_14,G_15_19,G_20_59,G_60_mais,
+                 Negros_00_04,Nao_Negros_00_04,Negros_05_14,Nao_Negros_05_14,Negros_15_19,Nao_Negros_15_19,
+                 Negros_20_59,Nao_Negros_20_59,Negros_60mais,Nao_Negros_60mais,
+                 Negros_Homem_5mais,Nao_Negros_Homem_5mais, brancos_homens_5mais,Negros_Mulher_5mais,Nao_Negros_Mulher_5mais, brancos_mulheres_5mais,
+                 G_05_14_Homem, G_05_14_Mulher,G_15_19_Homem,G_15_19_Mulher,G_20_59_Homem,G_20_59_Mulher, 
+                 G_60mais_Homem, G_60mais_Mulher, Negros, brancas)
+
+  as.character(pessoa03_calc$Cod_setor)
+  rm(pessoa03)
+
+#Geração - Raça (continuação)
+pessoa05<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Pessoa05_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+  pessoa05$Negros_00_04_Homem<-pessoa05$V002+pessoa05$V004
+  pessoa05$Nao_Negros_00_04_Homem<-pessoa05$V001+pessoa05$V003+pessoa05$V005
+  pessoa05$Negros_00_04_Mulher<-pessoa05$V007+pessoa05$V009
+  pessoa05$Nao_Negros_00_04_Mulher<-pessoa05$V006+pessoa05$V008+pessoa05$V010
+  pessoa05$Brancos_00_04_Mulher <-pessoa05$V006
+  pessoa05$Brancos_00_04_Homem <-pessoa05$V001
+    
+#Geração - Sexo (continuação)
+  pessoa05$G_00_04_Homem<-pessoa05$V001+pessoa05$V002+pessoa05$V003+pessoa05$V004+pessoa05$V005
+  pessoa05$G_00_04_Mulher<-pessoa05$V006+pessoa05$V007+pessoa05$V008+pessoa05$V009+pessoa05$V010
+  
+  
+  pessoa05_calc<-select(pessoa05,Cod_setor,Negros_00_04_Homem,Nao_Negros_00_04_Homem,
+                        Negros_00_04_Mulher,Nao_Negros_00_04_Mulher,
+                        G_00_04_Homem, G_00_04_Mulher, Brancos_00_04_Mulher, Brancos_00_04_Homem )
+  as.character(pessoa05_calc$Cod_setor)
+  rm(pessoa05)
+
+#Renda
+domiciliorenda<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/DomicilioRenda_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+  domiciliorenda$DR_0_meio<-domiciliorenda$V014+domiciliorenda$V005+domiciliorenda$V006+domiciliorenda$V007
+  domiciliorenda$DR_meio_1<-domiciliorenda$V008
+  domiciliorenda$DR_0_1 <- domiciliorenda$V014+domiciliorenda$V005+domiciliorenda$V006+domiciliorenda$V007+domiciliorenda$V008
+  domiciliorenda$DR_1_3<-domiciliorenda$V009+domiciliorenda$V010
+  domiciliorenda$DR_3_mais<-domiciliorenda$V011+domiciliorenda$V012+domiciliorenda$V013
+  domiciliorenda$DR_2SM<-domiciliorenda$V014+domiciliorenda$V005+domiciliorenda$V006+domiciliorenda$V007+
+                         domiciliorenda$V008+domiciliorenda$V009
+  domiciliorenda$DR_1SM<-domiciliorenda$V014+domiciliorenda$V005+domiciliorenda$V006+domiciliorenda$V007+domiciliorenda$V008
+  domiciliorenda_calc<-select(domiciliorenda,Cod_setor,DR_0_meio,DR_meio_1,DR_1_3,DR_3_mais,DR_2SM,DR_1SM)
+  as.character(domiciliorenda_calc$Cod_setor)
+  rm(domiciliorenda)
+
+#Renda - Sexo
+responsavelrenda<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/ResponsavelRenda_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+responsavelrenda$RespRd_Homem_0_meio<-responsavelrenda$V032+responsavelrenda$V023
+responsavelrenda$RespRd_Homem_meio_1<-responsavelrenda$V024
+responsavelrenda$RespRd_Homem_0_1 <- responsavelrenda$V032+responsavelrenda$V023+responsavelrenda$V024
+responsavelrenda$RespRd_Homem_1_3<-responsavelrenda$V025+responsavelrenda$V026
+responsavelrenda$RespRd_Homem_3_mais<-responsavelrenda$V027+responsavelrenda$V028+responsavelrenda$V029+responsavelrenda$V030+responsavelrenda$V031
+responsavelrenda$RespRd_Homem_2SM<-responsavelrenda$V032+responsavelrenda$V023+responsavelrenda$V024+responsavelrenda$V025
+
+responsavelrenda$RespRd_Mulher_0_meio<-responsavelrenda$V054+responsavelrenda$V045
+responsavelrenda$RespRd_Mulher_meio_1<-responsavelrenda$V046
+responsavelrenda$RespRd_Mulher_0_1 <- responsavelrenda$V054+responsavelrenda$V045+responsavelrenda$V046
+responsavelrenda$RespRd_Mulher_1_3<-responsavelrenda$V047+responsavelrenda$V048
+responsavelrenda$RespRd_Mulher_3_mais<-responsavelrenda$V049+responsavelrenda$V050+responsavelrenda$V051+responsavelrenda$V052+responsavelrenda$V053
+responsavelrenda$RespRd_Mulher_2SM<-responsavelrenda$V054+responsavelrenda$V045+responsavelrenda$V046+responsavelrenda$V047
+
+responsavelrenda_calc<-select(responsavelrenda,Cod_setor,RespRd_Homem_0_meio,RespRd_Homem_meio_1,RespRd_Homem_0_1,RespRd_Homem_1_3,RespRd_Homem_3_mais,
+                              RespRd_Homem_2SM,RespRd_Mulher_0_meio,RespRd_Mulher_meio_1,RespRd_Mulher_0_1, RespRd_Mulher_1_3,RespRd_Mulher_3_mais,RespRd_Mulher_2SM)
+
+pessoarenda<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/PessoaRenda_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+pessoarenda$Renda_Media=pessoarenda$V022/pessoarenda$V021 #somente pessoas com rendimento positivo
+pessoarenda$Renda_Media_Homem=pessoarenda$V044/pessoarenda$V043 #somente pessoas com rendimento positivo
+pessoarenda$Renda_Media_Mulher=pessoarenda$V066/pessoarenda$V065 #somente pessoas com rendimento positivo
+pessoarenda$Renda_Homem_0_meio<-pessoarenda$V023+pessoarenda$V032 
+pessoarenda$Renda_Homem_meio_1<-pessoarenda$V024
+pessoarenda$Renda_Homem_0_1 <- pessoarenda$V023+pessoarenda$V032+pessoarenda$V024 
+pessoarenda$Renda_Homem_1_3<-pessoarenda$V025+pessoarenda$V026
+pessoarenda$Renda_Homem_3_mais<-pessoarenda$V027+pessoarenda$V028+pessoarenda$V029+pessoarenda$V030+pessoarenda$V031
+pessoarenda$Renda_Homem_2SM<-pessoarenda$V023+pessoarenda$V024+pessoarenda$V025+pessoarenda$V032
+
+pessoarenda$Renda_Mulher_0_meio<-pessoarenda$V045+pessoarenda$V054 
+pessoarenda$Renda_Mulher_meio_1<-pessoarenda$V046
+pessoarenda$Renda_Mulher_0_1 <- pessoarenda$V045+pessoarenda$V054+pessoarenda$V046
+pessoarenda$Renda_Mulher_1_3<-pessoarenda$V047+pessoarenda$V048
+pessoarenda$Renda_Mulher_3_mais<-pessoarenda$V049+pessoarenda$V050+pessoarenda$V051+pessoarenda$V052+pessoarenda$V053
+pessoarenda$Renda_Mulher_2SM<-pessoarenda$V045+pessoarenda$V046+pessoarenda$V047+pessoarenda$V054
+
+pessoarenda$Pessoa_0_1 <- pessoarenda$Renda_Homem_0_1 + pessoarenda$Renda_Mulher_0_1
+pessoarenda$Pessoa_0_meio <- pessoarenda$Renda_Homem_0_meio + pessoarenda$Renda_Mulher_0_meio
+pessoarenda$Pessoa_meio_1 <- pessoarenda$Renda_Homem_meio_1 + pessoarenda$Renda_Mulher_meio_1
+pessoarenda$Pessoa_1_3 <- pessoarenda$Renda_Homem_1_3 + pessoarenda$Renda_Mulher_1_3
+pessoarenda$Pessoa_3_mais <- pessoarenda$Renda_Homem_3_mais + pessoarenda$Renda_Mulher_3_mais
+
+
+
+pessoarenda_calc<-select(pessoarenda,Cod_setor,Renda_Media,Renda_Media_Homem, Renda_Media_Mulher,
+                         Renda_Homem_0_meio,Renda_Homem_meio_1,Renda_Homem_0_1,Renda_Homem_1_3,Renda_Homem_3_mais,Renda_Homem_2SM,
+                         Renda_Mulher_0_meio,Renda_Mulher_meio_1,Renda_Mulher_0_1,Renda_Mulher_1_3,Renda_Mulher_3_mais,Renda_Mulher_2SM,
+                         Pessoa_0_1, Pessoa_0_meio, Pessoa_meio_1, Pessoa_1_3, Pessoa_3_mais)                       
+
+entorno01<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Entorno01_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+entorno01$Dom_Perc_Calcada<-(entorno01$V020+entorno01$V022+entorno01$V024)/entorno01$V001
+entorno01$Dom_Perc_Rampa<-(entorno01$V038+entorno01$V040+entorno01$V042)/entorno01$V001
+entorno01$Dom_Perc_Pavimentacao<-(entorno01$V014+entorno01$V016+entorno01$V018)/entorno01$V001
+entorno01_calc<-select(entorno01,Cod_setor,Dom_Perc_Calcada,Dom_Perc_Rampa,Dom_Perc_Pavimentacao)
+
+
+entorno03<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Entorno03_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+entorno03$Morador_Perc_Calcada<-(entorno03$V441+entorno03$V443+entorno03$V445)/entorno03$V422
+entorno03$Morador_Perc_Rampa<-(entorno03$V459+entorno03$V461+entorno03$V463)/entorno03$V422
+entorno03$Morador_Perc_Pavimentacao<-(entorno03$V435+entorno03$V437+entorno03$V439)/entorno03$V422
+entorno03_calc<-select(entorno03,Cod_setor,Morador_Perc_Calcada,Morador_Perc_Rampa,Morador_Perc_Pavimentacao)
+
+entorno05<-read_xls(paste0('./',uf, '/Base informações setores2010 universo ', uf, '/EXCEL','/Entorno05_',uf,'.xls')) %>% mutate_all(funs(as.numeric(.)))
+entorno05$Morador_Perc_Calcada_Negros<-(entorno05$V995+entorno05$V999)/(entorno05$V995+entorno05$V996+entorno05$V999+entorno05$V1000)
+entorno05$Morador_Perc_Calcada_Nao_Negros<-(entorno05$V993+entorno05$V997+entorno05$V1001)/(entorno05$V993+entorno05$V994+entorno05$V997+entorno05$V998+entorno05$V1001+entorno05$V1002)
+entorno05$Morador_Perc_Rampa_Negros<-(entorno05$V1025+entorno05$V1029)/(entorno05$V1025+entorno05$V1026+entorno05$V1029+entorno05$V1030)
+entorno05$Morador_Perc_Rampa_Nao_Negros<-(entorno05$V1023+entorno05$V1027+entorno05$V1031)/(entorno05$V1023+entorno05$V1024+entorno05$V1027+entorno05$V1028+entorno05$V1031+entorno05$V1032)
+entorno05$Morador_Perc_Pavimentacao_Negros<-(entorno05$V985+entorno05$V989)/(entorno05$V985+entorno05$V986+entorno05$V989+entorno05$V990)
+entorno05$Morador_Perc_Pavimentacao_Nao_Negros<-(entorno05$V983+entorno05$V987+entorno05$V991)/(entorno05$V983+entorno05$V984+entorno05$V987+entorno05$V988+entorno05$V991+entorno05$V992)
+entorno05_calc<-select(entorno05,Cod_setor,Morador_Perc_Calcada_Negros,Morador_Perc_Calcada_Nao_Negros,Morador_Perc_Rampa_Negros,Morador_Perc_Rampa_Nao_Negros,
+                       Morador_Perc_Pavimentacao_Negros,Morador_Perc_Pavimentacao_Nao_Negros)
+
+
+#Junta as tabelas das variáveis selecionadas 
+
+a<-left_join(basico,DOM01,by= 'Cod_setor')
+b<-left_join(a,DOM02,by= 'Cod_setor')
+c<-left_join(b,domiciliorenda_calc, by= 'Cod_setor')
+d<-left_join(c,RESP01, by= 'Cod_setor')
+e<-left_join(d,RESP02, by= 'Cod_setor')
+f<-left_join(e,pessoa03_calc, by= 'Cod_setor')
+g<-left_join(f,pessoa05_calc, by= 'Cod_setor')
+h<-left_join(g,responsavelrenda_calc, by= 'Cod_setor')
+i<-left_join(h,pessoarenda_calc, by= 'Cod_setor')
+j<-left_join(i,entorno01_calc, by= 'Cod_setor')
+k<-left_join(j,entorno03_calc, by= 'Cod_setor')
+grandebaseuf<-left_join(k,entorno05_calc, by= 'Cod_setor')
+grandebaseuf$Negros_Homem<-grandebaseuf$Negros_Homem_5mais+grandebaseuf$Negros_00_04_Homem
+grandebaseuf$Nao_Negros_Homem<-grandebaseuf$Nao_Negros_Homem_5mais+grandebaseuf$Nao_Negros_00_04_Homem
+grandebaseuf$Negros_Mulher<-grandebaseuf$Negros_Mulher_5mais+grandebaseuf$Negros_00_04_Mulher
+grandebaseuf$Nao_Negros_Mulher<-grandebaseuf$Nao_Negros_Mulher_5mais+grandebaseuf$Nao_Negros_00_04_Mulher
+grandebaseuf$homem_branco <-grandebaseuf$Brancos_00_04_Homem + grandebaseuf$brancos_homens_5mais
+grandebaseuf$mulher_branca<-grandebaseuf$brancos_mulheres_5mais+grandebaseuf$Brancos_00_04_Mulher
+
+
+#e salva por UF
+
+write.xlsx(grandebaseuf,paste0('./0_dados_ajustados/',uf,'_dados.xlsx'))
+message(paste0('Tabela final de ', uf,' salva',"\n"))
 }
 
 list_uf <- c('BA', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO', 'AC', 
              'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL', 'SE', 
              'ES', 'SC', 'RS', 'MS', 'MT', 'GO', 'SP_Capital', 'SP_Exceto_Capital')
-pblapply(list_uf, ajustar_tabelas_censo)
 
 
+#aplica a lista de UFs na função
+pblapply(list_uf, tabela_PNT)
+# tabela_PNT(uf)
 
-#3. Juntar e salvar tabelas ----
-#3.1. Juntar tabela intermediaria
+#Juntar e salvar tabelas ----
+#Juntar tabela intermediaria
 # Abrir
-files <- list.files('./1_tratados/intermediario', pattern = "\\.xlsx", full.names = TRUE)
+files <- list.files('F:/Projetos/Mobilidados/pnb_verificacao/dados/dados_ajustados/', pattern = "\\.xlsx", full.names = TRUE)
 
 # Juntar
 juntos <- do.call("rbind", lapply(files, read.xlsx))
@@ -166,41 +396,9 @@ juntos$Cod_UF[(juntos$Cod_UF)==27] <- 'AL'
 juntos$Cod_UF[(juntos$Cod_UF)==11] <- 'RO'
 
 # Salvar
-readr::write_rds(juntos, paste0('./1_tratados/intermediario/dados_setores_intermediario.rds'))
-openxlsx::write.xlsx(juntos, paste0('./1_tratados/intermediario/dados_setores_intermediario.xlsx'))
-
-#3.2. Juntar tabela final
-# Abrir
-files <- list.files('./1_tratados/dados_ajustados', pattern = "\\.xlsx", full.names = TRUE)
-
-# Juntar
-juntos <- do.call("rbind", lapply(files, read.xlsx))
-juntos$Cod_UF[(juntos$Cod_UF)==27] <- 'AL'
-juntos$Cod_UF[(juntos$Cod_UF)==11] <- 'RO'
-unique(juntos$Cod_UF)
-
-# Salvar
-readr::write_rds(juntos, paste0('./1_tratados/dados_ajustados/dados_setores.rds'))
-openxlsx::write.xlsx(juntos, paste0('./1_tratados/dados_ajustados/dados_setores.xlsx'))
+readr::write_rds(juntos, 'F:/Projetos/Mobilidados/pnb_verificacao_f/dados/BasePNT/dados_setores.rds')
+openxlsx::write.xlsx(juntos, 'F:/Projetos/Mobilidados/pnb_verificacao_f/dados/BasePNT/dados_setores.xlsx')
 
 
-#Verificar ----
-names(juntos)
 
-a <- read_rds('/Users/mackook/Desktop/R/dados/IBGE/dados_setores.rds')
-total_a <- c(sum(a$Pop, na.rm=T),
-             sum(a$DR_0_meio, na.rm=T),
-             sum(a$DR_meio_1, na.rm=T),
-             sum(a$DR_1_3, na.rm=T),
-             sum(a$DR_3_mais, na.rm=T),
-             sum(a$M_Negras, na.rm=T),
-             sum(a$M_2SM, na.rm=T))
 
-b <- read_rds('./1_tratados/dados_ajustados/dados_setores.rds')
-total_b <- c(sum(b$Pop, na.rm=T),
-             sum(b$DR_0_meio, na.rm=T),
-             sum(b$DR_meio_1, na.rm=T),
-             sum(b$DR_1_3, na.rm=T),
-             sum(b$DR_3_mais, na.rm=T),
-             sum(b$M_Negras, na.rm=T),
-             sum(b$M_2SM, na.rm=T))
