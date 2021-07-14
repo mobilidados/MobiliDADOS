@@ -1,0 +1,37 @@
+
+#Carregar pacotes
+library(geobr)
+library(dplyr)
+library(readr)
+library(beepr)
+library(sf)
+library(mapview)
+
+
+
+#Carregar tabela com informações das rms
+
+apoio_rm <- read_rds("apoio_rm.rds")
+
+# Baixar os limites de todos os municípios e filtrar municípios das rms
+
+rm <- read_municipality("all") %>% 
+  filter(code_muni %in% apoio_rm$code_muni) %>% 
+  left_join(apoio_rm, c("code_muni" = "code_muni"))
+
+# Criar lista com as rms
+
+lista <- rm$rm %>% unique()
+
+# Exportar limites de cada rm em dois formatos
+
+for(i in lista){
+  write_rds(st_union(st_buffer(filter(rm, rm == i), .0005)),paste0("./dados/camadas/rm/limites/rds/limites_",i,".rds"))  
+  st_write(st_union(st_buffer(filter(rm, rm == i), .0005)),paste0("./dados/camadas/rm/limites/shp/limites_",i,".shp"))  
+}
+
+# Exportar os limites totais em dois formatos
+
+write_rds(rm, "./dados/camadas/rm/limites/rds/limites_total.rds")
+st_write(rm, "./dados/camadas/rm/limites/shp/limites_total.shp")
+
