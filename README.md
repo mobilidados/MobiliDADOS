@@ -9,4 +9,4 @@ A [MobiliDADOS](https://mobilidados.org.br/) é uma plataforma criada pelo ITDP 
 ![](outros/Home.png)
 
 
-![](outros/Realizacao.png)
+![](outros/Realizacao.PNG)
