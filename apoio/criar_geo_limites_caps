@@ -1,0 +1,47 @@
+# Script para baixar os limites das capitais por setor censitário
+
+library(geobr)
+library(dplyr)
+library(readr)
+library(sf)
+library(mapview)
+
+setwd("E:/pasta")
+
+munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 
+                                     2304400, 5300108, 4106902,
+                                     3106200, 1501402, 1100205, 1200401,
+                                     1302603, 1400100, 1600303, 1721000, 2111300,
+                                     2211001, 2408102, 2507507, 2704302, 2800308,
+                                     3205309, 4205407, 4314902, 5002704,
+                                     5103403, 5208707),
+                       name_muni=c('salvador', 'sao paulo','rio de janeiro', 'recife',
+                                   'fortaleza', 'distrito federal', 'curitiba', 
+                                   'belo horizonte', 'belem', 'porto velho', 'rio branco', 
+                                   'manaus', 'boa vista', 'macapa', 'palmas', 'sao luis',
+                                   'teresina', 'natal', 'joao pessoa', 'maceio', 'aracaju', 
+                                   'vitoria', 'florianopolis', 'porto alegre', 'campo grande', 
+                                   'cuiaba', 'goiania'),
+                       abrev_state=c('BA', 'SP', 'RJ', 'PE', 'CE', 'DF', 'PR', 'MG', 'PA', 'RO',
+                                     'AC', 'AM', 'RR', 'AP', 'TO', 'MA', 'PI', 'RN', 'PB', 'AL',
+                                     'SE', 'ES', 'SC', 'RS', 'MS', 'MT', 'GO'), 
+                       espg = c(31984, 31983, 31983, 31985, 31984, 31983, 31982, 31983, 31982, 
+                                31980, 31979, 31980, 31980, 31982, 31982, 31983, 31983,
+                                31985, 31985, 31985, 31984, 31984, 31982, 31982, 31981,
+                                31981, 31982))
+
+
+
+setores_uf <- read_census_tract(code_tract = "all", 2010) # download setores censitários para todo o país 
+
+# Função para filtrar capitais e gerar output como ".rds"
+
+get_camadas <- function(i){
+  setores <- read_census_tract(code_tract = i, 2010)
+  # mapview(setores)
+  setores <- setores %>% mutate(Cod_setor = code_tract, Ar_m2 = unclass(st_area(.)))
+  write_rds(setores, paste0("./dados/camadas/capitais/setores_",subset(munis_df, code_muni==i)$name_muni, ".rds"))
+}
+
+
+pblapply(munis_df$code_muni, get_camadas) # rodar o código
