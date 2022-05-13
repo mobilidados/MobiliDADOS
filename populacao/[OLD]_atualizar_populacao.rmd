@@ -1,136 +1,140 @@
-# abrir pacotes e definir diretorio ----
-library(sf)
-library(beepr)
-library(geobr)
-library(openxlsx)
-library(readxl)
+library(readr)
+library(janitor)
 library(dplyr)
-library(data.table)
-library(mapview)
-library(Hmisc)
-library(datasus)
+library(stringr)
+library(readODS)
+library(sidrar)
+library(tidyr)
 
-# definir diretorio
-setwd('E:/R')
 
-pop_ano_novo <- function(i){
-  
-  # abrir arquivo com poulacao nova baixado de ftp://ftp.ibge.gov.br/Estimativas_de_Populacao/
-  pop <- read_excel(paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_dou_", i, ".xls"), sheet=2)
- 
-  colnames(pop) <- as.character(unlist(pop[1,])) #pegar nome das colunas
-  
-  pop <- pop[-c(1),] %>% #eliminar linhas desnecessarias
-    mutate(code_muni = paste(`COD. UF`,`COD. MUNIC`, sep = ""), #juntar coluna de cod UF e cod Muni
-           code_muni6 = substr(code_muni, 1, 6), #criar coluna code_muni6
-           Pop_2019 = as.numeric(`POPULAÇÃO ESTIMADA`)) # transformar coluna em valor numerico ## mudar ano
-  
-  names(pop)
-  
-  # selecionar apenas colunas necessarias
-  pop_fim <- pop %>% select(code_muni6, Pop_2019, `POPULAÇÃO ESTIMADA`)%>% filter(code_muni6!="NANA")  ## mudar ano
-  pop_fim$Pop_2019[is.na(pop_fim$Pop_2019)] <- 0 #transformar NA em 0  ## mudar ano
-  
-  return(pop_fim)
+# Importar dados ----------------------------------------------------------
 
+base_rms <- read_ods("F:/Projetos/Mobilidados/datasus_verificacao/dados/Composicao_RMs_RIDEs_AglomUrbanas_2020_06_30.ods") %>% 
+  mutate(COD_MUN = as.character(substr(COD_MUN, 1, 6)) ) %>% select(NOME, COD_MUN)
+
+
+#Tem dois municípios que estão em mais de uma RM. Retirar a classificação mais antiga.
+
+base_rms <- subset(base_rms, !c(c(base_rms$COD_MUN == 270900 & base_rms$NOME != "Região Metropolitana do Agreste")))
+base_rms <- subset(base_rms, !c(c(base_rms$COD_MUN == 270550 & base_rms$NOME != "Região Metropolitana de Maceió")))
+
+
+# Baixando os dados de população dos municípios ---------------------------
+
+anos <- as.character(2001:2021) # Modificar o ano quando atualizar
+
+tabela_pop <- NULL
+
+for(i in anos){
+  tmp <- get_sidra(x = 6579, # código da tabela
+                   variable = 9324, # Código da variável
+                   geo = "City", # Site
+                   period = i)
+  tabela_pop <- rbind(tabela_pop, tmp)
 }
 
-pop_ano <- pop_ano_novo(2019) 
+# Os anos dos censos precisam ser baixados separadamente
+
+tabela_pop_2000 <- get_sidra(x = 200, # código da tabela
+                             variable = 93,# Código da variável
+                             geo = "City", # Site
+                             period = "2000",
+                             classific = c("c2"),
+                             category = list(0))
+
+tabela_pop_2010 <- get_sidra(x = 1378, # código da tabela
+          variable = 93,# Código da variável
+          geo = "City", # Site
+          period = "2010",
+          classific = c("c1"),
+          category = list(0))
+
+tabela_pop_2007 <- get_sidra(x = 793, # código da tabela
+           # Código da variável
+          geo = "City", # Site
+          period = "2007")
+
+# Juntar todos os anos
+
+tabela_pop_f <- rbind(tabela_pop, tabela_pop_2010[,1:11],tabela_pop_2007,tabela_pop_2000[,1:11])
 
 
+# Limpeza de dados --------------------------------------------------------
 
-# correcao de valores com caracteres diferentes ----
+# Dados serão limpos e colocados no formato para subir para a mobilidados
 
-# verificar dados com problemas com populacao de algumas cidades
-pop_zerada <- pop_ano %>% filter(Pop_2019 == 0) #mudar ano
+tabela_pop2 <- tabela_pop_f %>% clean_names() %>% mutate(uf = str_sub(municipio, -2, -1), # cria a coluna com nome de uf
+                                                       municipio = str_sub(municipio, 1, -6), # coluna somente com nome do município
+                                                       COD_MUN = str_sub(municipio_codigo,1,-2)) # cria coluna com o cósigo do município caracter a menos
 
-# criar tabelas com dados para corrigir
-correcao <- data.frame(code_muni6 = c(pop_zerada$code_muni6), 
-                       Pop_2019 = c(529544, 32105, 25156, 16256, 8239, 122197, 102400, 
-                                    17040, 37241, 13229, 15895, 60585, 13031, 9224,
-                                    9331, 16979, 43223, 10139, 9667)) %>% #mudar ano
-  mutate(code_muni6 = as.character(code_muni6))
+ordem <- c(2000:2021)
 
-setDT(correcao)
-pop_ano_fim <- setDT(pop_ano) %>% mutate(`POPULAÇÃO ESTIMADA` = NULL) 
+tabela_pop3 <- tabela_pop2 %>% mutate(ano = factor(ano, levels = ordem)) %>% arrange(ano)
 
-# names(pop_ano_fim)
-# names(correcao)
-
-# verificar correcao
-# teste <- left_join(correcao, pop_ano, by = "code_muni6")
-# print(teste)
-
-# tabela final para correcao
-code_muni_corrected <- correcao$code_muni6
-pop_ano_final <- rbind(pop_ano_fim %>% filter(code_muni6 %nin% code_muni_corrected), correcao) 
-sum(pop_ano_final$Pop_2019,na.rm=T) #mudar ano
-
-i = 2019
-write.xlsx(pop_ano_final, paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_", i, "_corrigida.xlsx")) #mudar ano
+tabela_pop_rm <- tabela_pop3 %>% left_join(base_rms, c("COD_MUN" = "COD_MUN"))
 
 
-# agregagacao de dados na serir historica ----
-
-juntar_serie <- function (i) {
-  
-  # abrir populacao do ultimo ano
-  pop_ano_final <- read.xlsx(paste0("./dados/IBGE/estimativas_populacao/por_ano/estimativa_", i, "_corrigida.xlsx"))%>%
-    mutate(code_muni6 = as.character(code_muni6))
-  
-  # abrir serie historica
-  pop_serie <- read.xlsx(paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i-1, ".xlsx"))%>%
-    mutate(CD_MUN6 = as.character(CD_MUN6))
-  
-  # names(pop_serie)
-  # names(pop_ano_final)
-  
-  # join das tabelas
-  pop_serie_fim  <- left_join(pop_serie, pop_ano_final %>% select(code_muni6, Pop_2019), #mudar ano
-                              by = c("CD_MUN6"="code_muni6")) #%>% mutate(Pop_2018_verif = NULL)
-   
-  # names(pop_serie_fim)
-  print(sum(pop_serie_fim$Pop_2019))
-  
-  
-  # join com RMs
-  RMs <- read.xlsx("./dados/IBGE/composicao_rm/Composicao_RMs_RIDEs_AglomUrbanas_2019_12_31.xlsx", sheet = 1) %>%
-  select(COD_MUN, NOME) %>% mutate(RM = NOME, NOME = NULL)
-  
-  #names(RMs)
-  
-  pop_serie_fim <- left_join(pop_serie_fim, RMs, by = c("CD_MUN"= "COD_MUN"))
-  
-  pop_serie_fim <- pop_serie_fim[,c(1, 2, 3, 4, 5, 26, 6, 7, 8, 9, 
-                          10, 11, 12, 13, 14, 15, 16, 17, 18, 
-                          19, 20, 21, 22, 23, 24, 25)]
-
-  # corrigir RMBH - Colar Metropolitano
-  bh_colar_metropolitano = pop_serie_fim$CD_MUN %in% c(3105400,
-                                                       3106408,
-                                                       3107703,
-                                                       3108107,
-                                                       3126406,
-                                                       3127206,
-                                                       3131000,
-                                                       3131901,
-                                                       3133808,
-                                                       3142304,
-                                                       3147105,
-                                                       3153608,
-                                                       3157203,
-                                                       3161908,
-                                                       3163102,
-                                                       3167202)
-  pop_serie_fim$RM[bh_colar_metropolitano] <- "Região Metropolitana de Belo Horizonte - Colar Metropolitano"
-
-  # salvar tabela final
-  write.xlsx(pop_serie_fim, paste0("./dados/IBGE/estimativas_populacao/serie_historica/pop_2000_", i, ".xlsx"))
-  
-  return(pop_serie_fim)
-  beep()
-      
-}
+capitais <- c(1100205,1200401,1302603,1400100,1501402,1600303,
+              1721000,2111300,2211001,2304400,2408102,2507507,
+              2611606,2704302,2800308,2927408,3106200,3205309,
+              3304557,3550308,4106902,4205407,4314902,5002704,
+              5103403,5208707,5300108)
 
 
-fim <- juntar_serie(2019)
+# Formatação e organização das tabelas
+
+tabela_pop_rm <- tabela_pop_rm %>% mutate(capitais = case_when(
+  tabela_pop_rm$municipio_codigo %in% capitais ~ "Sim",
+  tabela_pop_rm$municipio_codigo %in% capitais == FALSE ~"Não"))
+
+tabela_pop_rm$cod_uf <- str_sub(tabela_pop_rm$municipio_codigo,1,2)
+tabela_pop_rm$COD_MUN <- str_sub(tabela_pop_rm$municipio_codigo,1,-2)
+
+tabela_pop_rm2 <- tabela_pop_rm %>% 
+   select(cod_uf,uf,municipio_codigo,COD_MUN, municipio,  capitais, NOME,  ano, valor) %>% 
+  pivot_wider(names_from = ano, values_from = valor, values_fill = 0) 
+
+tabela_pop_rm3 <- tabela_pop_rm %>% 
+  select(cod_uf,uf,municipio_codigo,COD_MUN, municipio, capitais, NOME, ano, valor)
+
+tabela_pop_capitais <- tabela_pop_rm %>% 
+  filter(capitais == "Sim")
+
+pop_capitais_final <- tabela_pop_capitais[match(capitais, tabela_pop_capitais$municipio_codigo),]
+
+tabela_pop_rms_final <- tabela_pop_rm3[,c(7,8,9)] %>% 
+  group_by(NOME, ano) %>% 
+  summarise(valor = sum(valor, na.rm = TRUE)) %>%
+  pivot_wider(names_from = ano, values_from = valor)
+
+
+#Seleção de Regiões Metropolitanas monitradas na MobiliDADOS
+
+rms_sel <- c("Região Metropolitana de Belém","Região Metropolitana de Belo Horizonte",
+             "Região Metropolitana de Curitiba","Região Integrada de Desenvolvimento do Distrito Federal e Entorno",
+             "Região Metropolitana de Fortaleza","Região Metropolitana do Recife","Região Metropolitana do Rio de Janeiro",
+             "Região Metropolitana de Salvador","Região Metropolitana de São Paulo")
+
+
+# Filtrar pelas RMs selecionas
+
+tabela_pop_rms_final2 <- tabela_pop_rms_final %>% filter(NOME %in% rms_sel) 
+
+# Coloca as linhas em ordem
+
+tabela_pop_rms_final2 <- tabela_pop_rms_final[match(rms_sel, tabela_pop_rms_final$NOME),]
+
+
+# Salva os arquivos em csv e rds
+
+write.csv2(tabela_pop_rm2, "F:/Projetos/mobilidados/populacao/output/tabela_pop.csv", row.names = FALSE)
+write.csv2(tabela_pop_rm3, "F:/Projetos/mobilidados/populacao/output/tabela_pop_base.csv", row.names = FALSE)
+write.csv2(tabela_pop_capitais, "F:/Projetos/mobilidados/populacao/output/tabela_pop_capitais.csv", row.names = FALSE)
+write.csv2(tabela_pop_rms_final2, "F:/Projetos/mobilidados/populacao/output/tabela_pop_rms_final2.csv", row.names = FALSE)
+write.csv2(tabela_pop_rms_final, "F:/Projetos/mobilidados/populacao/output/tabela_pop_rms_final.csv", row.names = FALSE)
+
+write_rds(tabela_pop_rm2, "F:/Projetos/mobilidados/populacao/output/tabela_pop.rds")
+write_rds(tabela_pop_rm3, "F:/Projetos/mobilidados/populacao/output/tabela_pop_base.rds")
+write_rds(tabela_pop_capitais, "F:/Projetos/mobilidados/populacao/output/tabela_pop_capitais.rds")
+write_rds(tabela_pop_rms_final2, "F:/Projetos/mobilidados/populacao/output/tabela_pop_rms_final2.rds")
+write_rds(tabela_pop_rms_final, "F:/Projetos/mobilidados/populacao/output/tabela_pop_rms_final.rds")
