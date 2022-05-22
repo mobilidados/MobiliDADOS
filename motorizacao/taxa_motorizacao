@@ -1,0 +1,121 @@
+library(readr)
+library(janitor)
+library(dplyr)
+library(stringr)
+library(readODS)
+library(sidrar)
+library(tidyr)
+
+
+# Essa sequência de códigos pressupõe um tratamento manual dos inputs utilizados
+# O download e a importação dos dados serão automatizados
+
+#https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-denatran/estatisticas-frota-de-veiculos-senatran
+
+
+
+
+# Subir todos os dados
+
+for(i in 2001:2021){
+  assign(paste0("frota_auto_",i), 
+         mutate(
+           clean_names(
+             read.csv2(
+               paste0("F:/Projetos/mobilidados/frota/trabalhado/","frota_auto_",i,".csv"), header = T))[1:5570,], ano = i))
+}
+
+
+#Juntar tudo no mesmo objeto
+
+frota_total <- do.call(rbind, mget(ls(pattern="frota_auto_"))) %>% replace(is.na(.), 0)
+
+frota_total[,c(5:ncol(frota_total))] <-lapply(frota_total[,c(5:ncol(frota_total))],as.numeric) 
+
+frota_total[is.na(frota_total)] <- 0
+
+frota_total$cod_munic <- str_pad(frota_total$cod_munic, width = 5, side = "left", pad = 0)
+
+frota_total$cod_mun7 <- str_c(frota_total$cod_uf, frota_total$cod_munic)
+
+frota_total$cod_mun6 <- str_sub(frota_total$cod_mun7, 1,-2)
+
+frota_total2 <- frota_total %>% 
+  mutate(motorizados = automovel + caminhonete + camioneta + motocicleta + motoneta + utilitario) %>%
+  select(cod_uf,uf,cod_mun6, cod_mun7,nome_do_municipio, motorizados, ano )
+
+frota_total3 <- frota_total2 %>% pivot_wider(names_from = ano, values_from = motorizados)
+  
+
+
+pop <- read_rds("F:/Projetos/mobilidados/populacao/output/tabela_pop.rds")
+
+
+frota_total4 <- left_join(frota_total3,  select(pop,"municipio_codigo","capitais","NOME" ), c("cod_mun7"="municipio_codigo")) %>%
+  select("cod_uf","uf", "cod_mun6","cod_mun7","nome_do_municipio","capitais","NOME" ,"2001","2002",
+         "2003","2004","2005","2006","2007","2008","2009","2010","2011",
+         "2012","2013","2014","2015","2016","2017","2018","2019","2020", "2021")
+
+frota_total4$NOME[is.na(frota_total4$NOME)] <- "-"
+
+frota_capitais <- frota_total4[order(frota_total4$cod_mun6),] %>% 
+  filter(capitais == "Sim")
+
+frota_rms <- frota_total4[order(frota_total4$cod_mun6),] %>% 
+  select(7:ncol(frota_total4)) %>% 
+  group_by(NOME) %>% 
+  summarise_all(funs(sum(., na.rm = TRUE)))
+
+
+rms_sel <- c("Região Metropolitana de Belém","Região Metropolitana de Belo Horizonte",
+             "Região Metropolitana de Curitiba","Região Integrada de Desenvolvimento do Distrito Federal e Entorno",
+             "Região Metropolitana de Fortaleza", "Região Metropolitana de Porto Alegre","Região Metropolitana do Recife",
+             "Região Metropolitana do Rio de Janeiro","Região Metropolitana de Salvador","Região Metropolitana de São Paulo")
+
+frota_rms2 <- frota_rms %>% filter(NOME %in% rms_sel) 
+
+frota_rms3 <- frota_rms2[match(rms_sel, frota_rms2$NOME),]
+
+
+pop_rms <- pop %>% select(7,9:ncol(pop)) %>% group_by(NOME) %>% summarise_all(funs(sum(., na.rm = TRUE)))
+pop_rms2 <- pop_rms %>% filter(NOME %in% rms_sel) 
+pop_rms_final <- pop_rms2[match(rms_sel, pop_rms2$NOME),]
+
+
+capitais <- c(2927408, 3550308, 3304557, 2611606,
+              2304400, 5300108, 4106902, 3106200, 
+              1501402, 1100205, 1200401, 1302603, 
+              1400100, 1600303, 1721000, 2111300,
+              2211001, 2408102, 2507507, 2704302, 
+              2800308, 3205309, 4205407, 4314902, 
+              5002704, 5103403, 5208707)
+
+pop_capitais <- pop %>% filter(capitais == "Sim")
+pop_capitais_final <- pop_capitais[match(capitais, pop_capitais$municipio_codigo),]
+
+frota_capitais_total <- list()
+
+for(i in 2001:2021){
+
+ assign(paste0("taxa_caps_", i),  frota_capitais[, as.character(i)]/pop_capitais[,as.character(i)]*1000, envir = .GlobalEnv)
+
+}
+
+taxa_semi_final <- do.call(cbind,mget(ls(pattern = "*taxa_caps_")))
+taxa_final_caps <- cbind(frota_capitais[,c(1:7)], taxa_semi_final)
+
+
+for(i in 2001:2021){
+  
+  assign(paste0("taxa_rms_", i),  frota_rms3[, as.character(i)]/pop_rms_final[,as.character(i)]*1000, envir = .GlobalEnv)
+  
+}
+
+taxa_semi_final_rm <- do.call(cbind,mget(ls(pattern = "*taxa_rms_")))
+taxa_final_rm <- cbind(frota_rms3[,c(1)], taxa_semi_final_rm)
+
+
+
+write.csv2(taxa_final_rm, "F:/Projetos/mobilidados/frota/output/taxa_motor_rms_2021.csv", row.names = FALSE)
+write.csv2(taxa_final_caps, "F:/Projetos/mobilidados/frota/output/taxa_motor_capital_2021.csv", row.names = FALSE)
+write.csv2(frota_total4, "F:/Projetos/mobilidados/frota/output/frota_base_2021.csv", row.names = FALSE)
