@@ -1,0 +1,5 @@
+# O que tem nessa pasta?
+
+  - **taxa_motorizacao**: rotina de cálculo do indicador "taxa de motorização". 
+  
+Obs: A limpeza dos dados é feita manualmente. Em breve será realizado uma automatização dessa etapa.
