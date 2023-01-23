@@ -1,0 +1,56 @@
+# Definir diret?rio de trabalho
+setwd("D:/Projetos/mobilidados/pnb_novo")
+
+ano <- 2022
+
+# Sugestão de pastas a serem criadas. 
+# Esse processo facilita e deixa preparado as pastas para os calculos posteriores.
+
+dir.create("codigo") # pasta para salvar o c?digo
+dir.create("dados") # pasta para salvar o c?digo
+dir.create("dados/infra_cicloviaria") # pasta para dados de infraestrutura ciclovi?ria
+dir.create("dados/infra_cicloviaria/buffer") # pasta para buffer
+dir.create("dados/infra_cicloviaria/buffer/2021") 
+dir.create("dados/infra_cicloviaria/buffer/2021/rds") # pasta para guardar os buffers em rds. 
+dir.create("dados/infra_cicloviaria/buffer/2021/shp") # pasta para guardar os buffers em sph. 
+dir.create("dados/infra_cicloviaria/buffer_entorno") # pasta para recortar os setores
+dir.create("dados/infra_cicloviaria/buffer_entorno/2021/")
+dir.create("dados/infra_cicloviaria/buffer_entorno/2021/geojson") # pasta para recortar os setores em geojson
+dir.create("dados/infra_cicloviaria/buffer_entorno/2021/rds") # pasta para recortar os setores em rds
+dir.create("dados/infra_cicloviaria/buffer_entorno/2021/shp") # pasta para recortar os setores em shp
+dir.create("dados/infra_cicloviaria/geofabrik")# pasta para colocar o arquivo json do ciclomapa. 
+dir.create("dados/infra_cicloviaria/geofabrik_filtrado")
+dir.create("dados/infra_cicloviaria/geofabrik_filtrado/2021")
+dir.create("dados/infra_cicloviaria/geofabrik_filtrado/2021/rds")
+dir.create("dados/infra_cicloviaria/geofabrik_filtrado/2021/shp")
+dir.create("dados/infra_cicloviaria/geofabrik_pontos/")
+dir.create("dados/infra_cicloviaria/geofabrik_pontos/2021")
+dir.create("geofabrik")
+dir.create("geofabrik/2021")
+dir.create("otp") # otp
+dir.create("otp/2021")
+dir.create("otp/2021/graphs") # pasta para colocar os arquivos graph
+dir.create("otp/programs") # pasta para colocar o arquivo jar
+dir.create("resultados") # pasta para colocar o arquivo jar
+dir.create("resultados/2021")
+dir.create("resultados/2021/network")
+dir.create("resultados/2021/network/consolidado")
+
+----------------------------------------------------
+
+dir.create(paste0("dados/infra_cicloviaria/buffer/",ano)) 
+dir.create(paste0("dados/infra_cicloviaria/buffer/",ano,"/rds")) # pasta para guardar os buffers em rds. 
+dir.create(paste0("dados/infra_cicloviaria/buffer/",ano,"/shp")) # pasta para guardar os buffers em sph. 
+dir.create(paste0("dados/infra_cicloviaria/buffer_entorno/",ano))
+dir.create(paste0("dados/infra_cicloviaria/buffer_entorno/",ano,"/geojson")) # pasta para recortar os setores em geojson
+dir.create(paste0("dados/infra_cicloviaria/buffer_entorno/",ano,"/rds")) # pasta para recortar os setores em rds
+dir.create(paste0("dados/infra_cicloviaria/buffer_entorno/",ano,"/shp")) # pasta para recortar os setores em shp
+dir.create(paste0("dados/infra_cicloviaria/geofabrik_filtrado/",ano))
+dir.create(paste0("dados/infra_cicloviaria/geofabrik_filtrado/",ano,"/rds"))
+dir.create(paste0("dados/infra_cicloviaria/geofabrik_filtrado/",ano,"/shp"))
+dir.create(paste0("dados/infra_cicloviaria/geofabrik_pontos/",ano))
+dir.create(paste0("otp/",ano))
+dir.create(paste0("otp/",ano,"/graphs")) # pasta para colocar os arquivos graph
+dir.create(paste0("resultados/",ano))
+dir.create(paste0("resultados/",ano,"/network"))
+dir.create(paste0("resultados/",ano,"/network/consolidado"))
