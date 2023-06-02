@@ -29,6 +29,7 @@ try(dir.create(rds_path))
 try(dir.create("populacao/input"))
 
 
+
 file_downlod_path <- "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2020a2029/Composicao_RMs_RIDEs_AglomUrbanas_2021.ods"
 destfile <- paste0("./populacao/input", "/rms_pop.ods")
 download.file(file_downlod_path, destfile = destfile, mode = "wb")
