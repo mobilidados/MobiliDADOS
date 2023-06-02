@@ -8,7 +8,7 @@ library(sidrar)
 library(tidyr)
 library(googledrive)
 
-drive_auth()
+# drive_auth()
 
 # Set working directory
 setwd("D:/Projetos/mobilidados/github/MobiliDADOS/")
@@ -31,7 +31,7 @@ try(dir.create("populacao/input"))
 
 file_downlod_path <- "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2020a2029/Composicao_RMs_RIDEs_AglomUrbanas_2021.ods"
 destfile <- paste0("./populacao/input", "/rms_pop.ods")
-download.file(file_downlod_path, destfile = destfile)
+download.file(file_downlod_path, destfile = destfile, mode = "wb")
 
 # csv and rds path to gdrive
 csv_path_gdrive <- "1XLHrG9tqG6RZRjYjanRlK2PKBj7cg-Lv"
