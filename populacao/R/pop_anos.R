@@ -71,13 +71,14 @@ download_census_data <- function() {
   tabela_pop_2000 <- get_sidra(x = 200, variable = 93, geo = "City", period = "2000", classific = c("c2"), category = list(0))
   tabela_pop_2010 <- get_sidra(x = 1378, variable = 93, geo = "City", period = "2010", classific = c("c1"), category = list(0))
   tabela_pop_2007 <- get_sidra(x = 793, geo = "City", period = "2007")
+  tabela_pop_2022 <- get_sidra(x = 4709, variable = 93, geo = "City", period = "2022", category = list(0))
   
-  return(list(tabela_pop_2000, tabela_pop_2010, tabela_pop_2007))
+  return(list(tabela_pop_2000, tabela_pop_2010, tabela_pop_2007,tabela_pop_2022))
 }
 
 # Function for merging all data
-merge_all_data <- function(tabela_pop, tabela_pop_2000, tabela_pop_2010, tabela_pop_2007) {
-  tabela_pop_f <- rbind(tabela_pop, tabela_pop_2010[,1:11], tabela_pop_2007, tabela_pop_2000[,1:11])
+merge_all_data <- function(tabela_pop, tabela_pop_2000, tabela_pop_2010, tabela_pop_2007,tabela_pop_2022) {
+  tabela_pop_f <- rbind(tabela_pop, tabela_pop_2010[,1:11], tabela_pop_2007, tabela_pop_2000[,1:11],tabela_pop_2022[,1:11])
   return(tabela_pop_f)
 }
 clean_and_format_data <- function(tabela_pop_f, base_rms, capitais) {
@@ -189,13 +190,13 @@ upload_to_drive <- function(folder_id) {
 }
 
 
-anos <- 2001:2021
+anos <- 2001:2022
 
 # Now call each function in the order of data processing pipeline
 base_rms <- import_data()
 tabela_pop <- download_pop_data()
 census_data <- download_census_data()
-tabela_pop_f <- merge_all_data(tabela_pop, census_data[[1]], census_data[[2]], census_data[[3]])
+tabela_pop_f <- merge_all_data(tabela_pop, census_data[[1]], census_data[[2]], census_data[[3]],census_data[[4]])
 final_data <- clean_and_format_data(tabela_pop_f, base_rms)
 save_data(final_data[[1]], final_data[[2]], final_data[[3]], final_data[[4]], final_data[[5]],final_data[[6]])
 
