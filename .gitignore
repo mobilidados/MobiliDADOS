@@ -6,3 +6,5 @@
 .httr-oauth
 .DS_Store
 populacao/output/*
+motorizacao/output/*
+motorizacao/input/*
