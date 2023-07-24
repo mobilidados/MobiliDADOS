@@ -2,7 +2,7 @@
 # O download e a importa??o dos dados ser?o automatizados
 
 #https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-denatran/estatisticas-frota-de-veiculos-senatran
-
+# Teste github
 # Load necessary packages
 library(readr)
 library(janitor)
