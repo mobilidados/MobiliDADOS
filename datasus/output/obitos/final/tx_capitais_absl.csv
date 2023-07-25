@@ -5301,7 +5301,7 @@
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Total";0;2;0;0;0;0;1;0;1;1;1;0;0;0;3;0;3;0;2;0;0;1;0
 51;"MT";5107776;"510777";"Santa Terezinha";"Não";"-";"Total";0;0;0;2;1;2;0;1;2;2;2;0;0;2;0;0;0;0;3;1;0;0;0
 51;"MT";5107792;"510779";"Santo Antônio do Leste";"Não";"-";"Total";0;0;0;0;1;1;2;0;2;1;0;2;0;0;0;0;1;2;1;1;1;0;0
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Total";2;0;10;2;7;2;4;10;3;4;6;13;4;10;4;4;16;14;9;12;7;6;0
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Total";2;0;10;2;7;2;4;10;3;4;6;13;4;10;4;4;16;14;9;12;7;6;0
 51;"MT";5107859;"510785";"São Félix do Araguaia";"Não";"-";"Total";2;2;0;4;2;1;1;1;4;2;0;0;0;3;3;0;6;1;2;1;2;1;0
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Total";1;8;8;5;5;2;4;6;14;15;6;12;5;13;5;11;4;2;8;6;4;7;0
 51;"MT";5107883;"510788";"Serra Nova Dourada";"Não";"-";"Total";0;0;0;0;0;0;0;0;0;1;0;0;0;0;1;2;0;0;0;0;0;1;0
@@ -10407,7 +10407,7 @@
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Ocupantes de automóvel";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
 51;"MT";5107776;"510777";"Santa Terezinha";"Não";"-";"Ocupantes de automóvel";NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;NA;1;NA;NA;NA;NA;1;NA;NA;NA;NA
 51;"MT";5107792;"510779";"Santo Antônio do Leste";"Não";"-";"Ocupantes de automóvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Ocupantes de automóvel";1;NA;6;1;4;NA;1;6;NA;NA;2;3;1;4;1;NA;4;2;2;1;3;2;NA
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Ocupantes de automóvel";1;NA;6;1;4;NA;1;6;NA;NA;2;3;1;4;1;NA;4;2;2;1;3;2;NA
 51;"MT";5107859;"510785";"São Félix do Araguaia";"Não";"-";"Ocupantes de automóvel";NA;NA;NA;NA;1;1;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;1;NA;1;1;NA;NA
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Ocupantes de automóvel";NA;5;4;NA;2;NA;1;2;3;7;1;2;3;6;1;NA;1;NA;2;1;NA;NA;NA
 51;"MT";5107909;"510790";"Sinop";"Não";"-";"Ocupantes de automóvel";5;8;8;2;6;4;4;7;6;4;15;7;15;16;13;10;14;14;14;18;11;14;NA
@@ -13604,7 +13604,7 @@
 51;"MT";5107701;"510770";"Rosário Oeste";"Não";"Entorno Metropolitano da RM Vale do Rio Cuiabá";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA
 51;"MT";5107750;"510775";"Salto do Céu";"Não";"-";"Ciclistas";NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Ciclistas";NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Ciclistas";NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Ciclistas";NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 51;"MT";5107909;"510790";"Sinop";"Não";"-";"Ciclistas";5;1;1;NA;3;4;5;3;NA;3;2;6;10;5;10;1;5;4;8;2;5;8;NA
 51;"MT";5107925;"510792";"Sorriso";"Não";"-";"Ciclistas";2;2;1;2;4;2;7;4;5;6;2;2;5;2;NA;5;2;1;5;4;4;NA;NA
@@ -18723,7 +18723,7 @@
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;1;NA;1;NA;1;NA;NA;NA;NA
 51;"MT";5107776;"510777";"Santa Terezinha";"Não";"-";"Motociclistas";NA;NA;NA;NA;NA;2;NA;NA;1;1;NA;NA;NA;1;NA;NA;NA;NA;1;NA;NA;NA;NA
 51;"MT";5107792;"510779";"Santo Antônio do Leste";"Não";"-";"Motociclistas";NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Motociclistas";NA;NA;NA;NA;NA;2;NA;NA;1;NA;3;5;NA;3;2;2;4;3;2;NA;1;1;NA
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Motociclistas";NA;NA;NA;NA;NA;2;NA;NA;1;NA;3;5;NA;3;2;2;4;3;2;NA;1;1;NA
 51;"MT";5107859;"510785";"São Félix do Araguaia";"Não";"-";"Motociclistas";1;1;NA;1;1;NA;1;1;1;1;NA;NA;NA;3;NA;NA;1;NA;1;NA;NA;NA;NA
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Motociclistas";1;1;2;1;1;1;2;NA;7;4;3;1;1;7;1;6;1;NA;1;1;4;NA;NA
 51;"MT";5107883;"510788";"Serra Nova Dourada";"Não";"-";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA
@@ -23465,7 +23465,7 @@
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA
 51;"MT";5107776;"510777";"Santa Terezinha";"Não";"-";"Pedestres";NA;NA;NA;NA;1;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 51;"MT";5107792;"510779";"Santo Antônio do Leste";"Não";"-";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Pedestres";NA;NA;1;NA;NA;NA;2;NA;1;NA;1;NA;1;NA;NA;2;1;1;NA;NA;NA;NA;NA
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Pedestres";NA;NA;1;NA;NA;NA;2;NA;1;NA;1;NA;1;NA;NA;2;1;1;NA;NA;NA;NA;NA
 51;"MT";5107859;"510785";"São Félix do Araguaia";"Não";"-";"Pedestres";1;1;NA;1;NA;NA;NA;NA;1;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Pedestres";NA;2;NA;3;NA;1;1;1;2;3;NA;2;1;NA;NA;1;1;NA;NA;NA;NA;NA;NA
 51;"MT";5107883;"510788";"Serra Nova Dourada";"Não";"-";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA
@@ -28661,7 +28661,7 @@
 51;"MT";5107768;"510776";"Santa Rita do Trivelato";"Não";"-";"Outros";NA;2;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;1;NA;NA;NA;NA
 51;"MT";5107776;"510777";"Santa Terezinha";"Não";"-";"Outros";NA;NA;NA;2;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;NA
 51;"MT";5107792;"510779";"Santo Antônio do Leste";"Não";"-";"Outros";NA;NA;NA;NA;1;NA;2;NA;1;1;NA;2;NA;NA;NA;NA;NA;2;NA;1;NA;NA;NA
-51;"MT";5107800;"510780";"Santo Antônio do Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Outros";1;NA;3;1;2;NA;1;4;1;4;NA;5;2;3;1;NA;7;7;5;11;3;3;NA
+51;"MT";5107800;"510780";"Santo Antônio de Leverger";"Não";"Região Metropolitana do Vale do Rio Cuiabá";"Outros";1;NA;3;1;2;NA;1;4;1;4;NA;5;2;3;1;NA;7;7;5;11;3;3;NA
 51;"MT";5107859;"510785";"São Félix do Araguaia";"Não";"-";"Outros";NA;NA;NA;2;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;1;NA;3;NA;1;NA;1;1;NA
 51;"MT";5107875;"510787";"Sapezal";"Não";"-";"Outros";NA;NA;2;1;1;NA;NA;2;2;1;2;7;NA;NA;3;4;1;2;5;4;NA;7;NA
 51;"MT";5107883;"510788";"Serra Nova Dourada";"Não";"-";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;NA;NA;NA;NA;NA

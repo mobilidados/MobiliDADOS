@@ -1,9 +1,6 @@
-# Set the working directory
-setwd("./datasus/codigos/obitos")
-
 # Source the required R scripts
 
-source("0_get_inter.R")
+source("./datasus/codigos/obitos/0_get_inter.R")
 
 # Load the required libraries
 library(sidrar)
@@ -113,7 +110,7 @@ for (ano in anos) {
   df_year <- do.call(rbind, df_year_list)
   
   # Create a temporary file path for the desired year
-  temp_file <- paste0("./output/obitos/temp/morb_data_", ano, ".rds")
+  temp_file <- paste0("../datasus/codigos/obitos/output/obitos/temp/morb_data_", ano, ".rds")
   
   # Write the data frame to the temporary file in R-specific binary format
   saveRDS(df_year, temp_file)

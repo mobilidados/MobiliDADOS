@@ -4,16 +4,13 @@ library(purrr)
 library(stringr)
 library(tidyr)
 
-# Set working directory
-setwd("./datasus/")
-
 # Read population data
-pop <- read.csv2("./github/MobiliDADOS/populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
+pop <- read.csv2("./populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
   mutate(ano = ano, COD_MUN = as.character(COD_MUN)) %>%
   rename(municipio_nome = municipio)
 
 # Get list of RDS files
-folder_path <- "./output/obitos/temp"
+folder_path <- "./datasus/output/obitos/temp"
 file_list <- list.files(path = folder_path, pattern = "\\.rds$", full.names = TRUE)
 
 # Read all RDS files and combine them into one data frame
@@ -38,7 +35,7 @@ result <- combined_data2 %>%
   ))   
 
 # Read population data again
-pop <- read.csv2("./github/MobiliDADOS/populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
+pop <- read.csv2("./populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
   mutate(ano = as.character(ano),
          COD_MUN = as.character(COD_MUN))
 
@@ -94,9 +91,10 @@ rms_rlt <- tx_rms_mort %>% select(-total, -valor) %>% pivot_wider(names_from = "
 abs_rms <- tx_rms_mort %>% select(-valor, -tx_mort) %>% pivot_wider(names_from = "ano", values_from = "total")
 
 # Write data to CSV files
-write.csv2(result, "./output/obitos/final/base_trabalhada.csv", row.names = FALSE)
-write.csv2(combined_data, "./output/obitos/final/base_completa.csv", row.names = FALSE)
-write.csv2(tx_capitais_relat, "./output/obitos/final/tx_capitais_relat.csv", row.names = FALSE)
-write.csv2(tx_capitais_absl, "./output/obitos/final/tx_capitais_absl.csv", row.names = FALSE)
-write.csv2(rms_rlt, "./output/obitos/final/tx_rms_relat.csv", row.names = FALSE)
-write.csv2(abs_rms, "./output/obitos/final/tx_rms_absl.csv", row.names = FALSE)
+write.csv2(result, "./datasus/output/obitos/final/base_trabalhada.csv", row.names = FALSE)
+write.csv2(combined_data, "./datasus/output/obitos/final/base_completa.csv", row.names = FALSE)
+write.csv2(tx_capitais_relat, "./datasus/output/obitos/final/tx_capitais_relat.csv", row.names = FALSE)
+write.csv2(tx_capitais_absl, "./datasus/output/obitos/final/tx_capitais_absl.csv", row.names = FALSE)
+write.csv2(rms_rlt, "./datasus/output/obitos/final/tx_rms_relat.csv", row.names = FALSE)
+write.csv2(abs_rms, "./datasus/output/obitos/final/tx_rms_absl.csv", row.names = FALSE)
+
