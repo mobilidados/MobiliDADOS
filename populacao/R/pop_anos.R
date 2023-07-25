@@ -10,14 +10,18 @@ library(googledrive)
 
 # drive_auth()
 
-# Verifica se a pasta "output" existe
-if (!dir.exists("output")) {
-  # Se não existir, cria a pasta "output"
-  dir.create("output")
-}
 
 # Set working directory
 setwd("D:/Projetos/mobilidados/github/MobiliDADOS/")
+
+# Verifica se a pasta "output" existe
+if (!dir.exists("populacao/output")) {
+  # Se não existir, cria a pasta "output"
+  dir.create("populacao/output")
+  dir.create("populacao/output/csv")
+  dir.create("populacao/output/rds")
+}
+
 
 start <- Sys.time()
 
