@@ -5,10 +5,10 @@ library(stringr)
 library(tidyr)
 
 # Set working directory
-setwd("D:/Projetos/mobilidados/datasus/")
+setwd("./datasus/")
 
 # Read population data
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
+pop <- read.csv2("./github/MobiliDADOS/populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
   mutate(ano = ano, COD_MUN = as.character(COD_MUN)) %>%
   rename(municipio_nome = municipio)
 
@@ -38,7 +38,7 @@ result <- combined_data2 %>%
   ))   
 
 # Read population data again
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
+pop <- read.csv2("./github/MobiliDADOS/populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
   mutate(ano = as.character(ano),
          COD_MUN = as.character(COD_MUN))
 
