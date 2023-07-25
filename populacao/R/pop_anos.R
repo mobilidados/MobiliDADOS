@@ -10,6 +10,12 @@ library(googledrive)
 
 # drive_auth()
 
+# Verifica se a pasta "output" existe
+if (!dir.exists("output")) {
+  # Se não existir, cria a pasta "output"
+  dir.create("output")
+}
+
 # Set working directory
 setwd("D:/Projetos/mobilidados/github/MobiliDADOS/")
 
@@ -200,8 +206,8 @@ tabela_pop_f <- merge_all_data(tabela_pop, census_data[[1]], census_data[[2]], c
 final_data <- clean_and_format_data(tabela_pop_f, base_rms)
 save_data(final_data[[1]], final_data[[2]], final_data[[3]], final_data[[4]], final_data[[5]],final_data[[6]])
 
-upload_to_drive(csv_path_gdrive)
-upload_to_drive(rds_path_gdrive)
+# upload_to_drive(csv_path_gdrive)
+# upload_to_drive(rds_path_gdrive)
 
 end <- Sys.time()
 
