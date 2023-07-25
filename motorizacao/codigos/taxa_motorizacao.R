@@ -12,6 +12,12 @@ library(tidyr)
 
 setwd("D:/Projetos/mobilidados/github/MobiliDADOS")
 
+# Verifica se a pasta "output" existe
+if (!dir.exists("motorizacao/output")) {
+  # Se não existir, cria a pasta "output"
+  dir.create("motorizacao/output")
+}
+
 # Function to read and process datasets for a given year
 read_process_dataset <- function(year) {
   filepath <- paste0("./motorizacao/trabalhado/frota_auto_", year, ".csv")
