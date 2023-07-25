@@ -1,0 +1,499 @@
+NOME;tipo;2000;2001;2002;2003;2004;2005;2006;2007;2008;2009;2010;2011;2012;2013;2014;2015;2016;2017;2018;2019;2020
+Região Metropolitana do Vale do Rio Cuiabá;total;137;142;168;121;124;137;140;173;191;218;213;233;204;240;270;217;213;248;227;163;213
+Região Metropolitana do Vale do Piancó;total;3;2;8;2;2;4;8;1;11;12;12;13;18;21;18;26;19;16;19;14;21
+Região Metropolitana do Vale do Paraíba e Litoral Norte;total;74;72;82;69;80;83;78;112;108;87;69;76;115;76;85;77;67;61;77;88;82
+Região Metropolitana do Vale do Paraíba;total;13;19;8;5;9;10;15;13;15;20;24;21;23;27;20;30;18;20;19;21;26
+Região Metropolitana do Vale do Mamanguape;total;2;2;3;3;8;14;17;22;18;22;13;12;17;23;15;19;27;25;24;15;18
+Região Metropolitana do Vale do Itajaí;total;7;1;1;3;5;12;6;13;2;14;16;19;14;11;18;16;13;18;9;14;30
+Região Metropolitana do Vale do Aço;total;16;14;16;14;9;20;24;14;19;31;41;60;52;54;82;74;65;99;62;72;69
+Região Metropolitana do Sul do Estado;total;6;9;2;3;6;7;6;10;3;14;9;6;16;9;18;26;3;14;16;9;7
+Região Metropolitana do Sudoeste Maranhense;total;24;40;33;47;74;78;87;121;107;105;145;157;185;175;187;169;189;172;141;144;121
+Região Metropolitana do Sertão;total;5;17;5;13;11;14;14;13;19;26;23;23;40;25;36;30;32;19;31;21;27
+Região Metropolitana do São Francisco;total;14;10;12;20;17;12;9;19;7;13;21;21;27;16;31;16;17;25;13;25;17
+Região Metropolitana do Rio de Janeiro;total;705;743;835;837;922;973;1050;853;813;746;1042;970;1089;943;1137;743;870;841;847;557;793
+Região Metropolitana do Recife;total;538;533;577;533;596;570;587;592;567;617;709;656;621;523;586;571;560;528;453;420;406
+Região Metropolitana do Norte/Nordeste Catarinense;total;16;10;18;10;22;20;23;14;13;35;34;36;35;20;42;48;34;33;36;40;31
+Região Metropolitana do Médio Sertão;total;10;9;14;14;5;11;11;12;11;17;23;34;33;37;36;30;34;30;25;22;24
+Região Metropolitana do Extremo Oeste;total;9;5;3;3;0;4;4;6;12;5;8;14;15;13;8;9;8;18;5;5;11
+Região Metropolitana do Contestado;total;7;11;7;17;9;9;6;7;7;12;13;18;21;19;20;10;11;27;14;20;25
+Região Metropolitana do Cariri;total;61;61;40;36;88;101;82;93;128;117;119;183;189;166;163;166;137;72;88;74;51
+Região Metropolitana do Alto Vale do Itajaí;total;2;4;1;2;9;6;5;1;5;12;5;3;4;4;9;16;6;7;4;6;7
+Região Metropolitana do Agreste;total;62;46;58;68;98;111;120;151;140;200;238;215;249;230;229;212;226;180;184;195;216
+Região Metropolitana de Umuarama;total;11;17;11;14;21;9;19;16;9;8;23;16;19;27;37;49;33;34;22;34;30
+Região Metropolitana de Tubarão;total;4;6;5;8;13;16;8;4;6;7;10;7;9;8;7;8;4;12;6;5;8
+Região Metropolitana de Toledo;total;12;11;19;19;11;13;23;31;20;10;24;24;32;28;41;35;36;36;16;19;32
+Região Metropolitana de Sousa;total;2;0;2;8;5;3;14;11;15;14;18;16;24;22;23;33;26;14;25;25;22
+Região Metropolitana de Sorocaba;total;36;45;70;57;57;46;70;76;65;51;84;107;82;87;77;65;62;77;79;72;79
+Região Metropolitana de Sobral;total;14;12;35;47;51;64;85;94;91;92;133;151;163;185;268;261;259;222;236;201;250
+Região Metropolitana de São Paulo;total;481;780;561;743;690;808;845;910;876;816;916;941;921;870;1003;788;737;638;511;681;758
+Região Metropolitana de Santarém;total;7;7;14;34;38;31;24;31;50;17;22;33;3;2;7;1;23;62;34;85;90
+Região Metropolitana de Salvador;total;120;150;165;161;149;468;486;394;195;183;519;459;532;460;463;351;307;294;199;237;232
+Região Metropolitana de Ribeirão Preto;total;45;52;53;40;50;50;60;37;38;55;65;61;55;75;61;69;61;67;67;63;82
+Região Metropolitana de Porto Velho;total;69;51;73;87;87;66;133;109;122;137;181;153;189;148;135;136;98;79;75;65;78
+Região Metropolitana de Porto Alegre;total;65;63;72;82;75;80;68;56;68;72;69;58;54;66;67;67;46;40;49;67;41
+Região Metropolitana de Patos;total;3;2;7;6;21;13;22;17;22;52;53;42;38;39;51;40;50;43;51;35;40
+Região Metropolitana de Palmeira dos Índios;total;5;2;3;3;3;2;1;4;2;3;5;7;9;7;10;12;12;6;6;3;5
+Região Metropolitana de Palmas;total;47;52;70;64;61;75;61;105;77;115;109;135;110;102;100;125;112;121;103;118;123
+Região Metropolitana de Natal;total;133;130;113;107;103;102;95;101;117;131;156;149;142;167;173;160;153;189;204;162;143
+Região Metropolitana de Maringá;total;23;16;31;30;43;28;30;37;36;28;36;29;57;50;48;59;35;36;34;37;43
+Região Metropolitana de Manaus;total;267;198;215;225;244;275;330;267;285;284;379;386;331;336;335;346;330;304;320;294;291
+Região Metropolitana de Maceió;total;177;211;182;140;162;165;177;143;209;195;221;289;270;234;284;236;228;194;146;195;232
+Região Metropolitana de Macapá;total;72;93;88;97;85;91;91;68;75;85;85;91;90;71;88;72;65;69;49;67;56
+Região Metropolitana de Londrina;total;43;26;36;40;42;44;49;43;40;34;43;67;57;33;59;44;44;50;41;70;63
+Região Metropolitana de Lages;total;4;4;2;8;7;7;8;4;9;7;11;18;12;15;17;21;14;12;18;17;22
+Região Metropolitana de João Pessoa;total;147;169;184;173;156;196;180;191;236;244;264;206;239;233;202;234;247;237;204;214;196
+Região Metropolitana de Itabaiana;total;1;2;9;4;19;25;10;17;16;17;13;15;14;24;17;17;15;23;12;14;17
+Região Metropolitana de Gurupi;total;29;22;35;35;38;36;43;52;59;54;62;70;96;65;66;73;65;70;53;47;43
+Região Metropolitana de Guarabira;total;4;11;3;4;15;16;16;22;18;15;11;22;21;33;27;19;36;35;39;36;34
+Região Metropolitana de Goiânia;total;198;221;266;242;320;374;346;391;431;422;493;475;502;430;470;388;425;397;371;366;374
+Região Metropolitana de Fortaleza;total;328;333;292;274;260;260;361;499;395;258;444;365;309;349;397;330;374;449;377;275;216
+Região Metropolitana de Florianópolis;total;23;26;17;20;15;18;26;26;20;25;21;25;22;24;27;32;27;20;18;26;23
+Região Metropolitana de Feira de Santana;total;56;27;27;14;19;40;63;111;103;109;145;139;129;135;115;57;53;79;69;52;121
+Região Metropolitana de Esperança;total;3;0;7;5;17;8;16;14;16;18;23;26;20;14;20;23;17;30;12;16;19
+Região Metropolitana de Curitiba;total;67;56;45;50;42;76;42;54;57;41;37;46;53;36;40;39;41;59;46;54;75
+Região Metropolitana de Chapecó;total;4;14;7;3;4;8;4;8;13;4;3;13;8;5;12;11;16;13;16;22;10
+Região Metropolitana de Central;total;8;5;9;9;4;4;1;7;3;5;12;8;7;6;9;2;3;3;3;2;10
+Região Metropolitana de Cascavel;total;12;12;10;8;15;7;9;15;14;9;6;10;24;29;24;19;9;22;17;15;30
+Região Metropolitana de Campo Mourão;total;17;6;10;12;16;11;7;19;11;32;41;44;63;52;52;50;54;62;38;38;42
+Região Metropolitana de Campinas;total;73;73;98;86;122;111;112;121;118;97;130;142;120;117;119;113;117;130;116;121;119
+Região Metropolitana de Campina Grande;total;81;88;175;165;187;186;224;252;252;190;206;194;265;290;276;263;244;198;223;184;203
+Região Metropolitana de Cajazeiras;total;1;5;7;5;6;7;9;6;6;21;14;22;28;19;37;35;32;27;29;24;28
+Região Metropolitana de Caetés;total;12;11;14;6;7;13;10;18;22;10;22;21;20;30;25;23;29;17;18;17;24
+Região Metropolitana de Belo Horizonte;total;457;526;526;546;608;621;718;725;673;642;666;678;658;610;625;525;485;459;418;359;372
+Região Metropolitana de Belém;total;247;264;317;335;289;363;329;265;305;271;421;448;476;419;427;403;389;334;314;343;326
+Região Metropolitana de Barra de Santa Rosa;total;2;0;4;2;10;1;11;9;11;5;13;13;18;20;7;15;18;11;14;18;12
+Região Metropolitana de Araruna;total;2;0;0;1;3;7;4;4;6;2;3;9;14;9;10;7;11;6;5;7;11
+Região Metropolitana de Aracaju;total;67;100;130;99;113;132;117;147;156;204;243;239;244;256;215;230;183;175;142;174;146
+Região Metropolitana de Apucarana;total;16;13;11;17;22;9;18;13;15;17;16;20;35;35;24;31;20;22;11;30;32
+Região Metropolitana da Zona da Mata;total;28;20;32;18;18;20;16;34;26;34;42;57;43;45;34;62;50;46;31;28;37
+Região Metropolitana da Serra Gaúcha;total;3;8;8;7;9;10;9;5;9;15;12;7;12;11;9;5;12;8;10;8;9
+Região Metropolitana da Grande Vitória;total;160;156;187;177;184;200;181;237;233;233;255;257;287;279;246;200;186;210;200;191;181
+Região Metropolitana da Grande São Luís;total;104;155;178;175;186;207;195;236;295;238;276;283;343;288;285;265;251;204;208;200;225
+Região Metropolitana da Foz do Rio Itajaí;total;7;9;9;9;13;9;12;11;16;10;16;15;20;9;12;11;9;12;16;20;20
+Região Metropolitana da Capital;total;62;68;88;46;40;61;62;88;71;77;91;92;83;108;85;121;76;93;56;74;82
+Região Metropolitana da Baixada Santista;total;79;88;107;108;128;142;153;157;172;139;125;146;172;129;115;122;123;94;111;120;138
+Região Metropolitana Carbonífera;total;3;8;7;6;11;4;3;11;7;14;6;12;5;4;7;5;7;9;7;4;10
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;total;536;584;631;671;576;625;556;608;654;651;718;732;722;735;713;600;562;443;445;447;401
+Região Integrada de Desenvolvimento da Grande Teresina;total;158;179;215;240;239;224;325;345;318;339;395;389;431;432;466;445;420;343;323;307;312
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;total;63;56;99;89;45;94;79;46;92;139;147;224;230;220;217;214;280;205;205;239;209
+Aglomeração Urbana do Sul;total;20;17;4;14;13;13;17;22;17;20;17;21;18;16;20;16;11;19;14;14;14
+Aglomeração Urbana do Litoral Norte;total;0;2;2;4;0;1;4;8;4;1;7;13;3;7;4;4;8;4;5;1;9
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;total;25;25;37;40;33;54;45;35;38;42;44;45;53;40;52;70;50;62;49;60;73
+Aglomeração Urbana de Jundiaí;total;6;13;23;28;35;25;24;34;35;17;25;30;23;21;33;29;25;40;28;41;32
+Aglomeração Urbana de Franca;total;18;10;21;17;28;22;18;23;21;19;14;17;13;11;26;12;26;24;30;25;37
+Outros;total;3843;3949;4908;5064;5745;6059;6217;6984;7798;8156;9796;9980;11265;11066;11673;10739;10669;10401;9605;9724;10212
+Região Metropolitana do Vale do Rio Cuiabá;pedestre;44;38;53;42;32;39;42;40;47;46;45;45;34;30;42;17;29;36;40;23;25
+Região Metropolitana do Vale do Piancó;pedestre;1;2;0;0;0;1;1;0;2;1;0;1;1;2;4;1;1;1;2;1;1
+Região Metropolitana do Vale do Paraíba e Litoral Norte;pedestre;27;33;32;33;29;31;30;35;43;31;22;21;44;27;22;21;16;22;19;24;27
+Região Metropolitana do Vale do Paraíba;pedestre;8;9;2;3;1;6;6;3;4;3;2;2;6;2;3;2;0;1;3;2;0
+Região Metropolitana do Vale do Mamanguape;pedestre;0;2;1;0;4;3;2;7;5;1;3;3;2;7;2;2;10;5;2;3;2
+Região Metropolitana do Vale do Itajaí;pedestre;3;1;0;1;0;2;1;1;2;3;2;2;2;0;2;3;6;3;1;1;4
+Região Metropolitana do Vale do Aço;pedestre;5;1;3;1;2;3;2;0;3;1;6;6;4;8;15;13;16;14;12;20;10
+Região Metropolitana do Sul do Estado;pedestre;3;1;0;0;1;1;3;2;1;2;2;0;1;0;0;2;1;3;2;2;1
+Região Metropolitana do Sudoeste Maranhense;pedestre;0;2;2;1;13;19;14;8;5;6;6;30;32;29;31;16;24;19;25;56;38
+Região Metropolitana do Sertão;pedestre;1;4;4;2;5;8;3;6;2;6;5;2;2;2;0;4;1;1;3;7;3
+Região Metropolitana do São Francisco;pedestre;5;4;6;10;10;3;5;2;0;7;4;1;1;0;0;0;1;2;3;4;3
+Região Metropolitana do Rio de Janeiro;pedestre;486;484;552;519;597;587;592;438;403;390;589;536;470;376;432;348;223;294;404;164;303
+Região Metropolitana do Recife;pedestre;263;249;276;241;293;258;284;224;221;239;250;166;174;145;168;150;144;158;146;139;124
+Região Metropolitana do Norte/Nordeste Catarinense;pedestre;3;5;6;3;3;6;5;4;4;8;5;14;8;1;7;6;8;9;12;12;5
+Região Metropolitana do Médio Sertão;pedestre;3;1;6;10;3;3;3;4;3;8;9;4;2;1;0;2;0;4;4;5;4
+Região Metropolitana do Extremo Oeste;pedestre;2;2;2;0;0;2;0;1;2;2;4;1;2;0;0;3;2;3;1;2;0
+Região Metropolitana do Contestado;pedestre;3;7;3;4;5;0;2;1;3;3;2;5;4;1;3;2;1;3;5;3;4
+Região Metropolitana do Cariri;pedestre;24;30;19;18;33;49;29;29;29;26;13;5;1;19;18;9;8;15;23;20;13
+Região Metropolitana do Alto Vale do Itajaí;pedestre;0;2;0;1;3;0;3;1;1;5;0;2;3;0;0;3;0;2;1;1;3
+Região Metropolitana do Agreste;pedestre;21;18;27;27;34;52;41;35;35;50;47;28;24;21;10;10;19;28;22;21;30
+Região Metropolitana de Umuarama;pedestre;3;2;3;4;9;3;3;3;2;3;2;3;1;6;3;6;4;3;5;2;4
+Região Metropolitana de Tubarão;pedestre;1;0;1;0;1;5;0;0;1;2;3;3;2;0;3;2;0;3;0;2;3
+Região Metropolitana de Toledo;pedestre;4;4;4;1;4;2;3;2;4;0;2;2;4;2;4;5;7;5;1;3;5
+Região Metropolitana de Sousa;pedestre;1;0;0;0;1;0;0;1;1;1;1;1;2;1;2;2;0;2;0;2;0
+Região Metropolitana de Sorocaba;pedestre;7;16;29;23;18;20;25;25;26;18;26;33;33;30;27;20;17;24;26;24;18
+Região Metropolitana de Sobral;pedestre;3;3;8;14;14;14;25;33;23;18;30;23;23;31;32;31;28;30;27;30;36
+Região Metropolitana de São Paulo;pedestre;201;377;255;334;341;396;398;420;372;371;395;398;372;364;426;321;277;254;204;274;194
+Região Metropolitana de Santarém;pedestre;0;0;1;5;3;3;2;0;4;2;5;1;3;0;3;1;4;17;0;13;11
+Região Metropolitana de Salvador;pedestre;30;65;79;88;59;200;191;175;69;69;207;182;177;150;146;111;94;89;62;61;58
+Região Metropolitana de Ribeirão Preto;pedestre;10;10;17;8;10;11;11;13;10;19;19;15;7;15;13;13;21;13;22;15;14
+Região Metropolitana de Porto Velho;pedestre;0;2;9;7;2;2;9;7;1;14;15;8;11;16;11;21;17;6;15;8;14
+Região Metropolitana de Porto Alegre;pedestre;29;31;31;25;31;35;31;15;33;26;31;18;14;26;21;26;13;16;22;35;14
+Região Metropolitana de Patos;pedestre;2;2;3;0;3;4;2;1;2;1;0;1;1;2;6;3;1;4;4;3;5
+Região Metropolitana de Palmeira dos Índios;pedestre;1;1;0;2;0;1;0;0;1;2;2;0;0;0;0;0;0;1;1;0;1
+Região Metropolitana de Palmas;pedestre;11;13;9;10;16;10;11;11;16;16;11;10;17;12;16;10;8;12;12;7;14
+Região Metropolitana de Natal;pedestre;55;42;43;41;39;29;19;27;22;22;37;41;26;33;24;28;22;37;22;22;19
+Região Metropolitana de Maringá;pedestre;14;7;17;12;11;12;10;16;9;11;10;9;15;14;8;10;7;11;11;9;13
+Região Metropolitana de Manaus;pedestre;126;101;104;115;109;109;130;115;108;105;152;163;124;129;109;115;102;84;112;92;83
+Região Metropolitana de Maceió;pedestre;130;160;122;56;73;73;72;72;47;48;34;52;53;40;30;22;9;31;24;22;33
+Região Metropolitana de Macapá;pedestre;21;85;67;79;58;81;50;0;5;0;1;3;8;7;21;10;14;19;18;9;7
+Região Metropolitana de Londrina;pedestre;12;13;12;9;15;12;17;11;9;10;11;15;12;8;11;11;9;15;4;13;15
+Região Metropolitana de Lages;pedestre;1;2;0;1;1;2;2;1;2;1;2;4;4;2;2;3;3;4;6;1;4
+Região Metropolitana de João Pessoa;pedestre;28;36;80;74;53;77;65;69;79;46;56;49;69;54;44;46;43;57;47;53;26
+Região Metropolitana de Itabaiana;pedestre;0;1;5;0;2;3;3;7;1;1;2;3;1;2;2;0;1;1;1;0;0
+Região Metropolitana de Gurupi;pedestre;1;4;3;4;2;3;5;6;11;7;15;6;9;6;6;6;1;3;7;3;3
+Região Metropolitana de Guarabira;pedestre;2;7;3;1;5;2;3;3;3;4;1;3;3;1;5;0;8;3;0;2;0
+Região Metropolitana de Goiânia;pedestre;48;52;49;45;54;94;63;69;84;63;95;84;106;89;97;67;63;80;59;68;62
+Região Metropolitana de Fortaleza;pedestre;146;143;120;129;125;113;150;243;158;141;203;140;110;122;95;96;84;161;125;106;63
+Região Metropolitana de Florianópolis;pedestre;15;14;8;10;4;8;15;10;7;2;10;9;5;6;8;8;9;8;3;11;8
+Região Metropolitana de Feira de Santana;pedestre;16;14;12;4;7;18;16;28;23;17;29;17;13;15;9;4;3;1;6;3;3
+Região Metropolitana de Esperança;pedestre;1;0;2;3;1;5;1;1;0;0;0;0;0;0;0;0;0;1;0;0;0
+Região Metropolitana de Curitiba;pedestre;17;14;12;12;11;28;14;24;20;13;14;12;19;17;18;14;11;30;13;26;25
+Região Metropolitana de Chapecó;pedestre;3;2;2;0;2;2;1;1;6;3;2;1;2;0;1;2;2;5;1;4;2
+Região Metropolitana de Central;pedestre;0;1;2;0;0;0;0;0;0;1;0;1;0;0;2;0;1;0;2;1;2
+Região Metropolitana de Cascavel;pedestre;6;6;6;4;7;4;3;5;4;5;1;3;7;6;8;3;1;4;3;4;7
+Região Metropolitana de Campo Mourão;pedestre;1;0;3;3;4;1;3;3;1;5;9;5;9;11;2;9;6;10;1;7;3
+Região Metropolitana de Campinas;pedestre;16;25;45;29;45;41;42;49;41;40;58;51;45;60;42;43;40;50;34;42;46
+Região Metropolitana de Campina Grande;pedestre;5;39;34;5;0;0;1;0;2;1;1;0;0;0;1;0;0;0;0;1;0
+Região Metropolitana de Cajazeiras;pedestre;1;0;2;1;0;1;0;0;1;2;1;2;2;1;4;3;4;3;0;3;1
+Região Metropolitana de Caetés;pedestre;7;9;10;3;1;5;4;6;1;2;4;3;6;4;1;1;0;1;1;2;1
+Região Metropolitana de Belo Horizonte;pedestre;187;223;214;202;218;223;244;231;224;205;231;197;189;164;182;132;136;149;119;109;107
+Região Metropolitana de Belém;pedestre;193;176;264;281;232;267;261;220;251;218;346;352;368;323;201;255;113;226;125;95;107
+Região Metropolitana de Barra de Santa Rosa;pedestre;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Região Metropolitana de Araruna;pedestre;1;0;0;0;1;3;1;0;1;0;0;0;0;2;0;1;1;1;0;0;0
+Região Metropolitana de Aracaju;pedestre;28;37;43;45;42;38;42;32;51;50;60;51;45;52;55;49;27;33;26;27;23
+Região Metropolitana de Apucarana;pedestre;10;5;3;2;6;1;4;5;5;3;3;5;5;10;4;5;5;5;2;7;6
+Região Metropolitana da Zona da Mata;pedestre;14;12;21;4;4;6;4;14;7;9;5;5;6;4;4;2;2;6;3;0;3
+Região Metropolitana da Serra Gaúcha;pedestre;1;2;0;0;4;6;3;3;1;5;2;1;6;3;0;3;2;3;2;1;2
+Região Metropolitana da Grande Vitória;pedestre;78;73;84;85;79;69;70;82;91;67;83;90;84;84;61;53;52;51;55;60;41
+Região Metropolitana da Grande São Luís;pedestre;39;61;90;65;82;88;73;71;60;63;89;65;77;34;32;29;43;55;16;23;48
+Região Metropolitana da Foz do Rio Itajaí;pedestre;5;4;3;3;3;2;4;7;4;1;5;5;6;2;2;2;4;2;2;7;6
+Região Metropolitana da Capital;pedestre;10;13;7;1;4;10;7;12;5;3;8;7;8;12;24;9;10;13;9;3;3
+Região Metropolitana da Baixada Santista;pedestre;26;32;43;49;43;60;36;50;41;35;40;36;39;42;32;32;28;25;39;38;45
+Região Metropolitana Carbonífera;pedestre;2;3;3;1;3;2;0;1;0;4;0;1;3;1;1;1;1;3;2;2;1
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;pedestre;206;225;245;235;206;212;182;204;220;184;223;182;176;194;159;123;139;109;108;109;100
+Região Integrada de Desenvolvimento da Grande Teresina;pedestre;38;46;50;64;63;56;65;59;80;68;71;63;54;60;59;55;40;38;48;39;32
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;pedestre;23;15;21;19;14;22;16;3;20;17;22;31;26;26;19;13;29;29;19;29;21
+Aglomeração Urbana do Sul;pedestre;8;7;1;4;4;3;2;8;6;5;5;4;4;5;6;5;3;5;5;3;3
+Aglomeração Urbana do Litoral Norte;pedestre;0;0;1;2;0;0;1;1;2;0;1;2;1;2;1;2;1;1;0;1;1
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;pedestre;6;6;14;19;11;18;20;16;20;12;12;18;15;11;15;11;11;18;9;19;17
+Aglomeração Urbana de Jundiaí;pedestre;0;2;9;9;8;11;7;15;14;2;4;11;7;5;13;12;6;15;9;13;14
+Aglomeração Urbana de Franca;pedestre;6;5;4;8;9;8;5;5;3;2;1;3;4;1;9;2;8;10;12;8;7
+Outros;pedestre;1118;1138;1315;1355;1379;1353;1452;1448;1488;1403;1631;1470;1485;1432;1430;1208;1182;1121;1116;1185;986
+Região Metropolitana do Vale do Rio Cuiabá;ciclista;7;4;6;7;8;6;6;6;7;7;3;10;4;8;8;6;8;9;9;9;6
+Região Metropolitana do Vale do Piancó;ciclista;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0
+Região Metropolitana do Vale do Paraíba e Litoral Norte;ciclista;2;2;1;3;2;1;1;7;5;8;1;1;8;2;4;4;7;4;6;0;7
+Região Metropolitana do Vale do Paraíba;ciclista;0;0;0;0;1;0;0;0;0;1;1;1;0;0;0;0;0;0;0;0;0
+Região Metropolitana do Vale do Mamanguape;ciclista;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0
+Região Metropolitana do Vale do Itajaí;ciclista;0;0;0;0;1;3;1;1;0;3;0;1;0;0;1;0;0;0;0;3;4
+Região Metropolitana do Vale do Aço;ciclista;2;0;1;1;1;1;4;1;0;0;1;0;2;2;1;3;6;1;5;7;4
+Região Metropolitana do Sul do Estado;ciclista;1;0;1;0;0;0;0;1;1;1;0;0;0;1;0;1;0;0;0;0;0
+Região Metropolitana do Sudoeste Maranhense;ciclista;0;0;1;2;2;3;3;3;1;0;0;5;16;11;4;8;7;8;5;11;7
+Região Metropolitana do Sertão;ciclista;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;1;0;0;0;0;0
+Região Metropolitana do São Francisco;ciclista;0;0;0;0;0;0;0;2;0;0;1;0;0;0;0;0;0;0;0;0;0
+Região Metropolitana do Rio de Janeiro;ciclista;5;3;14;21;21;24;25;34;35;34;35;10;15;15;21;16;11;21;7;12;8
+Região Metropolitana do Recife;ciclista;13;18;14;11;8;14;17;20;12;13;13;17;24;7;16;28;14;30;24;29;30
+Região Metropolitana do Norte/Nordeste Catarinense;ciclista;1;1;3;5;6;1;3;1;1;5;6;3;1;4;4;9;7;5;3;7;6
+Região Metropolitana do Médio Sertão;ciclista;0;0;2;0;0;0;0;0;0;0;0;2;0;0;0;0;0;0;0;1;1
+Região Metropolitana do Extremo Oeste;ciclista;0;0;0;1;0;1;2;0;1;1;0;0;0;0;0;1;0;0;0;0;2
+Região Metropolitana do Contestado;ciclista;0;0;0;0;0;1;0;2;0;2;2;0;1;0;1;1;0;0;2;0;1
+Região Metropolitana do Cariri;ciclista;3;5;1;2;2;3;2;1;1;5;31;2;1;4;2;0;0;2;2;3;1
+Região Metropolitana do Alto Vale do Itajaí;ciclista;1;1;0;1;2;2;0;0;1;0;0;0;0;0;0;2;0;0;0;0;0
+Região Metropolitana do Agreste;ciclista;0;1;0;0;2;2;3;2;4;5;5;5;3;2;1;0;5;5;11;5;9
+Região Metropolitana de Umuarama;ciclista;1;2;1;1;3;1;4;0;1;0;1;1;3;3;4;3;1;1;2;2;1
+Região Metropolitana de Tubarão;ciclista;0;0;0;2;1;0;0;1;1;0;1;1;1;0;0;0;1;1;0;1;0
+Região Metropolitana de Toledo;ciclista;2;1;2;4;2;0;2;2;2;2;4;0;1;1;2;1;3;4;2;2;4
+Região Metropolitana de Sousa;ciclista;0;0;0;0;1;0;0;1;1;0;1;2;1;0;1;0;0;0;0;0;0
+Região Metropolitana de Sorocaba;ciclista;0;3;3;1;1;3;6;2;7;2;4;8;2;9;4;2;2;1;5;5;4
+Região Metropolitana de Sobral;ciclista;1;1;6;4;4;7;8;2;4;7;5;6;5;3;9;10;12;13;15;8;9
+Região Metropolitana de São Paulo;ciclista;3;19;11;15;13;19;45;33;37;43;39;38;32;25;42;23;21;25;20;30;31
+Região Metropolitana de Santarém;ciclista;0;0;0;1;0;0;0;0;0;5;0;0;0;0;0;0;1;1;0;0;2
+Região Metropolitana de Salvador;ciclista;0;0;1;1;0;10;12;17;3;4;5;7;7;8;9;9;5;6;5;7;5
+Região Metropolitana de Ribeirão Preto;ciclista;0;1;3;0;0;0;11;3;5;6;7;5;4;8;3;7;5;10;6;5;5
+Região Metropolitana de Porto Velho;ciclista;0;0;5;5;2;2;7;1;8;2;4;6;4;13;5;5;4;5;6;5;11
+Região Metropolitana de Porto Alegre;ciclista;0;0;3;4;2;2;3;2;4;1;1;2;4;4;8;1;4;3;2;2;3
+Região Metropolitana de Patos;ciclista;0;0;0;0;0;0;0;1;1;1;2;4;1;1;1;0;0;0;0;2;1
+Região Metropolitana de Palmeira dos Índios;ciclista;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+Região Metropolitana de Palmas;ciclista;4;5;14;11;3;5;7;7;6;10;4;2;6;7;2;3;5;5;2;6;7
+Região Metropolitana de Natal;ciclista;2;6;4;5;3;5;3;2;5;1;6;8;2;4;3;5;8;7;3;2;5
+Região Metropolitana de Maringá;ciclista;2;1;3;2;5;1;5;0;1;0;0;1;4;2;2;6;1;1;7;4;6
+Região Metropolitana de Manaus;ciclista;8;4;2;5;2;4;2;0;5;1;5;6;4;3;1;3;2;10;5;8;4
+Região Metropolitana de Maceió;ciclista;2;2;3;3;4;4;6;0;4;4;4;4;0;0;1;2;2;12;5;4;17
+Região Metropolitana de Macapá;ciclista;1;0;3;0;3;3;2;0;2;0;0;0;1;1;13;12;7;12;4;9;5
+Região Metropolitana de Londrina;ciclista;3;2;4;10;3;5;5;3;5;3;3;1;7;3;4;4;2;7;5;5;0
+Região Metropolitana de Lages;ciclista;0;1;0;3;1;0;0;0;0;0;0;1;0;0;0;0;0;0;1;0;0
+Região Metropolitana de João Pessoa;ciclista;1;2;3;5;2;4;2;2;8;5;5;4;3;5;0;3;9;7;9;6;1
+Região Metropolitana de Itabaiana;ciclista;0;0;2;1;0;0;0;0;0;0;2;0;1;0;0;0;0;0;0;0;1
+Região Metropolitana de Gurupi;ciclista;1;1;2;3;0;2;3;5;0;0;0;0;1;0;0;2;1;3;1;4;1
+Região Metropolitana de Guarabira;ciclista;0;0;0;0;0;1;0;0;0;0;1;0;0;1;1;1;1;0;1;0;1
+Região Metropolitana de Goiânia;ciclista;10;16;23;13;24;45;25;40;30;21;15;17;28;27;36;22;28;35;38;23;14
+Região Metropolitana de Fortaleza;ciclista;13;20;10;9;4;7;15;15;4;0;0;2;0;3;1;5;12;16;20;11;14
+Região Metropolitana de Florianópolis;ciclista;1;1;3;1;2;0;1;1;0;0;2;0;4;1;3;0;1;0;2;3;1
+Região Metropolitana de Feira de Santana;ciclista;0;0;0;0;0;1;1;0;3;1;0;0;1;0;0;0;0;2;1;1;1
+Região Metropolitana de Esperança;ciclista;0;0;0;0;0;0;0;0;0;0;0;1;1;0;1;1;0;0;0;0;0
+Região Metropolitana de Curitiba;ciclista;0;4;2;4;3;11;4;1;4;0;2;2;4;4;1;3;5;0;4;4;10
+Região Metropolitana de Chapecó;ciclista;0;2;0;1;0;0;0;1;0;0;0;1;0;0;0;0;0;0;1;3;0
+Região Metropolitana de Central;ciclista;0;1;1;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;1;0;2
+Região Metropolitana de Cascavel;ciclista;0;1;1;1;0;0;1;1;1;1;0;0;0;0;0;0;0;1;2;2;0
+Região Metropolitana de Campo Mourão;ciclista;4;2;2;0;3;1;1;1;2;3;1;4;4;6;3;3;5;2;6;3;1
+Região Metropolitana de Campinas;ciclista;1;0;2;4;9;6;11;13;10;5;7;5;6;8;17;6;4;7;11;10;9
+Região Metropolitana de Campina Grande;ciclista;0;0;0;3;1;0;0;1;5;5;3;6;3;4;1;6;3;4;3;9;2
+Região Metropolitana de Cajazeiras;ciclista;0;0;0;0;0;1;0;0;0;0;0;0;0;1;1;0;1;0;0;0;0
+Região Metropolitana de Caetés;ciclista;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;1;0;2;1;3
+Região Metropolitana de Belo Horizonte;ciclista;18;15;36;28;32;24;26;32;22;24;22;23;22;18;24;16;9;20;26;12;16
+Região Metropolitana de Belém;ciclista;2;2;1;2;1;10;9;4;8;16;6;8;10;3;6;2;4;10;7;6;3
+Região Metropolitana de Barra de Santa Rosa;ciclista;0;0;0;0;0;0;0;2;0;0;1;0;0;0;0;1;0;0;0;0;1
+Região Metropolitana de Araruna;ciclista;0;0;0;0;0;0;2;0;0;0;0;0;0;0;0;0;0;1;0;0;0
+Região Metropolitana de Aracaju;ciclista;1;6;5;4;4;11;5;14;14;14;20;9;12;10;6;12;14;14;9;18;10
+Região Metropolitana de Apucarana;ciclista;2;1;1;0;1;1;2;0;1;3;3;2;2;1;0;1;1;1;0;3;0
+Região Metropolitana da Zona da Mata;ciclista;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1
+Região Metropolitana da Serra Gaúcha;ciclista;0;0;0;1;0;0;0;1;0;1;0;0;0;1;0;0;0;1;1;1;0
+Região Metropolitana da Grande Vitória;ciclista;3;2;2;7;3;11;12;7;8;8;6;3;9;10;11;14;12;9;15;12;19
+Região Metropolitana da Grande São Luís;ciclista;5;3;7;6;9;23;12;9;9;11;8;8;4;6;3;3;5;0;6;1;4
+Região Metropolitana da Foz do Rio Itajaí;ciclista;1;1;3;1;4;0;1;2;4;4;4;1;5;0;1;2;0;0;4;2;0
+Região Metropolitana da Capital;ciclista;8;8;7;2;1;10;5;11;13;5;11;14;12;10;6;12;5;16;4;3;3
+Região Metropolitana da Baixada Santista;ciclista;1;0;4;4;0;3;7;3;7;10;8;21;13;8;8;9;8;7;9;18;18
+Região Metropolitana Carbonífera;ciclista;0;1;0;1;2;0;0;1;0;2;0;1;0;0;0;0;0;1;0;1;4
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;ciclista;10;15;18;22;12;44;45;43;60;39;24;40;38;39;25;36;25;20;20;25;28
+Região Integrada de Desenvolvimento da Grande Teresina;ciclista;15;13;18;11;23;20;25;35;25;28;32;18;25;13;18;21;24;18;16;16;12
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;ciclista;4;2;6;7;0;4;1;2;2;11;1;5;5;5;5;8;5;6;12;2;5
+Aglomeração Urbana do Sul;ciclista;0;1;0;1;0;0;3;1;1;1;1;0;0;2;2;2;0;3;0;2;2
+Aglomeração Urbana do Litoral Norte;ciclista;0;0;0;0;0;0;1;0;1;0;0;1;1;2;1;0;0;0;1;0;0
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;ciclista;0;0;1;1;2;2;4;2;1;2;2;2;3;8;0;6;2;1;5;8;6
+Aglomeração Urbana de Jundiaí;ciclista;0;0;0;0;0;0;2;1;3;2;4;0;2;1;1;2;6;2;1;2;2
+Aglomeração Urbana de Franca;ciclista;0;0;0;1;2;0;0;1;0;5;2;1;0;3;0;0;2;0;1;1;3
+Outros;ciclista;124;184;223;241;289;301;367;375;343;357;370;364;391;343;332;331;316;342;361;349;315
+Região Metropolitana do Vale do Rio Cuiabá;motocicleta;21;32;24;18;21;25;23;47;53;59;72;66;72;74;74;93;89;112;89;66;85
+Região Metropolitana do Vale do Piancó;motocicleta;0;0;6;2;0;2;2;0;3;5;7;6;6;6;4;3;2;5;3;3;3
+Região Metropolitana do Vale do Paraíba e Litoral Norte;motocicleta;3;3;5;1;4;8;7;9;12;9;11;9;19;10;17;19;14;12;17;18;12
+Região Metropolitana do Vale do Paraíba;motocicleta;1;1;1;0;3;1;1;3;1;2;1;1;3;4;1;2;0;12;5;3;14
+Região Metropolitana do Vale do Mamanguape;motocicleta;0;0;0;0;0;2;3;2;5;5;3;4;7;9;7;12;11;10;15;9;7
+Região Metropolitana do Vale do Itajaí;motocicleta;1;0;0;1;1;2;3;5;0;6;7;11;8;5;10;7;6;12;5;7;17
+Região Metropolitana do Vale do Aço;motocicleta;1;0;0;2;2;0;0;0;2;4;3;9;12;6;11;17;11;24;19;23;27
+Região Metropolitana do Sul do Estado;motocicleta;2;5;1;2;3;2;3;4;0;7;5;4;12;7;13;9;1;5;8;5;4
+Região Metropolitana do Sudoeste Maranhense;motocicleta;0;3;4;9;12;11;18;9;1;2;7;33;76;86;102;96;104;92;91;60;61
+Região Metropolitana do Sertão;motocicleta;0;0;0;6;3;1;8;3;5;3;6;3;9;2;0;0;1;13;19;9;12
+Região Metropolitana do São Francisco;motocicleta;1;0;2;3;3;2;2;5;3;1;4;4;3;2;0;0;1;19;7;15;10
+Região Metropolitana do Rio de Janeiro;motocicleta;10;31;37;69;74;106;144;135;160;170;151;116;90;139;167;161;102;135;144;82;137
+Região Metropolitana do Recife;motocicleta;33;28;44;63;89;77;85;94;81;120;192;246;246;155;251;238;280;246;200;165;181
+Região Metropolitana do Norte/Nordeste Catarinense;motocicleta;1;0;0;0;5;2;3;2;5;10;12;10;12;5;12;7;9;7;8;11;9
+Região Metropolitana do Médio Sertão;motocicleta;1;2;3;1;1;3;3;5;5;5;4;4;3;6;0;4;6;19;20;14;18
+Região Metropolitana do Extremo Oeste;motocicleta;2;0;0;0;0;1;0;1;2;1;1;5;2;5;5;1;3;7;0;1;4
+Região Metropolitana do Contestado;motocicleta;0;0;0;0;0;2;1;1;1;2;2;6;2;2;7;2;6;7;5;3;2
+Região Metropolitana do Cariri;motocicleta;8;17;10;5;17;39;40;44;23;23;25;46;10;22;18;18;24;46;53;49;34
+Região Metropolitana do Alto Vale do Itajaí;motocicleta;0;0;0;0;2;1;2;0;1;3;1;0;1;1;1;4;4;2;2;3;2
+Região Metropolitana do Agreste;motocicleta;8;4;11;8;22;29;30;59;47;65;70;46;44;37;15;14;61;102;138;146;138
+Região Metropolitana de Umuarama;motocicleta;1;3;3;3;1;3;7;6;4;4;12;9;6;8;8;21;9;8;6;14;8
+Região Metropolitana de Tubarão;motocicleta;0;1;0;1;4;3;3;2;1;2;4;1;5;5;3;1;3;3;3;1;3
+Região Metropolitana de Toledo;motocicleta;0;0;1;1;0;3;1;6;1;0;2;2;5;12;12;11;7;8;6;7;11
+Região Metropolitana de Sousa;motocicleta;0;0;0;2;0;3;1;8;7;9;7;7;7;8;7;4;4;3;5;10;1
+Região Metropolitana de Sorocaba;motocicleta;1;1;5;2;2;2;15;18;12;16;15;23;20;14;19;16;16;13;15;17;27
+Região Metropolitana de Sobral;motocicleta;4;4;11;22;15;22;37;51;49;47;75;90;122;109;147;157;143;134;150;129;111
+Região Metropolitana de São Paulo;motocicleta;17;54;22;51;53;82;181;152;224;203;278;286;287;229;281;243;239;175;120;239;289
+Região Metropolitana de Santarém;motocicleta;0;0;1;0;0;0;0;0;1;0;1;2;0;0;1;0;11;25;30;63;71
+Região Metropolitana de Salvador;motocicleta;5;8;14;11;15;99;80;77;19;32;135;93;122;144;160;127;101;104;65;61;61
+Região Metropolitana de Ribeirão Preto;motocicleta;2;3;1;1;2;0;13;5;6;13;11;14;14;19;18;18;12;24;21;20;30
+Região Metropolitana de Porto Velho;motocicleta;3;7;10;3;7;7;11;11;11;22;29;31;45;75;34;49;43;45;36;23;25
+Região Metropolitana de Porto Alegre;motocicleta;2;2;5;3;4;5;6;4;6;9;9;13;10;11;15;7;13;6;10;18;12
+Região Metropolitana de Patos;motocicleta;0;0;2;1;1;5;1;3;4;6;11;7;11;6;15;9;9;12;11;9;9
+Região Metropolitana de Palmeira dos Índios;motocicleta;1;0;1;1;3;1;1;3;0;1;0;2;0;0;1;0;0;2;4;3;4
+Região Metropolitana de Palmas;motocicleta;8;12;20;19;18;23;24;40;29;31;31;44;40;45;35;64;61;61;62;64;51
+Região Metropolitana de Natal;motocicleta;19;24;16;20;11;9;21;23;20;39;52;46;48;70;58;51;63;60;71;52;53
+Região Metropolitana de Maringá;motocicleta;2;2;2;8;9;3;6;11;8;6;14;4;14;10;11;18;13;10;11;14;16
+Região Metropolitana de Manaus;motocicleta;52;37;28;26;29;40;40;37;50;46;56;60;71;82;104;131;138;156;135;125;157
+Região Metropolitana de Maceió;motocicleta;9;11;17;22;18;25;17;6;15;13;16;24;37;49;21;29;25;93;79;49;123
+Região Metropolitana de Macapá;motocicleta;2;2;2;3;6;1;7;2;1;7;1;0;2;3;31;21;26;26;18;15;34
+Região Metropolitana de Londrina;motocicleta;14;3;9;8;11;13;11;13;15;9;12;22;18;7;20;10;18;13;19;27;27
+Região Metropolitana de Lages;motocicleta;0;0;0;1;0;0;2;0;1;1;3;1;2;1;4;1;3;2;2;4;5
+Região Metropolitana de João Pessoa;motocicleta;4;6;20;10;17;34;28;46;58;62;79;72;90;96;77;103;136;123;114;102;92
+Região Metropolitana de Itabaiana;motocicleta;0;0;0;0;3;4;0;4;4;2;0;3;4;14;8;7;5;13;4;4;3
+Região Metropolitana de Gurupi;motocicleta;4;2;7;9;7;14;9;12;19;13;7;11;18;32;20;26;27;32;23;21;18
+Região Metropolitana de Guarabira;motocicleta;0;1;0;1;4;3;5;5;2;5;3;13;7;18;11;12;17;16;21;12;10
+Região Metropolitana de Goiânia;motocicleta;33;50;54;35;63;98;105;130;128;146;151;150;169;153;181;159;187;186;195;191;136
+Região Metropolitana de Fortaleza;motocicleta;48;70;71;56;59;55;90;110;77;52;107;106;111;148;102;117;132;231;176;125;129
+Região Metropolitana de Florianópolis;motocicleta;3;5;2;2;1;4;4;2;3;9;6;6;6;12;10;15;9;8;9;8;6
+Região Metropolitana de Feira de Santana;motocicleta;1;2;2;2;1;5;2;10;7;13;19;10;6;9;6;8;8;3;5;2;13
+Região Metropolitana de Esperança;motocicleta;0;0;1;1;2;1;0;0;2;6;2;4;4;3;7;10;7;9;2;7;4
+Região Metropolitana de Curitiba;motocicleta;0;2;0;4;1;15;5;12;13;5;5;9;8;2;6;9;6;11;13;14;18
+Região Metropolitana de Chapecó;motocicleta;0;1;1;0;2;2;0;0;1;0;1;2;1;1;6;3;6;5;5;4;5
+Região Metropolitana de Central;motocicleta;0;1;2;5;3;3;1;2;1;0;2;5;6;5;3;1;0;1;0;0;5
+Região Metropolitana de Cascavel;motocicleta;1;1;0;0;2;0;1;2;4;2;2;5;8;8;4;6;2;5;4;6;14
+Região Metropolitana de Campo Mourão;motocicleta;0;2;2;1;0;2;2;4;0;6;9;14;25;14;18;14;19;23;18;12;18
+Região Metropolitana de Campinas;motocicleta;4;1;1;4;14;12;31;18;36;25;27;53;37;27;36;37;37;40;37;48;41
+Região Metropolitana de Campina Grande;motocicleta;3;0;0;3;16;31;21;60;88;59;34;50;101;97;109;108;105;93;100;86;105
+Região Metropolitana de Cajazeiras;motocicleta;0;3;2;2;2;2;5;4;4;11;9;9;7;7;12;7;6;5;13;12;5
+Região Metropolitana de Caetés;motocicleta;0;1;0;1;3;2;1;1;4;1;0;1;3;3;1;1;4;7;10;6;11
+Região Metropolitana de Belo Horizonte;motocicleta;34;31;39;44;68;70;90;98;140;102;124;152;145;149;153;126;119;98;112;96;107
+Região Metropolitana de Belém;motocicleta;8;11;8;20;14;35;32;21;28;23;46;75;66;64;47;75;54;68;74;71;70
+Região Metropolitana de Barra de Santa Rosa;motocicleta;0;0;0;2;2;1;0;2;1;3;1;3;3;6;1;3;8;1;8;11;6
+Região Metropolitana de Araruna;motocicleta;0;0;0;0;1;3;0;3;2;0;1;7;0;4;6;5;5;1;2;4;3
+Região Metropolitana de Aracaju;motocicleta;9;14;29;22;33;46;48;56;60;103;114;137;150;144;115;129;106;104;84;99;95
+Região Metropolitana de Apucarana;motocicleta;1;3;2;3;3;4;4;3;4;4;5;8;13;12;9;11;8;5;3;11;14
+Região Metropolitana da Zona da Mata;motocicleta;1;1;1;0;0;1;3;5;0;1;6;5;2;12;2;3;2;18;17;3;25
+Região Metropolitana da Serra Gaúcha;motocicleta;0;0;1;1;1;1;4;0;0;2;3;3;3;2;5;0;4;0;3;5;3
+Região Metropolitana da Grande Vitória;motocicleta;8;5;18;22;29;41;38;47;59;64;79;68;74;71;75;74;69;63;50;54;59
+Região Metropolitana da Grande São Luís;motocicleta;10;12;23;21;16;31;37;45;58;59;65;75;95;68;68;64;65;56;45;32;64
+Região Metropolitana da Foz do Rio Itajaí;motocicleta;0;2;0;2;2;1;3;1;3;2;3;5;5;4;6;5;2;5;3;9;4
+Região Metropolitana da Capital;motocicleta;19;22;29;4;6;19;14;36;36;13;41;36;44;52;30;55;28;46;13;20;23
+Região Metropolitana da Baixada Santista;motocicleta;2;4;4;6;4;8;18;19;28;22;29;31;29;23;24;20;32;31;38;27;52
+Região Metropolitana Carbonífera;motocicleta;0;1;4;2;3;0;1;3;3;3;2;5;2;2;4;1;4;3;1;1;2
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;motocicleta;13;21;53;54;43;91;87;123;116;128;158;140;144;144;134;144;145;94;93;114;97
+Região Integrada de Desenvolvimento da Grande Teresina;motocicleta;28;22;34;39;63;84;84;110;99;141;201;217;232;209;231;265;266;208;205;201;194
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;motocicleta;10;9;20;21;1;12;7;14;20;32;29;70;86;91;86;100;136;97;93;114;94
+Aglomeração Urbana do Sul;motocicleta;0;0;0;0;1;4;4;2;2;6;1;3;8;4;5;4;4;5;3;6;7
+Aglomeração Urbana do Litoral Norte;motocicleta;0;0;0;0;0;0;1;1;0;0;0;1;0;1;0;0;1;0;2;0;3
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;motocicleta;1;3;1;0;2;5;3;4;3;9;5;7;9;2;17;21;10;13;17;20;30
+Aglomeração Urbana de Jundiaí;motocicleta;0;0;2;1;4;3;5;3;7;6;4;9;6;9;16;14;5;14;14;13;13
+Aglomeração Urbana de Franca;motocicleta;1;2;0;0;1;1;2;1;2;4;5;5;3;2;5;2;7;6;6;10;14
+Outros;motocicleta;459;540;749;906;1053;1264;1481;1819;2246;2523;3005;3236;3838;3728;4067;3956;4113;4125;3944;3890;4106
+Região Metropolitana do Vale do Rio Cuiabá;auto;37;58;70;38;37;33;41;44;38;61;64;51;46;56;74;46;41;38;46;32;43
+Região Metropolitana do Vale do Piancó;auto;0;0;1;0;1;1;2;1;2;2;3;2;8;11;8;19;14;9;13;9;17
+Região Metropolitana do Vale do Paraíba e Litoral Norte;auto;8;3;5;2;7;5;5;14;7;22;10;10;7;13;11;6;9;9;6;15;13
+Região Metropolitana do Vale do Paraíba;auto;3;3;2;0;1;1;0;0;1;0;0;1;0;1;0;0;0;5;11;2;9
+Região Metropolitana do Vale do Mamanguape;auto;0;0;0;3;1;2;11;10;5;7;2;1;4;1;4;0;4;4;4;0;0
+Região Metropolitana do Vale do Itajaí;auto;0;0;0;0;1;0;0;2;0;1;4;4;2;4;4;5;1;3;3;3;3
+Região Metropolitana do Vale do Aço;auto;4;5;7;3;0;6;8;9;10;24;23;18;4;16;12;20;5;31;9;6;10
+Região Metropolitana do Sul do Estado;auto;0;1;0;0;2;2;0;0;0;1;1;0;3;1;2;9;1;5;5;1;2
+Região Metropolitana do Sudoeste Maranhense;auto;0;5;7;7;7;9;21;12;1;8;10;15;19;11;24;15;19;9;12;11;9
+Região Metropolitana do Sertão;auto;2;9;0;2;2;0;1;0;0;8;1;0;0;0;1;0;0;4;7;4;10
+Região Metropolitana do São Francisco;auto;0;1;4;1;3;1;1;0;0;1;1;0;0;0;0;0;0;4;3;6;4
+Região Metropolitana do Rio de Janeiro;auto;24;35;69;75;72;97;98;88;92;65;58;77;71;77;58;66;48;56;53;23;41
+Região Metropolitana do Recife;auto;55;35;53;31;73;71;61;65;72;47;46;34;42;36;52;70;60;50;44;41;34
+Região Metropolitana do Norte/Nordeste Catarinense;auto;6;2;3;1;6;4;4;4;1;6;8;3;8;7;13;17;8;9;10;9;8
+Região Metropolitana do Médio Sertão;auto;2;3;1;2;0;2;0;0;0;0;0;1;3;0;1;0;0;6;1;2;1
+Região Metropolitana do Extremo Oeste;auto;3;0;1;1;0;0;0;3;4;0;0;2;9;5;2;4;3;3;1;2;4
+Região Metropolitana do Contestado;auto;2;2;0;2;0;4;2;2;2;4;6;4;6;14;7;4;4;14;2;14;13
+Região Metropolitana do Cariri;auto;15;7;8;2;9;5;10;10;17;4;2;0;0;0;0;0;3;3;4;0;0
+Região Metropolitana do Alto Vale do Itajaí;auto;1;0;0;0;2;0;0;0;1;4;2;1;0;3;5;2;1;3;1;1;2
+Região Metropolitana do Agreste;auto;6;6;10;13;3;5;12;17;3;9;7;9;3;2;1;6;5;35;11;18;29
+Região Metropolitana de Umuarama;auto;3;5;1;4;7;2;2;4;2;0;7;3;6;5;13;11;11;15;9;13;13
+Região Metropolitana de Tubarão;auto;0;2;3;3;5;8;4;1;2;3;1;2;1;3;1;4;0;5;1;0;2
+Região Metropolitana de Toledo;auto;1;0;1;0;2;2;1;1;4;0;2;1;8;8;10;10;7;14;7;6;10
+Região Metropolitana de Sousa;auto;0;0;1;6;0;0;2;1;2;0;3;4;7;13;13;26;19;9;20;12;12
+Região Metropolitana de Sorocaba;auto;0;2;1;5;2;3;12;17;13;10;30;23;15;13;17;6;2;12;14;15;20
+Região Metropolitana de Sobral;auto;5;2;8;5;15;20;5;8;11;14;18;21;8;11;9;14;17;17;21;5;4
+Região Metropolitana de São Paulo;auto;15;24;15;26;32;40;96;66;80;70;82;83;108;105;109;85;88;47;32;70;93
+Região Metropolitana de Santarém;auto;0;0;0;2;1;0;0;0;0;0;1;0;0;0;1;0;4;15;1;3;0
+Região Metropolitana de Salvador;auto;32;54;43;39;55;59;57;36;39;38;69;98;137;108;92;71;56;62;32;40;48
+Região Metropolitana de Ribeirão Preto;auto;8;5;7;9;6;3;13;9;12;9;19;14;14;21;17;14;14;7;13;10;33
+Região Metropolitana de Porto Velho;auto;0;0;1;1;0;1;1;0;1;1;0;4;8;16;4;14;7;10;10;9;7
+Região Metropolitana de Porto Alegre;auto;2;4;1;4;6;7;3;5;8;6;11;8;9;8;5;14;7;8;9;9;7
+Região Metropolitana de Patos;auto;0;0;0;0;2;1;2;5;4;7;5;7;18;26;26;28;39;25;34;21;22
+Região Metropolitana de Palmeira dos Índios;auto;1;0;0;0;0;0;0;0;0;0;0;0;3;0;0;0;0;0;1;0;0
+Região Metropolitana de Palmas;auto;17;16;20;11;17;24;12;31;13;14;14;21;12;28;23;30;22;28;15;15;15
+Região Metropolitana de Natal;auto;47;35;20;21;30;27;44;27;41;23;30;23;19;21;24;20;13;14;11;12;10
+Região Metropolitana de Maringá;auto;1;2;4;3;9;6;2;5;9;2;9;3;5;11;13;9;8;7;2;9;8
+Região Metropolitana de Manaus;auto;43;30;32;31;19;17;29;26;28;46;51;39;37;46;46;56;48;31;41;35;29
+Região Metropolitana de Maceió;auto;17;19;6;4;6;7;2;1;3;3;1;5;3;2;3;1;2;37;27;8;12
+Região Metropolitana de Macapá;auto;18;1;0;10;10;4;4;14;6;4;0;0;2;1;13;7;14;10;6;11;3
+Região Metropolitana de Londrina;auto;7;5;7;5;7;6;8;9;7;8;8;15;10;9;14;12;12;8;10;22;19
+Região Metropolitana de Lages;auto;2;1;0;1;0;1;3;0;3;2;1;9;4;3;8;12;5;4;8;10;10
+Região Metropolitana de João Pessoa;auto;51;12;0;44;16;13;14;10;11;20;35;22;28;15;12;25;17;6;15;7;5
+Região Metropolitana de Itabaiana;auto;0;0;0;1;3;0;1;0;3;3;3;0;2;1;2;8;3;7;6;7;12
+Região Metropolitana de Gurupi;auto;16;13;15;15;25;13;26;25;26;31;36;52;68;22;35;34;28;24;15;11;11
+Região Metropolitana de Guarabira;auto;2;2;0;1;4;5;3;5;1;4;0;0;6;5;4;2;5;12;9;16;20
+Região Metropolitana de Goiânia;auto;18;24;21;17;45;38;57;42;45;44;34;47;44;49;73;66;72;71;58;46;47
+Região Metropolitana de Fortaleza;auto;48;57;76;68;68;63;88;117;152;64;23;82;83;61;69;86;133;29;51;25;7
+Região Metropolitana de Florianópolis;auto;0;4;2;1;2;0;1;0;0;5;2;5;3;3;3;5;6;3;3;1;3
+Região Metropolitana de Feira de Santana;auto;31;11;10;7;8;15;30;50;46;63;73;75;72;62;43;19;18;31;36;24;44
+Região Metropolitana de Esperança;auto;1;0;2;0;0;1;0;0;0;0;0;0;0;0;1;0;0;0;0;0;1
+Região Metropolitana de Curitiba;auto;9;8;6;8;8;7;13;3;10;2;4;10;5;5;6;6;11;7;11;6;14
+Região Metropolitana de Chapecó;auto;0;1;1;0;0;2;2;3;3;1;0;9;4;3;3;4;8;2;8;9;2
+Região Metropolitana de Central;auto;2;1;1;2;1;1;0;4;1;1;5;0;0;1;3;1;2;2;0;1;0
+Região Metropolitana de Cascavel;auto;3;3;3;2;5;2;4;5;4;1;2;2;8;9;10;10;5;11;8;3;9
+Região Metropolitana de Campo Mourão;auto;6;0;2;3;5;1;0;8;3;13;15;12;14;9;17;16;14;19;10;14;20
+Região Metropolitana de Campinas;auto;1;0;2;4;7;4;6;10;6;9;6;9;16;14;12;22;28;24;20;10;16
+Região Metropolitana de Campina Grande;auto;6;0;1;9;0;0;0;0;0;1;0;1;1;0;1;0;1;1;0;0;0
+Região Metropolitana de Cajazeiras;auto;0;0;0;1;2;2;1;0;1;2;2;6;12;8;19;24;18;18;16;8;6
+Região Metropolitana de Caetés;auto;4;1;1;0;1;0;0;1;0;0;0;0;1;2;0;1;1;6;2;0;7
+Região Metropolitana de Belo Horizonte;auto;41;50;73;59;66;84;121;110;103;109;143;131;89;146;137;133;88;81;69;70;79
+Região Metropolitana de Belém;auto;14;15;8;9;12;18;11;11;2;3;5;3;10;5;12;5;4;8;15;15;11
+Região Metropolitana de Barra de Santa Rosa;auto;0;0;1;0;1;0;0;0;0;0;0;0;0;0;1;4;0;0;0;0;0
+Região Metropolitana de Araruna;auto;1;0;0;0;0;0;0;1;1;2;0;0;7;1;3;0;0;2;1;1;7
+Região Metropolitana de Aracaju;auto;21;37;35;23;27;17;12;26;19;23;33;32;26;32;25;21;19;17;15;21;12
+Região Metropolitana de Apucarana;auto;2;3;3;6;9;3;6;4;4;3;3;2;9;4;7;11;3;9;3;5;6
+Região Metropolitana da Zona da Mata;auto;7;1;1;0;2;0;2;1;0;5;0;1;3;3;0;0;0;6;7;5;6
+Região Metropolitana da Serra Gaúcha;auto;2;4;6;5;1;1;1;1;6;6;6;2;1;3;3;2;5;2;3;0;3
+Região Metropolitana da Grande Vitória;auto;35;51;33;37;36;39;37;69;51;62;63;78;90;84;75;40;37;47;41;31;24
+Região Metropolitana da Grande São Luís;auto;28;28;11;12;11;10;12;18;18;17;31;35;36;24;19;15;14;25;6;7;7
+Região Metropolitana da Foz do Rio Itajaí;auto;0;0;1;1;2;2;3;0;2;1;1;1;3;2;1;0;2;1;2;1;2
+Região Metropolitana da Capital;auto;15;7;10;3;5;7;9;16;8;7;11;11;8;20;12;26;15;13;16;20;32
+Região Metropolitana da Baixada Santista;auto;2;2;1;0;1;1;4;6;2;8;5;6;13;5;4;2;3;5;8;8;10
+Região Metropolitana Carbonífera;auto;0;1;0;2;0;0;1;3;1;2;4;3;0;1;2;3;2;2;3;0;1
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;auto;236;227;223;270;227;177;170;155;162;213;215;258;238;244;233;188;159;118;112;111;100
+Região Integrada de Desenvolvimento da Grande Teresina;auto;2;5;3;5;7;5;16;13;9;11;38;19;30;40;26;28;30;32;19;17;20
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;auto;12;24;35;16;13;26;25;13;28;17;38;72;71;60;75;59;78;42;58;71;65
+Aglomeração Urbana do Sul;auto;0;1;0;0;2;3;1;3;2;4;2;0;1;1;1;2;2;2;2;2;2
+Aglomeração Urbana do Litoral Norte;auto;0;0;0;0;0;0;0;2;1;0;5;3;1;2;1;0;1;1;2;0;3
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;auto;0;1;1;3;2;4;5;3;3;10;10;3;5;6;6;8;9;13;7;4;8
+Aglomeração Urbana de Jundiaí;auto;0;1;3;3;4;3;2;5;6;4;2;8;5;4;1;0;3;7;3;8;1
+Aglomeração Urbana de Franca;auto;1;0;0;2;1;1;9;13;9;3;3;4;3;5;4;4;2;6;5;3;7
+Outros;auto;843;974;1234;1173;1446;1444;1341;1621;1859;1893;2325;2468;2707;2653;2824;2547;2418;2472;2051;1997;2021
+Região Metropolitana do Vale do Rio Cuiabá;total_outros;28;10;15;16;26;34;28;36;46;45;29;61;48;72;72;55;46;53;43;33;54
+Região Metropolitana do Vale do Piancó;total_outros;2;0;1;0;1;0;3;0;4;4;2;4;3;2;2;3;1;0;1;1;0
+Região Metropolitana do Vale do Paraíba e Litoral Norte;total_outros;34;31;39;30;38;38;35;47;41;17;25;35;37;24;31;27;21;14;29;31;23
+Região Metropolitana do Vale do Paraíba;total_outros;1;6;3;2;3;2;8;7;9;14;20;16;14;20;16;26;18;2;0;14;3
+Região Metropolitana do Vale do Mamanguape;total_outros;2;0;2;0;3;7;1;3;3;9;5;4;4;6;2;5;2;5;3;3;9
+Região Metropolitana do Vale do Itajaí;total_outros;3;0;1;1;2;5;1;4;0;1;3;1;2;2;1;1;0;0;0;0;2
+Região Metropolitana do Vale do Aço;total_outros;4;8;5;7;4;10;10;4;4;2;8;27;30;22;43;21;27;29;17;16;18
+Região Metropolitana do Sul do Estado;total_outros;0;2;0;1;0;2;0;3;1;3;1;2;0;0;3;5;0;1;1;1;0
+Região Metropolitana do Sudoeste Maranhense;total_outros;24;30;19;28;40;36;31;89;99;89;122;74;42;38;26;34;35;44;8;6;6
+Região Metropolitana do Sertão;total_outros;1;4;1;3;1;5;2;4;11;9;11;18;29;21;35;25;30;1;2;1;2
+Região Metropolitana do São Francisco;total_outros;8;5;0;6;1;6;1;10;4;4;11;16;23;14;31;16;15;0;0;0;0
+Região Metropolitana do Rio de Janeiro;total_outros;180;190;163;153;158;159;191;158;123;87;209;231;443;336;459;152;486;335;239;276;304
+Região Metropolitana do Recife;total_outros;174;203;190;187;133;150;140;189;181;198;208;193;135;180;99;85;62;44;39;46;37
+Região Metropolitana do Norte/Nordeste Catarinense;total_outros;5;2;6;1;2;7;8;3;2;6;3;6;6;3;6;9;2;3;3;1;3
+Região Metropolitana do Médio Sertão;total_outros;4;3;2;1;1;3;5;3;3;4;10;23;25;30;35;24;28;1;0;0;0
+Região Metropolitana do Extremo Oeste;total_outros;2;3;0;1;0;0;2;1;3;1;3;6;2;3;1;0;0;5;3;0;1
+Região Metropolitana do Contestado;total_outros;2;2;4;11;4;2;1;1;1;1;1;3;8;2;2;1;0;3;0;0;5
+Região Metropolitana do Cariri;total_outros;11;2;2;9;27;5;1;9;58;59;48;130;177;121;125;139;102;6;6;2;3
+Região Metropolitana do Alto Vale do Itajaí;total_outros;0;1;1;0;0;3;0;0;1;0;2;0;0;0;3;5;1;0;0;1;0
+Região Metropolitana do Agreste;total_outros;27;17;10;20;37;23;34;38;51;71;109;127;175;168;202;182;136;10;2;5;10
+Região Metropolitana de Umuarama;total_outros;3;5;3;2;1;0;3;3;0;1;1;0;3;5;9;8;8;7;0;3;4
+Região Metropolitana de Tubarão;total_outros;3;3;1;2;2;0;1;0;1;0;1;0;0;0;0;1;0;0;2;1;0
+Região Metropolitana de Toledo;total_outros;5;6;11;13;3;6;16;20;9;8;14;19;14;5;13;8;12;5;0;1;2
+Região Metropolitana de Sousa;total_outros;1;0;1;0;3;0;11;0;4;4;6;2;7;0;0;1;3;0;0;1;9
+Região Metropolitana de Sorocaba;total_outros;28;23;32;26;34;18;12;14;7;5;9;20;12;21;10;21;25;27;19;11;10
+Região Metropolitana de Sobral;total_outros;1;2;2;2;3;1;10;0;4;6;5;11;5;31;71;49;59;28;23;29;90
+Região Metropolitana de São Paulo;total_outros;245;306;258;317;251;271;125;239;163;129;122;136;122;147;145;116;112;137;135;68;151
+Região Metropolitana de Santarém;total_outros;7;7;12;26;34;28;22;31;45;10;15;30;0;2;2;0;3;4;3;6;6
+Região Metropolitana de Salvador;total_outros;53;23;28;22;20;100;146;89;65;40;103;79;89;50;56;33;51;33;35;68;60
+Região Metropolitana de Ribeirão Preto;total_outros;25;33;25;22;32;36;12;7;5;8;9;13;16;12;10;17;9;13;5;13;0
+Região Metropolitana de Porto Velho;total_outros;66;42;48;71;76;54;105;90;101;98;133;104;121;28;81;47;27;13;8;20;21
+Região Metropolitana de Porto Alegre;total_outros;32;26;32;46;32;31;25;30;17;30;17;17;17;17;18;19;9;7;6;3;5
+Região Metropolitana de Patos;total_outros;1;0;2;5;15;3;17;7;11;37;35;23;7;4;3;0;1;2;2;0;3
+Região Metropolitana de Palmeira dos Índios;total_outros;2;1;2;0;0;0;0;1;1;0;3;5;6;7;9;12;12;3;0;0;0
+Região Metropolitana de Palmas;total_outros;7;6;7;13;7;13;7;16;13;44;49;58;35;10;24;18;16;15;12;26;36
+Região Metropolitana de Natal;total_outros;10;23;30;20;20;32;8;22;29;46;31;31;47;39;64;56;47;71;97;74;56
+Região Metropolitana de Maringá;total_outros;4;4;5;5;9;6;7;5;9;9;3;12;19;13;14;16;6;7;3;1;0
+Região Metropolitana de Manaus;total_outros;38;26;49;48;85;105;129;89;94;86;115;118;95;76;75;41;40;23;27;34;18
+Região Metropolitana de Maceió;total_outros;19;19;34;55;61;56;80;64;140;127;166;204;177;143;229;182;190;21;11;112;47
+Região Metropolitana de Macapá;total_outros;30;5;16;5;8;2;28;52;61;74;83;88;77;59;10;22;4;2;3;23;7
+Região Metropolitana de Londrina;total_outros;7;3;4;8;6;8;8;7;4;4;9;14;10;6;10;7;3;7;3;3;2
+Região Metropolitana de Lages;total_outros;1;0;2;2;5;4;1;3;3;3;5;3;2;9;3;5;3;2;1;2;3
+Região Metropolitana de João Pessoa;total_outros;63;113;81;40;68;68;71;64;80;111;89;59;49;63;69;57;42;44;19;46;72
+Região Metropolitana de Itabaiana;total_outros;1;1;2;2;11;18;6;6;8;11;6;9;6;7;5;2;6;2;1;3;1
+Região Metropolitana de Gurupi;total_outros;7;2;8;4;4;4;0;4;3;3;4;1;0;5;5;5;8;8;7;8;10
+Região Metropolitana de Guarabira;total_outros;0;1;0;1;2;5;5;9;12;2;6;6;5;8;6;4;5;4;8;6;3
+Região Metropolitana de Goiânia;total_outros;89;79;119;132;134;99;96;110;144;148;198;177;155;112;83;74;75;25;21;38;115
+Região Metropolitana de Fortaleza;total_outros;73;43;15;12;4;22;18;14;4;1;111;35;5;15;130;26;13;12;5;8;3
+Região Metropolitana de Florianópolis;total_outros;4;2;2;6;6;6;5;13;10;9;1;5;4;2;3;4;2;1;1;3;5
+Região Metropolitana de Feira de Santana;total_outros;8;0;3;1;3;1;14;23;24;15;24;37;37;49;57;26;24;42;21;22;60
+Região Metropolitana de Esperança;total_outros;1;0;2;1;14;1;15;13;14;12;21;21;15;11;11;12;10;20;10;9;14
+Região Metropolitana de Curitiba;total_outros;41;28;25;22;19;15;6;14;10;21;12;13;17;8;9;7;8;11;5;4;8
+Região Metropolitana de Chapecó;total_outros;1;8;3;2;0;2;1;3;3;0;0;0;1;1;2;2;0;1;1;2;1
+Região Metropolitana de Central;total_outros;6;1;3;2;0;0;0;1;0;3;5;2;1;0;0;0;0;0;0;0;1
+Região Metropolitana de Cascavel;total_outros;2;1;0;1;1;1;0;2;1;0;1;0;1;6;2;0;1;1;0;0;0
+Região Metropolitana de Campo Mourão;total_outros;6;2;1;5;4;6;1;3;5;5;7;9;11;12;12;8;10;8;3;2;0
+Região Metropolitana de Campinas;total_outros;51;47;48;45;47;48;22;31;25;18;32;24;16;8;12;5;8;9;14;11;7
+Região Metropolitana de Campina Grande;total_outros;67;49;140;145;170;155;202;191;157;124;168;137;160;189;164;149;135;100;120;88;96
+Região Metropolitana de Cajazeiras;total_outros;0;2;3;1;2;1;3;2;0;6;2;5;7;2;1;1;3;1;0;1;16
+Região Metropolitana de Caetés;total_outros;1;0;3;2;2;6;5;9;16;7;18;17;10;21;23;20;23;3;3;8;2
+Região Metropolitana de Belo Horizonte;total_outros;177;207;164;213;224;220;237;254;184;202;146;175;213;133;129;118;133;111;92;72;63
+Região Metropolitana de Belém;total_outros;30;60;36;23;30;33;16;9;16;11;18;10;22;24;161;66;214;22;93;156;135
+Região Metropolitana de Barra de Santa Rosa;total_outros;2;0;2;0;7;0;11;5;10;2;11;10;15;14;5;7;10;10;6;7;5
+Região Metropolitana de Araruna;total_outros;0;0;0;1;1;1;1;0;2;0;2;2;7;2;1;1;5;1;2;2;1
+Região Metropolitana de Aracaju;total_outros;8;6;18;5;7;20;10;19;12;14;16;10;11;18;14;19;17;7;8;9;6
+Região Metropolitana de Apucarana;total_outros;1;1;2;6;3;0;2;1;1;4;2;3;6;8;4;3;3;2;3;4;6
+Região Metropolitana da Zona da Mata;total_outros;6;6;9;14;12;13;7;14;19;19;31;46;31;26;28;57;46;16;4;20;2
+Região Metropolitana da Serra Gaúcha;total_outros;0;2;1;0;3;2;1;0;2;1;1;1;2;2;1;0;1;2;1;1;1
+Região Metropolitana da Grande Vitória;total_outros;36;25;50;26;37;40;24;32;24;32;24;18;30;30;24;19;16;40;39;34;38
+Região Metropolitana da Grande São Luís;total_outros;22;51;47;71;68;55;61;93;150;88;83;100;131;156;163;154;124;68;135;137;102
+Região Metropolitana da Foz do Rio Itajaí;total_outros;1;2;2;2;2;4;1;1;3;2;3;3;1;1;2;2;1;4;5;1;8
+Região Metropolitana da Capital;total_outros;10;18;35;36;24;15;27;13;9;49;20;24;11;14;13;19;18;5;14;28;21
+Região Metropolitana da Baixada Santista;total_outros;48;50;55;49;80;70;88;79;94;64;43;52;78;51;47;59;52;26;17;29;13
+Região Metropolitana Carbonífera;total_outros;1;2;0;0;3;2;1;3;3;3;0;2;0;0;0;0;0;0;1;0;2
+Região Integrada de Desenvolvimento do Distrito Federal e Entorno;total_outros;71;96;92;90;88;101;72;83;96;87;98;112;126;114;162;109;94;102;112;88;76
+Região Integrada de Desenvolvimento da Grande Teresina;total_outros;75;93;110;121;83;59;135;128;105;91;53;72;90;110;132;76;60;47;35;34;54
+Região Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA;total_outros;14;6;17;26;17;30;30;14;22;62;57;46;42;38;32;34;32;31;23;23;24
+Aglomeração Urbana do Sul;total_outros;12;8;3;9;6;3;7;8;6;4;8;14;5;4;6;3;2;4;4;1;0
+Aglomeração Urbana do Litoral Norte;total_outros;0;2;1;2;0;1;1;4;0;1;1;6;0;0;1;2;5;2;0;0;2
+Aglomeração Urbana de Piracicaba-AU- Piracicaba;total_outros;18;15;20;17;16;25;13;10;11;9;15;15;21;13;14;24;18;17;11;9;12
+Aglomeração Urbana de Jundiaí;total_outros;6;10;9;15;19;8;8;10;5;3;11;2;3;2;2;1;5;2;1;5;2
+Aglomeração Urbana de Franca;total_outros;10;3;17;6;15;12;2;3;7;5;3;4;3;0;8;4;7;2;6;3;6
+Outros;total_outros;1299;1113;1387;1389;1578;1697;1576;1721;1862;1980;2465;2442;2844;2910;3020;2697;2640;2341;2133;2303;2784
