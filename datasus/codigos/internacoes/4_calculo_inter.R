@@ -1,11 +1,8 @@
-# Set the working directory
-setwd("D:/Projetos/mobilidados/datasus_verificacao/codigos/internacoes")
-
 # Source the required R scripts
-source("get_mun.R")
-source("periodo_df.R")
-source("get_inter.R")
-source("morb_intern.R")
+source("./datasus/codigos/internacoes/1_get_mun.R")
+source("./datasus/codigos/internacoes/0_periodo_df.R")
+source("./datasus/codigos/internacoes/2_get_inter.R")
+source("./datasus/codigos/internacoes/3_morb_intern.R")
 
 # Load the required libraries
 library(sidrar)
@@ -103,7 +100,7 @@ for (ano in anos) {
   df_year <- do.call(rbind, df_year_list)
   
   # Create a temporary file path for the desired year
-  temp_file <- paste0("D:/Projetos/mobilidados/datasus_verificacao/output/internacoes/temp/morb_data_", ano, ".rds")
+  temp_file <- paste0("./datasus/output/internacoes/temp/morb_data_", ano, ".rds")
   
   # Write the data frame to the temporary file in R-specific binary format
   saveRDS(df_year, temp_file)
