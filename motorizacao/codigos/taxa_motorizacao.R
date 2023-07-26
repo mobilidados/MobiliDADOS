@@ -10,8 +10,6 @@ library(dplyr)
 library(stringr)
 library(tidyr)
 
-setwd("D:/Projetos/mobilidados/github/MobiliDADOS")
-
 # Function to read and process datasets for a given year
 read_process_dataset <- function(year) {
   filepath <- paste0("./motorizacao/trabalhado/frota_auto_", year, ".csv")
