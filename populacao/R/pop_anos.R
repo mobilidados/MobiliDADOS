@@ -10,10 +10,6 @@ library(googledrive)
 
 # drive_auth()
 
-
-# Set working directory
-setwd("D:/Projetos/mobilidados/github/MobiliDADOS/")
-
 # Verifica se a pasta "output" existe
 if (!dir.exists("populacao/output")) {
   # Se não existir, cria a pasta "output"
