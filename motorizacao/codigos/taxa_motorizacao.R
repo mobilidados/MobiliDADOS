@@ -94,6 +94,20 @@ motorization_capitals <- calculate_motorization_rates(final_data)
 motorization_capitals <- motorization_capitals[motorization_capitals$capitais=="Sim",]
 motorization_capitals <- motorization_capitals[!is.na(motorization_capitals$cod_uf), ]
 
+motorization_base <- calculate_motorization_rates(final_data)
+motorization_base <- pivot_wider(
+  select(motorization_base,- tx_moto),
+  names_from = ano,
+  values_from = tx_motorizados
+)
+
+motor_abs <- final_data
+motor_abs <- pivot_wider(
+  select(motor_abs, -c('automovel', 'caminhonete', 'camioneta', 'motocicleta', 'motoneta', 'utilitario', 'populacao')),
+  names_from = ano,
+  values_from = motorizados
+)
+
 motorization_rms <- final_data %>%
   select(7:ncol(final_data)) %>%
   group_by(NOME_CATMETROPOL, ano) %>%
@@ -122,6 +136,8 @@ write.csv(motorization_capitals_pivot_moto , "./motorizacao/output/motorization_
 write.csv(motorization_capitals_pivot_motorizado , "./motorizacao/output/motorization_capitals_pivot_motorizado2.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(motorization_rms_pivot_moto , "./motorizacao/output/motorization_rms_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(motorization_rms_pivot_motorizado , "./motorizacao/output/motorization_rms_pivot_motorizado.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv(motorization_base , "./motorizacao/output/motorization_base.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv(motor_abs , "./motorizacao/output/motor_abs.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(final_data, "./motorizacao/output/final_data.csv", fileEncoding = "latin1", row.names = FALSE)
 
 # decimal mark = ","
