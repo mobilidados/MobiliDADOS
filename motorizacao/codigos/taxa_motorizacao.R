@@ -101,18 +101,25 @@ motorization_capitals <- motorization_capitals[motorization_capitals$capitais=="
 motorization_capitals <- motorization_capitals[!is.na(motorization_capitals$cod_uf), ]
 
 motorization_base <- calculate_motorization_rates(final_data)
-motorization_base <- pivot_wider(
-  select(motorization_base,- tx_moto),
+
+motorization_base2 <- pivot_wider(
+  select(motorization_base, cod_mun7, tx_motorizados, ano),
   names_from = ano,
   values_from = tx_motorizados
 )
 
+motorization_base2 <- motorization_base[motorization_base$ano=="2022", c(1:7)] %>%
+  left_join(motorization_base2, c("cod_mun7"="cod_mun7"))
+
 motor_abs <- final_data
-motor_abs <- pivot_wider(
-  select(motor_abs, -c('automovel', 'caminhonete', 'camioneta', 'motocicleta', 'motoneta', 'utilitario', 'populacao')),
+motor_abs2 <- pivot_wider(
+  select(motor_abs, cod_mun7, motorizados, ano),
   names_from = ano,
   values_from = motorizados
 )
+
+motor_abs2 <- motor_abs[motor_abs$ano=="2022", c(1:7)] %>%
+  left_join(motor_abs2, c("cod_mun7"="cod_mun7"))
 
 motorization_rms <- final_data %>%
   select(7:ncol(final_data)) %>%
@@ -142,8 +149,8 @@ write.csv(motorization_capitals_pivot_moto , "./motorizacao/output/motorization_
 write.csv(motorization_capitals_pivot_motorizado , "./motorizacao/output/motorization_capitals_pivot_motorizado2.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(motorization_rms_pivot_moto , "./motorizacao/output/motorization_rms_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(motorization_rms_pivot_motorizado , "./motorizacao/output/motorization_rms_pivot_motorizado.csv", fileEncoding = "latin1", row.names = FALSE)
-write.csv(motorization_base , "./motorizacao/output/motorization_base.csv", fileEncoding = "latin1", row.names = FALSE)
-write.csv(motor_abs , "./motorizacao/output/motor_abs.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv(motorization_base2 , "./motorizacao/output/motorization_base.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv(motor_abs2 , "./motorizacao/output/motor_abs.csv", fileEncoding = "latin1", row.names = FALSE)
 write.csv(final_data, "./motorizacao/output/final_data.csv", fileEncoding = "latin1", row.names = FALSE)
 
 # decimal mark = ","
