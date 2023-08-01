@@ -4,16 +4,13 @@ library(purrr)
 library(stringr)
 library(tidyr)
 
-# Set working directory
-setwd("D:/Projetos/mobilidados/datasus/")
-
 # Read population data
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
+pop <- read.csv2("./populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
   mutate(ano = ano, COD_MUN = as.character(COD_MUN)) %>%
   rename(municipio_nome = municipio)
 
 # Get list of RDS files
-folder_path <- "./output/obitos/temp"
+folder_path <- "./datasus/output/obitos/temp"
 file_list <- list.files(path = folder_path, pattern = "\\.rds$", full.names = TRUE)
 
 # Read all RDS files and combine them into one data frame
@@ -30,6 +27,8 @@ combined_data2 <- combined_data %>%
               summarise(tipo = "total", total = sum(total, na.rm = TRUE))) %>%
   arrange(municipio, ano)
 
+combined_data2$cor_raca <- combined_data2$cor_raca %>% as.character()
+
 result <- combined_data2 %>% 
   mutate(tipo = case_when(
     tipo %in% c("Outro_veic", "Pesado", "Onibus", "Caminhonete", "Triciclo") ~ "Outros",
@@ -45,7 +44,7 @@ result <- combined_data2 %>%
   summarise(total=sum(total))
 
 # Read population data again
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
+pop <- read.csv2("./populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
   mutate(ano = as.character(ano),
          COD_MUN = as.character(COD_MUN))
 
@@ -92,7 +91,7 @@ perc_rms <- tot_rms %>% select(-c(Branca, Ignorado, Amarela, Indígena, Vazio, T
 
 
 
-write.csv2(perc_mun, "./output/obitos/final/perc_negres_capitais.csv", row.names = FALSE)
-write.csv2(abs_mun, "./output/obitos/final/negres_capitais.csv", row.names = FALSE)
-write.csv2(perc_rms, "./output/obitos/final/perc_negres_rms.csv", row.names = FALSE)
-write.csv2(abs_rms, "./output/obitos/final/negres_rms.csv", row.names = FALSE)
+write.csv2(perc_mun, "./datasus/output/obitos/final/perc_negres_capitais.csv", row.names = FALSE)
+write.csv2(abs_mun, "./datasus/output/obitos/final/negres_capitais.csv", row.names = FALSE)
+write.csv2(perc_rms, "./datasus/output/obitos/final/perc_negres_rms.csv", row.names = FALSE)
+write.csv2(abs_rms, "./datasus/output/obitos/final/negres_rms.csv", row.names = FALSE)

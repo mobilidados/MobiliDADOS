@@ -1,5 +1,4 @@
 "NOME_CATMETROPOL";"tipo";"2000";"2001";"2002";"2003";"2004";"2005";"2006";"2007";"2008";"2009";"2010";"2011";"2012";"2013";"2014";"2015";"2016";"2017";"2018";"2019";"2020";"2021";"2022"
-"Área de Expansão Metropolitana";"Total";12;5;7;2;2;6;3;17;21;22;26;35;23;23;14;15;12;22;22;11;17;22;0
 "Região Metropolitana do Vale do Rio Cuiabá";"Total";228;210;295;204;217;221;232;244;275;295;295;314;277;314;317;269;279;297;284;221;253;220;0
 "Região Metropolitana do Vale do Piancó";"Total";8;6;12;4;4;9;11;2;12;13;16;19;22;27;21;30;26;17;24;16;22;32;0
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Total";526;462;493;479;477;447;451;508;503;428;439;479;468;374;391;343;332;302;302;302;296;296;0
@@ -7,10 +6,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Total";3;5;3;3;11;17;18;26;20;25;20;15;21;26;16;24;32;28;24;17;19;29;0
 "Região Metropolitana do Vale do Itajaí";"Total";172;154;165;171;202;246;221;225;196;229;258;257;215;212;225;179;157;171;149;174;137;138;0
 "Região Metropolitana do Vale do Aço";"Total";48;51;39;53;53;59;59;35;65;57;68;93;66;73;57;61;87;98;53;66;67;63;0
-"Região Metropolitana do São Francisco";"Total";17;12;14;24;25;16;13;22;9;15;21;24;29;19;34;16;18;26;13;25;18;12;0
 "Região Metropolitana do Sul do Estado";"Total";8;11;4;6;6;9;7;12;5;14;12;7;18;12;20;28;4;15;16;14;9;15;0
 "Região Metropolitana do Sudoeste Maranhense";"Total";67;96;130;110;144;203;194;236;206;208;246;259;317;274;325;298;312;274;232;235;231;216;0
 "Região Metropolitana do Sertão";"Total";8;20;7;19;17;16;16;14;20;32;26;28;43;26;38;31;33;21;33;24;28;28;0
+"Região Metropolitana do São Francisco";"Total";17;12;14;24;25;16;13;22;9;15;21;24;29;19;34;16;18;26;13;25;18;12;0
 "Região Metropolitana do Rio de Janeiro";"Total";1672;1725;1825;1816;1876;1848;2060;1624;1580;1394;1899;1720;1956;1651;1894;1314;1484;1391;1333;895;1244;1305;0
 "Região Metropolitana do Planalto Norte";"Total";63;57;61;65;75;68;86;77;65;80;68;63;90;72;68;47;49;50;52;50;61;63;0
 "Região Metropolitana do Médio Sertão";"Total";16;11;20;15;8;14;11;19;12;19;25;38;35;41;42;33;35;30;25;22;24;33;0
@@ -22,11 +21,11 @@
 "Região Metropolitana de Umuarama";"Total";65;76;68;82;88;85;90;117;108;101;114;110;137;130;96;119;110;86;85;97;84;81;0
 "Região Metropolitana de Tubarão";"Total";81;82;108;122;157;143;131;149;105;108;127;138;136;102;90;78;107;91;86;80;75;90;0
 "Região Metropolitana de Toledo";"Total";76;87;88;105;100;98;117;142;128;115;128;132;147;123;136;117;124;109;97;87;124;149;0
-"Região Metropolitana de São Paulo";"Total";1675;2729;1818;2607;2444;2576;2529;2699;2628;2454;2429;2509;2363;2113;2316;1957;1784;1476;1049;1459;1550;1506;0
-"Região Metropolitana de São José do Rio Preto";"Total";238;236;236;225;208;231;210;234;230;234;247;237;214;198;255;202;202;220;180;202;170;159;0
 "Região Metropolitana de Sousa";"Total";2;1;4;10;10;9;34;21;33;22;26;23;30;30;25;37;31;16;29;26;26;18;0
 "Região Metropolitana de Sorocaba";"Total";294;392;459;436;439;380;459;540;489;432;469;504;429;497;438;394;349;371;377;358;358;357;0
 "Região Metropolitana de Sobral";"Total";95;108;103;103;135;139;123;154;133;134;208;185;221;243;327;305;304;271;287;267;291;259;0
+"Região Metropolitana de São Paulo";"Total";1675;2729;1818;2607;2444;2576;2529;2699;2628;2454;2429;2509;2363;2113;2316;1957;1784;1476;1049;1459;1550;1506;0
+"Região Metropolitana de São José do Rio Preto";"Total";238;236;236;225;208;231;210;234;230;234;247;237;214;198;255;202;202;220;180;202;170;159;0
 "Região Metropolitana de Santarém";"Total";8;10;19;41;43;33;39;40;59;19;28;41;5;2;9;3;26;67;36;87;93;39;0
 "Região Metropolitana de Salvador";"Total";141;211;210;207;181;605;589;504;234;224;610;570;616;518;543;430;361;366;253;276;268;232;0
 "Região Metropolitana de Ribeirão Preto";"Total";274;262;304;276;273;276;269;265;251;287;337;312;294;275;306;271;242;263;239;222;246;246;0
@@ -45,8 +44,8 @@
 "Região Metropolitana de Londrina";"Total";238;217;239;231;274;264;290;292;283;307;329;362;396;280;323;293;268;243;264;217;244;234;0
 "Região Metropolitana de Lages";"Total";77;82;90;58;74;95;96;98;92;68;110;106;129;123;136;126;105;100;90;105;118;111;0
 "Região Metropolitana de Jundiaí";"Total";97;101;124;149;151;141;171;133;160;122;144;135;133;156;166;121;125;154;121;122;115;160;0
-"Região Metropolitana de João Pessoa";"Total";191;211;247;216;210;240;219;224;259;275;305;250;285;276;249;267;278;248;214;242;219;226;0
 "Região Metropolitana de Joinville";"Total";149;201;196;197;167;199;218;190;203;200;171;196;205;177;241;228;165;133;151;152;157;164;0
+"Região Metropolitana de João Pessoa";"Total";191;211;247;216;210;240;219;224;259;275;305;250;285;276;249;267;278;248;214;242;219;226;0
 "Região Metropolitana de Jaraguá do Sul";"Total";71;81;82;83;101;86;74;76;83;91;98;100;97;85;74;75;58;80;48;55;56;50;0
 "Região Metropolitana de Itabaiana";"Total";2;4;10;6;21;27;11;17;17;20;13;16;17;29;23;27;25;25;15;17;20;23;0
 "Região Metropolitana de Gurupi";"Total";48;37;54;48;58;51;59;72;82;78;86;89;117;84;93;87;91;97;72;62;65;101;0
@@ -65,14 +64,14 @@
 "Região Metropolitana de Campina Grande";"Total";104;122;268;190;202;197;241;269;265;197;216;209;288;329;306;307;277;238;244;207;225;223;0
 "Região Metropolitana de Cajazeiras";"Total";8;15;22;19;12;17;19;11;10;35;25;32;33;30;49;46;42;35;38;32;30;42;0
 "Região Metropolitana de Caetés";"Total";17;20;25;13;14;20;16;28;33;15;25;27;22;33;28;24;30;18;21;17;26;20;0
-"Região Metropolitana de Belém";"Total";288;328;347;359;314;404;378;306;351;301;461;491;528;416;463;442;428;372;354;370;369;359;0
 "Região Metropolitana de Belo Horizonte";"Total";713;838;834;869;905;990;1111;1048;1016;962;952;957;896;808;822;718;630;582;526;460;438;475;0
+"Região Metropolitana de Belém";"Total";288;328;347;359;314;404;378;306;351;301;461;491;528;416;463;442;428;372;354;370;369;359;0
 "Região Metropolitana de Barra de Santa Rosa";"Total";5;0;8;2;13;2;12;9;12;7;14;13;18;23;15;26;20;13;14;19;13;13;0
 "Região Metropolitana de Araruna";"Total";4;2;1;6;6;11;5;4;8;2;10;13;16;13;15;9;18;9;8;7;12;8;0
 "Região Metropolitana de Aracaju";"Total";173;190;223;199;220;201;208;217;252;304;321;315;293;321;255;263;206;196;169;191;162;187;0
 "Região Metropolitana de Apucarana";"Total";80;78;75;85;80;90;100;85;115;104;108;140;147;117;122;108;86;92;94;80;72;91;0
-"Região Metropolitana da Zona da Mata";"Total";47;26;49;30;29;41;24;49;30;44;53;65;51;44;38;63;54;50;44;29;40;48;0
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Total";32;19;30;24;30;45;39;48;67;55;63;73;89;74;123;74;125;64;88;71;100;85;0
+"Região Metropolitana da Zona da Mata";"Total";47;26;49;30;29;41;24;49;30;44;53;65;51;44;38;63;54;50;44;29;40;48;0
 "Região Metropolitana da Serra Gaúcha";"Total";121;153;157;194;141;158;155;134;148;162;170;170;151;149;131;116;111;142;102;126;94;130;0
 "Região Metropolitana da Grande Vitória";"Total";397;391;455;423;409;402;392;436;439;390;438;419;402;385;338;278;277;300;261;262;260;294;0
 "Região Metropolitana da Grande São Luís";"Total";118;182;214;214;231;260;254;297;349;314;357;360;394;326;331;317;293;248;251;256;259;287;0
@@ -86,8 +85,8 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Total";25;24;29;25;30;40;26;19;29;40;44;33;29;32;53;39;23;28;28;16;23;34;0
 "Colar Metropolitano de Belo Horizonte";"Total";86;77;83;81;130;101;93;122;132;105;141;141;158;163;162;112;125;107;140;122;112;133;0
 "Colar Metropolitano";"Total";40;35;28;21;41;29;33;38;42;59;75;68;59;46;79;75;37;65;63;40;40;54;0
+"Área de Expansão Metropolitana";"Total";12;5;7;2;2;6;3;17;21;22;26;35;23;23;14;15;12;22;22;11;17;22;0
 "-";"Total";11922;12044;13454;13377;14679;14769;14818;15672;16820;17026;19397;19641;21192;20133;20693;18684;18248;17746;16480;16181;16565;17261;0
-"Área de Expansão Metropolitana";"Ocupantes de automóvel";6;1;3;2;2;2;2;11;11;17;11;22;13;15;6;3;3;4;5;2;4;2;NA
 "Região Metropolitana do Vale do Rio Cuiabá";"Ocupantes de automóvel";56;95;120;72;84;70;84;61;67;79;89;67;67;72;95;71;67;51;72;46;53;44;NA
 "Região Metropolitana do Vale do Piancó";"Ocupantes de automóvel";NA;NA;1;NA;1;3;2;1;2;2;5;3;10;14;10;21;16;10;17;9;18;21;NA
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Ocupantes de automóvel";63;42;52;40;57;41;43;89;68;93;105;63;54;53;64;49;56;45;36;44;62;42;NA
@@ -95,10 +94,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Ocupantes de automóvel";NA;NA;NA;3;2;2;12;12;7;8;2;2;4;1;4;1;4;5;4;NA;NA;3;NA
 "Região Metropolitana do Vale do Itajaí";"Ocupantes de automóvel";42;40;37;43;36;48;38;42;31;46;66;71;72;68;73;61;46;52;66;46;49;43;NA
 "Região Metropolitana do Vale do Aço";"Ocupantes de automóvel";19;21;8;6;4;11;12;6;11;12;12;10;3;3;NA;3;2;15;4;6;4;9;NA
-"Região Metropolitana do São Francisco";"Ocupantes de automóvel";NA;1;5;2;7;1;2;NA;NA;1;1;NA;NA;NA;NA;NA;NA;5;3;6;4;2;NA
 "Região Metropolitana do Sul do Estado";"Ocupantes de automóvel";NA;2;1;NA;2;2;NA;2;NA;1;2;1;4;1;2;10;1;5;5;1;4;NA;NA
 "Região Metropolitana do Sudoeste Maranhense";"Ocupantes de automóvel";3;12;20;35;28;36;55;35;20;30;39;35;43;24;47;31;42;33;29;16;21;18;NA
 "Região Metropolitana do Sertão";"Ocupantes de automóvel";4;9;NA;2;4;NA;1;NA;NA;8;1;NA;NA;NA;1;NA;NA;4;9;5;10;7;NA
+"Região Metropolitana do São Francisco";"Ocupantes de automóvel";NA;1;5;2;7;1;2;NA;NA;1;1;NA;NA;NA;NA;NA;NA;5;3;6;4;2;NA
 "Região Metropolitana do Rio de Janeiro";"Ocupantes de automóvel";67;104;161;214;223;247;263;231;208;162;147;174;173;157;113;137;119;121;103;57;76;70;NA
 "Região Metropolitana do Planalto Norte";"Ocupantes de automóvel";19;16;23;11;29;17;28;27;21;23;23;32;41;37;37;21;20;22;21;14;27;27;NA
 "Região Metropolitana do Médio Sertão";"Ocupantes de automóvel";4;4;1;3;NA;4;NA;1;NA;2;NA;1;3;NA;1;NA;NA;6;1;2;1;7;NA
@@ -110,11 +109,11 @@
 "Região Metropolitana de Umuarama";"Ocupantes de automóvel";20;27;26;28;34;26;32;40;43;49;39;32;44;48;37;34;41;33;41;37;31;17;NA
 "Região Metropolitana de Tubarão";"Ocupantes de automóvel";22;25;37;35;51;58;49;39;29;26;36;56;26;28;24;31;26;22;26;16;14;24;NA
 "Região Metropolitana de Toledo";"Ocupantes de automóvel";7;2;2;5;14;10;8;19;11;12;8;13;26;29;40;42;42;38;42;35;48;45;NA
-"Região Metropolitana de São Paulo";"Ocupantes de automóvel";39;115;81;132;163;169;326;253;258;266;249;264;301;288;307;266;251;134;94;170;205;182;NA
-"Região Metropolitana de São José do Rio Preto";"Ocupantes de automóvel";15;18;12;19;15;18;32;59;41;38;42;52;50;58;47;34;22;56;45;35;52;31;NA
 "Região Metropolitana de Sousa";"Ocupantes de automóvel";NA;NA;1;6;2;2;15;2;2;NA;5;6;7;15;14;28;23;10;22;13;12;5;NA
 "Região Metropolitana de Sorocaba";"Ocupantes de automóvel";21;26;39;40;17;33;106;144;89;141;139;160;109;112;121;60;66;59;85;77;89;92;NA
 "Região Metropolitana de Sobral";"Ocupantes de automóvel";12;9;18;15;34;45;9;13;23;24;27;29;20;17;16;17;21;23;24;12;5;24;NA
+"Região Metropolitana de São Paulo";"Ocupantes de automóvel";39;115;81;132;163;169;326;253;258;266;249;264;301;288;307;266;251;134;94;170;205;182;NA
+"Região Metropolitana de São José do Rio Preto";"Ocupantes de automóvel";15;18;12;19;15;18;32;59;41;38;42;52;50;58;47;34;22;56;45;35;52;31;NA
 "Região Metropolitana de Santarém";"Ocupantes de automóvel";NA;NA;NA;2;1;NA;NA;NA;NA;NA;1;1;NA;NA;1;NA;4;16;1;4;NA;14;NA
 "Região Metropolitana de Salvador";"Ocupantes de automóvel";38;73;52;52;61;83;65;54;42;56;81;121;159;128;104;90;73;82;49;48;56;42;NA
 "Região Metropolitana de Ribeirão Preto";"Ocupantes de automóvel";45;39;44;54;39;32;81;82;67;72;106;91;74;95;90;68;69;69;53;47;83;55;NA
@@ -133,8 +132,8 @@
 "Região Metropolitana de Londrina";"Ocupantes de automóvel";70;48;55;59;74;57;73;77;74;103;67;98;113;76;95;75;81;65;66;65;84;70;NA
 "Região Metropolitana de Lages";"Ocupantes de automóvel";23;21;24;10;16;13;33;17;31;29;33;48;55;47;54;60;53;48;39;57;65;58;NA
 "Região Metropolitana de Jundiaí";"Ocupantes de automóvel";7;7;8;16;29;21;28;26;40;21;34;36;18;33;28;17;25;37;24;19;13;34;NA
-"Região Metropolitana de João Pessoa";"Ocupantes de automóvel";59;18;NA;58;19;16;15;11;12;23;42;30;37;19;18;30;19;7;16;7;5;46;NA
 "Região Metropolitana de Joinville";"Ocupantes de automóvel";40;47;33;44;32;27;39;33;39;44;35;52;42;45;87;54;58;39;38;48;52;49;NA
+"Região Metropolitana de João Pessoa";"Ocupantes de automóvel";59;18;NA;58;19;16;15;11;12;23;42;30;37;19;18;30;19;7;16;7;5;46;NA
 "Região Metropolitana de Jaraguá do Sul";"Ocupantes de automóvel";18;25;26;16;26;14;12;23;19;17;26;29;30;21;20;25;14;33;18;14;15;6;NA
 "Região Metropolitana de Itabaiana";"Ocupantes de automóvel";1;NA;NA;1;3;NA;1;NA;3;4;3;NA;3;1;3;12;6;8;9;9;13;4;NA
 "Região Metropolitana de Gurupi";"Ocupantes de automóvel";31;21;27;22;36;21;34;36;40;48;55;64;85;38;52;41;39;33;22;18;18;39;NA
@@ -153,14 +152,14 @@
 "Região Metropolitana de Campina Grande";"Ocupantes de automóvel";8;NA;1;10;NA;NA;NA;NA;NA;1;NA;1;1;NA;1;NA;1;3;NA;NA;NA;NA;NA
 "Região Metropolitana de Cajazeiras";"Ocupantes de automóvel";NA;2;3;4;2;4;1;1;1;5;4;9;13;12;28;27;25;21;20;9;7;8;NA
 "Região Metropolitana de Caetés";"Ocupantes de automóvel";6;4;3;NA;1;NA;NA;2;NA;NA;NA;NA;1;2;NA;1;1;7;3;NA;7;4;NA
-"Região Metropolitana de Belém";"Ocupantes de automóvel";18;19;8;10;13;23;16;12;3;4;6;3;12;6;13;6;7;11;15;20;12;10;NA
 "Região Metropolitana de Belo Horizonte";"Ocupantes de automóvel";61;91;125;90;82;110;190;167;188;175;210;212;140;200;183;174;108;106;91;75;71;97;NA
+"Região Metropolitana de Belém";"Ocupantes de automóvel";18;19;8;10;13;23;16;12;3;4;6;3;12;6;13;6;7;11;15;20;12;10;NA
 "Região Metropolitana de Barra de Santa Rosa";"Ocupantes de automóvel";NA;NA;2;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;11;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana de Araruna";"Ocupantes de automóvel";3;2;NA;3;2;NA;NA;1;1;2;NA;NA;7;2;4;NA;3;3;2;1;8;NA;NA
 "Região Metropolitana de Aracaju";"Ocupantes de automóvel";58;75;56;39;48;29;29;36;40;35;52;51;39;50;31;30;22;25;19;26;13;25;NA
 "Região Metropolitana de Apucarana";"Ocupantes de automóvel";31;35;29;30;27;35;39;24;35;23;19;45;52;29;48;36;23;35;29;18;21;28;NA
-"Região Metropolitana da Zona da Mata";"Ocupantes de automóvel";13;2;2;NA;6;10;2;2;NA;6;NA;1;3;3;NA;NA;NA;8;12;5;7;13;NA
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Ocupantes de automóvel";5;2;2;2;2;4;2;2;9;4;6;9;7;8;15;6;7;5;9;11;6;4;NA
+"Região Metropolitana da Zona da Mata";"Ocupantes de automóvel";13;2;2;NA;6;10;2;2;NA;6;NA;1;3;3;NA;NA;NA;8;12;5;7;13;NA
 "Região Metropolitana da Serra Gaúcha";"Ocupantes de automóvel";52;81;72;108;55;60;57;55;60;56;70;54;58;59;61;54;44;43;37;39;26;42;NA
 "Região Metropolitana da Grande Vitória";"Ocupantes de automóvel";100;144;98;104;100;95;108;139;93;102;124;140;138;123;112;64;60;67;49;48;39;72;NA
 "Região Metropolitana da Grande São Luís";"Ocupantes de automóvel";30;34;15;15;17;19;18;27;20;25;42;49;42;28;22;17;18;31;7;8;12;10;NA
@@ -174,8 +173,8 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Ocupantes de automóvel";11;17;24;12;10;11;8;8;9;13;24;16;6;11;5;5;3;2;8;6;1;8;NA
 "Colar Metropolitano de Belo Horizonte";"Ocupantes de automóvel";32;29;33;45;62;48;45;30;16;15;33;28;33;74;62;41;50;26;43;51;50;46;NA
 "Colar Metropolitano";"Ocupantes de automóvel";12;26;16;13;23;12;23;34;33;49;53;33;6;19;19;29;13;30;21;9;10;16;NA
+"Área de Expansão Metropolitana";"Ocupantes de automóvel";6;1;3;2;2;2;2;11;11;17;11;22;13;15;6;3;3;4;5;2;4;2;NA
 "-";"Ocupantes de automóvel";2643;3067;3462;3394;3846;3821;3894;4260;4663;4577;5180;5525;5992;5759;5891;5168;5061;4984;4342;4208;3914;4111;NA
-"Área de Expansão Metropolitana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana do Vale do Rio Cuiabá";"Ciclistas";8;4;9;9;12;7;7;7;4;8;4;9;7;8;8;8;13;9;9;8;6;5;NA
 "Região Metropolitana do Vale do Piancó";"Ciclistas";NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;NA;NA;NA;NA
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Ciclistas";5;8;7;21;15;13;11;18;16;14;8;11;16;14;16;9;19;14;21;6;25;10;NA
@@ -183,10 +182,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA
 "Região Metropolitana do Vale do Itajaí";"Ciclistas";13;11;13;9;14;18;6;9;7;16;14;11;14;7;14;7;13;14;7;16;15;13;NA
 "Região Metropolitana do Vale do Aço";"Ciclistas";3;2;2;6;6;6;4;3;2;1;5;1;3;3;1;2;7;3;6;7;6;7;NA
-"Região Metropolitana do São Francisco";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;2;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana do Sul do Estado";"Ciclistas";1;NA;1;NA;NA;1;NA;1;1;1;NA;NA;NA;1;NA;1;NA;1;NA;NA;NA;NA;NA
 "Região Metropolitana do Sudoeste Maranhense";"Ciclistas";2;NA;7;3;5;5;5;8;5;2;4;9;22;13;9;12;10;11;7;11;12;4;NA
 "Região Metropolitana do Sertão";"Ciclistas";1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA
+"Região Metropolitana do São Francisco";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;2;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana do Rio de Janeiro";"Ciclistas";10;7;24;36;42;52;57;54;57;62;52;22;24;30;29;29;12;31;18;24;12;33;NA
 "Região Metropolitana do Planalto Norte";"Ciclistas";6;9;10;11;6;6;5;9;5;4;3;3;3;2;1;NA;NA;4;3;3;5;6;NA
 "Região Metropolitana do Médio Sertão";"Ciclistas";NA;NA;3;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA
@@ -198,11 +197,11 @@
 "Região Metropolitana de Umuarama";"Ciclistas";5;6;1;8;6;6;5;1;5;NA;8;8;8;6;5;5;3;1;5;5;2;2;NA
 "Região Metropolitana de Tubarão";"Ciclistas";2;2;1;12;10;7;9;14;5;6;7;8;8;10;8;3;12;10;5;7;8;7;NA
 "Região Metropolitana de Toledo";"Ciclistas";5;7;5;11;8;8;11;9;8;5;7;3;7;7;4;5;11;6;7;8;10;10;NA
-"Região Metropolitana de São Paulo";"Ciclistas";7;44;24;32;38;54;112;79;89;87;70;87;71;55;83;49;49;53;30;54;65;53;NA
-"Região Metropolitana de São José do Rio Preto";"Ciclistas";4;5;6;5;3;4;1;4;4;12;11;5;4;7;6;3;6;10;4;9;6;6;NA
 "Região Metropolitana de Sousa";"Ciclistas";NA;NA;NA;1;1;1;NA;2;1;3;1;2;3;NA;1;1;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana de Sorocaba";"Ciclistas";NA;12;9;10;12;16;28;23;30;27;15;16;10;23;15;11;14;15;16;10;19;19;NA
 "Região Metropolitana de Sobral";"Ciclistas";18;14;24;9;8;10;11;8;4;7;13;6;7;5;12;12;12;15;18;13;11;13;NA
+"Região Metropolitana de São Paulo";"Ciclistas";7;44;24;32;38;54;112;79;89;87;70;87;71;55;83;49;49;53;30;54;65;53;NA
+"Região Metropolitana de São José do Rio Preto";"Ciclistas";4;5;6;5;3;4;1;4;4;12;11;5;4;7;6;3;6;10;4;9;6;6;NA
 "Região Metropolitana de Santarém";"Ciclistas";NA;NA;NA;1;NA;NA;NA;NA;NA;5;NA;NA;1;NA;NA;NA;1;1;NA;NA;2;2;NA
 "Região Metropolitana de Salvador";"Ciclistas";NA;NA;1;1;NA;13;16;17;3;4;5;10;5;9;10;10;5;8;5;9;5;9;NA
 "Região Metropolitana de Ribeirão Preto";"Ciclistas";1;4;4;6;2;5;22;16;24;20;17;27;14;20;13;20;11;17;14;13;20;15;NA
@@ -221,8 +220,8 @@
 "Região Metropolitana de Londrina";"Ciclistas";18;23;31;33;38;32;27;18;28;22;22;18;26;14;17;13;23;20;21;16;7;8;NA
 "Região Metropolitana de Lages";"Ciclistas";1;2;5;5;1;2;2;NA;NA;2;1;2;2;1;NA;2;1;2;3;4;2;2;NA
 "Região Metropolitana de Jundiaí";"Ciclistas";1;NA;1;1;1;2;7;3;8;7;11;3;10;8;8;6;10;6;4;9;10;7;NA
-"Região Metropolitana de João Pessoa";"Ciclistas";3;2;4;5;2;5;3;4;10;5;5;4;3;6;2;5;11;7;9;7;1;7;NA
 "Região Metropolitana de Joinville";"Ciclistas";24;17;28;19;23;18;17;16;19;24;23;22;21;16;26;22;14;7;13;24;20;15;NA
+"Região Metropolitana de João Pessoa";"Ciclistas";3;2;4;5;2;5;3;4;10;5;5;4;3;6;2;5;11;7;9;7;1;7;NA
 "Região Metropolitana de Jaraguá do Sul";"Ciclistas";8;5;18;21;19;18;5;4;7;8;14;11;5;13;13;15;11;11;4;8;9;5;NA
 "Região Metropolitana de Itabaiana";"Ciclistas";NA;NA;2;1;NA;NA;NA;NA;NA;NA;2;NA;1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
 "Região Metropolitana de Gurupi";"Ciclistas";1;2;2;4;NA;2;3;5;1;NA;NA;NA;1;NA;1;2;1;3;3;4;1;10;NA
@@ -241,14 +240,14 @@
 "Região Metropolitana de Campina Grande";"Ciclistas";NA;NA;NA;3;2;NA;NA;1;5;5;3;6;1;4;1;7;3;5;4;9;2;7;NA
 "Região Metropolitana de Cajazeiras";"Ciclistas";NA;1;NA;2;NA;2;NA;NA;NA;NA;NA;NA;NA;1;1;NA;1;NA;NA;NA;NA;2;NA
 "Região Metropolitana de Caetés";"Ciclistas";NA;NA;NA;NA;1;NA;NA;1;1;NA;NA;NA;1;NA;NA;NA;1;NA;2;1;3;NA;NA
-"Região Metropolitana de Belém";"Ciclistas";2;4;1;2;1;10;9;4;9;19;6;8;10;5;6;5;6;11;7;6;4;12;NA
 "Região Metropolitana de Belo Horizonte";"Ciclistas";21;23;48;41;45;42;35;51;28;25;27;23;21;21;25;17;12;17;29;10;20;20;NA
+"Região Metropolitana de Belém";"Ciclistas";2;4;1;2;1;10;9;4;9;19;6;8;10;5;6;5;6;11;7;6;4;12;NA
 "Região Metropolitana de Barra de Santa Rosa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;2;NA;NA;1;NA;NA;1;1;1;NA;NA;NA;NA;1;NA;NA
 "Região Metropolitana de Araruna";"Ciclistas";NA;NA;NA;NA;NA;1;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA
 "Região Metropolitana de Aracaju";"Ciclistas";4;8;10;7;9;12;6;19;16;22;23;14;12;12;8;12;15;15;10;18;12;18;NA
 "Região Metropolitana de Apucarana";"Ciclistas";7;9;9;7;4;3;12;6;10;11;12;4;6;6;2;4;2;2;5;7;3;7;NA
-"Região Metropolitana da Zona da Mata";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Ciclistas";NA;3;NA;NA;1;4;NA;2;4;4;2;6;5;1;4;NA;2;NA;1;7;NA;1;NA
+"Região Metropolitana da Zona da Mata";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
 "Região Metropolitana da Serra Gaúcha";"Ciclistas";3;4;2;6;4;3;3;4;6;5;3;5;2;3;2;1;3;4;1;5;2;1;NA
 "Região Metropolitana da Grande Vitória";"Ciclistas";5;6;6;16;15;23;24;12;17;9;10;3;13;14;13;18;17;12;17;15;27;28;NA
 "Região Metropolitana da Grande São Luís";"Ciclistas";5;4;10;9;10;25;12;11;11;14;10;9;5;6;4;5;6;NA;7;1;5;5;NA
@@ -262,8 +261,8 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Ciclistas";1;1;NA;NA;1;NA;NA;2;3;1;NA;2;NA;2;4;NA;NA;1;NA;2;3;1;NA
 "Colar Metropolitano de Belo Horizonte";"Ciclistas";2;1;6;2;5;4;4;1;3;5;6;9;13;5;8;2;4;9;5;8;8;8;NA
 "Colar Metropolitano";"Ciclistas";NA;1;NA;NA;NA;3;NA;NA;1;NA;1;2;1;2;1;4;4;1;NA;2;1;4;NA
+"Área de Expansão Metropolitana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
 "-";"Ciclistas";334;442;560;549;635;628;721;722;713;695;688;685;684;630;611;611;579;569;614;595;558;573;NA
-"Área de Expansão Metropolitana";"Motociclistas";1;NA;NA;NA;NA;NA;NA;NA;1;1;4;1;NA;NA;2;3;NA;3;5;NA;2;4;NA
 "Região Metropolitana do Vale do Rio Cuiabá";"Motociclistas";34;46;44;38;35;46;44;63;76;77;96;95;100;95;91;114;109;133;108;89;105;106;NA
 "Região Metropolitana do Vale do Piancó";"Motociclistas";NA;3;7;4;NA;5;4;1;4;6;8;8;8;9;5;3;5;5;4;4;3;8;NA
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Motociclistas";18;22;27;22;32;33;33;49;49;37;65;56;79;65;61;66;66;71;60;72;55;80;NA
@@ -271,10 +270,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Motociclistas";NA;2;NA;NA;NA;3;3;3;5;5;4;4;8;10;7;14;14;12;15;10;8;12;NA
 "Região Metropolitana do Vale do Itajaí";"Motociclistas";36;34;32;53;57;50;68;69;81;71;109;109;73;79;88;78;59;74;56;80;53;56;NA
 "Região Metropolitana do Vale do Aço";"Motociclistas";2;2;6;6;15;12;10;3;11;14;18;8;14;13;9;11;11;19;16;15;20;13;NA
-"Região Metropolitana do São Francisco";"Motociclistas";1;NA;2;4;3;2;4;7;4;2;4;5;4;4;NA;NA;1;19;7;15;11;7;NA
 "Região Metropolitana do Sul do Estado";"Motociclistas";4;5;1;3;3;3;4;4;1;7;6;4;13;10;14;10;2;5;8;7;4;10;NA
 "Região Metropolitana do Sudoeste Maranhense";"Motociclistas";3;10;18;19;21;33;38;31;12;20;18;50;127;126;162;164;162;131;136;99;107;107;NA
 "Região Metropolitana do Sertão";"Motociclistas";1;NA;1;7;4;2;8;3;6;4;6;3;9;2;NA;NA;1;14;19;10;12;16;NA
+"Região Metropolitana do São Francisco";"Motociclistas";1;NA;2;4;3;2;4;7;4;2;4;5;4;4;NA;NA;1;19;7;15;11;7;NA
 "Região Metropolitana do Rio de Janeiro";"Motociclistas";37;75;122;150;161;202;289;248;312;290;267;201;171;229;256;290;181;204;212;138;209;209;NA
 "Região Metropolitana do Planalto Norte";"Motociclistas";3;6;4;9;2;11;15;13;25;16;22;11;28;10;19;9;12;11;14;18;17;11;NA
 "Região Metropolitana do Médio Sertão";"Motociclistas";2;2;3;1;1;3;3;6;6;5;5;4;4;6;1;5;6;19;20;14;18;19;NA
@@ -286,11 +285,11 @@
 "Região Metropolitana de Umuarama";"Motociclistas";14;15;15;19;17;27;28;49;39;32;45;46;53;39;26;42;22;22;22;34;27;29;NA
 "Região Metropolitana de Tubarão";"Motociclistas";6;12;13;34;53;41;43;60;42;52;48;49;59;39;34;28;49;40;31;31;36;35;NA
 "Região Metropolitana de Toledo";"Motociclistas";2;3;5;4;8;16;14;17;19;13;11;11;28;36;31;32;19;36;33;31;38;52;NA
-"Região Metropolitana de São Paulo";"Motociclistas";65;192;100;174;222;270;521;509;642;645;692;723;668;577;670;582;543;387;263;497;598;576;NA
-"Região Metropolitana de São José do Rio Preto";"Motociclistas";11;12;6;8;19;16;22;18;14;18;18;27;22;37;25;24;39;56;44;53;53;52;NA
 "Região Metropolitana de Sousa";"Motociclistas";NA;NA;NA;2;1;6;4;15;20;12;11;11;10;12;7;5;5;4;7;10;2;5;NA
 "Região Metropolitana de Sorocaba";"Motociclistas";15;24;30;39;28;51;90;125;118;110;120;134;131;148;115;83;77;75;84;119;122;125;NA
 "Região Metropolitana de Sobral";"Motociclistas";32;41;32;44;46;53;52;80;67;69;114;107;155;146;163;180;166;166;184;167;128;164;NA
+"Região Metropolitana de São Paulo";"Motociclistas";65;192;100;174;222;270;521;509;642;645;692;723;668;577;670;582;543;387;263;497;598;576;NA
+"Região Metropolitana de São José do Rio Preto";"Motociclistas";11;12;6;8;19;16;22;18;14;18;18;27;22;37;25;24;39;56;44;53;53;52;NA
 "Região Metropolitana de Santarém";"Motociclistas";NA;NA;1;NA;NA;NA;NA;NA;1;NA;1;3;NA;NA;2;1;11;28;32;63;74;17;NA
 "Região Metropolitana de Salvador";"Motociclistas";6;11;15;17;19;116;93;98;24;35;158;113;140;158;186;151;120;125;76;69;70;71;NA
 "Região Metropolitana de Ribeirão Preto";"Motociclistas";12;22;17;20;20;25;57;58;65;78;85;68;82;79;78;71;57;82;72;62;82;90;NA
@@ -309,8 +308,8 @@
 "Região Metropolitana de Londrina";"Motociclistas";52;50;56;54;68;63;88;99;88;81;82;102;136;77;100;99;79;74;102;77;97;92;NA
 "Região Metropolitana de Lages";"Motociclistas";NA;4;6;6;5;9;11;7;5;13;17;10;11;15;22;23;14;15;19;20;22;19;NA
 "Região Metropolitana de Jundiaí";"Motociclistas";2;2;3;9;21;18;34;30;37;38;38;38;44;57;57;47;45;54;50;46;50;65;NA
-"Região Metropolitana de João Pessoa";"Motociclistas";4;6;28;11;28;42;31;52;61;70;89;83;107;106;93;118;146;128;118;119;98;101;NA
 "Região Metropolitana de Joinville";"Motociclistas";14;26;32;38;21;43;54;57;63;58;60;65;57;63;65;60;48;46;57;42;54;47;NA
+"Região Metropolitana de João Pessoa";"Motociclistas";4;6;28;11;28;42;31;52;61;70;89;83;107;106;93;118;146;128;118;119;98;101;NA
 "Região Metropolitana de Jaraguá do Sul";"Motociclistas";11;28;14;19;30;23;28;24;25;33;36;37;42;38;22;24;26;22;17;20;20;27;NA
 "Região Metropolitana de Itabaiana";"Motociclistas";NA;NA;1;NA;3;4;NA;4;4;3;NA;3;4;17;12;11;9;14;4;5;5;11;NA
 "Região Metropolitana de Gurupi";"Motociclistas";5;3;7;10;14;14;13;16;23;18;10;13;20;34;23;31;37;40;30;26;25;26;NA
@@ -329,14 +328,14 @@
 "Região Metropolitana de Campina Grande";"Motociclistas";6;NA;2;3;16;33;21;60;94;61;35;51;107;105;121;119;116;108;105;95;114;87;NA
 "Região Metropolitana de Cajazeiras";"Motociclistas";5;8;10;5;5;3;10;8;5;17;14;12;11;14;14;13;8;10;15;16;5;22;NA
 "Região Metropolitana de Caetés";"Motociclistas";NA;1;NA;1;4;2;3;1;4;2;2;1;3;3;1;1;4;7;12;6;13;10;NA
-"Região Metropolitana de Belém";"Motociclistas";8;12;8;21;14;38;38;27;34;28;52;81;73;75;54;79;61;74;81;74;81;79;NA
 "Região Metropolitana de Belo Horizonte";"Motociclistas";47;59;87;71;104;110;134;154;209;146;188;210;180;200;192;175;140;123;143;109;126;108;NA
+"Região Metropolitana de Belém";"Motociclistas";8;12;8;21;14;38;38;27;34;28;52;81;73;75;54;79;61;74;81;74;81;79;NA
 "Região Metropolitana de Barra de Santa Rosa";"Motociclistas";1;NA;1;2;3;2;NA;2;2;4;1;2;3;6;4;7;9;1;8;11;6;4;NA
 "Região Metropolitana de Araruna";"Motociclistas";NA;NA;1;NA;1;4;1;3;3;NA;2;8;2;7;9;7;9;3;3;4;3;2;NA
 "Região Metropolitana de Aracaju";"Motociclistas";23;27;48;53;64;60;84;84;99;143;149;176;178;179;136;143;120;112;98;109;105;109;NA
 "Região Metropolitana de Apucarana";"Motociclistas";4;9;12;19;11;17;21;31;33;30;33;35;45;29;27;33;29;28;33;31;26;28;NA
-"Região Metropolitana da Zona da Mata";"Motociclistas";1;1;1;1;NA;3;6;7;NA;2;7;5;3;12;2;3;2;19;21;3;27;10;NA
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Motociclistas";2;1;6;5;5;13;8;15;17;25;20;25;37;37;55;43;61;21;45;29;66;56;NA
+"Região Metropolitana da Zona da Mata";"Motociclistas";1;1;1;1;NA;3;6;7;NA;2;7;5;3;12;2;3;2;19;21;3;27;10;NA
 "Região Metropolitana da Serra Gaúcha";"Motociclistas";15;14;22;19;24;37;35;28;26;39;49;41;43;38;29;18;25;38;30;37;36;38;NA
 "Região Metropolitana da Grande Vitória";"Motociclistas";15;16;47;55;59;68;83;83;103;104;120;116;106;104;92;100;97;89;68;75;88;100;NA
 "Região Metropolitana da Grande São Luís";"Motociclistas";10;15;29;26;23;41;58;56;67;72;87;95;107;76;80;81;77;63;51;39;75;90;NA
@@ -350,8 +349,8 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Motociclistas";1;NA;NA;1;5;2;2;4;2;9;8;4;5;7;5;7;6;2;3;2;4;10;NA
 "Colar Metropolitano de Belo Horizonte";"Motociclistas";1;3;7;8;12;9;9;9;15;15;30;20;40;35;45;30;34;31;40;36;30;39;NA
 "Colar Metropolitano";"Motociclistas";3;1;3;2;4;1;4;3;2;5;6;19;13;13;12;20;12;22;20;15;20;21;NA
+"Área de Expansão Metropolitana";"Motociclistas";1;NA;NA;NA;NA;NA;NA;NA;1;1;4;1;NA;NA;2;3;NA;3;5;NA;2;4;NA
 "-";"Motociclistas";1178;1374;1732;2037;2359;2650;3098;3627;4150;4494;5219;5457;6187;5889;6309;5932;6067;6221;5861;5667;5942;6022;NA
-"Área de Expansão Metropolitana";"Pedestres";4;2;1;NA;NA;4;NA;3;3;1;6;1;3;2;NA;1;1;2;NA;NA;1;1;NA
 "Região Metropolitana do Vale do Rio Cuiabá";"Pedestres";66;54;93;65;53;51;56;56;65;61;64;60;44;40;50;27;37;46;44;29;34;24;NA
 "Região Metropolitana do Vale do Piancó";"Pedestres";3;3;2;NA;1;1;1;NA;2;1;NA;2;1;2;4;2;2;1;2;1;1;NA;NA
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Pedestres";172;163;136;158;148;127;131;114;130;115;111;107;122;80;92;81;78;86;58;65;67;63;NA
@@ -359,10 +358,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Pedestres";NA;3;1;NA;4;4;2;8;5;1;6;3;4;7;2;3;11;5;2;4;2;NA;NA
 "Região Metropolitana do Vale do Itajaí";"Pedestres";41;28;34;24;30;37;37;34;36;50;35;38;35;29;32;26;32;24;14;26;16;21;NA
 "Região Metropolitana do Vale do Aço";"Pedestres";12;6;8;10;11;7;3;NA;11;9;8;15;8;10;8;18;19;17;11;20;12;11;NA
-"Região Metropolitana do São Francisco";"Pedestres";8;6;7;11;12;5;6;2;NA;8;4;1;1;NA;NA;NA;1;2;3;4;3;2;NA
 "Região Metropolitana do Sul do Estado";"Pedestres";3;1;NA;NA;1;1;3;2;2;2;3;NA;1;NA;1;2;1;3;2;5;1;4;NA
 "Região Metropolitana do Sudoeste Maranhense";"Pedestres";6;9;16;10;22;43;30;28;11;13;18;38;48;42;45;25;35;28;33;92;65;69;NA
 "Região Metropolitana do Sertão";"Pedestres";1;7;5;5;7;9;3;6;2;8;6;4;3;2;NA;4;1;2;3;8;4;2;NA
+"Região Metropolitana do São Francisco";"Pedestres";8;6;7;11;12;5;6;2;NA;8;4;1;1;NA;NA;NA;1;2;3;4;3;2;NA
 "Região Metropolitana do Rio de Janeiro";"Pedestres";1023;1071;1100;1067;1102;1031;1081;800;777;721;1027;903;805;647;719;561;377;484;621;249;460;487;NA
 "Região Metropolitana do Planalto Norte";"Pedestres";10;14;11;16;17;8;13;14;5;10;11;10;9;9;4;7;6;3;6;9;6;6;NA
 "Região Metropolitana do Médio Sertão";"Pedestres";4;2;10;10;6;4;3;8;3;8;10;6;2;2;NA;2;NA;4;4;5;4;6;NA
@@ -374,11 +373,11 @@
 "Região Metropolitana de Umuarama";"Pedestres";15;13;15;22;22;20;15;20;19;17;12;18;14;15;12;16;6;9;12;13;7;10;NA
 "Região Metropolitana de Tubarão";"Pedestres";7;6;15;18;22;26;13;22;20;14;23;18;22;16;20;10;14;13;13;22;14;18;NA
 "Região Metropolitana de Toledo";"Pedestres";15;20;22;15;24;13;17;9;17;10;11;7;19;16;15;13;18;10;9;8;18;23;NA
-"Região Metropolitana de São Paulo";"Pedestres";590;1138;703;1103;1086;1137;1147;1109;1056;1050;1006;1045;955;811;905;772;644;563;385;572;399;450;NA
-"Região Metropolitana de São José do Rio Preto";"Pedestres";57;54;43;34;36;44;34;51;41;39;28;28;45;27;37;37;35;35;27;35;25;24;NA
 "Região Metropolitana de Sousa";"Pedestres";1;1;1;1;3;NA;1;1;1;2;3;2;3;2;2;2;NA;2;NA;2;NA;NA;NA
 "Região Metropolitana de Sorocaba";"Pedestres";49;100;128;106;118;92;122;126;129;93;115;109;106;110;112;79;66;91;92;87;76;84;NA
 "Região Metropolitana de Sobral";"Pedestres";21;32;22;30;35;30;35;51;31;25;48;30;29;34;44;41;35;38;34;44;39;23;NA
+"Região Metropolitana de São Paulo";"Pedestres";590;1138;703;1103;1086;1137;1147;1109;1056;1050;1006;1045;955;811;905;772;644;563;385;572;399;450;NA
+"Região Metropolitana de São José do Rio Preto";"Pedestres";57;54;43;34;36;44;34;51;41;39;28;28;45;27;37;37;35;35;27;35;25;24;NA
 "Região Metropolitana de Santarém";"Pedestres";NA;NA;1;7;5;3;3;NA;4;2;5;1;4;NA;4;2;6;17;NA;14;11;5;NA
 "Região Metropolitana de Salvador";"Pedestres";37;92;103;108;78;260;230;216;80;82;245;223;209;167;178;137;105;108;77;73;72;65;NA
 "Região Metropolitana de Ribeirão Preto";"Pedestres";48;44;51;38;41;49;40;60;51;62;62;58;46;40;62;57;47;51;58;45;40;39;NA
@@ -397,8 +396,8 @@
 "Região Metropolitana de Londrina";"Pedestres";57;73;69;47;61;74;70;71;74;69;82;74;54;65;48;59;50;58;50;45;47;50;NA
 "Região Metropolitana de Lages";"Pedestres";21;15;14;11;7;20;15;14;12;6;13;14;25;14;19;13;11;22;17;15;17;15;NA
 "Região Metropolitana de Jundiaí";"Pedestres";21;21;34;39;29;33;47;38;54;34;27;37;40;34;58;44;31;44;24;37;27;45;NA
-"Região Metropolitana de João Pessoa";"Pedestres";40;45;99;90;71;96;83;79;84;48;69;59;80;66;53;56;49;61;51;56;32;30;NA
 "Região Metropolitana de Joinville";"Pedestres";40;59;52;54;40;44;40;50;56;49;41;37;43;30;31;28;36;31;23;31;16;27;NA
+"Região Metropolitana de João Pessoa";"Pedestres";40;45;99;90;71;96;83;79;84;48;69;59;80;66;53;56;49;61;51;56;32;30;NA
 "Região Metropolitana de Jaraguá do Sul";"Pedestres";19;11;16;15;16;11;16;10;9;20;10;11;10;8;16;5;5;10;3;11;5;4;NA
 "Região Metropolitana de Itabaiana";"Pedestres";NA;2;5;2;3;3;3;7;1;1;2;3;1;1;2;1;1;1;1;NA;NA;2;NA
 "Região Metropolitana de Gurupi";"Pedestres";1;5;5;6;3;3;5;8;11;8;16;8;10;7;6;7;1;8;9;4;4;4;NA
@@ -417,14 +416,14 @@
 "Região Metropolitana de Campina Grande";"Pedestres";12;66;40;5;NA;NA;1;NA;3;1;1;NA;NA;NA;3;NA;NA;NA;NA;1;NA;NA;NA
 "Região Metropolitana de Cajazeiras";"Pedestres";2;NA;3;5;NA;6;3;NA;4;4;2;3;2;1;5;3;4;3;2;4;1;1;NA
 "Região Metropolitana de Caetés";"Pedestres";9;12;17;5;2;6;5;10;1;2;4;4;6;4;1;1;NA;1;1;2;1;1;NA
-"Região Metropolitana de Belém";"Pedestres";224;216;293;301;251;297;295;253;288;239;376;387;407;303;205;279;126;249;140;102;118;91;NA
 "Região Metropolitana de Belo Horizonte";"Pedestres";303;319;325;295;327;328;362;342;343;311;334;279;277;210;244;196;190;190;151;161;137;154;NA
+"Região Metropolitana de Belém";"Pedestres";224;216;293;301;251;297;295;253;288;239;376;387;407;303;205;279;126;249;140;102;118;91;NA
 "Região Metropolitana de Barra de Santa Rosa";"Pedestres";NA;NA;3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA
 "Região Metropolitana de Araruna";"Pedestres";1;NA;NA;1;2;4;1;NA;2;NA;2;NA;NA;2;NA;1;1;1;NA;NA;NA;NA;NA
 "Região Metropolitana de Aracaju";"Pedestres";60;63;65;87;82;75;69;50;77;79;74;62;52;59;65;57;32;37;34;28;26;26;NA
 "Região Metropolitana de Apucarana";"Pedestres";24;12;14;16;24;22;15;16;21;17;23;30;15;28;21;17;19;14;21;17;9;19;NA
-"Região Metropolitana da Zona da Mata";"Pedestres";24;15;32;9;5;10;5;24;7;9;6;6;6;2;4;2;2;6;4;NA;3;4;NA
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Pedestres";3;3;1;4;2;4;7;5;11;7;13;12;15;10;22;13;27;4;18;7;10;11;NA
+"Região Metropolitana da Zona da Mata";"Pedestres";24;15;32;9;5;10;5;24;7;9;6;6;6;2;4;2;2;6;4;NA;3;4;NA
 "Região Metropolitana da Serra Gaúcha";"Pedestres";40;36;39;41;44;40;34;28;37;32;26;40;32;26;20;25;18;32;20;14;13;30;NA
 "Região Metropolitana da Grande Vitória";"Pedestres";166;166;168;159;145;122;130;148;165;114;130;133;103;103;86;70;76;75;72;77;56;77;NA
 "Região Metropolitana da Grande São Luís";"Pedestres";45;70;103;81;99;110;91;87;78;83;110;76;84;40;37;38;47;76;20;29;53;44;NA
@@ -438,8 +437,8 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Pedestres";4;2;5;3;2;5;6;1;1;3;2;3;4;3;4;3;3;2;3;1;2;NA;NA
 "Colar Metropolitano de Belo Horizonte";"Pedestres";10;17;11;8;12;13;13;10;15;12;19;21;23;21;26;12;12;13;27;12;14;21;NA
 "Colar Metropolitano";"Pedestres";5;1;8;3;4;3;4;1;2;4;6;6;4;3;11;11;4;6;10;6;4;4;NA
+"Área de Expansão Metropolitana";"Pedestres";4;2;1;NA;NA;4;NA;3;3;1;6;1;3;2;NA;1;1;2;NA;NA;1;1;NA
 "-";"Pedestres";2765;2863;3002;3000;3163;2983;3011;2937;3022;2800;3059;2864;2717;2421;2491;2290;2133;2103;2086;2022;1714;1844;NA
-"Área de Expansão Metropolitana";"Outros";1;2;3;NA;NA;NA;1;3;5;3;5;11;7;6;6;8;8;13;12;9;10;15;NA
 "Região Metropolitana do Vale do Rio Cuiabá";"Outros";64;11;29;20;33;47;41;57;63;70;42;83;59;99;73;49;53;58;51;49;55;41;NA
 "Região Metropolitana do Vale do Piancó";"Outros";5;NA;1;NA;2;NA;4;NA;4;4;3;6;3;2;2;3;2;NA;1;2;NA;3;NA
 "Região Metropolitana do Vale do Paraíba e Litoral Norte";"Outros";268;227;271;238;225;233;233;238;240;169;150;242;197;162;158;138;113;86;127;115;87;101;NA
@@ -447,10 +446,10 @@
 "Região Metropolitana do Vale do Mamanguape";"Outros";3;NA;2;NA;5;8;1;3;3;10;8;6;5;8;3;6;3;5;3;3;9;14;NA
 "Região Metropolitana do Vale do Itajaí";"Outros";40;41;49;42;65;93;72;71;41;46;34;28;21;29;18;7;7;7;6;6;4;5;NA
 "Região Metropolitana do Vale do Aço";"Outros";12;20;15;25;17;23;30;23;30;21;25;59;38;44;39;27;48;44;16;18;25;23;NA
-"Região Metropolitana do São Francisco";"Outros";8;5;NA;7;3;8;1;11;5;4;11;18;24;15;34;16;16;NA;NA;NA;NA;1;NA
 "Região Metropolitana do Sul do Estado";"Outros";NA;3;1;3;NA;2;NA;3;1;3;1;2;NA;NA;3;5;NA;1;1;1;NA;1;NA
 "Região Metropolitana do Sudoeste Maranhense";"Outros";53;65;69;43;68;86;66;134;158;143;167;127;77;69;62;66;63;71;27;17;26;18;NA
 "Região Metropolitana do Sertão";"Outros";1;4;1;5;2;5;4;5;11;12;13;21;31;22;37;26;31;1;2;1;2;3;NA
+"Região Metropolitana do São Francisco";"Outros";8;5;NA;7;3;8;1;11;5;4;11;18;24;15;34;16;16;NA;NA;NA;NA;1;NA
 "Região Metropolitana do Rio de Janeiro";"Outros";535;468;418;349;348;316;370;291;226;159;406;420;783;588;777;297;795;551;379;427;487;506;NA
 "Região Metropolitana do Planalto Norte";"Outros";25;12;13;18;21;26;25;14;9;27;9;7;9;14;7;10;11;10;8;6;6;13;NA
 "Região Metropolitana do Médio Sertão";"Outros";6;3;3;1;1;3;5;4;3;4;10;25;26;33;40;26;29;1;NA;NA;NA;1;NA
@@ -462,11 +461,11 @@
 "Região Metropolitana de Umuarama";"Outros";11;15;11;5;9;6;10;7;2;3;10;6;18;22;16;22;38;21;5;8;17;23;NA
 "Região Metropolitana de Tubarão";"Outros";44;37;42;23;21;11;17;14;9;10;13;7;21;9;4;6;6;6;11;4;3;6;NA
 "Região Metropolitana de Toledo";"Outros";47;55;54;70;46;51;67;88;73;75;91;98;67;35;46;25;34;19;6;5;10;19;NA
-"Região Metropolitana de São Paulo";"Outros";974;1240;910;1166;935;946;423;749;583;406;412;390;368;382;351;288;297;339;277;166;283;245;NA
-"Região Metropolitana de São José do Rio Preto";"Outros";151;147;169;159;135;149;121;102;130;127;148;125;93;69;140;104;100;63;60;70;34;46;NA
 "Região Metropolitana de Sousa";"Outros";1;NA;2;NA;3;NA;14;1;9;5;6;2;7;1;1;1;3;NA;NA;1;12;8;NA
 "Região Metropolitana de Sorocaba";"Outros";209;230;253;241;264;188;113;122;123;61;80;85;73;104;75;161;126;131;100;65;52;37;NA
 "Região Metropolitana de Sobral";"Outros";12;12;7;5;12;1;16;2;8;9;6;13;10;41;92;55;70;29;27;31;108;35;NA
+"Região Metropolitana de São Paulo";"Outros";974;1240;910;1166;935;946;423;749;583;406;412;390;368;382;351;288;297;339;277;166;283;245;NA
+"Região Metropolitana de São José do Rio Preto";"Outros";151;147;169;159;135;149;121;102;130;127;148;125;93;69;140;104;100;63;60;70;34;46;NA
 "Região Metropolitana de Santarém";"Outros";8;10;17;31;37;30;36;40;54;12;21;36;NA;2;2;NA;4;5;3;6;6;1;NA
 "Região Metropolitana de Salvador";"Outros";60;35;39;29;23;133;185;119;85;47;121;103;103;56;65;42;58;43;46;77;65;45;NA
 "Região Metropolitana de Ribeirão Preto";"Outros";168;153;188;158;171;165;69;49;44;55;67;68;78;41;63;55;58;44;42;55;21;47;NA
@@ -485,8 +484,8 @@
 "Região Metropolitana de Londrina";"Outros";41;23;28;38;33;38;32;27;19;32;76;70;67;48;63;47;35;26;25;14;9;14;NA
 "Região Metropolitana de Lages";"Outros";32;40;41;26;45;51;35;60;44;18;46;32;36;46;41;28;26;13;12;9;12;17;NA
 "Região Metropolitana de Jundiaí";"Outros";66;71;78;84;71;67;55;36;21;22;34;21;21;24;15;7;14;13;19;11;15;9;NA
-"Região Metropolitana de João Pessoa";"Outros";85;140;116;52;90;81;87;78;92;129;100;74;58;79;83;58;53;45;20;53;83;42;NA
 "Região Metropolitana de Joinville";"Outros";31;52;51;42;51;67;68;34;26;25;12;20;42;23;32;64;9;10;20;7;15;26;NA
+"Região Metropolitana de João Pessoa";"Outros";85;140;116;52;90;81;87;78;92;129;100;74;58;79;83;58;53;45;20;53;83;42;NA
 "Região Metropolitana de Jaraguá do Sul";"Outros";15;12;8;12;10;20;13;15;23;13;12;12;10;5;3;6;2;4;6;2;7;8;NA
 "Região Metropolitana de Itabaiana";"Outros";1;2;2;2;12;20;7;6;9;12;6;10;8;10;6;3;9;2;1;3;1;6;NA
 "Região Metropolitana de Gurupi";"Outros";10;6;13;6;5;11;4;7;7;4;5;4;1;5;11;6;13;13;8;10;17;22;NA
@@ -505,14 +504,14 @@
 "Região Metropolitana de Campina Grande";"Outros";78;56;225;169;184;164;219;208;163;129;177;151;179;220;180;181;157;122;135;102;109;129;NA
 "Região Metropolitana de Cajazeiras";"Outros";1;4;6;3;5;2;5;2;NA;9;5;8;7;2;1;3;4;1;1;3;17;9;NA
 "Região Metropolitana de Caetés";"Outros";2;3;5;7;6;12;8;14;27;11;19;22;11;24;26;21;24;3;3;8;2;5;NA
-"Região Metropolitana de Belém";"Outros";36;77;37;25;35;36;20;10;17;11;21;12;26;27;185;73;228;27;111;168;154;167;NA
 "Região Metropolitana de Belo Horizonte";"Outros";281;346;249;372;347;400;390;334;248;305;193;233;278;177;178;156;180;146;112;105;84;96;NA
+"Região Metropolitana de Belém";"Outros";36;77;37;25;35;36;20;10;17;11;21;12;26;27;185;73;228;27;111;168;154;167;NA
 "Região Metropolitana de Barra de Santa Rosa";"Outros";4;NA;2;NA;8;NA;12;5;10;3;12;11;15;16;7;7;11;12;6;8;6;9;NA
 "Região Metropolitana de Araruna";"Outros";NA;NA;NA;2;1;2;1;NA;2;NA;6;5;7;2;2;1;5;1;3;2;1;6;NA
 "Região Metropolitana de Aracaju";"Outros";28;17;44;13;17;25;20;28;20;25;23;12;12;21;15;21;17;7;8;10;6;9;NA
 "Região Metropolitana de Apucarana";"Outros";14;13;11;13;14;13;13;8;16;23;21;26;29;25;24;18;13;13;6;7;13;9;NA
-"Região Metropolitana da Zona da Mata";"Outros";9;8;14;20;18;18;11;16;23;27;40;53;38;27;32;58;50;17;7;21;2;21;NA
 "Região Metropolitana da Zona Leste do Estado do Maranhão";"Outros";22;10;21;13;20;20;22;24;26;15;22;21;25;18;27;12;28;34;15;17;18;13;NA
+"Região Metropolitana da Zona da Mata";"Outros";9;8;14;20;18;18;11;16;23;27;40;53;38;27;32;58;50;17;7;21;2;21;NA
 "Região Metropolitana da Serra Gaúcha";"Outros";11;18;22;20;14;18;26;19;19;30;22;30;16;23;19;18;21;25;14;31;17;19;NA
 "Região Metropolitana da Grande Vitória";"Outros";111;59;136;89;90;94;47;54;61;61;54;27;42;41;35;26;27;57;55;47;50;17;NA
 "Região Metropolitana da Grande São Luís";"Outros";28;59;57;83;82;65;75;116;173;120;108;131;156;176;188;176;145;78;166;179;114;138;NA
@@ -526,4 +525,5 @@
 "Entorno Metropolitano da RM Vale do Rio Cuiabá";"Outros";8;4;NA;9;12;22;10;4;14;14;10;8;14;9;35;24;11;21;14;5;13;15;NA
 "Colar Metropolitano de Belo Horizonte";"Outros";41;27;26;18;39;27;22;72;83;58;53;63;49;28;21;27;25;28;25;15;10;19;NA
 "Colar Metropolitano";"Outros";20;6;1;3;10;10;2;NA;4;1;9;8;35;9;36;11;4;6;12;8;5;9;NA
+"Área de Expansão Metropolitana";"Outros";1;2;3;NA;NA;NA;1;3;5;3;5;11;7;6;6;8;8;13;12;9;10;15;NA
 "-";"Outros";5002;4298;4698;4397;4676;4687;4094;4126;4272;4460;5251;5110;5612;5434;5391;4683;4408;3869;3577;3689;4437;4711;NA
