@@ -142,7 +142,7 @@ clean_and_format_data <- function(tabela_pop_f, base_rms, capitais) {
   rms_sel <- c(
     "Região Metropolitana de Belém", "Região Metropolitana de Belo Horizonte",
     "Região Metropolitana de Curitiba", "Região Integrada de Desenvolvimento do Distrito Federal e Entorno",
-    "Região Metropolitana de Fortaleza", "Região Metropolitana do Recife",
+    "Região Metropolitana de Fortaleza", "Região Metropolitana de Recife",
     "Região Metropolitana do Rio de Janeiro", "Região Metropolitana de Salvador",
     "Região Metropolitana de São Paulo"
   )
