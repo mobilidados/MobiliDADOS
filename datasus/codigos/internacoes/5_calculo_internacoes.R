@@ -3,15 +3,14 @@ library(purrr)
 library(stringr)
 library(tidyr)
 
-setwd("D:/Projetos/mobilidados/datasus/")
 
 # Read population data
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
+pop <- read.csv2("./populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
   mutate(ano = ano, COD_MUN = as.character(COD_MUN)) %>%
   rename(municipio_nome = municipio)
 
 # Define folder path
-folder_path <- "./output/internacoes/temp"
+folder_path <- "./datasus/output/internacoes/temp"
 
 # Get list of RDS files
 file_list <- list.files(path = folder_path, pattern = "\\.rds$", full.names = TRUE)
@@ -38,7 +37,7 @@ result <- combined_data2 %>%
   ))   
 
 # Read population data again
-pop <- read.csv2("D:/Projetos/mobilidados/github/MobiliDADOS/populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
+pop <- read.csv2("./populacao/output/csv/tabela_pop_rm3.csv", encoding = 'latin1') %>%
   mutate(ano = ano,
          COD_MUN = as.character(COD_MUN))
 
@@ -93,9 +92,9 @@ rms_rlt <- tx_rms_mort %>% select(-total, -valor) %>% pivot_wider(names_from = "
 abs_rms <- tx_rms_mort %>% select(-valor, -tx_inter) %>% pivot_wider(names_from = "ano", values_from = "total")
 
 
-write.csv2(result, "./output/internacoes/final/base_trabalhada.csv", row.names = FALSE)
-write.csv2(combined_data, "./output/internacoes/final/base_completa.csv", row.names = FALSE)
-write.csv2(tx_capitais_relat, "./output/internacoes/final/tx_capitais_relat.csv", row.names = FALSE)
-write.csv2(tx_capitais_absl, "./output/internacoes/final/tx_capitais_absl.csv", row.names = FALSE)
-write.csv2(rms_rlt, "./output/internacoes/final/tx_rms_relat.csv", row.names = FALSE)
-write.csv2(abs_rms, "./output/internacoes/final/tx_rms_absl.csv", row.names = FALSE)
+write.csv2(result, "./datasus/output/internacoes/final/base_trabalhada.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(combined_data, "./datasus/output/internacoes/final/base_completa.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(tx_capitais_relat, "./datasus/output/internacoes/final/tx_capitais_relat.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(tx_capitais_absl, "./datasus/output/internacoes/final/tx_capitais_absl.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(rms_rlt, "./datasus/output/internacoes/final/tx_rms_relat.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(abs_rms, "./datasus/output/internacoes/final/tx_rms_absl.csv", row.names = FALSE, fileEncoding = "latin1")
