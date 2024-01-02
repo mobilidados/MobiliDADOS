@@ -1,5 +1,5 @@
 # Definir diret?rio de trabalho
-setwd("D:/Projetos/mobilidados/pnb_novo")
+# setwd("D:/Projetos/mobilidados/pnb_novo")
 
 ano <- 2022
 
@@ -38,6 +38,9 @@ dir.create("resultados/2021/network/consolidado")
 
 ----------------------------------------------------
 
+caminho <- "./pnb/network/"
+
+dir.create("./pnb/network/dados")
 dir.create(paste0("dados/infra_cicloviaria/buffer/",ano)) 
 dir.create(paste0("dados/infra_cicloviaria/buffer/",ano,"/rds")) # pasta para guardar os buffers em rds. 
 dir.create(paste0("dados/infra_cicloviaria/buffer/",ano,"/shp")) # pasta para guardar os buffers em sph. 
