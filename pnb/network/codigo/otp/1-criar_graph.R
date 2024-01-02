@@ -8,7 +8,7 @@
 
 library(readr)
 library(dplyr)
-library(opentripplanner)
+library(r5r)
 library(data.table)
 library(sf)
 library(purrr)
@@ -17,9 +17,9 @@ library(mapview)
 library(pbapply)
 library(beepr)
 
-# Seleciona o diretório de trabalho
+options(java.parameters = '-Xmx2G')
 
-setwd("D:/Projetos/mobilidados/pnb_novo")
+
 
 # Listar os municípios para criar os arquivos graph
 
@@ -53,11 +53,11 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606,
 
 # Download do arquivo java a ser carregado pelo opt
 
-otp_dl_jar("./otp/programs")
+otp_dl_jar("./pnb/network/otp/programs")
 
 # Caminho para o arquivo java a ser carregado pelo opt
 
-path_otp <- "./otp/programs/otp.jar"
+path_otp <- "./pnb/network/otp/programs.jar"
 
 ano <- 2022
 
