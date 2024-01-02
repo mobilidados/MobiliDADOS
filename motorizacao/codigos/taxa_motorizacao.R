@@ -155,11 +155,11 @@ write.csv(final_data, "./motorizacao/output/final_data.csv", fileEncoding = "lat
 
 # decimal mark = ","
 
-#write.csv2(motorization_capitals_pivot_moto , "./motorizacao/output/motorization_capitals_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
-#write.csv2(motorization_capitals_pivot_motorizado , "./motorizacao/output/motorization_capitals_pivot_motorizado2.csv", fileEncoding = "latin1", row.names = FALSE)
-#write.csv2(motorization_rms_pivot_moto , "./motorizacao/output/motorization_rms_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
-#write.csv2(motorization_rms_pivot_motorizado , "./motorizacao/output/motorization_rms_pivot_motorizado.csv", fileEncoding = "latin1", row.names = FALSE)
-#write.csv2(final_data, "./motorizacao/output/final_data.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv2(motorization_capitals_pivot_moto , "./motorizacao/output/motorization_capitals_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv2(motorization_capitals_pivot_motorizado , "./motorizacao/output/motorization_capitals_pivot_motorizado2.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv2(motorization_rms_pivot_moto , "./motorizacao/output/motorization_rms_pivot_moto.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv2(motorization_rms_pivot_motorizado , "./motorizacao/output/motorization_rms_pivot_motorizado.csv", fileEncoding = "latin1", row.names = FALSE)
+write.csv2(final_data, "./motorizacao/output/final_data.csv", fileEncoding = "latin1", row.names = FALSE)
 
 
 
