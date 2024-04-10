@@ -51,13 +51,7 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606,
 
 
 
-# Download do arquivo java a ser carregado pelo opt
-
-otp_dl_jar("./pnb/network/otp/programs")
-
-# Caminho para o arquivo java a ser carregado pelo opt
-
-path_otp <- "./pnb/network/otp/programs.jar"
+setup_r5(data_path = "pnb/network/pbf/ara")
 
 ano <- 2022
 

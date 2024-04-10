@@ -91,10 +91,10 @@ rms_rlt <- tx_rms_mort %>% select(-total, -valor) %>% pivot_wider(names_from = "
 abs_rms <- tx_rms_mort %>% select(-valor, -tx_mort) %>% pivot_wider(names_from = "ano", values_from = "total")
 
 # Write data to CSV files
-write.csv2(result, "./datasus/output/obitos/final/base_trabalhada.csv", row.names = FALSE)
-write.csv2(combined_data, "./datasus/output/obitos/final/base_completa.csv", row.names = FALSE)
-write.csv2(tx_capitais_relat, "./datasus/output/obitos/final/tx_capitais_relat.csv", row.names = FALSE)
-write.csv2(tx_capitais_absl, "./datasus/output/obitos/final/tx_capitais_absl.csv", row.names = FALSE)
-write.csv2(rms_rlt, "./datasus/output/obitos/final/tx_rms_relat.csv", row.names = FALSE)
-write.csv2(abs_rms, "./datasus/output/obitos/final/tx_rms_absl.csv", row.names = FALSE)
+write.csv2(result, "./datasus/output/obitos/final/base_trabalhada.csv", row.names = FALSE, fileEncoding = "latin1" )
+write.csv2(combined_data, "./datasus/output/obitos/final/base_completa.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(tx_capitais_relat, "./datasus/output/obitos/final/tx_capitais_relat.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(tx_capitais_absl, "./datasus/output/obitos/final/tx_capitais_absl.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(rms_rlt, "./datasus/output/obitos/final/tx_rms_relat.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(abs_rms, "./datasus/output/obitos/final/tx_rms_absl.csv", row.names = FALSE, fileEncoding = "latin1")
 

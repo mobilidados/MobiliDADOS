@@ -110,7 +110,7 @@ for (ano in anos) {
   df_year <- do.call(rbind, df_year_list)
   
   # Create a temporary file path for the desired year
-  temp_file <- paste0("../datasus/codigos/obitos/output/obitos/temp/morb_data_", ano, ".rds")
+  temp_file <- paste0("./datasus/output/obitos/temp/morb_data_", ano, ".rds")
   
   # Write the data frame to the temporary file in R-specific binary format
   saveRDS(df_year, temp_file)

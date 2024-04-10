@@ -28,7 +28,7 @@ lista_morb <- data.frame(
   var2 = c("Pedestres", "Ciclistas", "Motociclistas","Outros","Ocupantes de automóvel", "Outros", "Outros", "Outros", "Outros")
 )
 
-anos <- 2008:2022 # Replace with the actual range of years you want to iterate over
+anos <- 2022:2023 # Replace with the actual range of years you want to iterate over
 sexo <- c("Masc", "Fem", "Ign")
 faixa_etaria <- c("Menor 1 ano", "1 a 4 anos", "5 a 9 anos", "10 a 14 anos", 
                   "15 a 19 anos", "20 a 29 anos", "30 a 39 anos", "40 a 49 anos", 

@@ -91,7 +91,7 @@ perc_rms <- tot_rms %>% select(-c(Branca, Ignorado, Amarela, Indígena, Vazio, T
 
 
 
-write.csv2(perc_mun, "./datasus/output/obitos/final/perc_negres_capitais.csv", row.names = FALSE)
-write.csv2(abs_mun, "./datasus/output/obitos/final/negres_capitais.csv", row.names = FALSE)
-write.csv2(perc_rms, "./datasus/output/obitos/final/perc_negres_rms.csv", row.names = FALSE)
-write.csv2(abs_rms, "./datasus/output/obitos/final/negres_rms.csv", row.names = FALSE)
+write.csv2(perc_mun, "./datasus/output/obitos/final/perc_negres_capitais.csv", row.names = FALSE, fileEncoding = "latin1" )
+write.csv2(abs_mun, "./datasus/output/obitos/final/negres_capitais.csv", row.names = FALSE, fileEncoding = "latin1" )
+write.csv2(perc_rms, "./datasus/output/obitos/final/perc_negres_rms.csv", row.names = FALSE, fileEncoding = "latin1" )
+write.csv2(abs_rms, "./datasus/output/obitos/final/negres_rms.csv", row.names = FALSE, fileEncoding = "latin1" )

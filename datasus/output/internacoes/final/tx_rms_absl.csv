@@ -1,488 +1,488 @@
 "NOME_CATMETROPOL";"tipo";"2000";"2001";"2002";"2003";"2004";"2005";"2006";"2007";"2008";"2009";"2010";"2011";"2012";"2013";"2014";"2015";"2016";"2017";"2018";"2019";"2020";"2021";"2022"
-"√Årea de Expans√£o Metropolitana";"Total";0;0;0;0;0;0;0;0;5;1;3;8;6;11;27;26;24;17;22;20;13;26;42
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Total";0;0;0;0;0;0;0;0;961;1229;1278;1508;1660;2383;2657;2187;3631;3283;3085;2739;720;645;1061
-"Regi√£o Metropolitana do Vale do Pianc√≥";"Total";0;0;0;0;0;0;0;0;0;1;2;0;2;0;0;4;3;2;0;1;1;0;0
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Total";0;0;0;0;0;0;0;0;1459;1785;1653;1589;1380;1656;1770;1516;1779;2070;2333;2395;2205;2396;2456
-"Regi√£o Metropolitana do Vale do Para√≠ba";"Total";0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana do Vale do Mamanguape";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Total";0;0;0;0;0;0;0;0;265;779;699;575;514;544;367;368;428;914;456;204;239;293;286
-"Regi√£o Metropolitana do Vale do A√ßo";"Total";0;0;0;0;0;0;0;0;731;1045;1227;1139;1154;1045;1110;1031;1185;1006;698;673;691;848;813
-"Regi√£o Metropolitana do S√£o Francisco";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2;12;3;1
-"Regi√£o Metropolitana do Sul do Estado";"Total";0;0;0;0;0;0;0;0;8;11;11;19;15;30;23;14;28;22;37;113;140;64;136
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Total";0;0;0;0;0;0;0;0;0;1468;2313;322;682;998;712;1927;2201;2323;1873;2260;1769;1775;1575
-"Regi√£o Metropolitana do Sert√£o";"Total";0;0;0;0;0;0;0;0;1;0;3;0;0;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana do Rio de Janeiro";"Total";0;0;0;0;0;0;0;0;5569;5791;6276;7295;7732;9139;9076;7301;6522;7116;6421;7619;6052;8461;7964
-"Regi√£o Metropolitana do Planalto Norte";"Total";0;0;0;0;0;0;0;0;4;7;68;5;3;56;28;29;49;49;50;41;106;275;248
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Total";0;0;0;0;0;0;0;0;0;2;0;32;92;183;272;202;119;55;49;62;36;117;131
-"Regi√£o Metropolitana do Extremo Oeste";"Total";0;0;0;0;0;0;0;0;16;33;20;140;402;389;440;420;317;461;450;413;457;396;462
-"Regi√£o Metropolitana do Contestado";"Total";0;0;0;0;0;0;0;0;113;232;254;258;297;287;357;343;240;238;433;507;456;393;432
-"Regi√£o Metropolitana do Cariri";"Total";0;0;0;0;0;0;0;0;9;8;2;120;664;226;971;1233;1518;1484;1845;1607;1389;1774;1723
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Total";0;0;0;0;0;0;0;0;19;59;12;27;31;152;122;147;175;137;156;174;223;185;172
-"Regi√£o Metropolitana do Agreste";"Total";0;0;0;0;0;0;0;0;564;707;751;689;773;930;938;1385;1457;1191;1748;1347;1403;1180;1097
-"Regi√£o Metropolitana de Umuarama";"Total";0;0;0;0;0;0;0;0;18;29;107;119;376;651;650;705;591;640;476;234;0;0;2
-"Regi√£o Metropolitana de Tubar√£o";"Total";0;0;0;0;0;0;0;0;353;551;390;549;478;528;584;617;547;567;576;691;569;621;570
-"Regi√£o Metropolitana de Toledo";"Total";0;0;0;0;0;0;0;0;0;5;119;145;105;26;29;25;43;34;83;104;109;70;32
-"Regi√£o Metropolitana de S√£o Paulo";"Total";0;0;0;0;0;0;0;0;15665;17349;18894;20607;19117;18549;17419;15223;16208;16506;17403;18177;19040;20961;21048
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Total";0;0;0;0;0;0;0;0;632;810;688;679;784;1191;1652;1509;1681;1524;1697;1747;1854;1950;2247
-"Regi√£o Metropolitana de Sousa";"Total";0;0;0;0;0;0;0;0;0;35;45;87;30;69;6;170;141;153;48;92;180;169;115
-"Regi√£o Metropolitana de Sorocaba";"Total";0;0;0;0;0;0;0;0;1054;1442;1483;1760;1423;1539;1458;1858;1905;1652;1535;2044;2288;2469;2370
-"Regi√£o Metropolitana de Sobral";"Total";0;0;0;0;0;0;0;0;0;20;5;329;406;332;439;570;502;436;531;502;619;1112;966
-"Regi√£o Metropolitana de Santar√©m";"Total";0;0;0;0;0;0;0;0;2;72;130;80;143;116;111;79;113;116;100;210;169;143;119
-"Regi√£o Metropolitana de Salvador";"Total";0;0;0;0;0;0;0;0;2015;2483;2526;2614;2680;2502;3054;2719;2576;3058;3443;4205;3923;4093;3874
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Total";0;0;0;0;0;0;0;0;1550;1779;2546;2618;2171;2295;2367;2178;2188;2130;2059;2123;2222;2597;2187
-"Regi√£o Metropolitana de Recife";"Total";0;0;0;0;0;0;0;0;78;85;1442;3013;3975;6181;4114;5231;3884;3864;3564;3452;3342;2951;3043
-"Regi√£o Metropolitana de Porto Velho";"Total";0;0;0;0;0;0;0;0;204;736;1203;705;670;1044;692;452;780;1033;1231;1062;1746;2313;1852
-"Regi√£o Metropolitana de Porto Alegre";"Total";0;0;0;0;0;0;0;0;2249;2661;3401;3041;2475;2380;2131;2427;2011;2132;1760;1703;1726;1880;1823
-"Regi√£o Metropolitana de Piracicaba";"Total";0;0;0;0;0;0;0;0;425;538;546;507;383;408;646;1420;1426;1841;2158;2048;2172;2054;2120
-"Regi√£o Metropolitana de Patos";"Total";0;0;0;0;0;0;0;0;154;233;601;407;381;187;330;332;401;285;259;470;521;351;720
-"Regi√£o Metropolitana de Palmeira dos √çndios";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana de Palmas";"Total";0;0;0;0;0;0;0;0;59;45;82;236;211;222;1114;1037;1260;1052;980;1655;1852;2086;1657
-"Regi√£o Metropolitana de Natal";"Total";0;0;0;0;0;0;0;0;968;1326;2144;2139;1869;1231;1377;1288;1419;2010;2026;3126;3324;3215;3610
-"Regi√£o Metropolitana de Maring√°";"Total";0;0;0;0;0;0;0;0;709;1258;1243;1322;1471;1207;1202;1198;1127;1196;1073;990;1106;1276;1609
-"Regi√£o Metropolitana de Manaus";"Total";0;0;0;0;0;0;0;0;93;71;141;275;193;182;422;684;944;923;926;779;731;1006;1256
-"Regi√£o Metropolitana de Macei√≥";"Total";0;0;0;0;0;0;0;0;199;450;665;667;983;969;730;577;805;777;665;569;417;646;770
-"Regi√£o Metropolitana de Macap√°";"Total";0;0;0;0;0;0;0;0;230;339;414;336;646;635;687;614;564;520;624;514;497;435;518
-"Regi√£o Metropolitana de Londrina";"Total";0;0;0;0;0;0;0;0;794;1160;1144;1532;1645;1826;1801;1681;1651;1754;2054;1800;2007;1478;1619
-"Regi√£o Metropolitana de Lages";"Total";0;0;0;0;0;0;0;0;4;41;142;55;65;32;3;398;424;428;326;293;366;330;398
-"Regi√£o Metropolitana de Jundia√≠";"Total";0;0;0;0;0;0;0;0;11;15;238;27;18;13;6;10;39;21;15;25;33;47;30
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Total";0;0;0;0;0;0;0;0;1187;2044;2315;2326;2200;2285;2415;2724;2015;1916;2206;2681;2479;3248;3240
-"Regi√£o Metropolitana de Joinville";"Total";0;0;0;0;0;0;0;0;316;790;919;869;1695;1074;1298;1318;1101;966;778;780;536;480;562
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Total";0;0;0;0;0;0;0;0;65;75;311;229;417;369;322;469;516;485;430;491;526;576;640
-"Regi√£o Metropolitana de Itabaiana";"Total";0;0;0;0;0;0;0;0;0;0;0;3;13;3;0;11;2;1;0;0;0;0;0
-"Regi√£o Metropolitana de Gurupi";"Total";0;0;0;0;0;0;0;0;15;19;26;13;40;96;101;117;126;104;39;39;37;32;34
-"Regi√£o Metropolitana de Guarabira";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;9;11;3
-"Regi√£o Metropolitana de Goi√¢nia";"Total";0;0;0;0;0;0;0;0;2140;4788;4944;4651;5589;4639;5423;5521;5863;5848;5351;7442;6207;8422;12634
-"Regi√£o Metropolitana de Fortaleza";"Total";0;0;0;0;0;0;0;0;4287;5559;7794;8037;7536;7954;8197;6891;7510;5984;6915;7611;7452;8326;7349
-"Regi√£o Metropolitana de Florian√≥polis";"Total";0;0;0;0;0;0;0;0;1402;1348;1236;1269;1137;1174;1292;1251;1354;1253;1428;1239;913;1660;1550
-"Regi√£o Metropolitana de Feira de Santana";"Total";0;0;0;0;0;0;0;0;545;798;851;1045;1195;1373;1067;1009;1106;1027;1168;1024;1162;1575;1380
-"Regi√£o Metropolitana de Esperan√ßa";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana de Curitiba";"Total";0;0;0;0;0;0;0;0;1341;1412;1632;1791;1728;1801;1826;1702;1595;2035;1755;1609;2016;1635;1523
-"Regi√£o Metropolitana de Chapec√≥";"Total";0;0;0;0;0;0;0;0;359;767;742;836;623;430;531;1032;1124;1103;1077;940;1057;1027;1111
-"Regi√£o Metropolitana de Central";"Total";0;0;0;0;0;0;0;0;0;3;1;0;1;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana de Cascavel";"Total";0;0;0;0;0;0;0;0;350;213;190;93;104;40;55;19;0;49;19;20;31;14;12
-"Regi√£o Metropolitana de Campo Mour√£o";"Total";0;0;0;0;0;0;0;0;183;9;7;45;42;7;28;27;22;49;58;27;34;37;62
-"Regi√£o Metropolitana de Campinas";"Total";0;0;0;0;0;0;0;0;2560;2197;2067;1983;1742;1679;1849;1912;2146;1923;1667;1554;1715;1792;1748
-"Regi√£o Metropolitana de Campina Grande";"Total";0;0;0;0;0;0;0;0;1457;1956;2212;1191;1209;1259;1228;1267;1034;1133;619;984;1305;1349;1005
-"Regi√£o Metropolitana de Cajazeiras";"Total";0;0;0;0;0;0;0;0;0;0;205;378;463;553;445;299;469;579;581;498;101;0;0
-"Regi√£o Metropolitana de Caet√©s";"Total";0;0;0;0;0;0;0;0;13;2;4;0;0;0;0;26;5;4;36;65;59;38;35
-"Regi√£o Metropolitana de Bel√©m";"Total";0;0;0;0;0;0;0;0;125;38;18;233;627;929;1404;1825;1888;1896;2238;2090;2086;2325;2186
-"Regi√£o Metropolitana de Belo Horizonte";"Total";0;0;0;0;0;0;0;0;4124;4315;5171;6081;6423;7379;7900;7643;7345;6763;6234;6692;6579;7809;8268
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Total";0;0;0;0;0;0;0;0;0;1;11;6;59;49;30;4;3;16;2;18;6;4;6
-"Regi√£o Metropolitana de Araruna";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
-"Regi√£o Metropolitana de Aracaju";"Total";0;0;0;0;0;0;0;0;679;371;283;333;411;479;447;1273;1563;1751;1867;2183;1633;1794;2495
-"Regi√£o Metropolitana de Apucarana";"Total";0;0;0;0;0;0;0;0;68;98;89;63;96;64;108;184;575;665;603;625;706;607;602
-"Regi√£o Metropolitana da Zona da Mata";"Total";0;0;0;0;0;0;0;0;194;461;277;440;331;281;207;221;125;68;0;16;29;7;0
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Total";0;0;0;0;0;0;0;0;0;719;1079;1022;155;177;233;228;144;302;409;271;139;167;292
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Total";0;0;0;0;0;0;0;0;372;152;404;274;303;320;331;360;381;427;354;327;304;382;341
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Total";0;0;0;0;0;0;0;0;1097;1239;1026;1435;1499;1759;1922;2841;2703;3330;2991;2621;2461;3069;1940
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Total";0;0;0;0;0;0;0;0;3206;4041;2189;1562;2375;2425;2255;468;782;818;702;285;219;10;1
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Total";0;0;0;0;0;0;0;0;263;372;349;409;473;686;508;752;532;510;482;455;473;549;561
-"Regi√£o Metropolitana da Capital";"Total";0;0;0;0;0;0;0;0;407;654;909;711;1033;1055;1150;1494;2342;2889;2521;2288;1742;693;534
-"Regi√£o Metropolitana da Baixada Santista";"Total";0;0;0;0;0;0;0;0;1342;1254;1382;1660;1716;1509;1642;1543;1612;1384;1396;1369;1272;1316;1323
-"Regi√£o Metropolitana Carbon√≠fera";"Total";0;0;0;0;0;0;0;0;132;236;336;321;543;748;819;567;630;742;654;608;529;710;711
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Total";0;0;0;0;0;0;0;0;1627;1664;1658;1846;1100;867;805;812;1419;1332;2735;2706;3528;3916;4605
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Total";0;0;0;0;0;0;0;0;2355;1105;2605;2465;2131;4176;4345;5465;6511;5128;5173;5118;4129;5292;4405
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Total";0;0;0;0;0;0;0;0;562;1440;1972;2174;1929;2289;2019;1768;2235;1913;1889;1905;1777;2008;1841
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Total";0;0;0;0;0;0;0;0;1;5;13;3;14;15;17;11;21;15;3;12;19;43;38
+"¡rea de Expans„o Metropolitana";"Total";0;0;0;0;0;0;0;0;5;1;3;8;6;11;27;26;24;17;22;20;13;26;43
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Total";0;0;0;0;0;0;0;0;961;1229;1278;1508;1660;2383;2657;2187;3631;3283;3085;2739;720;645;1061
+"Regi„o Metropolitana do Vale do PiancÛ";"Total";0;0;0;0;0;0;0;0;0;1;2;0;2;0;0;4;3;2;0;1;1;0;0
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Total";0;0;0;0;0;0;0;0;1459;1785;1653;1589;1380;1656;1770;1516;1779;2070;2333;2395;2205;2396;2456
+"Regi„o Metropolitana do Vale do ParaÌba";"Total";0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana do Vale do Mamanguape";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0
+"Regi„o Metropolitana do Vale do ItajaÌ";"Total";0;0;0;0;0;0;0;0;265;779;699;575;514;544;367;368;428;914;456;204;239;293;286
+"Regi„o Metropolitana do Vale do AÁo";"Total";0;0;0;0;0;0;0;0;731;1045;1227;1139;1154;1045;1110;1031;1185;1006;698;673;691;848;813
+"Regi„o Metropolitana do S„o Francisco";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;2;12;3;1
+"Regi„o Metropolitana do Sul do Estado";"Total";0;0;0;0;0;0;0;0;8;11;11;19;15;30;23;14;28;22;37;113;140;64;136
+"Regi„o Metropolitana do Sudoeste Maranhense";"Total";0;0;0;0;0;0;0;0;0;1468;2313;322;682;998;712;1927;2201;2323;1873;2260;1769;1775;1578
+"Regi„o Metropolitana do Sert„o";"Total";0;0;0;0;0;0;0;0;1;0;3;0;0;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana do Rio de Janeiro";"Total";0;0;0;0;0;0;0;0;5569;5791;6276;7295;7732;9139;9076;7301;6522;7116;6421;7619;6052;8461;7964
+"Regi„o Metropolitana do Planalto Norte";"Total";0;0;0;0;0;0;0;0;4;7;68;5;3;56;28;29;49;49;50;41;106;275;248
+"Regi„o Metropolitana do MÈdio Sert„o";"Total";0;0;0;0;0;0;0;0;0;2;0;32;92;183;272;202;119;55;49;62;36;117;131
+"Regi„o Metropolitana do Extremo Oeste";"Total";0;0;0;0;0;0;0;0;16;33;20;140;402;389;440;420;317;461;450;413;457;396;462
+"Regi„o Metropolitana do Contestado";"Total";0;0;0;0;0;0;0;0;113;232;254;258;297;287;357;343;240;238;433;507;456;393;432
+"Regi„o Metropolitana do Cariri";"Total";0;0;0;0;0;0;0;0;9;8;2;120;664;226;971;1233;1518;1484;1845;1607;1389;1774;1723
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Total";0;0;0;0;0;0;0;0;19;59;12;27;31;152;122;147;175;137;156;174;223;185;172
+"Regi„o Metropolitana do Agreste";"Total";0;0;0;0;0;0;0;0;564;707;751;689;773;930;938;1385;1457;1191;1748;1347;1403;1180;1097
+"Regi„o Metropolitana de Umuarama";"Total";0;0;0;0;0;0;0;0;18;29;107;119;376;651;650;705;591;640;476;234;0;0;2
+"Regi„o Metropolitana de Tubar„o";"Total";0;0;0;0;0;0;0;0;353;551;390;549;478;528;584;617;547;567;576;691;569;621;570
+"Regi„o Metropolitana de Toledo";"Total";0;0;0;0;0;0;0;0;0;5;119;145;105;26;29;25;43;34;83;104;109;70;32
+"Regi„o Metropolitana de S„o Paulo";"Total";0;0;0;0;0;0;0;0;15665;17349;18894;20607;19117;18549;17419;15223;16208;16506;17403;18177;19040;20961;21048
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Total";0;0;0;0;0;0;0;0;632;810;688;679;784;1191;1652;1509;1681;1524;1697;1747;1854;1950;2247
+"Regi„o Metropolitana de Sousa";"Total";0;0;0;0;0;0;0;0;0;35;45;87;30;69;6;170;141;153;48;92;180;169;115
+"Regi„o Metropolitana de Sorocaba";"Total";0;0;0;0;0;0;0;0;1054;1442;1483;1760;1423;1539;1458;1858;1905;1652;1535;2044;2288;2469;2370
+"Regi„o Metropolitana de Sobral";"Total";0;0;0;0;0;0;0;0;0;20;5;329;406;332;439;570;502;436;531;502;619;1112;966
+"Regi„o Metropolitana de SantarÈm";"Total";0;0;0;0;0;0;0;0;2;72;130;80;143;116;111;79;113;116;100;210;169;143;119
+"Regi„o Metropolitana de Salvador";"Total";0;0;0;0;0;0;0;0;2015;2483;2526;2614;2680;2502;3054;2719;2576;3058;3443;4205;3923;4093;3874
+"Regi„o Metropolitana de Ribeir„o Preto";"Total";0;0;0;0;0;0;0;0;1550;1779;2546;2618;2171;2295;2367;2178;2188;2130;2059;2123;2222;2597;2187
+"Regi„o Metropolitana de Recife";"Total";0;0;0;0;0;0;0;0;78;85;1442;3013;3975;6181;4114;5231;3884;3864;3564;3452;3342;2951;3043
+"Regi„o Metropolitana de Porto Velho";"Total";0;0;0;0;0;0;0;0;204;736;1203;705;670;1044;692;452;780;1033;1231;1062;1746;2313;1852
+"Regi„o Metropolitana de Porto Alegre";"Total";0;0;0;0;0;0;0;0;2249;2661;3401;3041;2475;2380;2131;2427;2011;2132;1760;1703;1726;1880;1823
+"Regi„o Metropolitana de Piracicaba";"Total";0;0;0;0;0;0;0;0;425;538;546;507;383;408;646;1420;1426;1841;2158;2048;2172;2054;2120
+"Regi„o Metropolitana de Patos";"Total";0;0;0;0;0;0;0;0;154;233;601;407;381;187;330;332;401;285;259;470;521;351;720
+"Regi„o Metropolitana de Palmeira dos Õndios";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana de Palmas";"Total";0;0;0;0;0;0;0;0;59;45;82;236;211;222;1114;1037;1260;1052;980;1655;1852;2086;1657
+"Regi„o Metropolitana de Natal";"Total";0;0;0;0;0;0;0;0;968;1326;2144;2139;1869;1231;1377;1288;1419;2010;2026;3126;3324;3215;3610
+"Regi„o Metropolitana de Maring·";"Total";0;0;0;0;0;0;0;0;709;1258;1243;1322;1471;1207;1202;1198;1127;1196;1073;990;1106;1276;1609
+"Regi„o Metropolitana de Manaus";"Total";0;0;0;0;0;0;0;0;93;71;141;275;193;182;422;684;944;923;926;779;731;1006;1258
+"Regi„o Metropolitana de MaceiÛ";"Total";0;0;0;0;0;0;0;0;199;450;665;667;983;969;730;577;805;777;665;569;417;646;770
+"Regi„o Metropolitana de Macap·";"Total";0;0;0;0;0;0;0;0;230;339;414;336;646;635;687;614;564;520;624;514;497;435;518
+"Regi„o Metropolitana de Londrina";"Total";0;0;0;0;0;0;0;0;794;1160;1144;1532;1645;1826;1801;1681;1651;1754;2054;1800;2007;1478;1619
+"Regi„o Metropolitana de Lages";"Total";0;0;0;0;0;0;0;0;4;41;142;55;65;32;3;398;424;428;326;293;366;330;398
+"Regi„o Metropolitana de JundiaÌ";"Total";0;0;0;0;0;0;0;0;11;15;238;27;18;13;6;10;39;21;15;25;33;47;30
+"Regi„o Metropolitana de Jo„o Pessoa";"Total";0;0;0;0;0;0;0;0;1187;2044;2315;2326;2200;2285;2415;2724;2015;1916;2206;2681;2479;3248;3240
+"Regi„o Metropolitana de Joinville";"Total";0;0;0;0;0;0;0;0;316;790;919;869;1695;1074;1298;1318;1101;966;778;780;536;480;562
+"Regi„o Metropolitana de Jaragu· do Sul";"Total";0;0;0;0;0;0;0;0;65;75;311;229;417;369;322;469;516;485;430;491;526;576;640
+"Regi„o Metropolitana de Itabaiana";"Total";0;0;0;0;0;0;0;0;0;0;0;3;13;3;0;11;2;1;0;0;0;0;0
+"Regi„o Metropolitana de Gurupi";"Total";0;0;0;0;0;0;0;0;15;19;26;13;40;96;101;117;126;104;39;39;37;32;34
+"Regi„o Metropolitana de Guarabira";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;9;11;3
+"Regi„o Metropolitana de Goi‚nia";"Total";0;0;0;0;0;0;0;0;2140;4788;4944;4651;5589;4639;5423;5521;5863;5848;5351;7442;6207;8422;12634
+"Regi„o Metropolitana de Fortaleza";"Total";0;0;0;0;0;0;0;0;4287;5559;7794;8037;7536;7954;8197;6891;7510;5984;6915;7611;7452;8326;7349
+"Regi„o Metropolitana de FlorianÛpolis";"Total";0;0;0;0;0;0;0;0;1402;1348;1236;1269;1137;1174;1292;1251;1354;1253;1428;1239;913;1660;1550
+"Regi„o Metropolitana de Feira de Santana";"Total";0;0;0;0;0;0;0;0;545;798;851;1045;1195;1373;1067;1009;1106;1027;1168;1024;1162;1575;1380
+"Regi„o Metropolitana de EsperanÁa";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana de Curitiba";"Total";0;0;0;0;0;0;0;0;1341;1412;1632;1791;1728;1801;1826;1702;1595;2035;1755;1609;2016;1635;1523
+"Regi„o Metropolitana de ChapecÛ";"Total";0;0;0;0;0;0;0;0;359;767;742;836;623;430;531;1032;1124;1103;1077;940;1057;1027;1111
+"Regi„o Metropolitana de Central";"Total";0;0;0;0;0;0;0;0;0;3;1;0;1;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana de Cascavel";"Total";0;0;0;0;0;0;0;0;350;213;190;93;104;40;55;19;0;49;19;20;31;14;12
+"Regi„o Metropolitana de Campo Mour„o";"Total";0;0;0;0;0;0;0;0;183;9;7;45;42;7;28;27;22;49;58;27;34;37;62
+"Regi„o Metropolitana de Campinas";"Total";0;0;0;0;0;0;0;0;2560;2197;2067;1983;1742;1679;1849;1912;2146;1923;1667;1554;1715;1792;1756
+"Regi„o Metropolitana de Campina Grande";"Total";0;0;0;0;0;0;0;0;1457;1956;2212;1191;1209;1259;1228;1267;1034;1133;619;984;1305;1349;1005
+"Regi„o Metropolitana de Cajazeiras";"Total";0;0;0;0;0;0;0;0;0;0;205;378;463;553;445;299;469;579;581;498;101;0;0
+"Regi„o Metropolitana de CaetÈs";"Total";0;0;0;0;0;0;0;0;13;2;4;0;0;0;0;26;5;4;36;65;59;38;35
+"Regi„o Metropolitana de BelÈm";"Total";0;0;0;0;0;0;0;0;125;38;18;233;627;929;1404;1825;1888;1896;2238;2090;2086;2325;2186
+"Regi„o Metropolitana de Belo Horizonte";"Total";0;0;0;0;0;0;0;0;4124;4315;5171;6081;6423;7379;7900;7643;7345;6763;6234;6692;6579;7809;8268
+"Regi„o Metropolitana de Barra de Santa Rosa";"Total";0;0;0;0;0;0;0;0;0;1;11;6;59;49;30;4;3;16;2;18;6;4;6
+"Regi„o Metropolitana de Araruna";"Total";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+"Regi„o Metropolitana de Aracaju";"Total";0;0;0;0;0;0;0;0;679;371;283;333;411;479;447;1273;1563;1751;1867;2183;1633;1794;2495
+"Regi„o Metropolitana de Apucarana";"Total";0;0;0;0;0;0;0;0;68;98;89;63;96;64;108;184;575;665;603;625;706;607;602
+"Regi„o Metropolitana da Zona da Mata";"Total";0;0;0;0;0;0;0;0;194;461;277;440;331;281;207;221;125;68;0;16;29;7;0
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Total";0;0;0;0;0;0;0;0;0;719;1079;1022;155;177;233;228;144;302;409;271;139;167;292
+"Regi„o Metropolitana da Serra Ga˙cha";"Total";0;0;0;0;0;0;0;0;372;152;404;274;303;320;331;360;381;427;354;327;304;382;341
+"Regi„o Metropolitana da Grande VitÛria";"Total";0;0;0;0;0;0;0;0;1097;1239;1026;1435;1499;1759;1922;2841;2703;3330;2991;2621;2461;3069;1940
+"Regi„o Metropolitana da Grande S„o LuÌs";"Total";0;0;0;0;0;0;0;0;3206;4041;2189;1562;2375;2425;2255;468;782;818;702;285;219;10;1
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Total";0;0;0;0;0;0;0;0;263;372;349;409;473;686;508;752;532;510;482;455;473;549;561
+"Regi„o Metropolitana da Capital";"Total";0;0;0;0;0;0;0;0;407;654;909;711;1033;1055;1150;1494;2342;2889;2521;2288;1742;693;534
+"Regi„o Metropolitana da Baixada Santista";"Total";0;0;0;0;0;0;0;0;1342;1254;1382;1660;1716;1509;1642;1543;1612;1384;1396;1369;1272;1316;1323
+"Regi„o Metropolitana CarbonÌfera";"Total";0;0;0;0;0;0;0;0;132;236;336;321;543;748;819;567;630;742;654;608;529;710;711
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Total";0;0;0;0;0;0;0;0;1627;1664;1658;1846;1100;867;805;812;1419;1332;2735;2706;3528;3916;4605
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Total";0;0;0;0;0;0;0;0;2355;1105;2605;2465;2131;4176;4345;5465;6511;5128;5173;5118;4129;5292;4405
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Total";0;0;0;0;0;0;0;0;562;1440;1972;2174;1929;2289;2019;1768;2235;1913;1889;1905;1777;2008;1841
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Total";0;0;0;0;0;0;0;0;1;5;13;3;14;15;17;11;21;15;3;12;19;43;38
 "Colar Metropolitano de Belo Horizonte";"Total";0;0;0;0;0;0;0;0;133;161;122;119;314;440;704;813;836;1021;921;949;1067;1171;1026
 "Colar Metropolitano";"Total";0;0;0;0;0;0;0;0;25;9;4;7;0;0;3;56;0;1;24;53;10;16;72
-"-";"Total";0;0;0;0;0;0;0;0;24540;35603;44498;48867;52644;56550;59369;57668;58378;59546;62857;66425;66816;74007;77349
-"√Årea de Expans√£o Metropolitana";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;1;NA;1;1;1;NA;2;NA;1;NA
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;26;129;166;166;6;20;3;19;13;27;29;42;6;19;26
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;152;198;219;208;177;146;153;132;151;191;147;134;137;147;142
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;19;14;23;24;30;39;68;60;57;70;69;65;56;44;58
-"Regi√£o Metropolitana do Vale do A√ßo";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;99;148;209;161;172;147;173;156;147;97;77;93;81;75;73
-"Regi√£o Metropolitana do Sul do Estado";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;4;NA;NA;1;NA;1;1;1;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;1;NA;NA;NA;1;NA
-"Regi√£o Metropolitana do Rio de Janeiro";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;463;397;486;468;649;712;820;794;649;625;479;481;439;608;511
-"Regi√£o Metropolitana do Planalto Norte";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;10;4;2;7;6;9;8;10;13;8
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;4;5;7;3;7;1;5;NA;NA;5;4
-"Regi√£o Metropolitana do Extremo Oeste";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;5;8;15;46;52;80;99;56;43;39;34;49;44;61
-"Regi√£o Metropolitana do Contestado";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;8;22;33;31;43;15;63;13;10;8;14;66;73;25;19
-"Regi√£o Metropolitana do Cariri";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;8;20;6;28;38;54;58;32;26;29;59;40
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;7;13;NA;6;6;127;85;81;85;20;15;15;31;46;40
-"Regi√£o Metropolitana do Agreste";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;52;78;63;91;67;45;74;77;105;65;95;95;98;79;68
-"Regi√£o Metropolitana de Umuarama";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;3;NA;NA;NA;1;1;1;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Tubar√£o";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;31;62;56;93;64;91;107;107;70;69;45;62;46;66;35
-"Regi√£o Metropolitana de Toledo";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;17;24;29;8;6;9;7;9;15;26;33;11;10
-"Regi√£o Metropolitana de S√£o Paulo";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;1277;1509;1580;1574;1373;1525;1571;1366;1625;1317;1417;1244;1238;1193;1279
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;52;176;179;133;142;323;454;256;266;213;228;197;245;299;325
-"Regi√£o Metropolitana de Sorocaba";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;171;246;221;271;172;167;134;130;169;162;159;162;133;169;197
-"Regi√£o Metropolitana de Sobral";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;17;5;49;13;4;26;100;107;63;41;6;13;48;18
-"Regi√£o Metropolitana de Santar√©m";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;5;1;3;NA;1;NA;1;NA;NA;NA;2;1;1
-"Regi√£o Metropolitana de Salvador";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;384;516;477;435;414;347;319;282;195;282;255;201;163;197;287
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;204;271;348;315;274;379;319;253;244;231;226;258;224;196;166
-"Regi√£o Metropolitana de Recife";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;5;4;60;132;142;154;153;120;95;65;75;64;73;46;39
-"Regi√£o Metropolitana de Porto Velho";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;2;21;54;26;11;36;33;29;56;50;58;23;54;96;52
-"Regi√£o Metropolitana de Porto Alegre";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;934;1615;1394;1063;907;751;583;431;368;490;334;256;289;296;271
-"Regi√£o Metropolitana de Piracicaba";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;26;39;67;65;65;55;97;100;89;104;99;85;75;115;93
-"Regi√£o Metropolitana de Patos";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;3;10;20;4;7;NA;NA;NA;NA;NA;2;1;4;NA;4
-"Regi√£o Metropolitana de Palmas";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;1;1;4;83;24;52;121;21;14;11;13;28;44;70;49
-"Regi√£o Metropolitana de Natal";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;13;9;12;93;161;58;64;90;121;182;162;213;217;301;296
-"Regi√£o Metropolitana de Maring√°";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;3;189;58;94;93;52;77;57;43;59;58;51;71;76;82
-"Regi√£o Metropolitana de Manaus";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;2;1;1;11;4;2;3;3;3;2;1;9;12;10;20
-"Regi√£o Metropolitana de Macei√≥";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;4;4;4;5;1;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Macap√°";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;16;89;74;55;55;60;17;22;22;4;12;12;10;8;18
-"Regi√£o Metropolitana de Londrina";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;41;73;98;138;145;160;137;141;117;126;143;131;98;88;131
-"Regi√£o Metropolitana de Lages";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;15;55;63;31;NA;4;NA;80;130;3;4;4;7
-"Regi√£o Metropolitana de Jundia√≠";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;2;3;8;2;2;4;NA;NA;2;NA;2;2;3;2;2
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;178;181;154;264;231;220;197;184;197;133;120;129;49;72;54
-"Regi√£o Metropolitana de Joinville";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;26;45;63;84;43;99;94;92;121;93;64;69;49;47;38
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;33;34;74;135;61;93;59;73;107;79;84;53;50;64;51
-"Regi√£o Metropolitana de Gurupi";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;5;2;16;17;11;2;1;1;NA;NA
-"Regi√£o Metropolitana de Goi√¢nia";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;129;271;259;383;468;441;552;461;503;543;424;499;205;79;96
-"Regi√£o Metropolitana de Fortaleza";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;200;266;200;300;249;283;224;95;110;56;83;116;119;178;172
-"Regi√£o Metropolitana de Florian√≥polis";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;115;135;123;85;58;57;54;15;26;10;21;27;17;124;85
-"Regi√£o Metropolitana de Feira de Santana";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;134;158;218;223;253;155;150;149;112;131;133;74;106;174;114
-"Regi√£o Metropolitana de Curitiba";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;260;334;309;232;226;266;450;435;268;406;325;291;319;241;317
-"Regi√£o Metropolitana de Chapec√≥";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;37;86;69;20;11;4;66;281;269;206;203;184;166;188;208
-"Regi√£o Metropolitana de Central";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Cascavel";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;128;82;52;9;8;5;7;10;NA;5;7;8;7;3;3
-"Regi√£o Metropolitana de Campo Mour√£o";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;5;6;NA;4;1;1;3;2;1;NA;3;3
-"Regi√£o Metropolitana de Campinas";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;237;234;243;239;229;237;241;233;252;255;219;157;145;173;140
-"Regi√£o Metropolitana de Campina Grande";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;19;41;10;69;101;79;31;25;6;12;33;58;81;56
-"Regi√£o Metropolitana de Caet√©s";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;1
-"Regi√£o Metropolitana de Bel√©m";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;16;26;32;39;44;42;61;61;51;38;50;39
-"Regi√£o Metropolitana de Belo Horizonte";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;329;493;853;932;957;1111;1101;1081;970;783;717;692;690;589;623
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA
-"Regi√£o Metropolitana de Aracaju";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;205;18;2;3;8;10;15;17;36;81;63;44;32;44;24
-"Regi√£o Metropolitana de Apucarana";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;6;12;21;11;26;16;22;33;21;34;15;21;36;27;32
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;11;2;1;3;1;5;5;3;NA;NA
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;5;4;NA;2;2;2;NA;4;3;1;NA;NA;2;17;43
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;86;71;52;95;69;119;143;158;186;116;75;79;71;121;33
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;7;2;8;21;NA;NA;NA;NA
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;11;11;32;13;17;11;8;4
-"Regi√£o Metropolitana da Capital";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;51;90;125;105;107;83;102;71;93;21;38;26;17;10;36
-"Regi√£o Metropolitana da Baixada Santista";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;72;75;113;95;104;77;64;50;63;56;74;69;52;57;40
-"Regi√£o Metropolitana Carbon√≠fera";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;8;15;37;59;77;78;28;27;30;38;30;24;26;48
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;542;566;528;715;454;256;242;223;312;281;415;359;447;469;524
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;15;4;1;8;10;11;2;107;232;168;166;100;69;128;91
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;1;7;4;9;16;35;62;5;75;67;73;82;100;90;124
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;4
-"Colar Metropolitano de Belo Horizonte";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;15;12;7;5;38;87;114;143;160;137;93;107;151;125;135
-"Colar Metropolitano";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;1;11;NA;NA;1;4;NA;3;12
-"-";"Ocupantes de autom√≥vel";NA;NA;NA;NA;NA;NA;NA;NA;2240;3467;5083;5559;5593;4763;5135;5150;4690;4634;4365;4384;4363;5149;4998
-"√Årea de Expans√£o Metropolitana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;3;1;2;10;12;14;10;4;11;6;22;26
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;177;79;59;72;75;81;70;79;131;128;133;101;25;21;43
-"Regi√£o Metropolitana do Vale do Pianc√≥";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;2;NA;2;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;239;300;232;200;177;220;159;164;230;299;355;282;309;330;266
-"Regi√£o Metropolitana do Vale do Para√≠ba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;35;49;50;26;24;17;19;19;19;34;34;28;33;11;27
-"Regi√£o Metropolitana do Vale do A√ßo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;137;198;168;180;143;149;119;130;165;135;106;84;125;136;125
-"Regi√£o Metropolitana do S√£o Francisco";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA
-"Regi√£o Metropolitana do Sul do Estado";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;NA;1;NA;2;3;NA;2;1;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;18;6;15;10;21;36;28;23;30;37;23
-"Regi√£o Metropolitana do Rio de Janeiro";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;201;257;290;295;277;344;365;358;378;465;387;473;364;514;505
-"Regi√£o Metropolitana do Planalto Norte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;6;3;3;3;5;7;NA;6;19;20
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;6;4;7;10;3;3;4;1;20;2;8;10
-"Regi√£o Metropolitana do Extremo Oeste";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;4;4;3;11;13;14;19;22;20;43;35;35;49;29;30
-"Regi√£o Metropolitana do Contestado";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;11;31;18;19;20;8;3;3;7;10;18;17;24;30;13
-"Regi√£o Metropolitana do Cariri";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;5;7;NA;8;9;2;17;10;34;21;33;20;21;32;37
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;4;NA;1;3;10;10;23;19;17;22;27;40;20;16
-"Regi√£o Metropolitana do Agreste";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;51;56;52;39;57;56;45;59;47;47;60;43;45;33;34
-"Regi√£o Metropolitana de Umuarama";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;1;NA;1;1;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Tubar√£o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;16;17;18;25;31;32;18;27;30;41;52;46;46;67;67
-"Regi√£o Metropolitana de Toledo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;8;9;11;1;2;NA;8;5;11;11;9;9;2
-"Regi√£o Metropolitana de S√£o Paulo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1353;1283;1255;1441;1368;1196;1147;962;1159;1213;1318;1394;1730;1708;1454
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;93;98;74;50;56;111;165;196;196;158;188;193;214;183;230
-"Regi√£o Metropolitana de Sousa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;4;9;54;20;37;4;98;81;70;24;47;89;68;48
-"Regi√£o Metropolitana de Sorocaba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;111;138;174;137;112;98;82;118;158;154;159;184;272;246;229
-"Regi√£o Metropolitana de Sobral";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;9;5;1;6;9;10;4;17;8;45;108;94
-"Regi√£o Metropolitana de Santar√©m";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;8;11;6;12;7;2;4;4;2;3;11;12;11;1
-"Regi√£o Metropolitana de Salvador";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;10;3;5;23;18;21;14;29;19;57;77;121;42;35;35
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;125;187;270;257;209;195;239;221;198;223;254;236;262;295;227
-"Regi√£o Metropolitana de Recife";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;22;78;149;209;272;692;491;402;464;522;523;409;267
-"Regi√£o Metropolitana de Porto Velho";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;5;30;54;50;11;28;8;7;12;27;60;38;76;120;105
-"Regi√£o Metropolitana de Porto Alegre";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;49;39;81;55;53;63;49;76;81;83;92;67;68;107;137
-"Regi√£o Metropolitana de Piracicaba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;74;74;84;69;40;49;77;104;72;71;112;92;106;132;122
-"Regi√£o Metropolitana de Patos";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;9;6;9;5;9;4;4;5;7;8;5;17;17;12;1
-"Regi√£o Metropolitana de Palmas";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;8;7;3;3;8;51;41;64;52;35;91;76;102;61
-"Regi√£o Metropolitana de Natal";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;79;51;83;60;46;25;35;29;36;62;66;194;237;255;274
-"Regi√£o Metropolitana de Maring√°";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;99;108;124;159;202;116;109;118;119;127;93;81;110;152
-"Regi√£o Metropolitana de Manaus";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;6;5;6;5;3;2;2;3;8;4;3;1;3;2
-"Regi√£o Metropolitana de Macei√≥";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;66;5;7;24;21;6;1;3;1;NA;NA;NA;1
-"Regi√£o Metropolitana de Macap√°";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;13;41;25;96;209;122;99;291;275;170;78;94;45;17;28
-"Regi√£o Metropolitana de Londrina";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;97;117;99;118;101;85;109;100;95;123;98;128;134;107;110
-"Regi√£o Metropolitana de Lages";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;2;4;NA;NA;NA;NA;234;326;209;84;117;250;143;141
-"Regi√£o Metropolitana de Jundia√≠";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;1;4;NA;4;2;2;6;7;1;3;9;23;12
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;147;405;252;132;87;81;87;66;39;47;68;86;103;161;142
-"Regi√£o Metropolitana de Joinville";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;15;47;77;80;66;132;147;168;241;333;249;226;133;122;126
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;1;8;10;27;22;34;35;59;45;27;73
-"Regi√£o Metropolitana de Itabaiana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Gurupi";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;1;12;7;9;11;15;12;2;1;4;NA;1
-"Regi√£o Metropolitana de Guarabira";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2
-"Regi√£o Metropolitana de Goi√¢nia";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;83;105;113;162;140;142;176;198;275;268;273;420;419;538;681
-"Regi√£o Metropolitana de Fortaleza";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;197;310;309;264;159;258;111;147;165;144;218;324;382;529;422
-"Regi√£o Metropolitana de Florian√≥polis";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;32;48;49;48;26;47;120;102;100;68;68;82;82;127;105
-"Regi√£o Metropolitana de Feira de Santana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;34;29;20;19;26;25;16;22;19;23;41;37;20;31;35
-"Regi√£o Metropolitana de Curitiba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;181;123;167;158;144;203;161;143;137;243;220;204;297;225;164
-"Regi√£o Metropolitana de Chapec√≥";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;54;50;36;51;18;11;16;44;40;58;67;53;71;56;57
-"Regi√£o Metropolitana de Central";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Cascavel";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;32;17;7;4;5;4;1;NA;2;2;4;3;2;2
-"Regi√£o Metropolitana de Campo Mour√£o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;7;2;3;8;2;1;2;4;3;5;1;6;3;NA;5
-"Regi√£o Metropolitana de Campinas";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;401;300;169;128;134;148;157;159;207;166;151;190;194;249;191
-"Regi√£o Metropolitana de Campina Grande";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;56;16;30;38;5;5;18;22;11;31;21;42;52;67;56
-"Regi√£o Metropolitana de Caet√©s";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;NA;NA;NA;NA;1;2;1;3;5;2
-"Regi√£o Metropolitana de Bel√©m";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;36;2;NA;24;69;66;81;80;86;72;91;91;89;96;101
-"Regi√£o Metropolitana de Belo Horizonte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;478;409;423;423;502;541;546;507;542;503;478;558;612;744;635
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;4;3;NA;NA;2;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Aracaju";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;23;5;4;6;11;14;14;21;30;43;57;40;46;66;64
-"Regi√£o Metropolitana de Apucarana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;12;13;11;1;8;3;8;6;13;12;17;9;24;31;18
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;3;3;13;12;14;8;4;6;6;2;NA;2
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;22;4;17;14;15;12;11;19;21;19;20;17;15;22;11
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;197;249;217;224;193;278;209;297;285;335;271;265;225;281;208
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;NA;30;10;19;41;5;NA;NA;NA
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;4;1;2;1;8;1;39;49;49;53;55;66;92;86
-"Regi√£o Metropolitana da Capital";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;28;54;47;53;72;53;45;65;82;16;44;40;21;19;26
-"Regi√£o Metropolitana da Baixada Santista";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;114;126;123;160;156;119;93;127;149;147;162;159;173;208;179
-"Regi√£o Metropolitana Carbon√≠fera";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;10;2;6;16;49;25;15;11;9;13;14;11;18;21
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;129;130;124;124;59;45;41;74;147;118;261;317;562;907;969
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;132;36;24;20;8;12;8;112;284;211;212;174;117;154;178
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;47;82;128;61;52;74;71;87;106;83;69;82;75;96;83
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;2;1;6;2;4;1;1;2;NA;7;2
+"-";"Total";0;0;0;0;0;0;0;0;24540;35603;44498;48867;52644;56550;59369;57668;58378;59546;62857;66425;66816;74007;77809
+"¡rea de Expans„o Metropolitana";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;NA;1;NA;1;1;1;NA;2;NA;1;NA
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;26;129;166;166;6;20;3;19;13;27;29;42;6;19;26
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;152;198;219;208;177;146;153;132;151;191;147;134;137;147;142
+"Regi„o Metropolitana do Vale do ItajaÌ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;19;14;23;24;30;39;68;60;57;70;69;65;56;44;58
+"Regi„o Metropolitana do Vale do AÁo";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;99;148;209;161;172;147;173;156;147;97;77;93;81;75;73
+"Regi„o Metropolitana do Sul do Estado";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;4;NA;NA;1;NA;1;1;1;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Sudoeste Maranhense";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;1;NA;NA;NA;1;1
+"Regi„o Metropolitana do Rio de Janeiro";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;463;397;486;468;649;712;820;794;649;625;479;481;439;608;511
+"Regi„o Metropolitana do Planalto Norte";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;10;4;2;7;6;9;8;10;13;8
+"Regi„o Metropolitana do MÈdio Sert„o";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;4;5;7;3;7;1;5;NA;NA;5;4
+"Regi„o Metropolitana do Extremo Oeste";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;5;8;15;46;52;80;99;56;43;39;34;49;44;61
+"Regi„o Metropolitana do Contestado";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;8;22;33;31;43;15;63;13;10;8;14;66;73;25;19
+"Regi„o Metropolitana do Cariri";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;8;20;6;28;38;54;58;32;26;29;59;40
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;7;13;NA;6;6;127;85;81;85;20;15;15;31;46;40
+"Regi„o Metropolitana do Agreste";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;52;78;63;91;67;45;74;77;105;65;95;95;98;79;68
+"Regi„o Metropolitana de Umuarama";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;3;NA;NA;NA;1;1;1;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Tubar„o";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;31;62;56;93;64;91;107;107;70;69;45;62;46;66;35
+"Regi„o Metropolitana de Toledo";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;17;24;29;8;6;9;7;9;15;26;33;11;10
+"Regi„o Metropolitana de S„o Paulo";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;1277;1509;1580;1574;1373;1525;1571;1366;1625;1317;1417;1244;1238;1193;1279
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;52;176;179;133;142;323;454;256;266;213;228;197;245;299;325
+"Regi„o Metropolitana de Sorocaba";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;171;246;221;271;172;167;134;130;169;162;159;162;133;169;197
+"Regi„o Metropolitana de Sobral";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;17;5;49;13;4;26;100;107;63;41;6;13;48;18
+"Regi„o Metropolitana de SantarÈm";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;5;1;3;NA;1;NA;1;NA;NA;NA;2;1;1
+"Regi„o Metropolitana de Salvador";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;384;516;477;435;414;347;319;282;195;282;255;201;163;197;287
+"Regi„o Metropolitana de Ribeir„o Preto";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;204;271;348;315;274;379;319;253;244;231;226;258;224;196;166
+"Regi„o Metropolitana de Recife";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;5;4;60;132;142;154;153;120;95;65;75;64;73;46;39
+"Regi„o Metropolitana de Porto Velho";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;2;21;54;26;11;36;33;29;56;50;58;23;54;96;52
+"Regi„o Metropolitana de Porto Alegre";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;934;1615;1394;1063;907;751;583;431;368;490;334;256;289;296;271
+"Regi„o Metropolitana de Piracicaba";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;26;39;67;65;65;55;97;100;89;104;99;85;75;115;93
+"Regi„o Metropolitana de Patos";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;3;10;20;4;7;NA;NA;NA;NA;NA;2;1;4;NA;4
+"Regi„o Metropolitana de Palmas";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;1;1;4;83;24;52;121;21;14;11;13;28;44;70;49
+"Regi„o Metropolitana de Natal";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;13;9;12;93;161;58;64;90;121;182;162;213;217;301;296
+"Regi„o Metropolitana de Maring·";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;3;189;58;94;93;52;77;57;43;59;58;51;71;76;82
+"Regi„o Metropolitana de Manaus";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;2;1;1;11;4;2;3;3;3;2;1;9;12;10;20
+"Regi„o Metropolitana de MaceiÛ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;4;4;4;5;1;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Macap·";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;16;89;74;55;55;60;17;22;22;4;12;12;10;8;18
+"Regi„o Metropolitana de Londrina";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;41;73;98;138;145;160;137;141;117;126;143;131;98;88;131
+"Regi„o Metropolitana de Lages";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;15;55;63;31;NA;4;NA;80;130;3;4;4;7
+"Regi„o Metropolitana de JundiaÌ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;2;3;8;2;2;4;NA;NA;2;NA;2;2;3;2;2
+"Regi„o Metropolitana de Jo„o Pessoa";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;178;181;154;264;231;220;197;184;197;133;120;129;49;72;54
+"Regi„o Metropolitana de Joinville";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;26;45;63;84;43;99;94;92;121;93;64;69;49;47;38
+"Regi„o Metropolitana de Jaragu· do Sul";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;33;34;74;135;61;93;59;73;107;79;84;53;50;64;51
+"Regi„o Metropolitana de Gurupi";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;5;2;16;17;11;2;1;1;NA;NA
+"Regi„o Metropolitana de Goi‚nia";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;129;271;259;383;468;441;552;461;503;543;424;499;205;79;96
+"Regi„o Metropolitana de Fortaleza";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;200;266;200;300;249;283;224;95;110;56;83;116;119;178;172
+"Regi„o Metropolitana de FlorianÛpolis";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;115;135;123;85;58;57;54;15;26;10;21;27;17;124;85
+"Regi„o Metropolitana de Feira de Santana";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;134;158;218;223;253;155;150;149;112;131;133;74;106;174;114
+"Regi„o Metropolitana de Curitiba";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;260;334;309;232;226;266;450;435;268;406;325;291;319;241;317
+"Regi„o Metropolitana de ChapecÛ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;37;86;69;20;11;4;66;281;269;206;203;184;166;188;208
+"Regi„o Metropolitana de Central";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Cascavel";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;128;82;52;9;8;5;7;10;NA;5;7;8;7;3;3
+"Regi„o Metropolitana de Campo Mour„o";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;5;6;NA;4;1;1;3;2;1;NA;3;3
+"Regi„o Metropolitana de Campinas";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;237;234;243;239;229;237;241;233;252;255;219;157;145;173;144
+"Regi„o Metropolitana de Campina Grande";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;19;41;10;69;101;79;31;25;6;12;33;58;81;56
+"Regi„o Metropolitana de CaetÈs";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;1
+"Regi„o Metropolitana de BelÈm";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;16;26;32;39;44;42;61;61;51;38;50;39
+"Regi„o Metropolitana de Belo Horizonte";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;329;493;853;932;957;1111;1101;1081;970;783;717;692;690;589;623
+"Regi„o Metropolitana de Barra de Santa Rosa";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA
+"Regi„o Metropolitana de Aracaju";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;205;18;2;3;8;10;15;17;36;81;63;44;32;44;24
+"Regi„o Metropolitana de Apucarana";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;6;12;21;11;26;16;22;33;21;34;15;21;36;27;32
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;11;2;1;3;1;5;5;3;NA;NA
+"Regi„o Metropolitana da Serra Ga˙cha";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;5;4;NA;2;2;2;NA;4;3;1;NA;NA;2;17;43
+"Regi„o Metropolitana da Grande VitÛria";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;86;71;52;95;69;119;143;158;186;116;75;79;71;121;33
+"Regi„o Metropolitana da Grande S„o LuÌs";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;7;2;8;21;NA;NA;NA;NA
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;11;11;32;13;17;11;8;4
+"Regi„o Metropolitana da Capital";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;51;90;125;105;107;83;102;71;93;21;38;26;17;10;36
+"Regi„o Metropolitana da Baixada Santista";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;72;75;113;95;104;77;64;50;63;56;74;69;52;57;40
+"Regi„o Metropolitana CarbonÌfera";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;8;15;37;59;77;78;28;27;30;38;30;24;26;48
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;542;566;528;715;454;256;242;223;312;281;415;359;447;469;524
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;15;4;1;8;10;11;2;107;232;168;166;100;69;128;91
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;1;7;4;9;16;35;62;5;75;67;73;82;100;90;124
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;4
+"Colar Metropolitano de Belo Horizonte";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;15;12;7;5;38;87;114;143;160;137;93;107;151;125;135
+"Colar Metropolitano";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;1;11;NA;NA;1;4;NA;3;12
+"-";"Ocupantes de automÛvel";NA;NA;NA;NA;NA;NA;NA;NA;2240;3467;5083;5559;5593;4763;5135;5150;4690;4634;4365;4384;4363;5149;5014
+"¡rea de Expans„o Metropolitana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;3;1;2;10;12;14;10;4;11;6;22;26
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;177;79;59;72;75;81;70;79;131;128;133;101;25;21;43
+"Regi„o Metropolitana do Vale do PiancÛ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;2;NA;2;NA;NA;NA;1;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;239;300;232;200;177;220;159;164;230;299;355;282;309;330;266
+"Regi„o Metropolitana do Vale do ParaÌba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Vale do ItajaÌ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;35;49;50;26;24;17;19;19;19;34;34;28;33;11;27
+"Regi„o Metropolitana do Vale do AÁo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;137;198;168;180;143;149;119;130;165;135;106;84;125;136;125
+"Regi„o Metropolitana do S„o Francisco";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA
+"Regi„o Metropolitana do Sul do Estado";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;NA;1;NA;2;3;NA;2;1;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Sudoeste Maranhense";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;18;6;15;10;21;36;28;23;30;37;23
+"Regi„o Metropolitana do Rio de Janeiro";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;201;257;290;295;277;344;365;358;378;465;387;473;364;514;505
+"Regi„o Metropolitana do Planalto Norte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;6;3;3;3;5;7;NA;6;19;20
+"Regi„o Metropolitana do MÈdio Sert„o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;6;4;7;10;3;3;4;1;20;2;8;10
+"Regi„o Metropolitana do Extremo Oeste";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;4;4;3;11;13;14;19;22;20;43;35;35;49;29;30
+"Regi„o Metropolitana do Contestado";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;11;31;18;19;20;8;3;3;7;10;18;17;24;30;13
+"Regi„o Metropolitana do Cariri";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;5;7;NA;8;9;2;17;10;34;21;33;20;21;32;37
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;4;NA;1;3;10;10;23;19;17;22;27;40;20;16
+"Regi„o Metropolitana do Agreste";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;51;56;52;39;57;56;45;59;47;47;60;43;45;33;34
+"Regi„o Metropolitana de Umuarama";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;1;NA;1;1;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Tubar„o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;16;17;18;25;31;32;18;27;30;41;52;46;46;67;67
+"Regi„o Metropolitana de Toledo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;8;9;11;1;2;NA;8;5;11;11;9;9;2
+"Regi„o Metropolitana de S„o Paulo";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1353;1283;1255;1441;1368;1196;1147;962;1159;1213;1318;1394;1730;1708;1454
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;93;98;74;50;56;111;165;196;196;158;188;193;214;183;230
+"Regi„o Metropolitana de Sousa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;4;9;54;20;37;4;98;81;70;24;47;89;68;48
+"Regi„o Metropolitana de Sorocaba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;111;138;174;137;112;98;82;118;158;154;159;184;272;246;229
+"Regi„o Metropolitana de Sobral";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;9;5;1;6;9;10;4;17;8;45;108;94
+"Regi„o Metropolitana de SantarÈm";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;8;11;6;12;7;2;4;4;2;3;11;12;11;1
+"Regi„o Metropolitana de Salvador";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;10;3;5;23;18;21;14;29;19;57;77;121;42;35;35
+"Regi„o Metropolitana de Ribeir„o Preto";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;125;187;270;257;209;195;239;221;198;223;254;236;262;295;227
+"Regi„o Metropolitana de Recife";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;22;78;149;209;272;692;491;402;464;522;523;409;267
+"Regi„o Metropolitana de Porto Velho";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;5;30;54;50;11;28;8;7;12;27;60;38;76;120;105
+"Regi„o Metropolitana de Porto Alegre";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;49;39;81;55;53;63;49;76;81;83;92;67;68;107;137
+"Regi„o Metropolitana de Piracicaba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;74;74;84;69;40;49;77;104;72;71;112;92;106;132;122
+"Regi„o Metropolitana de Patos";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;9;6;9;5;9;4;4;5;7;8;5;17;17;12;1
+"Regi„o Metropolitana de Palmas";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;8;7;3;3;8;51;41;64;52;35;91;76;102;61
+"Regi„o Metropolitana de Natal";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;79;51;83;60;46;25;35;29;36;62;66;194;237;255;274
+"Regi„o Metropolitana de Maring·";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;99;108;124;159;202;116;109;118;119;127;93;81;110;152
+"Regi„o Metropolitana de Manaus";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;6;5;6;5;3;2;2;3;8;4;3;1;3;2
+"Regi„o Metropolitana de MaceiÛ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;66;5;7;24;21;6;1;3;1;NA;NA;NA;1
+"Regi„o Metropolitana de Macap·";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;13;41;25;96;209;122;99;291;275;170;78;94;45;17;28
+"Regi„o Metropolitana de Londrina";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;97;117;99;118;101;85;109;100;95;123;98;128;134;107;110
+"Regi„o Metropolitana de Lages";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;2;4;NA;NA;NA;NA;234;326;209;84;117;250;143;141
+"Regi„o Metropolitana de JundiaÌ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;3;1;4;NA;4;2;2;6;7;1;3;9;23;12
+"Regi„o Metropolitana de Jo„o Pessoa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;147;405;252;132;87;81;87;66;39;47;68;86;103;161;142
+"Regi„o Metropolitana de Joinville";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;15;47;77;80;66;132;147;168;241;333;249;226;133;122;126
+"Regi„o Metropolitana de Jaragu· do Sul";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;1;8;10;27;22;34;35;59;45;27;73
+"Regi„o Metropolitana de Itabaiana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Gurupi";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;1;12;7;9;11;15;12;2;1;4;NA;1
+"Regi„o Metropolitana de Guarabira";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2
+"Regi„o Metropolitana de Goi‚nia";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;83;105;113;162;140;142;176;198;275;268;273;420;419;538;681
+"Regi„o Metropolitana de Fortaleza";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;197;310;309;264;159;258;111;147;165;144;218;324;382;529;422
+"Regi„o Metropolitana de FlorianÛpolis";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;32;48;49;48;26;47;120;102;100;68;68;82;82;127;105
+"Regi„o Metropolitana de Feira de Santana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;34;29;20;19;26;25;16;22;19;23;41;37;20;31;35
+"Regi„o Metropolitana de Curitiba";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;181;123;167;158;144;203;161;143;137;243;220;204;297;225;164
+"Regi„o Metropolitana de ChapecÛ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;54;50;36;51;18;11;16;44;40;58;67;53;71;56;57
+"Regi„o Metropolitana de Central";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Cascavel";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;32;17;7;4;5;4;1;NA;2;2;4;3;2;2
+"Regi„o Metropolitana de Campo Mour„o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;7;2;3;8;2;1;2;4;3;5;1;6;3;NA;5
+"Regi„o Metropolitana de Campinas";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;401;300;169;128;134;148;157;159;207;166;151;190;194;249;191
+"Regi„o Metropolitana de Campina Grande";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;56;16;30;38;5;5;18;22;11;31;21;42;52;67;56
+"Regi„o Metropolitana de CaetÈs";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;1;NA;NA;NA;NA;NA;NA;1;2;1;3;5;2
+"Regi„o Metropolitana de BelÈm";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;36;2;NA;24;69;66;81;80;86;72;91;91;89;96;101
+"Regi„o Metropolitana de Belo Horizonte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;478;409;423;423;502;541;546;507;542;503;478;558;612;744;635
+"Regi„o Metropolitana de Barra de Santa Rosa";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;4;3;NA;NA;2;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Aracaju";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;23;5;4;6;11;14;14;21;30;43;57;40;46;66;64
+"Regi„o Metropolitana de Apucarana";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;12;13;11;1;8;3;8;6;13;12;17;9;24;31;18
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;3;3;13;12;14;8;4;6;6;2;NA;2
+"Regi„o Metropolitana da Serra Ga˙cha";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;22;4;17;14;15;12;11;19;21;19;20;17;15;22;11
+"Regi„o Metropolitana da Grande VitÛria";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;197;249;217;224;193;278;209;297;285;335;271;265;225;281;208
+"Regi„o Metropolitana da Grande S„o LuÌs";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;NA;30;10;19;41;5;NA;NA;NA
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;4;1;2;1;8;1;39;49;49;53;55;66;92;86
+"Regi„o Metropolitana da Capital";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;28;54;47;53;72;53;45;65;82;16;44;40;21;19;26
+"Regi„o Metropolitana da Baixada Santista";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;114;126;123;160;156;119;93;127;149;147;162;159;173;208;179
+"Regi„o Metropolitana CarbonÌfera";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;8;10;2;6;16;49;25;15;11;9;13;14;11;18;21
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;129;130;124;124;59;45;41;74;147;118;261;317;562;907;969
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;132;36;24;20;8;12;8;112;284;211;212;174;117;154;178
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;47;82;128;61;52;74;71;87;106;83;69;82;75;96;83
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;NA;2;1;6;2;4;1;1;2;NA;7;2
 "Colar Metropolitano de Belo Horizonte";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;17;20;17;12;30;39;62;67;107;145;142;133;139;177;142
 "Colar Metropolitano";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;6;1;NA;NA;NA;NA;13;NA;NA;1;5;3;7;16
-"-";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2330;3049;3495;3438;3300;3319;3516;3713;3756;3916;4224;4582;4980;5494;5318
-"√Årea de Expans√£o Metropolitana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;4;5;6;13;10;3;3;13;7;6;3;7
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;501;762;793;1070;1283;1837;1798;1482;2318;2214;2086;1971;580;551;836
-"Regi√£o Metropolitana do Vale do Pianc√≥";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;746;930;886;903;751;984;1166;988;1160;1226;1402;1583;1465;1583;1637
-"Regi√£o Metropolitana do Vale do Mamanguape";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;71;310;337;262;203;217;176;161;150;190;159;69;113;96;116
-"Regi√£o Metropolitana do Vale do A√ßo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;342;464;586;568;616;553;570;568;697;611;397;348;399;534;519
-"Regi√£o Metropolitana do S√£o Francisco";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;8;3;1
-"Regi√£o Metropolitana do Sul do Estado";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;7;4;10;18;13;24;17;12;24;20;6;3;5;NA;16
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;10;3;417;190;447;570;451;992;693;680;569;645;270
-"Regi√£o Metropolitana do Sert√£o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Rio de Janeiro";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1424;1786;1825;2234;2325;2896;3325;3488;3165;3561;3209;3871;3988;5141;5010
-"Regi√£o Metropolitana do Planalto Norte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;4;12;3;2;29;11;19;32;23;28;23;40;97;138
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;21;65;124;200;179;88;42;31;38;25;90;108
-"Regi√£o Metropolitana do Extremo Oeste";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;10;6;77;258;233;246;236;196;313;288;252;286;243;270
-"Regi√£o Metropolitana do Contestado";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;68;103;103;146;156;115;155;160;139;118;208;260;216;191;224
-"Regi√£o Metropolitana do Cariri";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;91;586;199;828;1067;1210;899;1036;881;1112;1394;1389
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;9;5;16;16;12;15;32;60;85;99;108;130;91;102
-"Regi√£o Metropolitana do Agreste";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;332;430;468;453;542;686;681;1049;1151;930;1375;1050;1129;923;883
-"Regi√£o Metropolitana de Umuarama";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;2;1;2;1;1;NA;NA;NA;1
-"Regi√£o Metropolitana de Tubar√£o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;234;391;235;337;295;324;358;352;343;358;338;450;390;389;364
-"Regi√£o Metropolitana de Toledo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;88;105;61;16;13;12;10;13;41;52;56;46;12
-"Regi√£o Metropolitana de S√£o Paulo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;7291;8150;9296;10594;10011;10050;9654;8278;8971;9555;9990;10873;11915;13820;14049
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;349;414;310;363;435;558;814;811;911;883;1008;1117;1122;1219;1351
-"Regi√£o Metropolitana de Sousa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;30;36;33;10;32;2;71;60;83;24;45;91;101;67
-"Regi√£o Metropolitana de Sorocaba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;537;745;792;924;580;507;698;1210;1230;1021;912;1156;1425;1639;1520
-"Regi√£o Metropolitana de Sobral";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;223;344;284;359;407;335;309;392;392;472;657;481
-"Regi√£o Metropolitana de Santar√©m";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;32;43;45;79;86;80;71;107;111;91;196;120;93;106
-"Regi√£o Metropolitana de Salvador";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;975;1266;1380;1578;1775;1583;2056;1885;1780;2066;2096;2416;2766;3025;2756
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;905;1044;1514;1589;1293;1324;1484;1417;1432;1338;1255;1322;1373;1399;1323
-"Regi√£o Metropolitana de Recife";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;17;29;784;2026;2540;2629;3069;2876;2281;2409;2008;1950;1830;1679;1847
-"Regi√£o Metropolitana de Porto Velho";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;100;363;505;410;485;752;526;295;557;701;893;640;870;1377;1151
-"Regi√£o Metropolitana de Porto Alegre";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;404;335;864;778;541;745;792;956;907;1053;876;912;1005;1060;1001
-"Regi√£o Metropolitana de Piracicaba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;157;237;224;210;149;196;314;468;403;569;537;524;651;670;733
-"Regi√£o Metropolitana de Patos";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;102;175;500;343;319;158;223;281;344;250;217;407;469;304;715
-"Regi√£o Metropolitana de Palmas";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;38;14;45;108;117;88;798;816;1039;888;841;1361;1489;1644;1314
-"Regi√£o Metropolitana de Natal";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;581;893;1540;1638;1439;981;928;996;1086;1547;1594;2338;2482;2272;2624
-"Regi√£o Metropolitana de Maring√°";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;25;639;772;838;916;637;682;735;690;771;731;679;814;936;1185
-"Regi√£o Metropolitana de Manaus";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;7;64;125;42;7;13;313;386;479;486;508;455;598;815
-"Regi√£o Metropolitana de Macei√≥";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;19;62;69;53;77;19;2;1;NA;NA;NA
-"Regi√£o Metropolitana de Macap√°";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;98;148;211;136;242;129;129;123;130;261;251;206;247;227;334
-"Regi√£o Metropolitana de Londrina";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;360;723;629;748;867;979;1144;1118;1112;1110;1042;1243;1494;1082;1022
-"Regi√£o Metropolitana de Lages";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;21;66;NA;NA;NA;1;15;52;75;67;96;47;143;198
-"Regi√£o Metropolitana de Jundia√≠";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;3;3;9;5;2;1;4;4;4;1;3;1;2;4
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;627;1208;1661;1765;1697;1839;1970;2255;1646;1599;1815;2219;2095;2695;2634
-"Regi√£o Metropolitana de Joinville";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;211;419;487;496;293;636;889;903;591;445;386;389;292;232;211
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;7;83;316;213;215;323;344;346;276;340;403;441;468
-"Regi√£o Metropolitana de Itabaiana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;11;3;NA;11;2;1;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Gurupi";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;9;9;11;20;26;54;35;38;5;5;6;4;9
-"Regi√£o Metropolitana de Guarabira";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;6;6;1
-"Regi√£o Metropolitana de Goi√¢nia";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1746;3926;4094;3460;4410;3570;4101;3974;3616;3604;3112;4002;2323;1192;1455
-"Regi√£o Metropolitana de Fortaleza";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1503;2109;3014;3416;3166;3855;3795;3431;4610;3486;4112;4644;4943;5635;4721
-"Regi√£o Metropolitana de Florian√≥polis";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;931;850;833;914;866;871;922;941;1063;1018;1158;983;706;1117;1128
-"Regi√£o Metropolitana de Feira de Santana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;252;477;495;707;787;984;685;640;810;710;838;799;908;1212;1023
-"Regi√£o Metropolitana de Curitiba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;228;414;630;894;862;1041;884;813;872;935;872;875;1125;886;806
-"Regi√£o Metropolitana de Chapec√≥";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;49;153;170;193;153;107;148;496;641;673;609;565;679;622;689
-"Regi√£o Metropolitana de Central";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Cascavel";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;23;69;102;59;69;28;43;8;NA;34;5;8;17;9;6
-"Regi√£o Metropolitana de Campo Mour√£o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;6;3;21;24;4;13;14;11;27;33;13;NA;NA;18
-"Regi√£o Metropolitana de Campinas";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1135;1014;1178;1140;1084;930;1037;1111;1202;1173;989;944;1081;1126;1122
-"Regi√£o Metropolitana de Campina Grande";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1199;1659;1763;996;1025;1053;1006;1112;914;1028;546;834;1099;1105;825
-"Regi√£o Metropolitana de Cajazeiras";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Caet√©s";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;NA;NA;NA;NA;9;NA;3;33;62;52;23;23
-"Regi√£o Metropolitana de Bel√©m";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;63;22;8;120;379;587;918;1366;1485;1383;1679;1625;1650;1839;1695
-"Regi√£o Metropolitana de Belo Horizonte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1802;1962;2590;3237;3384;4094;4577;4557;4459;4139;3805;4093;4019;4999;5238
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;10;6;58;44;25;4;3;14;1;18;5;4;6
-"Regi√£o Metropolitana de Aracaju";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;232;252;215;261;355;395;346;1054;1340;1439;1524;1823;1311;1405;2138
-"Regi√£o Metropolitana de Apucarana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;33;55;40;28;48;37;56;98;89;66;87;75;163;264;179
-"Regi√£o Metropolitana da Zona da Mata";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;6;NA
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;10;74;143;144;193;195;118;184;219;178;119;149;268
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;111;46;119;89;124;136;155;152;181;177;119;145;115;128;110
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;295;348;234;533;590;896;1039;1274;1248;1227;723;629;778;1458;1192
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;2;2;NA;4;139;330;383;391;254;218;10;NA
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;4;NA;1;3;338;378;352;368;339;359;411;444
-"Regi√£o Metropolitana da Capital";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;299;430;636;469;625;422;580;991;1427;289;621;394;442;286;309
-"Regi√£o Metropolitana da Baixada Santista";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;386;444;450;465;521;522;572;591;865;881;867;801;783;785;853
-"Regi√£o Metropolitana Carbon√≠fera";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;4;7;NA;130;207;153;175;178;144;159;202;147;256;230
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;513;518;533;580;330;333;277;294;564;558;1325;1215;1708;1736;2013
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2014;920;2355;2196;1954;4043;4219;4984;5665;4433;4505;4585;3755;4789;3870
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;301;1196;1653;1807;1571;1981;1665;1452;1829;1544;1514;1528;1445;1609;1446
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;8;2;11;12;11;7;11;13;2;9;16;26;25
+"-";"Ciclistas";NA;NA;NA;NA;NA;NA;NA;NA;2330;3049;3495;3438;3300;3319;3516;3713;3756;3916;4224;4582;4980;5494;5321
+"¡rea de Expans„o Metropolitana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;4;5;6;13;10;3;3;13;7;6;3;8
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;501;762;793;1070;1283;1837;1798;1482;2318;2214;2086;1971;580;551;836
+"Regi„o Metropolitana do Vale do PiancÛ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;746;930;886;903;751;984;1166;988;1160;1226;1402;1583;1465;1583;1637
+"Regi„o Metropolitana do Vale do Mamanguape";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA
+"Regi„o Metropolitana do Vale do ItajaÌ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;71;310;337;262;203;217;176;161;150;190;159;69;113;96;116
+"Regi„o Metropolitana do Vale do AÁo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;342;464;586;568;616;553;570;568;697;611;397;348;399;534;519
+"Regi„o Metropolitana do S„o Francisco";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;8;3;1
+"Regi„o Metropolitana do Sul do Estado";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;7;4;10;18;13;24;17;12;24;20;6;3;5;NA;16
+"Regi„o Metropolitana do Sudoeste Maranhense";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;10;3;417;190;447;570;451;992;693;680;569;645;271
+"Regi„o Metropolitana do Sert„o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Rio de Janeiro";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1424;1786;1825;2234;2325;2896;3325;3488;3165;3561;3209;3871;3988;5141;5010
+"Regi„o Metropolitana do Planalto Norte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;4;12;3;2;29;11;19;32;23;28;23;40;97;138
+"Regi„o Metropolitana do MÈdio Sert„o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;21;65;124;200;179;88;42;31;38;25;90;108
+"Regi„o Metropolitana do Extremo Oeste";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;10;6;77;258;233;246;236;196;313;288;252;286;243;270
+"Regi„o Metropolitana do Contestado";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;68;103;103;146;156;115;155;160;139;118;208;260;216;191;224
+"Regi„o Metropolitana do Cariri";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;91;586;199;828;1067;1210;899;1036;881;1112;1394;1389
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;9;5;16;16;12;15;32;60;85;99;108;130;91;102
+"Regi„o Metropolitana do Agreste";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;332;430;468;453;542;686;681;1049;1151;930;1375;1050;1129;923;883
+"Regi„o Metropolitana de Umuarama";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;2;1;2;1;1;NA;NA;NA;1
+"Regi„o Metropolitana de Tubar„o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;234;391;235;337;295;324;358;352;343;358;338;450;390;389;364
+"Regi„o Metropolitana de Toledo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;88;105;61;16;13;12;10;13;41;52;56;46;12
+"Regi„o Metropolitana de S„o Paulo";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;7291;8150;9296;10594;10011;10050;9654;8278;8971;9555;9990;10873;11915;13820;14049
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;349;414;310;363;435;558;814;811;911;883;1008;1117;1122;1219;1351
+"Regi„o Metropolitana de Sousa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;30;36;33;10;32;2;71;60;83;24;45;91;101;67
+"Regi„o Metropolitana de Sorocaba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;537;745;792;924;580;507;698;1210;1230;1021;912;1156;1425;1639;1520
+"Regi„o Metropolitana de Sobral";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;223;344;284;359;407;335;309;392;392;472;657;481
+"Regi„o Metropolitana de SantarÈm";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;32;43;45;79;86;80;71;107;111;91;196;120;93;106
+"Regi„o Metropolitana de Salvador";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;975;1266;1380;1578;1775;1583;2056;1885;1780;2066;2096;2416;2766;3025;2756
+"Regi„o Metropolitana de Ribeir„o Preto";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;905;1044;1514;1589;1293;1324;1484;1417;1432;1338;1255;1322;1373;1399;1323
+"Regi„o Metropolitana de Recife";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;17;29;784;2026;2540;2629;3069;2876;2281;2409;2008;1950;1830;1679;1847
+"Regi„o Metropolitana de Porto Velho";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;100;363;505;410;485;752;526;295;557;701;893;640;870;1377;1151
+"Regi„o Metropolitana de Porto Alegre";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;404;335;864;778;541;745;792;956;907;1053;876;912;1005;1060;1001
+"Regi„o Metropolitana de Piracicaba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;157;237;224;210;149;196;314;468;403;569;537;524;651;670;733
+"Regi„o Metropolitana de Patos";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;102;175;500;343;319;158;223;281;344;250;217;407;469;304;715
+"Regi„o Metropolitana de Palmas";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;38;14;45;108;117;88;798;816;1039;888;841;1361;1489;1644;1314
+"Regi„o Metropolitana de Natal";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;581;893;1540;1638;1439;981;928;996;1086;1547;1594;2338;2482;2272;2624
+"Regi„o Metropolitana de Maring·";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;25;639;772;838;916;637;682;735;690;771;731;679;814;936;1185
+"Regi„o Metropolitana de Manaus";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;7;64;125;42;7;13;313;386;479;486;508;455;598;817
+"Regi„o Metropolitana de MaceiÛ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;19;62;69;53;77;19;2;1;NA;NA;NA
+"Regi„o Metropolitana de Macap·";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;98;148;211;136;242;129;129;123;130;261;251;206;247;227;334
+"Regi„o Metropolitana de Londrina";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;360;723;629;748;867;979;1144;1118;1112;1110;1042;1243;1494;1082;1022
+"Regi„o Metropolitana de Lages";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;21;66;NA;NA;NA;1;15;52;75;67;96;47;143;198
+"Regi„o Metropolitana de JundiaÌ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;3;3;9;5;2;1;4;4;4;1;3;1;2;4
+"Regi„o Metropolitana de Jo„o Pessoa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;627;1208;1661;1765;1697;1839;1970;2255;1646;1599;1815;2219;2095;2695;2634
+"Regi„o Metropolitana de Joinville";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;211;419;487;496;293;636;889;903;591;445;386;389;292;232;211
+"Regi„o Metropolitana de Jaragu· do Sul";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;7;83;316;213;215;323;344;346;276;340;403;441;468
+"Regi„o Metropolitana de Itabaiana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;11;3;NA;11;2;1;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Gurupi";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;9;9;11;20;26;54;35;38;5;5;6;4;9
+"Regi„o Metropolitana de Guarabira";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;6;6;1
+"Regi„o Metropolitana de Goi‚nia";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1746;3926;4094;3460;4410;3570;4101;3974;3616;3604;3112;4002;2323;1192;1455
+"Regi„o Metropolitana de Fortaleza";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1503;2109;3014;3416;3166;3855;3795;3431;4610;3486;4112;4644;4943;5635;4721
+"Regi„o Metropolitana de FlorianÛpolis";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;931;850;833;914;866;871;922;941;1063;1018;1158;983;706;1117;1128
+"Regi„o Metropolitana de Feira de Santana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;252;477;495;707;787;984;685;640;810;710;838;799;908;1212;1023
+"Regi„o Metropolitana de Curitiba";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;228;414;630;894;862;1041;884;813;872;935;872;875;1125;886;806
+"Regi„o Metropolitana de ChapecÛ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;49;153;170;193;153;107;148;496;641;673;609;565;679;622;689
+"Regi„o Metropolitana de Central";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Cascavel";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;23;69;102;59;69;28;43;8;NA;34;5;8;17;9;6
+"Regi„o Metropolitana de Campo Mour„o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;6;3;21;24;4;13;14;11;27;33;13;NA;NA;18
+"Regi„o Metropolitana de Campinas";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1135;1014;1178;1140;1084;930;1037;1111;1202;1173;989;944;1081;1126;1123
+"Regi„o Metropolitana de Campina Grande";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1199;1659;1763;996;1025;1053;1006;1112;914;1028;546;834;1099;1105;825
+"Regi„o Metropolitana de Cajazeiras";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de CaetÈs";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;2;NA;NA;NA;NA;9;NA;3;33;62;52;23;23
+"Regi„o Metropolitana de BelÈm";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;63;22;8;120;379;587;918;1366;1485;1383;1679;1625;1650;1839;1695
+"Regi„o Metropolitana de Belo Horizonte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1802;1962;2590;3237;3384;4094;4577;4557;4459;4139;3805;4093;4019;4999;5238
+"Regi„o Metropolitana de Barra de Santa Rosa";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;10;6;58;44;25;4;3;14;1;18;5;4;6
+"Regi„o Metropolitana de Aracaju";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;232;252;215;261;355;395;346;1054;1340;1439;1524;1823;1311;1405;2138
+"Regi„o Metropolitana de Apucarana";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;33;55;40;28;48;37;56;98;89;66;87;75;163;264;179
+"Regi„o Metropolitana da Zona da Mata";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;6;NA
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;10;74;143;144;193;195;118;184;219;178;119;149;268
+"Regi„o Metropolitana da Serra Ga˙cha";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;111;46;119;89;124;136;155;152;181;177;119;145;115;128;110
+"Regi„o Metropolitana da Grande VitÛria";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;295;348;234;533;590;896;1039;1274;1248;1227;723;629;778;1458;1192
+"Regi„o Metropolitana da Grande S„o LuÌs";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;2;2;NA;4;139;330;383;391;254;218;10;NA
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;4;NA;1;3;338;378;352;368;339;359;411;444
+"Regi„o Metropolitana da Capital";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;299;430;636;469;625;422;580;991;1427;289;621;394;442;286;309
+"Regi„o Metropolitana da Baixada Santista";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;386;444;450;465;521;522;572;591;865;881;867;801;783;785;853
+"Regi„o Metropolitana CarbonÌfera";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;1;4;7;NA;130;207;153;175;178;144;159;202;147;256;230
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;513;518;533;580;330;333;277;294;564;558;1325;1215;1708;1736;2013
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;2014;920;2355;2196;1954;4043;4219;4984;5665;4433;4505;4585;3755;4789;3870
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;301;1196;1653;1807;1571;1981;1665;1452;1829;1544;1514;1528;1445;1609;1446
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;NA;3;8;2;11;12;11;7;11;13;2;9;16;26;25
 "Colar Metropolitano de Belo Horizonte";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;52;101;71;78;175;241;385;508;433;610;539;563;639;707;611
 "Colar Metropolitano";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;24;2;1;4;NA;NA;NA;29;NA;NA;20;36;2;6;27
-"-";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;9619;14887;20733;23442;25193;27708;30103;30216;31852;33559;36611;39680;39563;44587;46955
-"√Årea de Expans√£o Metropolitana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;1;2;NA;NA;NA;NA;1
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;14;13;35;45;81;148;475;311;688;565;514;308;54;28;41
-"Regi√£o Metropolitana do Vale do Pianc√≥";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;4;2;2;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;278;242;239;219;232;219;197;160;151;250;300;258;172;169;230
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;69;209;206;193;192;143;76;59;54;64;58;42;37;49;26
-"Regi√£o Metropolitana do Vale do A√ßo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;119;212;232;200;186;172;230;165;148;135;93;135;75;65;57
-"Regi√£o Metropolitana do S√£o Francisco";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
-"Regi√£o Metropolitana do Sul do Estado";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;3;1;1;NA;NA;31;110;132;64;116
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1467;2292;282;191;770;125;14;44;3;1;1;1;NA;2
-"Regi√£o Metropolitana do Rio de Janeiro";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;3330;3165;3434;4009;4217;4986;4321;2400;2116;2182;2137;2593;1092;1972;1478
-"Regi√£o Metropolitana do Planalto Norte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;7;2;3;1;1;1;2;13;7
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;11;23;2;7;6;2;3;2;NA;4;7
-"Regi√£o Metropolitana do Extremo Oeste";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;5;10;3;10;52;57;54;34;9;24;17;23;26;21;29
-"Regi√£o Metropolitana do Contestado";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;12;10;17;17;13;21;18;11;11;12;16;11;3;12
-"Regi√£o Metropolitana do Cariri";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;11;39;17;75;54;56;70;86;47;41;68;45
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2;3;3;6;5;3;9;12;17;14;11;6
-"Regi√£o Metropolitana do Agreste";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;76;87;114;74;69;84;68;91;76;85;137;95;88;98;54
-"Regi√£o Metropolitana de Umuarama";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;17;27;103;114;374;649;648;701;587;638;475;234;NA;NA;NA
-"Regi√£o Metropolitana de Tubar√£o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;5;3;4;21;21;25;34;30;18;17;15;7;14;12;30
-"Regi√£o Metropolitana de Toledo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;5;5;1;NA;2;1;NA;3;7;11;5;1;NA
-"Regi√£o Metropolitana de S√£o Paulo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;4680;5360;5706;5995;5483;5025;4358;3990;3837;3700;3942;3862;3348;3320;3370
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;101;101;86;76;88;104;113;121;159;159;151;124;153;134;198
-"Regi√£o Metropolitana de Sousa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Sorocaba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;181;255;243;317;247;280;230;222;220;196;204;303;294;242;227
-"Regi√£o Metropolitana de Sobral";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;39;31;34;36;34;42;44;60;56;44;227;284
-"Regi√£o Metropolitana de Santar√©m";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;8;28;7;9;12;19;1;1;2;3;2;4;1;2
-"Regi√£o Metropolitana de Salvador";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;625;683;652;553;437;524;629;495;559;644;996;1451;937;825;767
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;255;201;281;311;288;269;224;210;209;216;231;226;218;574;326
-"Regi√£o Metropolitana de Recife";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;51;48;374;349;1008;3101;535;699;653;931;933;872;846;760;822
-"Regi√£o Metropolitana de Porto Velho";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;92;302;531;150;53;54;73;76;76;74;106;84;263;164;110
-"Regi√£o Metropolitana de Porto Alegre";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;794;629;987;1091;930;744;592;861;588;458;414;424;307;331;343
-"Regi√£o Metropolitana de Piracicaba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;50;52;53;49;54;45;64;89;84;94;98;79;98;77;100
-"Regi√£o Metropolitana de Patos";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;36;37;66;53;45;22;103;46;50;27;31;44;31;33;NA
-"Regi√£o Metropolitana de Palmas";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;3;5;58;66;54;58;68;46;37;68;59;66;39
-"Regi√£o Metropolitana de Natal";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;209;245;327;258;181;142;330;157;146;196;166;287;240;228;281
-"Regi√£o Metropolitana de Maring√°";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;641;200;137;132;168;154;135;107;88;98;76;86;73;69;94
-"Regi√£o Metropolitana de Manaus";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;11;7;12;55;110;36;102;62;183;27;2;22;41;39;50
-"Regi√£o Metropolitana de Macei√≥";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;108;122;40;37;233;282;113;11;11;2;1;NA;NA;2;2
-"Regi√£o Metropolitana de Macap√°";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;99;57;95;46;135;317;397;143;91;70;235;168;128;9;33
-"Regi√£o Metropolitana de Londrina";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;231;158;255;489;477;407;273;172;143;267;573;145;139;97;217
-"Regi√£o Metropolitana de Lages";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;5;NA;NA;NA;NA;13;5;9;9;23;15;6;3
-"Regi√£o Metropolitana de Jundia√≠";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;6;6;122;8;11;2;2;NA;13;5;5;8;3;6;7
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;215;209;198;135;158;124;152;206;119;121;187;234;202;250;351
-"Regi√£o Metropolitana de Joinville";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;60;261;261;196;1251;156;104;84;103;60;53;55;27;44;172
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;15;39;223;10;38;55;37;43;42;22;35;37;26;43;46
-"Regi√£o Metropolitana de Gurupi";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;15;13;17;1;3;52;42;9;35;33;28;31;25;27;21
-"Regi√£o Metropolitana de Goi√¢nia";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;162;379;346;484;447;396;429;789;1389;1329;1430;2228;3062;6492;10268
-"Regi√£o Metropolitana de Fortaleza";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2016;2388;3420;3254;3140;2546;3159;2281;1779;1569;1793;1830;1122;957;1111
-"Regi√£o Metropolitana de Florian√≥polis";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;202;222;173;160;139;120;139;122;106;106;129;80;65;116;102
-"Regi√£o Metropolitana de Feira de Santana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;5;7;7;33;90;105;75;105;89;97;75;91;98;163
-"Regi√£o Metropolitana de Curitiba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;166;222;254;274;293;240;288;249;201;275;227;196;196;205;176
-"Regi√£o Metropolitana de Chapec√≥";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;206;465;454;567;437;302;298;116;104;111;132;100;75;112;96
-"Regi√£o Metropolitana de Cascavel";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;197;21;18;16;21;2;1;NA;NA;7;4;NA;3;NA;NA
-"Regi√£o Metropolitana de Campo Mour√£o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;161;NA;NA;2;7;1;2;NA;2;1;2;2;NA;NA;1
-"Regi√£o Metropolitana de Campinas";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;613;446;355;338;226;268;244;268;341;222;207;155;155;111;157
-"Regi√£o Metropolitana de Campina Grande";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;202;252;329;110;49;87;78;42;33;37;20;49;51;48;34
-"Regi√£o Metropolitana de Cajazeiras";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;204;378;463;553;445;297;469;579;581;498;101;NA;NA
-"Regi√£o Metropolitana de Caet√©s";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;7;2;1;NA;NA;NA;NA;16;3;NA;NA;NA;NA;1;NA
-"Regi√£o Metropolitana de Bel√©m";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;12;3;9;36;91;143;268;251;203;343;368;262;262;270;281
-"Regi√£o Metropolitana de Belo Horizonte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;910;921;890;1164;1291;1318;1421;1281;1106;1037;914;1005;912;929;1318
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Aracaju";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;51;92;51;45;29;48;58;144;112;92;116;146;137;176;130
-"Regi√£o Metropolitana de Apucarana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;9;7;13;15;7;3;11;21;28;43;35;35;52;41;25
-"Regi√£o Metropolitana da Zona da Mata";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;194;461;277;440;330;281;207;221;125;68;NA;16;29;NA;NA
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;719;1050;938;4;5;16;11;12;106;172;77;12;11;9
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;8;2;3;NA;9;3;4;NA;1;2;NA;NA;NA;4;8
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;478;541;456;531;617;421;490;1014;910;1559;1821;1554;1180;995;280
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;3205;4041;2189;1559;2371;2423;2251;266;418;378;229;23;NA;NA;NA
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;1;5;1;1;1;46;38;34;43;32;27;16;23
-"Regi√£o Metropolitana da Capital";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;26;74;90;67;213;484;398;343;702;2550;1787;1814;1245;369;161
-"Regi√£o Metropolitana da Baixada Santista";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;251;278;245;275;274;227;225;239;292;258;243;282;190;187;146
-"Regi√£o Metropolitana Carbon√≠fera";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;4;9;1;3;26;45;35;24;62;105;57;52;26;54;46
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;397;398;431;362;215;196;195;179;322;270;522;605;544;575;774
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;160;122;176;151;52;25;4;177;258;256;240;219;162;161;216
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;196;99;117;219;240;145;164;164;145;140;147;125;107;93;127
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;2;1;NA;NA;NA;2;1;1;NA;NA;NA;1;1
+"-";"Motociclistas";NA;NA;NA;NA;NA;NA;NA;NA;9619;14887;20733;23442;25193;27708;30103;30216;31852;33559;36611;39680;39563;44587;47355
+"¡rea de Expans„o Metropolitana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;1;2;NA;NA;NA;NA;1
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;14;13;35;45;81;148;475;311;688;565;514;308;54;28;41
+"Regi„o Metropolitana do Vale do PiancÛ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;4;2;2;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;278;242;239;219;232;219;197;160;151;250;300;258;172;169;230
+"Regi„o Metropolitana do Vale do ItajaÌ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;69;209;206;193;192;143;76;59;54;64;58;42;37;49;26
+"Regi„o Metropolitana do Vale do AÁo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;119;212;232;200;186;172;230;165;148;135;93;135;75;65;57
+"Regi„o Metropolitana do S„o Francisco";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA
+"Regi„o Metropolitana do Sul do Estado";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;3;1;1;NA;NA;31;110;132;64;116
+"Regi„o Metropolitana do Sudoeste Maranhense";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1467;2292;282;191;770;125;14;44;3;1;1;1;NA;2
+"Regi„o Metropolitana do Rio de Janeiro";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;3330;3165;3434;4009;4217;4986;4321;2400;2116;2182;2137;2593;1092;1972;1478
+"Regi„o Metropolitana do Planalto Norte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;7;2;3;1;1;1;2;13;7
+"Regi„o Metropolitana do MÈdio Sert„o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;11;23;2;7;6;2;3;2;NA;4;7
+"Regi„o Metropolitana do Extremo Oeste";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;5;10;3;10;52;57;54;34;9;24;17;23;26;21;29
+"Regi„o Metropolitana do Contestado";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;12;10;17;17;13;21;18;11;11;12;16;11;3;12
+"Regi„o Metropolitana do Cariri";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;11;39;17;75;54;56;70;86;47;41;68;45
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2;3;3;6;5;3;9;12;17;14;11;6
+"Regi„o Metropolitana do Agreste";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;76;87;114;74;69;84;68;91;76;85;137;95;88;98;54
+"Regi„o Metropolitana de Umuarama";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;17;27;103;114;374;649;648;701;587;638;475;234;NA;NA;NA
+"Regi„o Metropolitana de Tubar„o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;5;3;4;21;21;25;34;30;18;17;15;7;14;12;30
+"Regi„o Metropolitana de Toledo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;5;5;1;NA;2;1;NA;3;7;11;5;1;NA
+"Regi„o Metropolitana de S„o Paulo";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;4680;5360;5706;5995;5483;5025;4358;3990;3837;3700;3942;3862;3348;3320;3370
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;101;101;86;76;88;104;113;121;159;159;151;124;153;134;198
+"Regi„o Metropolitana de Sousa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Sorocaba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;181;255;243;317;247;280;230;222;220;196;204;303;294;242;227
+"Regi„o Metropolitana de Sobral";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;39;31;34;36;34;42;44;60;56;44;227;284
+"Regi„o Metropolitana de SantarÈm";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;8;28;7;9;12;19;1;1;2;3;2;4;1;2
+"Regi„o Metropolitana de Salvador";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;625;683;652;553;437;524;629;495;559;644;996;1451;937;825;767
+"Regi„o Metropolitana de Ribeir„o Preto";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;255;201;281;311;288;269;224;210;209;216;231;226;218;574;326
+"Regi„o Metropolitana de Recife";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;51;48;374;349;1008;3101;535;699;653;931;933;872;846;760;822
+"Regi„o Metropolitana de Porto Velho";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;92;302;531;150;53;54;73;76;76;74;106;84;263;164;110
+"Regi„o Metropolitana de Porto Alegre";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;794;629;987;1091;930;744;592;861;588;458;414;424;307;331;343
+"Regi„o Metropolitana de Piracicaba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;50;52;53;49;54;45;64;89;84;94;98;79;98;77;100
+"Regi„o Metropolitana de Patos";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;36;37;66;53;45;22;103;46;50;27;31;44;31;33;NA
+"Regi„o Metropolitana de Palmas";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;3;5;58;66;54;58;68;46;37;68;59;66;39
+"Regi„o Metropolitana de Natal";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;209;245;327;258;181;142;330;157;146;196;166;287;240;228;281
+"Regi„o Metropolitana de Maring·";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;641;200;137;132;168;154;135;107;88;98;76;86;73;69;94
+"Regi„o Metropolitana de Manaus";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;11;7;12;55;110;36;102;62;183;27;2;22;41;39;50
+"Regi„o Metropolitana de MaceiÛ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;108;122;40;37;233;282;113;11;11;2;1;NA;NA;2;2
+"Regi„o Metropolitana de Macap·";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;99;57;95;46;135;317;397;143;91;70;235;168;128;9;33
+"Regi„o Metropolitana de Londrina";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;231;158;255;489;477;407;273;172;143;267;573;145;139;97;217
+"Regi„o Metropolitana de Lages";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;5;NA;NA;NA;NA;13;5;9;9;23;15;6;3
+"Regi„o Metropolitana de JundiaÌ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;6;6;122;8;11;2;2;NA;13;5;5;8;3;6;7
+"Regi„o Metropolitana de Jo„o Pessoa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;215;209;198;135;158;124;152;206;119;121;187;234;202;250;351
+"Regi„o Metropolitana de Joinville";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;60;261;261;196;1251;156;104;84;103;60;53;55;27;44;172
+"Regi„o Metropolitana de Jaragu· do Sul";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;15;39;223;10;38;55;37;43;42;22;35;37;26;43;46
+"Regi„o Metropolitana de Gurupi";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;15;13;17;1;3;52;42;9;35;33;28;31;25;27;21
+"Regi„o Metropolitana de Goi‚nia";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;162;379;346;484;447;396;429;789;1389;1329;1430;2228;3062;6492;10268
+"Regi„o Metropolitana de Fortaleza";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2016;2388;3420;3254;3140;2546;3159;2281;1779;1569;1793;1830;1122;957;1111
+"Regi„o Metropolitana de FlorianÛpolis";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;202;222;173;160;139;120;139;122;106;106;129;80;65;116;102
+"Regi„o Metropolitana de Feira de Santana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;5;7;7;33;90;105;75;105;89;97;75;91;98;163
+"Regi„o Metropolitana de Curitiba";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;166;222;254;274;293;240;288;249;201;275;227;196;196;205;176
+"Regi„o Metropolitana de ChapecÛ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;206;465;454;567;437;302;298;116;104;111;132;100;75;112;96
+"Regi„o Metropolitana de Cascavel";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;197;21;18;16;21;2;1;NA;NA;7;4;NA;3;NA;NA
+"Regi„o Metropolitana de Campo Mour„o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;161;NA;NA;2;7;1;2;NA;2;1;2;2;NA;NA;1
+"Regi„o Metropolitana de Campinas";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;613;446;355;338;226;268;244;268;341;222;207;155;155;111;160
+"Regi„o Metropolitana de Campina Grande";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;202;252;329;110;49;87;78;42;33;37;20;49;51;48;34
+"Regi„o Metropolitana de Cajazeiras";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;204;378;463;553;445;297;469;579;581;498;101;NA;NA
+"Regi„o Metropolitana de CaetÈs";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;7;2;1;NA;NA;NA;NA;16;3;NA;NA;NA;NA;1;NA
+"Regi„o Metropolitana de BelÈm";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;12;3;9;36;91;143;268;251;203;343;368;262;262;270;281
+"Regi„o Metropolitana de Belo Horizonte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;910;921;890;1164;1291;1318;1421;1281;1106;1037;914;1005;912;929;1318
+"Regi„o Metropolitana de Barra de Santa Rosa";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Aracaju";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;51;92;51;45;29;48;58;144;112;92;116;146;137;176;130
+"Regi„o Metropolitana de Apucarana";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;9;7;13;15;7;3;11;21;28;43;35;35;52;41;25
+"Regi„o Metropolitana da Zona da Mata";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;194;461;277;440;330;281;207;221;125;68;NA;16;29;NA;NA
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;719;1050;938;4;5;16;11;12;106;172;77;12;11;9
+"Regi„o Metropolitana da Serra Ga˙cha";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;8;2;3;NA;9;3;4;NA;1;2;NA;NA;NA;4;8
+"Regi„o Metropolitana da Grande VitÛria";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;478;541;456;531;617;421;490;1014;910;1559;1821;1554;1180;995;280
+"Regi„o Metropolitana da Grande S„o LuÌs";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;3205;4041;2189;1559;2371;2423;2251;266;418;378;229;23;NA;NA;NA
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;2;NA;1;5;1;1;1;46;38;34;43;32;27;16;23
+"Regi„o Metropolitana da Capital";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;26;74;90;67;213;484;398;343;702;2550;1787;1814;1245;369;161
+"Regi„o Metropolitana da Baixada Santista";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;251;278;245;275;274;227;225;239;292;258;243;282;190;187;146
+"Regi„o Metropolitana CarbonÌfera";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;4;9;1;3;26;45;35;24;62;105;57;52;26;54;46
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;397;398;431;362;215;196;195;179;322;270;522;605;544;575;774
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;160;122;176;151;52;25;4;177;258;256;240;219;162;161;216
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;196;99;117;219;240;145;164;164;145;140;147;125;107;93;127
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;2;1;NA;NA;NA;2;1;1;NA;NA;NA;1;1
 "Colar Metropolitano de Belo Horizonte";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;30;18;11;19;66;63;134;83;127;97;94;74;60;74;81
 "Colar Metropolitano";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;3;NA;NA;NA;2;NA;NA;12
-"-";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;6756;9967;9972;10305;11941;13790;13314;10968;10630;9688;9289;8371;8443;8536;10851
-"√Årea de Expans√£o Metropolitana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;4;3;5;1;5;NA;1;NA;8
-"Regi√£o Metropolitana do Vale do Rio Cuiab√°";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;243;246;225;155;215;297;311;296;481;349;323;317;55;26;115
-"Regi√£o Metropolitana do Vale do Pianc√≥";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA
-"Regi√£o Metropolitana do Vale do Para√≠ba e Litoral Norte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;44;115;77;59;43;87;95;72;87;104;129;138;122;167;181
-"Regi√£o Metropolitana do Vale do Itaja√≠";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;71;197;83;70;65;128;28;69;148;556;136;NA;NA;93;59
-"Regi√£o Metropolitana do Vale do A√ßo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;34;23;32;30;37;24;18;12;28;28;25;13;11;38;39
-"Regi√£o Metropolitana do Sul do Estado";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;1;1;NA;NA;3;NA;4
-"Regi√£o Metropolitana do Sudoeste Maranhense";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;9;36;56;32;124;1332;1684;1291;1151;1556;1169;1092;1280
-"Regi√£o Metropolitana do Sert√£o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana do Rio de Janeiro";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;151;186;241;289;264;201;245;261;214;283;209;201;169;226;460
-"Regi√£o Metropolitana do Planalto Norte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;2;2;54;NA;NA;9;3;3;4;14;5;9;48;133;75
-"Regi√£o Metropolitana do M√©dio Sert√£o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;8;24;53;10;15;6;9;2;9;10;2
-"Regi√£o Metropolitana do Extremo Oeste";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;5;4;NA;27;33;33;41;29;36;38;71;69;47;59;72
-"Regi√£o Metropolitana do Contestado";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;24;64;90;45;61;136;115;149;73;91;181;148;132;144;164
-"Regi√£o Metropolitana do Cariri";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;2;10;2;23;64;164;436;658;633;186;221;212
-"Regi√£o Metropolitana do Alto Vale do Itaja√≠";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;10;33;5;2;3;NA;6;6;8;6;8;7;8;17;8
-"Regi√£o Metropolitana do Agreste";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;53;56;54;32;38;59;70;109;78;64;81;64;43;47;58
-"Regi√£o Metropolitana de Umuarama";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2;2;1;NA;NA;1;NA;NA;NA;NA;NA;NA;1
-"Regi√£o Metropolitana de Tubar√£o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;67;78;77;73;67;56;67;101;86;82;126;126;73;87;74
-"Regi√£o Metropolitana de Toledo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;2;3;1;6;3;18;4;9;4;6;3;8
-"Regi√£o Metropolitana de S√£o Paulo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1064;1047;1057;1003;882;753;689;627;616;721;736;804;809;920;896
-"Regi√£o Metropolitana de S√£o Jos√© do Rio Preto";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;37;21;39;57;63;95;106;125;149;111;122;116;120;115;143
-"Regi√£o Metropolitana de Sousa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Sorocaba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;54;58;53;111;312;487;314;178;128;119;101;239;164;173;197
-"Regi√£o Metropolitana de Sobral";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;9;13;9;12;20;8;16;21;40;45;72;89
-"Regi√£o Metropolitana de Santar√©m";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;23;43;21;40;11;9;3;NA;1;3;1;31;37;9
-"Regi√£o Metropolitana de Salvador";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;21;15;12;25;36;27;36;28;23;9;19;16;15;11;29
-"Regi√£o Metropolitana de Ribeir√£o Preto";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;61;76;133;146;107;128;101;77;105;122;93;81;145;133;145
-"Regi√£o Metropolitana de Recife";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;1;202;428;136;88;85;844;364;57;84;44;70;57;68
-"Regi√£o Metropolitana de Porto Velho";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;5;20;59;69;110;174;52;45;79;181;114;277;483;556;434
-"Regi√£o Metropolitana de Porto Alegre";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;68;43;75;54;44;77;115;103;67;48;44;44;57;86;71
-"Regi√£o Metropolitana de Piracicaba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;118;136;118;114;75;63;94;659;778;1003;1312;1268;1242;1060;1072
-"Regi√£o Metropolitana de Patos";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;5;6;2;1;3;NA;NA;NA;NA;4;1;NA;2;NA
-"Regi√£o Metropolitana de Palmas";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;10;22;23;37;9;8;90;101;75;55;54;107;184;204;194
-"Regi√£o Metropolitana de Natal";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;86;128;182;90;42;25;20;16;30;23;38;94;148;159;135
-"Regi√£o Metropolitana de Maring√°";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;32;131;168;134;135;162;192;190;188;149;81;81;67;85;96
-"Regi√£o Metropolitana de Manaus";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;77;50;59;78;32;134;302;304;369;407;433;237;222;356;369
-"Regi√£o Metropolitana de Macei√≥";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;90;328;558;624;720;597;523;502;715;753;661;568;417;644;767
-"Regi√£o Metropolitana de Macap√°";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;4;9;3;5;7;45;35;46;15;48;34;67;174;105
-"Regi√£o Metropolitana de Londrina";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;65;89;63;39;55;195;138;150;184;128;198;153;142;104;139
-"Regi√£o Metropolitana de Lages";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;15;52;NA;2;1;2;132;41;55;36;54;50;34;49
-"Regi√£o Metropolitana de Jundia√≠";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;104;4;NA;1;1;4;14;5;6;9;17;14;5
-"Regi√£o Metropolitana de Jo√£o Pessoa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;20;41;50;30;27;21;9;13;14;16;16;13;30;70;59
-"Regi√£o Metropolitana de Joinville";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;18;31;13;42;51;64;71;45;35;26;41;35;35;15
-"Regi√£o Metropolitana de Jaragu√° do Sul";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;17;NA;6;NA;1;NA;1;3;1;4;NA;2;2;1;2
-"Regi√£o Metropolitana de Itabaiana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
-"Regi√£o Metropolitana de Gurupi";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;2;12;12;22;27;24;10;2;1;1;1;3
-"Regi√£o Metropolitana de Guarabira";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;3;NA
-"Regi√£o Metropolitana de Goi√¢nia";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;20;107;132;162;124;90;165;99;80;104;112;293;198;121;134
-"Regi√£o Metropolitana de Fortaleza";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;371;486;851;803;822;1012;908;937;846;729;709;697;886;1027;923
-"Regi√£o Metropolitana de Florian√≥polis";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;122;93;58;62;48;79;57;71;59;51;52;67;43;176;130
-"Regi√£o Metropolitana de Feira de Santana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;124;129;111;89;96;119;111;123;60;74;59;39;37;60;45
-"Regi√£o Metropolitana de Curitiba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;506;319;272;233;203;51;43;62;117;176;111;43;79;78;60
-"Regi√£o Metropolitana de Chapec√≥";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;13;13;13;5;4;6;3;95;70;55;66;38;66;49;61
-"Regi√£o Metropolitana de Cascavel";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;9;1;2;2;NA;NA;NA;NA;1;1;NA;1;NA;1
-"Regi√£o Metropolitana de Campo Mour√£o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;13;1;1;9;3;1;7;8;5;13;20;5;31;34;35
-"Regi√£o Metropolitana de Campinas";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;174;203;122;138;69;96;170;141;144;107;101;108;140;133;138
-"Regi√£o Metropolitana de Campina Grande";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;10;49;37;61;13;47;60;51;31;20;26;45;48;34
-"Regi√£o Metropolitana de Caet√©s";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;1;2;NA;1;NA;4;7;9
-"Regi√£o Metropolitana de Bel√©m";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;14;9;1;37;62;101;98;84;72;37;39;61;47;70;70
-"Regi√£o Metropolitana de Belo Horizonte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;605;530;415;325;289;315;255;217;268;301;320;344;346;548;454
-"Regi√£o Metropolitana de Barra de Santa Rosa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;NA;NA;1;NA;NA
-"Regi√£o Metropolitana de Aracaju";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;168;4;11;18;8;12;14;37;45;96;107;130;107;103;139
-"Regi√£o Metropolitana de Apucarana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;8;11;4;8;7;5;11;26;424;510;449;485;431;244;348
-"Regi√£o Metropolitana da Zona da Mata";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;1;NA
-"Regi√£o Metropolitana da Zona Leste do Estado do Maranh√£o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;18;5;4;4;10;7;3;7;7;5;3;7;13
-"Regi√£o Metropolitana da Serra Ga√∫cha";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;226;96;265;169;153;167;161;185;175;228;215;165;172;211;169
-"Regi√£o Metropolitana da Grande Vit√≥ria";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;41;30;67;52;30;45;41;98;74;93;101;94;207;214;227
-"Regi√£o Metropolitana da Grande S√£o Lu√≠s";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;26;22;30;20;3;1;NA;1
-"Regi√£o Metropolitana da Foz do Rio Itaja√≠";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;256;368;347;398;471;676;503;318;56;43;5;12;10;22;4
-"Regi√£o Metropolitana da Capital";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;6;11;17;16;13;25;24;38;13;31;14;17;9;2
-"Regi√£o Metropolitana da Baixada Santista";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;519;331;451;665;661;564;688;536;243;42;50;58;74;79;105
-"Regi√£o Metropolitana Carbon√≠fera";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;119;205;311;275;312;370;528;325;352;454;387;310;321;356;366
-"Regi√£o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;46;52;42;65;42;37;50;42;74;105;212;210;267;229;325
-"Regi√£o Integrada de Desenvolvimento da Grande Teresina";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;34;23;49;90;107;85;112;85;72;60;50;40;26;60;50
-"Regi√£o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;17;56;70;78;50;54;57;60;80;79;86;88;50;120;61
-"Entorno Metropolitano da RM Vale do Rio Cuiab√°";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;1;2;NA;NA;5;NA;NA;1;3;8;6
+"-";"Pedestres";NA;NA;NA;NA;NA;NA;NA;NA;6756;9967;9972;10305;11941;13790;13314;10968;10630;9688;9289;8371;8443;8536;10854
+"¡rea de Expans„o Metropolitana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;2;4;3;5;1;5;NA;1;NA;8
+"Regi„o Metropolitana do Vale do Rio Cuiab·";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;243;246;225;155;215;297;311;296;481;349;323;317;55;26;115
+"Regi„o Metropolitana do Vale do PiancÛ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA
+"Regi„o Metropolitana do Vale do ParaÌba e Litoral Norte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;44;115;77;59;43;87;95;72;87;104;129;138;122;167;181
+"Regi„o Metropolitana do Vale do ItajaÌ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;71;197;83;70;65;128;28;69;148;556;136;NA;NA;93;59
+"Regi„o Metropolitana do Vale do AÁo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;34;23;32;30;37;24;18;12;28;28;25;13;11;38;39
+"Regi„o Metropolitana do Sul do Estado";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;1;1;NA;1;1;NA;NA;3;NA;4
+"Regi„o Metropolitana do Sudoeste Maranhense";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;9;36;56;32;124;1332;1684;1291;1151;1556;1169;1092;1281
+"Regi„o Metropolitana do Sert„o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana do Rio de Janeiro";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;151;186;241;289;264;201;245;261;214;283;209;201;169;226;460
+"Regi„o Metropolitana do Planalto Norte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;2;2;54;NA;NA;9;3;3;4;14;5;9;48;133;75
+"Regi„o Metropolitana do MÈdio Sert„o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;8;24;53;10;15;6;9;2;9;10;2
+"Regi„o Metropolitana do Extremo Oeste";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;5;4;NA;27;33;33;41;29;36;38;71;69;47;59;72
+"Regi„o Metropolitana do Contestado";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;24;64;90;45;61;136;115;149;73;91;181;148;132;144;164
+"Regi„o Metropolitana do Cariri";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;NA;NA;2;10;2;23;64;164;436;658;633;186;221;212
+"Regi„o Metropolitana do Alto Vale do ItajaÌ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;10;33;5;2;3;NA;6;6;8;6;8;7;8;17;8
+"Regi„o Metropolitana do Agreste";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;53;56;54;32;38;59;70;109;78;64;81;64;43;47;58
+"Regi„o Metropolitana de Umuarama";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;2;2;1;NA;NA;1;NA;NA;NA;NA;NA;NA;1
+"Regi„o Metropolitana de Tubar„o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;67;78;77;73;67;56;67;101;86;82;126;126;73;87;74
+"Regi„o Metropolitana de Toledo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;2;3;1;6;3;18;4;9;4;6;3;8
+"Regi„o Metropolitana de S„o Paulo";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1064;1047;1057;1003;882;753;689;627;616;721;736;804;809;920;896
+"Regi„o Metropolitana de S„o JosÈ do Rio Preto";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;37;21;39;57;63;95;106;125;149;111;122;116;120;115;143
+"Regi„o Metropolitana de Sousa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Sorocaba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;54;58;53;111;312;487;314;178;128;119;101;239;164;173;197
+"Regi„o Metropolitana de Sobral";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;9;13;9;12;20;8;16;21;40;45;72;89
+"Regi„o Metropolitana de SantarÈm";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;23;43;21;40;11;9;3;NA;1;3;1;31;37;9
+"Regi„o Metropolitana de Salvador";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;21;15;12;25;36;27;36;28;23;9;19;16;15;11;29
+"Regi„o Metropolitana de Ribeir„o Preto";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;61;76;133;146;107;128;101;77;105;122;93;81;145;133;145
+"Regi„o Metropolitana de Recife";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;1;202;428;136;88;85;844;364;57;84;44;70;57;68
+"Regi„o Metropolitana de Porto Velho";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;5;20;59;69;110;174;52;45;79;181;114;277;483;556;434
+"Regi„o Metropolitana de Porto Alegre";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;68;43;75;54;44;77;115;103;67;48;44;44;57;86;71
+"Regi„o Metropolitana de Piracicaba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;118;136;118;114;75;63;94;659;778;1003;1312;1268;1242;1060;1072
+"Regi„o Metropolitana de Patos";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;5;6;2;1;3;NA;NA;NA;NA;4;1;NA;2;NA
+"Regi„o Metropolitana de Palmas";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;10;22;23;37;9;8;90;101;75;55;54;107;184;204;194
+"Regi„o Metropolitana de Natal";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;86;128;182;90;42;25;20;16;30;23;38;94;148;159;135
+"Regi„o Metropolitana de Maring·";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;32;131;168;134;135;162;192;190;188;149;81;81;67;85;96
+"Regi„o Metropolitana de Manaus";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;77;50;59;78;32;134;302;304;369;407;433;237;222;356;369
+"Regi„o Metropolitana de MaceiÛ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;90;328;558;624;720;597;523;502;715;753;661;568;417;644;767
+"Regi„o Metropolitana de Macap·";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;4;9;3;5;7;45;35;46;15;48;34;67;174;105
+"Regi„o Metropolitana de Londrina";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;65;89;63;39;55;195;138;150;184;128;198;153;142;104;139
+"Regi„o Metropolitana de Lages";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;15;52;NA;2;1;2;132;41;55;36;54;50;34;49
+"Regi„o Metropolitana de JundiaÌ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;104;4;NA;1;1;4;14;5;6;9;17;14;5
+"Regi„o Metropolitana de Jo„o Pessoa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;20;41;50;30;27;21;9;13;14;16;16;13;30;70;59
+"Regi„o Metropolitana de Joinville";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;4;18;31;13;42;51;64;71;45;35;26;41;35;35;15
+"Regi„o Metropolitana de Jaragu· do Sul";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;17;NA;6;NA;1;NA;1;3;1;4;NA;2;2;1;2
+"Regi„o Metropolitana de Itabaiana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA
+"Regi„o Metropolitana de Gurupi";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;2;12;12;22;27;24;10;2;1;1;1;3
+"Regi„o Metropolitana de Guarabira";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;3;3;NA
+"Regi„o Metropolitana de Goi‚nia";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;20;107;132;162;124;90;165;99;80;104;112;293;198;121;134
+"Regi„o Metropolitana de Fortaleza";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;371;486;851;803;822;1012;908;937;846;729;709;697;886;1027;923
+"Regi„o Metropolitana de FlorianÛpolis";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;122;93;58;62;48;79;57;71;59;51;52;67;43;176;130
+"Regi„o Metropolitana de Feira de Santana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;124;129;111;89;96;119;111;123;60;74;59;39;37;60;45
+"Regi„o Metropolitana de Curitiba";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;506;319;272;233;203;51;43;62;117;176;111;43;79;78;60
+"Regi„o Metropolitana de ChapecÛ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;13;13;13;5;4;6;3;95;70;55;66;38;66;49;61
+"Regi„o Metropolitana de Cascavel";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;9;1;2;2;NA;NA;NA;NA;1;1;NA;1;NA;1
+"Regi„o Metropolitana de Campo Mour„o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;13;1;1;9;3;1;7;8;5;13;20;5;31;34;35
+"Regi„o Metropolitana de Campinas";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;174;203;122;138;69;96;170;141;144;107;101;108;140;133;138
+"Regi„o Metropolitana de Campina Grande";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;10;49;37;61;13;47;60;51;31;20;26;45;48;34
+"Regi„o Metropolitana de CaetÈs";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;1;2;NA;1;NA;4;7;9
+"Regi„o Metropolitana de BelÈm";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;14;9;1;37;62;101;98;84;72;37;39;61;47;70;70
+"Regi„o Metropolitana de Belo Horizonte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;605;530;415;325;289;315;255;217;268;301;320;344;346;548;454
+"Regi„o Metropolitana de Barra de Santa Rosa";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;1;NA;NA;NA;NA;NA;NA;1;NA;NA
+"Regi„o Metropolitana de Aracaju";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;168;4;11;18;8;12;14;37;45;96;107;130;107;103;139
+"Regi„o Metropolitana de Apucarana";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;8;11;4;8;7;5;11;26;424;510;449;485;431;244;348
+"Regi„o Metropolitana da Zona da Mata";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;NA;NA;NA;NA;NA;1;NA
+"Regi„o Metropolitana da Zona Leste do Estado do Maranh„o";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;18;5;4;4;10;7;3;7;7;5;3;7;13
+"Regi„o Metropolitana da Serra Ga˙cha";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;226;96;265;169;153;167;161;185;175;228;215;165;172;211;169
+"Regi„o Metropolitana da Grande VitÛria";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;41;30;67;52;30;45;41;98;74;93;101;94;207;214;227
+"Regi„o Metropolitana da Grande S„o LuÌs";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;26;22;30;20;3;1;NA;1
+"Regi„o Metropolitana da Foz do Rio ItajaÌ";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;256;368;347;398;471;676;503;318;56;43;5;12;10;22;4
+"Regi„o Metropolitana da Capital";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3;6;11;17;16;13;25;24;38;13;31;14;17;9;2
+"Regi„o Metropolitana da Baixada Santista";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;519;331;451;665;661;564;688;536;243;42;50;58;74;79;105
+"Regi„o Metropolitana CarbonÌfera";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;119;205;311;275;312;370;528;325;352;454;387;310;321;356;366
+"Regi„o Integrada de Desenvolvimento do Distrito Federal e Entorno";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;46;52;42;65;42;37;50;42;74;105;212;210;267;229;325
+"Regi„o Integrada de Desenvolvimento da Grande Teresina";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;34;23;49;90;107;85;112;85;72;60;50;40;26;60;50
+"Regi„o Administrativa Integrada de Desenvolvimento do Polo Petrolina/PE e Juazeiro/BA";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;17;56;70;78;50;54;57;60;80;79;86;88;50;120;61
+"Entorno Metropolitano da RM Vale do Rio Cuiab·";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;1;NA;NA;NA;1;2;NA;NA;5;NA;NA;1;3;8;6
 "Colar Metropolitano de Belo Horizonte";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;19;10;16;5;5;10;9;12;9;32;53;72;78;88;57
 "Colar Metropolitano";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;NA;NA;2;1;NA;NA;2;NA;NA;1;2;6;5;NA;5
-"-";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3595;4233;5215;6123;6617;6970;7301;7621;7450;7749;8368;9408;9467;10241;9227
+"-";"Outros";NA;NA;NA;NA;NA;NA;NA;NA;3595;4233;5215;6123;6617;6970;7301;7621;7450;7749;8368;9408;9467;10241;9265
