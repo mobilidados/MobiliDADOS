@@ -95,6 +95,6 @@ abs_rms <- tx_rms_mort %>% select(-valor, -tx_inter) %>% pivot_wider(names_from 
 write.csv2(result, "./datasus/output/internacoes/final/base_trabalhada.csv", row.names = FALSE, fileEncoding = "latin1")
 write.csv2(combined_data, "./datasus/output/internacoes/final/base_completa.csv", row.names = FALSE, fileEncoding = "latin1")
 write.csv2(tx_capitais_relat, "./datasus/output/internacoes/final/tx_capitais_relat.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv2(tx_capitais_absl, "./datasus/output/internacoes/final/tx_capitais_absl.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(tx_capitais_absl, "./datasus/output/internacoes/final/num_capitais_absl.csv", row.names = FALSE, fileEncoding = "latin1")
 write.csv2(rms_rlt, "./datasus/output/internacoes/final/tx_rms_relat.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv2(abs_rms, "./datasus/output/internacoes/final/tx_rms_absl.csv", row.names = FALSE, fileEncoding = "latin1")
+write.csv2(abs_rms, "./datasus/output/internacoes/final/num_rms_absl.csv", row.names = FALSE, fileEncoding = "latin1")
