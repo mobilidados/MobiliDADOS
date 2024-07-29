@@ -5,15 +5,7 @@ O indicador mensura o percentual da população de uma cidade ou região metropo
 
 O indicador pode ser utilizado para fins comparativos entre cidades ou regiões metropolitanas, para avaliar a distribuição da infraestrutura de média e alta capacidade no território e acompanhar a evolução da proximidade da população aos sistemas de transporte existentes ou em planejamento. O ideal é que o indicador apresente tendência de crescimento ao longo do tempo.
 
-# O que tem nessa pasta?
-
-  - **Sobre_pnt**: informações gerais sobre indicador
-  - **Apresentação_tutorial_PNT.pdf**: apresentação de tutorial para cálculo do indicador	
-  - **dados_tutorial**: dados para replicar tutorial de cálculo do indicador
-  - **simples**: códigos para calcular o indicador considerando distância linear no entorno das estações de transporte
-  - **network**: códigos para calcular o indicador considerando distância pela rede de ruas no entorno das estações de transporte
-  - **buffer**: áreas no entorno das estações de transporte considerando distância pela rede de ruas
-  - **mapas**: mapas do indicador
+Nesta pasta poderá ser encontrado o método para calcular o indicador um buffer simples que considera a distância linear no entorno da das estações de transporte (*pasta simples*) e a distância pela rede de ruas no entorno das estações de transporte (*pasta network*).
 
 
 **Os resultados da série histórica do indicador podem ser consultados na plataforma [MobiliDADOS](https://mobilidados.org.br/).**
