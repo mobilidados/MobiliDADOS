@@ -16,5 +16,8 @@ pnb/dados/infra_cicloviaria/*
 pnb/geofabrik/*
 pnb/infra_ciclo/*
 pnb/infra_ciclo/*
+apoio/dados_setores.xlsx
+apoio/dados_setores.rds
+apoio/dados_setores.rar
 otp/*
 
