@@ -15,7 +15,7 @@ datasus/output/obitos/final/*
 pnb/dados/infra_cicloviaria/*
 pnb/geofabrik/*
 pnb/infra_ciclo/*
-pnb/infra_ciclo/*
+pnb/resultados/*
 apoio/dados_setores.xlsx
 apoio/dados_setores.rds
 apoio/dados_setores.rar
