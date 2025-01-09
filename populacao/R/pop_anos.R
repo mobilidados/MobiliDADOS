@@ -36,7 +36,7 @@ try(dir.create("populacao/input"))
 
 
 
-file_downlod_path <- "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2020a2029/Composicao_RMs_RIDEs_AglomUrbanas_2021.ods"
+file_downlod_path <- "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/municipios_por_regioes_metropolitanas/Situacao_2020a2029/Composicao_RMs_RIDEs_AglomUrbanas_2021_v2.ods"
 destfile <- paste0("./populacao/input", "/rms_pop.ods")
 download.file(file_downlod_path, destfile = destfile, mode = "wb")
 
@@ -125,6 +125,20 @@ clean_and_format_data <- function(tabela_pop_f, base_rms, capitais) {
     mutate(across(everything(), as.character)) %>% 
     mutate(NOME_CATMETROPOL = replace_na(NOME_CATMETROPOL, "-"))
   
+  tabela_pop_rm2 <- tabela_pop_rm2 %>%
+    mutate(across(matches("^20[0-2][0-9]$"), as.numeric))
+  
+  tabela_pop_rm2$'2023' <- round(tabela_pop_rm2$'2022' + (tabela_pop_rm2$'2024' - tabela_pop_rm2$'2022') / 2,digits = 0)
+  
+  tabela_pop_rm2 <- tabela_pop_rm2 %>%
+    relocate(`2023`, .before = `2024`)
+  
+  tabela_pop_rm <- tabela_pop_rm2 %>%
+    relocate(`2023`, .before = `2024`) %>% 
+    pivot_longer(cols = matches("^20[0-2][0-9]$"),
+                 names_to = "ano",
+                 values_to = "valor")
+  
   tabela_pop_rm3 <- tabela_pop_rm %>% 
     select(cod_uf, uf, municipio_codigo, COD_MUN, municipio, capitais, NOME_CATMETROPOL, ano, valor) %>% 
     mutate(NOME_CATMETROPOL = replace_na(NOME_CATMETROPOL, "-"))
@@ -150,20 +164,13 @@ clean_and_format_data <- function(tabela_pop_f, base_rms, capitais) {
   tabela_pop_rms_final2 <- tabela_pop_rms_final %>% 
     filter(NOME_CATMETROPOL %in% rms_sel) %>% 
     arrange(match(NOME_CATMETROPOL, rms_sel))
+
   
-  base_bruta <- tabela_pop_f %>% 
-    clean_names() %>% 
-    mutate(
-      uf = str_sub(municipio, -2, -1),
-      municipio = str_sub(municipio, 1, -6),
-      COD_MUN = str_sub(municipio_codigo, 1, -2)
-    ) %>% select(uf, municipio_codigo, COD_MUN, municipio, ano, valor)
-  
-  list(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabela_pop_rms_final2, tabela_pop_rms_final,base_bruta)
+  list(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabela_pop_rms_final2, tabela_pop_rms_final)
 }
 
 # Function for saving data
-save_data <- function(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabela_pop_rms_final2, tabela_pop_rms_final,base_bruta) {
+save_data <- function(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabela_pop_rms_final2, tabela_pop_rms_final) {
   csv_folder <- csv_path
   rds_folder <- rds_path
   
@@ -173,7 +180,6 @@ save_data <- function(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabel
   write.csv2(tabela_pop_capitais, paste0(csv_folder, "tabela_pop_capitais.csv"), row.names = FALSE, fileEncoding = "latin1")
   write.csv2(tabela_pop_rms_final2, paste0(csv_folder, "tabela_pop_rms_final2.csv"), row.names = FALSE, fileEncoding = "latin1")
   write.csv2(tabela_pop_rms_final, paste0(csv_folder, "tabela_pop_rms_final.csv"), row.names = FALSE, fileEncoding = "latin1")
-  write.csv2(base_bruta, paste0(csv_folder, "base_bruta.csv"), row.names = FALSE, fileEncoding = "latin1")
   
   # Save data in RDS format
   saveRDS(tabela_pop_rm2, paste0(rds_folder, "tabela_pop_rm2.rds"))
@@ -181,7 +187,6 @@ save_data <- function(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabel
   saveRDS(tabela_pop_capitais, paste0(rds_folder, "tabela_pop_capitais.rds"))
   saveRDS(tabela_pop_rms_final2, paste0(rds_folder, "tabela_pop_rms_final2.rds"))
   saveRDS(tabela_pop_rms_final, paste0(rds_folder, "tabela_pop_rms_final.rds"))
-  saveRDS(base_bruta, paste0(rds_folder, "base_bruta.rds"))
 }
 
 
@@ -192,11 +197,10 @@ upload_to_drive <- function(folder_id) {
   drive_upload(paste0(csv_path,"tabela_pop_capitais.csv"), path = as_id(folder_id), overwrite = TRUE)
   drive_upload(paste0(csv_path,"tabela_pop_rms_final2.csv"), path = as_id(folder_id), overwrite = TRUE)
   drive_upload(paste0(csv_path,"tabela_pop_rms_final.csv"), path = as_id(folder_id), overwrite = TRUE)
-  drive_upload(paste0(csv_path,"base_bruta.csv"), path = as_id(folder_id), overwrite = TRUE)
 }
 
 
-anos <- 2001:2022
+anos <- 2001:2024
 
 # Now call each function in the order of data processing pipeline
 base_rms <- import_data()
@@ -204,7 +208,8 @@ tabela_pop <- download_pop_data()
 census_data <- download_census_data()
 tabela_pop_f <- merge_all_data(tabela_pop, census_data[[1]], census_data[[2]], census_data[[3]],census_data[[4]])
 final_data <- clean_and_format_data(tabela_pop_f, base_rms)
-save_data(final_data[[1]], final_data[[2]], final_data[[3]], final_data[[4]], final_data[[5]],final_data[[6]])
+save_data(final_data[[1]], final_data[[2]], final_data[[3]], final_data[[4]], final_data[[5]])
+
 
 # upload_to_drive(csv_path_gdrive)
 # upload_to_drive(rds_path_gdrive)
