@@ -20,7 +20,7 @@ camadas <- read_municipality()
 
 # Escolhe o ano
 
-ano <- 2023
+ano <- 2022
 
 # Importa o arquivo pbf baixado do geofabrik.
 # Note que essa é uma rotina que realiza a mesma rotina de classificação que o ciclomapa.org.br faz.
