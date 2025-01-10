@@ -59,7 +59,7 @@ sf_use_s2(FALSE)
 
 # Baixa a camada de setores censitários
 
-setores <- read_census_tract("all")
+# setores <- read_census_tract("all")
 
 # Importa a base de dados de setores censitários
 
