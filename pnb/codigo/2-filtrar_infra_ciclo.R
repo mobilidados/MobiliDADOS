@@ -43,7 +43,7 @@ munis_df$name_muni <- str_to_title(munis_df$name_muni)
 # Definir caminho para a pasta com os geojsons dos ciclomapas
 
 #cid <- 3550308 
-ano <- 2014
+ano <- 2024
 
 
 # Antes de começar jogar os arquivos de infra para a pasta de geofabrik
