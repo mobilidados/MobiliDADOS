@@ -1,5 +1,5 @@
 # Definindo o ano para ser usado nos caminhos
-ano <- 2022
+ano <- 2024
 
 # Lista de caminhos
 caminhos <- list(
@@ -43,7 +43,9 @@ caminhos <- list(
   "./pnb/resultados/pnpb/",
   paste0("./pnb/resultados/pnpb/", ano),
   paste0("./pnb/resultados/pnpb/", ano, "/network"),
-  paste0("./pnb/resultados/pnpb/", ano, "/network/consolidado")
+  paste0("./pnb/resultados/pnpb/", ano, "/network/consolidado"),
+  "./pnb/infra_ciclo/",
+  paste0("./pnb/infra_ciclo/",ano)
 )
 
 # Itera sobre a lista de caminhos e cria as pastas se não existirem
