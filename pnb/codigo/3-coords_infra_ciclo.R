@@ -11,7 +11,7 @@ library(readr)
 setwd('D:/Projetos/mobilidados/github/MobiliDADOS/')
 
 # Define o ano de referência
-ano <- 2014
+ano <- 2024
 
 # Função para processar dados de infraestrutura cicloviária
 processa_infra_ciclo <- function(caminho_base, nome_subpasta) {
