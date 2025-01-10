@@ -16,12 +16,8 @@ pnb/dados/infra_cicloviaria/*
 pnb/geofabrik/*
 pnb/infra_ciclo/*
 pnb/resultados/*
-pnt/resultados/*
-pnt/output/*
 apoio/dados_setores.xlsx
 apoio/dados_setores.rds
 apoio/dados_setores.rar
-apoio/dados_setores_2022.rds
-apoio/input_censo/*
 otp/*
-populacao/input/rms_pop.ods
+populacao/input/*
