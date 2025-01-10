@@ -164,8 +164,9 @@ clean_and_format_data <- function(tabela_pop_f, base_rms, capitais) {
   tabela_pop_rms_final2 <- tabela_pop_rms_final %>% 
     filter(NOME_CATMETROPOL %in% rms_sel) %>% 
     arrange(match(NOME_CATMETROPOL, rms_sel))
+
   
-  
+
   list(tabela_pop_rm2, tabela_pop_rm3, tabela_pop_capitais, tabela_pop_rms_final2, tabela_pop_rms_final)
 }
 
