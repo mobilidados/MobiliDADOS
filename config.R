@@ -1,7 +1,7 @@
 # Configurando o git e o github
 
-usethis::use_git_config(user.name = "WWWWWWWWWWWW",
-                        user.email = "WWWWWWWWWWW")
+usethis::use_git_config(user.name = "MobiliDADOS",
+                        user.email = "mobilidados@itdp.org")
 
 #Criando um token
 

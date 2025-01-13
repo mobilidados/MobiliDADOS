@@ -27,7 +27,7 @@ lista_morb <- data.frame(grupo = c("Pedestre traumatizado em um acidente de tran
 
 
 
-anos <- 2022
+anos <- 2023
 sexo <- c("Masc", "Fem", "Ign")
 faixa_etaria <- c("Menor 1 ano", "1 a 4 anos", "5 a 9 anos", "10 a 14 anos", 
             "15 a 19 anos", "20 a 29 anos", "30 a 39 anos", "40 a 49 anos", 
@@ -110,7 +110,7 @@ for (ano in anos) {
   df_year <- do.call(rbind, df_year_list)
   
   # Create a temporary file path for the desired year
-  temp_file <- paste0("../datasus/codigos/obitos/output/obitos/temp/morb_data_", ano, ".rds")
+  temp_file <- paste0("./datasus/output/obitos/temp/morb_data_", ano, ".rds")
   
   # Write the data frame to the temporary file in R-specific binary format
   saveRDS(df_year, temp_file)
