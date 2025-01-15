@@ -38,14 +38,19 @@ path_otp <- "./otp/programs/otp.jar"
 # Caminho para o diretório com as pastas preparadas com as malhas viárias dentro
 dir <- paste0("./otp/", ano)
 
+# Carrega a base de camadas dos municípios brasileiros
+muni <- read_municipality()
+
+# mun <- 2927408
+# caminho_base <- './pnb/dados/infra_cicloviaria/'
+# nome_subpasta <- 'pnb'
+
 # Função para processar dados de infraestrutura cicloviária e gerar isócronas
 processa_municipio <- function(caminho_base, nome_subpasta, mun) {
   # Importa o arquivo de infraestrutura cicloviária existente
   infra_ciclo_existente <- st_read(paste0(caminho_base, nome_subpasta, "/geofabrik_pontos/", ano, "/geofabrik_coords_capitais.shp")) %>% 
     st_make_valid()
-  
-  # Carrega a base de camadas dos municípios brasileiros
-  muni <- read_municipality()
+
   
   # Define a função para obter isócronas
   get_isochrone <- function(fromPlace, dist, walk_speed = 3.6, ...) {
@@ -72,7 +77,7 @@ processa_municipio <- function(caminho_base, nome_subpasta, mun) {
   Sys.sleep(10)
   
   # Monta a aplicação
-  otp_setup(otp = path_otp, dir = dir, router = paste0("", subset(munis_df, code_muni == mun)$sigla_muni, ""), port = 8080, wait = FALSE)
+  otp_setup(otp = path_otp, dir = dir, router = paste0(subset(munis_df, code_muni == mun)$sigla_muni), port = 8080, wait = FALSE)
   Sys.sleep(5)
   
   # Registra o roteador
