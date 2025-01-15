@@ -17,10 +17,6 @@ library(tibble)
 library(geobr)
 library(tictoc)
 
-# DDefnir diretorio
-
-setwd('D:/Projetos/mobilidados/github/MobiliDADOS/')
-
 ##1.4. Criar tabela de referencia para capitais
 
 
@@ -61,14 +57,14 @@ sf_use_s2(FALSE)
 
 # setores <- read_census_tract("all")
 
-setores <- st_read("D:/Projetos/mobilidados/0_dados_ibge2022/BR_setores_CD2022.shp")
+setores <- st_read("./apoio/input_censo/BR_setores_CD2022.shp" )
 
 
 # Importa a base de dados de setores censitários
 
 # dados <- read_rds('./apoio/dados_setores.rds')
 
-dados <- read_rds("D:/Projetos/mobilidados/0_dados_ibge2022/dados_setores_2022.rds")
+dados <- read_rds("./apoio/input_censo/dados_setores_2022.rds")
 
 
 # Define o ano de referência
