@@ -7,9 +7,6 @@ library(mapview)
 library(purrr)
 library(readr)
 
-# Seleciona a pasta de trabalho
-setwd('D:/Projetos/mobilidados/github/MobiliDADOS/')
-
 # Define o ano de referência
 ano <- 2024
 
