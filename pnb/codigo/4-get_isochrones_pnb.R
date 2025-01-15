@@ -11,8 +11,6 @@ library(devtools)
 library(geobr)
 library(tictoc)
 
-# Define o diretório de trabalho
-setwd('D:/Projetos/mobilidados/github/MobiliDADOS/')
 sf_use_s2(FALSE)
 
 # DataFrame de municípios
