@@ -173,7 +173,7 @@ create_real_distance_buffer <- function(target, is_rm = FALSE, ano) {
 
 # Aplicar para municípios e regiões metropolitanas
 pbmapply(safely(create_real_distance_buffer), munis_df$code_muni, MoreArgs = list(is_rm = FALSE, ano = 2022))
-pbmapply(safely(create_real_distance_buffer), munis_df_rms$rms, MoreArgs = list(is_rm = TRUE, ano = 2022))
+pbmapply(safely(create_real_distance_buffer), munis_df_rms$rms, MoreArgs = list(is_rm = TRUE, ano = 2024))
 
 
 
