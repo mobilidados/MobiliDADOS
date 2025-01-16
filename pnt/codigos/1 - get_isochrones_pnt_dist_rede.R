@@ -11,6 +11,8 @@ library(purrr)
 library(readODS)
 library(readr)
 
+options(java.parameters = "-Xmx16G")
+
 sf_use_s2(FALSE)
 
 geo_br <- read_municipality() %>% st_transform(., 4989)
@@ -97,8 +99,8 @@ read_geodata <- function(ano) {
 }
 
  is_rm <- TRUE
- target <- "rmb"
- ano <- 2020
+ target <- "rmsp"
+ ano <- 2024
 
 # Função para criar buffers realistas
 create_real_distance_buffer <- function(target, is_rm = FALSE, ano) {
