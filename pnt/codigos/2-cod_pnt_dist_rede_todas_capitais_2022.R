@@ -32,10 +32,6 @@ library(purrr)
 library(rJava)
 library(openxlsx)
 
-# Defnir diretorio
-setwd('D:/Projetos/mobilidados/pnt_verificação') #altere o caminho para a pasta onde deseja salvar os arquivos
-
-
 
 #2. Abrir arquivos necessarios -----
 #2.1. Abrir dados dos setores censitarios
@@ -75,164 +71,240 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606, 2304400
                                       "pal", "sls", "ter", "nat", "joa", "mco", "ara", 
                                       "vit", "flo", "poa", "cam", "cui", "goi"))
 
+munis_df_rms <- data.frame(code_muni = c(1501402, 3106200, 4106902, 5300108, 
+                                         2304400, 2611606, 3304557, 2927408, 
+                                         3550308),
+                           name_muni=c("belém", "belo horizonte", "curitiba", 
+                                       "distrito federal", "fortaleza", "recife",
+                                       "rio de janeiro", "salvador", "são paulo"),
+                           abrev_state=c("PA", "mg", "PR", "df", "CE", 
+                                         "PE", "RJ", "BA", "SP"),
+                           rms=c("rmb", "rmbh", "rmc", "ride", 
+                                 "rmf", "rmr", "rmrj", "rms", "rmsp"),
+                           espg = c(31982, 31983, 31982, 31983,
+                                    31984, 31985, 31983, 31984, 31983 ),
+                           shp = c("RM Belem", "RM Belo Horizonte", "RM Curitiba", 
+                                   "RIDE Distrito Federal", "RM Fortaleza", "RM Recife",
+                                   "RM_Rio_de_Janeiro", "RM_Salvador", "RM_Sao_Paulo"))
+
+base_rms <- read_ods("./populacao/input/rms_pop.ods") %>% select(NOME_CATMETROPOL, COD_MUN)
+base_rms2 <- base_rms %>% mutate(rm = case_when(
+  NOME_CATMETROPOL == "Região Metropolitana de Belém" ~ "rmb",
+  NOME_CATMETROPOL == "Região Metropolitana de Belo Horizonte" ~ "rmbh",
+  NOME_CATMETROPOL == "Região Metropolitana de Curitiba" ~ "rmc",
+  NOME_CATMETROPOL == "Região Integrada de Desenvolvimento do Distrito Federal e Entorno" ~ "ride",
+  NOME_CATMETROPOL == "Região Metropolitana de Fortaleza" ~ "rmf",
+  NOME_CATMETROPOL == "Região Metropolitana do Recife" ~ "rmr",
+  NOME_CATMETROPOL == "Região Metropolitana do Rio de Janeiro" ~ "rmrj",
+  NOME_CATMETROPOL == "Região Metropolitana de Salvador" ~ "rms",
+  NOME_CATMETROPOL == "Região Metropolitana de São Paulo" ~ "rmsp")) 
+base_rms2$rm[is.na(base_rms2$rm)] <- "-"
+
+# Baixa a camada de setores censitários
+
+# setores <- read_census_tract("all")
+
+setores <- st_read("./apoio/input_censo/BR_setores_CD2022.shp" )
+
+
+# Importa a base de dados de setores censitários
+
+# dados <- read_rds('./apoio/dados_setores.rds')
+
+dados <- read_rds("./apoio/input_censo/dados_setores_2022.rds")
+
 sf_use_s2(FALSE)
 
- i <- 3304557
- j <- 2022
+  codigo <- 3550308
+  ano <- 2022
+ is_rm <- TRUE
 
 #3. Realizar calculo do PNT ----
 #3.1. Criar Funcao para aplicar PNT
-PNT <- function(i, j) {
+PNT <- function(codigo, ano, is_rm = FALSE){
  
-  message(paste0('ola, ', subset(munis_df, code_muni == i)$name_muni,'! =)', "\n"))
+  message(paste0('ola, ', subset(munis_df, code_muni == codigo)$name_muni,'! =)', "\n"))
   Sys.sleep(3)
   print(Sys.time())
   
   message(paste0('abrindo setores...'))
   
-  #Abrir setores censitarios
-  setores <- read_rds('./apoio/setores_rms.rds') %>% 
-    filter(code_muni == i) %>%
-    mutate(Ar_m2 = unclass(st_area(.)), Cod_setor = as.character(Cod_setor))
+  # Abrir dados geo censitários
+
+  
+  setores <- if (is_rm) setores %>% filter(CD_MUN %in% base_rms2[base_rms2$rm == munis_df_rms[munis_df_rms$code_muni == codigo,]$rms,]$COD_MUN) else setores %>% filter(CD_MUN == codigo)
   setores <- st_transform(setores, 4326) #transforma projecao
-  setores <- st_transform(setores, subset(munis_df, code_muni == i)$espg) #transforma projecao
-  setores <- st_buffer(setores,0)
-  #Se desejar analisar apenas um municipio da Regiao Metropolitana
-  #dados <- dados %>% filter(CD_GEOCODM == 1501402) #altere o codigo para o municipio que deseja analisar, este se refere a Belem
-  Sys.sleep(3)
+  message(paste0('abriu e ajustou setores - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
+  setores <- setores %>% mutate(Ar_m2 = unclass(st_area(.)))
   
-  message(paste0('abrindo dados dos setores...'))
+  message(paste0('abriu e ajustou setores - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
   
-  #Abrir dados censitarios
-  # Baixar arquivos dos setores censitarios na pagina da MobiliDADOS
-  # Ir em https://mobilidados.org.br/database
-  # Acessar pasta 'Dados das regioes metropolitanas por setor censitario'
-  dados_cen <- read_rds('D:/Projetos/mobilidados/pnb/dados/BasePNT/dados_setores.rds') %>% 
-    mutate(Cod_setor=as.character(Cod_setor))
+  # Abrir dados tabulares censitários
+  if (is_rm) {
+    dados <- dados %>%
+      mutate(CD_SETOR = as.character(CD_SETOR)) %>%
+      filter(CD_MUN %in% base_rms2[base_rms2$rm == munis_df_rms[munis_df_rms$code_muni == codigo, ]$rms, ]$COD_MUN)
+  } else {
+    dados <- dados %>%
+      mutate(CD_SETOR = as.character(CD_SETOR)) %>%
+      filter(CD_MUN == codigo)
+  }
   
-  message(paste0('incluindo dados nos setores ...'))
+  message(paste0('abriu dados censitarios - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
   
-  #Juntar setores com dados censitarios
-  setores_dados <- left_join(setores, dados_cen, by = 'Cod_setor') %>% st_sf()
-  setores_dados <- setores_dados %>% st_set_precision(1000000) %>% 
-    st_make_valid() %>% #corrige shapes que podem possuir algum defeito de feicao
-    st_transform(., 4326)
-  setores_dados <- st_transform(setores_dados, subset(munis_df, code_muni == i)$espg) #transforma projecao
+  
+  
+  # Juntar geo com dados censitários
+  
+  dados_cid <- left_join(setores, dados, by = c('CD_SETOR' = 'CD_SETOR')) %>% st_sf() %>% st_transform(4326) %>% 
+    st_set_precision(1000) %>% st_make_valid()
+  
+  dados_cid <- dados_cid %>%
+    mutate(across(c(pop, branco, preto, amarelo, pardo, indigena,
+                    homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+                    mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena), 
+                  ~ as.numeric(as.character(.))))
+  
+  message(paste0('setores e dados foram unidos - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
   
   message(paste0('abrindo buffer ...',"\n"))
   
-  TMA_buf <- read_rds(paste0('./output/', j,'/buffer/rds/capitais/', subset(munis_df, code_muni == i)$name_muni, '_buffer_',j, '.rds'))   #buffer com distancia real
+  TMA_buf <- read_rds(
+    if (is_rm) {
+      paste0('./pnt/output/', ano, '/buffer/rds/rms/', 
+             subset(munis_df_rms, code_muni == codigo)$rms, 
+             '_buffer_', ano, '.rds')
+    } else {
+      paste0('./pnt/output/', ano, '/buffer/rds/capitais/', 
+             subset(munis_df, code_muni == codigo)$name_muni, 
+             '_buffer_', ano, '.rds')
+    }
+    )
+  #buffer com distancia real
   TMA_buf <- st_transform(TMA_buf, 4326)
-  TMA_buf <- st_transform(TMA_buf, subset(munis_df, code_muni == i)$espg)
+
   
+  # Recortar setores pelo buffer
+  setores_entorno <- st_intersection(dados_cid, TMA_buf) %>% st_collection_extract("POLYGON")
   
+  message(paste0('recortou setores no entorno - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
   
-  #### PAREI AQUI!!!!
-  
-  message(paste0('recortando setores...',"\n"))
-  
-  # setores_dados <- st_transform(setores_dados, 4326) #transforma projecao
-  # setores_dados <- st_transform(setores_dados, subset(munis_df, code_muni == i)$espg) #transforma projecao
-  setores_entorno <- st_intersection(setores_dados, TMA_buf) #recorta setores dentro da area de entorno das estacoes
-  beep()
-  
+  # Cálculo do total de cada variável no entorno da infraestrutura cicloviária
   setores_entorno <- setores_entorno %>%
-    mutate(Ar_int = unclass(st_area(.)), #cria area inserida no entorno da estacao
-           rt = as.numeric(Ar_int/Ar_m2)) %>% #cria proporcao entre area inserida no entorno da estacao e area total de cada 
-    mutate_at(.vars = vars(Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, Negros_Mulher,
-                           Negros_Homem, Renda_Mulher_0_1,Renda_Homem_0_1, Renda_Mulher_2SM, 
-                           Pessoa_0_1, Pessoa_0_meio, Pessoa_meio_1, Pessoa_1_3, Pessoa_3_mais, homem_branco, mulher_branca,
-                           Negros,brancas), 
-              funs(int = . * rt))
+    mutate(ar_int = unclass(st_area(.)), 
+           rt = as.numeric(ar_int / Ar_m2)) %>% 
+    mutate(across(c(pop, branco, preto, amarelo, pardo, indigena,
+                    homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+                    mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+                  ~ as.numeric(as.character(.)))) %>% 
+    mutate_at(vars(pop, branco, preto, amarelo, pardo, indigena,
+                   homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+                   mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+              list(int = ~ . * rt))
+  Sys.sleep(5)
   
-  total_entorno <- c((sum(setores_entorno$Pop_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_0_meio_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_meio_1_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_1_3_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$DR_3_mais_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$Negros_Mulher_int, na.rm = TRUE)), 
-                     (sum(setores_entorno$Negros_Homem_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Renda_Mulher_0_1_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Renda_Homem_0_1_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Renda_Mulher_2SM_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Pessoa_0_1_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Pessoa_0_meio_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Pessoa_meio_1_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Pessoa_1_3_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Pessoa_3_mais_int, na.rm = TRUE)),
+  # Gravar buffer em SHP
+  st_write(
+    select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
+           homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+    paste0('./pnt/output/', ano, '/entorno/shp/', 
+           if (is_rm) "rms/" else "capitais/", 
+           if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
+           '_network_buffer_entorno.shp'), append = FALSE
+  )
+  
+  # Gravar buffer em GeoJSON
+  st_write(
+    select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
+           homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+    paste0('./pnt/output/', ano, '/entorno/geojson/', 
+           if (is_rm) "rms/" else "capitais/", 
+           if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
+           '_network_buffer_entorno.geojson'),
+    delete_dsn = TRUE
+  )
+  
+  # Gravar buffer em RDS
+  write_rds(
+    select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
+           homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+    paste0('./pnt/output/', ano, '/entorno/rds/', 
+           if (is_rm) "rms/" else "capitais/", 
+           if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
+           '_network_buffer_entorno.rds')
+  ) 
+  Sys.sleep(5)
+  
+  total_entorno <- c((sum(setores_entorno$pop_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$branco_int, na.rm = TRUE)),
+                     (sum(setores_entorno$preto_int, na.rm = TRUE)),
+                     (sum(setores_entorno$amarelo_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$pardo_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$indigena_int, na.rm = TRUE)), 
                      (sum(setores_entorno$homem_branco_int, na.rm = TRUE)),
+                     (sum(setores_entorno$homem_preto_int, na.rm = TRUE)),
+                     (sum(setores_entorno$homem_amarelo_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$homem_pardo_int, na.rm = TRUE)), 
+                     (sum(setores_entorno$homem_indigena_int, na.rm = TRUE)), 
                      (sum(setores_entorno$mulher_branca_int, na.rm = TRUE)),
-                     (sum(setores_entorno$Negros_int, na.rm = TRUE)),
-                     (sum(setores_entorno$brancas_int, na.rm = TRUE))) #realiza a soma total de cada variavel
+                     (sum(setores_entorno$mulher_preta_int, na.rm = TRUE)),
+                     (sum(setores_entorno$mulher_amarela_int, na.rm = TRUE)),
+                     (sum(setores_entorno$mulher_parda_int, na.rm = TRUE)),
+                     (sum(setores_entorno$mulher_indigena_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
   
-  total_rm <- c((sum(setores_dados$Pop, na.rm = TRUE)), 
-                (sum(setores_dados$DR_0_meio, na.rm = TRUE)), 
-                (sum(setores_dados$DR_meio_1, na.rm = TRUE)), 
-                (sum(setores_dados$DR_1_3, na.rm = TRUE)), 
-                (sum(setores_dados$DR_3_mais, na.rm = TRUE)), 
-                (sum(setores_dados$Negros_Mulher, na.rm = TRUE)), 
-                (sum(setores_dados$Negros_Homem, na.rm = TRUE)),
-                (sum(setores_dados$Renda_Mulher_0_1, na.rm = TRUE)),
-                (sum(setores_dados$Renda_Homem_0_1, na.rm = TRUE)),
-                (sum(setores_dados$Renda_Mulher_2SM, na.rm = TRUE)),
-                (sum(setores_dados$Pessoa_0_1, na.rm = TRUE)),
-                (sum(setores_dados$Pessoa_0_meio, na.rm = TRUE)),
-                (sum(setores_dados$Pessoa_meio_1, na.rm = TRUE)),
-                (sum(setores_dados$Pessoa_1_3, na.rm = TRUE)),
-                (sum(setores_dados$Pessoa_3_mais, na.rm = TRUE)),
-                (sum(setores_dados$homem_branco, na.rm = TRUE)),
-                (sum(setores_dados$mulher_branca, na.rm = TRUE)),
-                (sum(setores_dados$Negros, na.rm = TRUE)),
-                (sum(setores_dados$brancas, na.rm = TRUE))) #realiza a soma total de cada variavel
+  #Calculo do total de cada variavel na cidade analisada
+  total_cidade <- c((sum(dados_cid$pop, na.rm = TRUE)), 
+                    (sum(dados_cid$branco, na.rm = TRUE)),
+                    (sum(dados_cid$preto, na.rm = TRUE)),
+                    (sum(dados_cid$amarelo, na.rm = TRUE)), 
+                    (sum(dados_cid$pardo, na.rm = TRUE)),
+                    (sum(dados_cid$indigena, na.rm = TRUE)),  
+                    (sum(dados_cid$homem_branco, na.rm = TRUE)),
+                    (sum(dados_cid$homem_preto, na.rm = TRUE)),
+                    (sum(dados_cid$homem_amarelo, na.rm = TRUE)), 
+                    (sum(dados_cid$homem_pardo, na.rm = TRUE)),
+                    (sum(dados_cid$homem_indigena, na.rm = TRUE)), 
+                    (sum(dados_cid$mulher_branca, na.rm = TRUE)), 
+                    (sum(dados_cid$mulher_preta, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_amarela, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_parda, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_indigena, na.rm = TRUE))) #Realizar a soma total de cada variavel
   
-  
-  Resultados_pnt <-rbind(total_entorno, total_rm, round(100*(total_entorno/total_rm),2))
-  colnames(Resultados_pnt)<- c('Pop', 'DR_0_meio', 'DR_meio_1', 'DR_1_3', 'DR_3_mais', 'Negros_Mulher',
-                               'Negros_Homem', 'Renda_Mulher_0_1','Renda_Homem_0_1', 'Renda_Mulher_2SM', 
-                               'Pessoa_0_1', 'Pessoa_0_meio', 'Pessoa_meio_1', 'Pessoa_1_3', 'Pessoa_3_mais', 
-                               "homem_branco", "mulher_branca", "Negros", "brancas") #nomeia as colunas da tabela criada
-  row.names(Resultados_pnt)<- c("total_entorno","total_rm", "resultado_%") #nomeia as linhas da tabela criada
-  
-  message(paste0('e o resultado do PNT eh...',"\n"))
-  
-  print(Resultados_pnt) #se desejar verficar a tabela, rode esta linha de codigo
-  
-  message(paste0('ajustando tabela...',"\n"))
+  #Calculo do resultado final
+  Resultados_pnt <-rbind(total_entorno, total_cidade, round(100*(total_entorno/total_cidade),2))
+  row.names(Resultados_pnt)<- c("total_entorno","total_rm", "resultado_%") #Nomeia as linhas da tabela criada
+  colnames(Resultados_pnt)<- c("pop", "branco","preto","amarelo","pardo","indigena",
+                               "homem_branco","homem_preto","homem_amarelo","homem_pardo","homem_indigena", 
+                               "mulher_branca","mulher_preta", "mulher_amarela", "mulher_parda","mulher_indigena") #Nomear as colunas da tabela criada
+  print(Resultados_pnt) #Verfica tabela
   
   Resultados_pnt_final <- as.data.frame(t(Resultados_pnt))
-  Resultados_pnt_final$capital <- subset(munis_df, code_muni == i)$name_muni
-  Resultados_pnt_final <- tibble::rownames_to_column(Resultados_pnt_final)
-  names(Resultados_pnt_final) <- c("indicador", "total_entorno", "total","resultado", "territorio")
+  Resultados_pnt_final$cidade <- str_to_title(subset(munis_df, code_muni==codigo)$name_muni)
+  Resultados_pnt_final <- tibble::rownames_to_column(Resultados_pnt_final, "indicador")
+  
   print(Resultados_pnt_final) #Verfica tabela final
   
+  write.csv2(
+    Resultados_pnt_final, 
+    paste0('./pnt/resultados/', ano, '/', 
+           if (is_rm) "rms/" else "capitais/", 
+           if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
+           '_pnt_', ano, '.csv'), 
+    row.names = FALSE
+  )
   
-  beep()
-  Sys.sleep(3)
+  message(paste0('salvou resultados - ', subset(munis_df, code_muni==codigo)$name_muni, "\n"))
   
-  write.xlsx(Resultados_pnt_final, 
-             paste0('./resultados/', j, '/capitais/', subset(munis_df, code_muni == i)$name_muni, '_resultados_pnt.xlsx'),
-             rowNames = FALSE) #salva os resultados finais na pasta com o nome da RM
-  Sys.sleep(3)
-  
-  st_write(select(setores_entorno,
-                  code_tract,zone,code_muni,name_muni,name_neighborhood,code_neighborhood,
-                  code_subdistrict,name_subdistrict,code_district,name_district,code_state,Cod_setor,
-                  Ar_m2,Cod_UF,Nome_da_UF,Cod_RM,Nome_da_RM,Cod_municipio,Nome_do_municipio,Situacao_setor,
-                  Tipo_setor,Pop, DR_0_meio, DR_meio_1, DR_1_3, DR_3_mais, Negros_Mulher,
-                               Negros_Homem, Renda_Mulher_0_1,Renda_Homem_0_1, Renda_Mulher_2SM, 
-                               Pessoa_0_1, Pessoa_0_meio, Pessoa_meio_1, Pessoa_1_3, Pessoa_3_mais, 
-                  Negros, brancas),  
-           paste0('./output/', j, '/entorno/capitais/shp/', subset(munis_df, code_muni == i)$name_muni, '_entorno.shp'), append = TRUE)
-  write_rds(setores_entorno,  
-           paste0('./output/', j, '/entorno/capitais/rds/', subset(munis_df, code_muni == i)$name_muni, '_entorno.rds'))
-  
-  beep()
-  Sys.sleep(6)
+  Sys.sleep(5)
   
 }
 
 
-pbmapply(safely(PNT),munis_df$code_muni,2021)
+pbmapply(safely(PNT),munis_df_rms$code_muni,2022, is_rm = TRUE)
+pbmapply(safely(PNT),munis_df$code_muni,2022, is_rm = FALSE)
 
 
 #4.1. criar tabela unica
