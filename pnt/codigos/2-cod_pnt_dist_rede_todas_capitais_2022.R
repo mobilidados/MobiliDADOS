@@ -111,13 +111,13 @@ setores <- st_read("./apoio/input_censo/BR_setores_CD2022.shp" )
 
 # dados <- read_rds('./apoio/dados_setores.rds')
 
-dados <- read_rds("./apoio/input_censo/dados_setores_2022.rds")
+dados <- read_rds("./apoio/dados_setores_2022.rds")
 
 sf_use_s2(FALSE)
 
-  codigo <- 2611606
-  ano <- 2022
- is_rm <- TRUE
+  # codigo <- 1501402
+  # ano <- 2024
+  # is_rm <- TRUE
 
 #3. Realizar calculo do PNT ----
 #3.1. Criar Funcao para aplicar PNT
@@ -216,7 +216,7 @@ PNT <- function(codigo, ano, is_rm = FALSE){
   
   # Gravar buffer em GeoJSON
   st_write(
-    select(pop, branco, preto, amarelo, pardo, indigena,
+    select(setores_entorno,pop, branco, preto, amarelo, pardo, indigena,
            homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
            mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
     paste0('./pnt/output/', ano, '/entorno/geojson/', 
@@ -274,6 +274,7 @@ PNT <- function(codigo, ano, is_rm = FALSE){
                     (sum(dados_cid$mulher_preta, na.rm = TRUE)),
                     (sum(dados_cid$mulher_amarela, na.rm = TRUE)),
                     (sum(dados_cid$mulher_parda, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_indigena, na.rm = TRUE)),
                     (sum(dados_cid$negro, na.rm = TRUE)),
                     (sum(dados_cid$mulher_negra, na.rm = TRUE)),
                     (sum(dados_cid$homem_negro, na.rm = TRUE))) #Realizar a soma total de cada variavel
