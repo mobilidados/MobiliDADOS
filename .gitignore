@@ -22,6 +22,7 @@ apoio/dados_setores.xlsx
 apoio/dados_setores.rds
 apoio/dados_setores.rar
 apoio/input_censo/*
+apoio/TMA/*
 otp/*
 populacao/input/*
 datasus/output/*
