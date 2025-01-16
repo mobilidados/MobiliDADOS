@@ -190,6 +190,7 @@ processa_indicadores <- function(indicador, sig) {
                     (sum(dados_cid$mulher_preta, na.rm = TRUE)),
                     (sum(dados_cid$mulher_amarela, na.rm = TRUE)),
                     (sum(dados_cid$mulher_parda, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_indigena, na.rm = TRUE)),
                     (sum(dados_cid$negro, na.rm = TRUE)),
                     (sum(dados_cid$mulher_negra, na.rm = TRUE)),
                     (sum(dados_cid$homem_negro, na.rm = TRUE))) #Realizar a soma total de cada variavel
