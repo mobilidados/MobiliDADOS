@@ -1,5 +1,5 @@
 # Definindo o ano para ser usado nos caminhos
-ano <- 2024
+ano <- 2022
 
 # Lista de caminhos
 caminhos <- list(
@@ -17,12 +17,20 @@ caminhos <- list(
   paste0("./pnt/output/", ano, "/entorno", "/rds/rms/"),
   paste0("./pnt/output/", ano, "/entorno", "/shp/capitais/"),
   paste0("./pnt/output/", ano, "/entorno", "/shp/rms/"),
+  paste0("./pnt/output/", ano, "/entorno", "/geojson/capitais/"),
+  paste0("./pnt/output/", ano, "/entorno", "/geojson/rms/"),
   paste0("./pnt/output/", ano, "/points"),
   paste0("./pnt/output/", ano, "/points", "/rds"),
   paste0("./pnt/output/", ano, "/points", "/rds/capitais/"),
   paste0("./pnt/output/", ano, "/points", "/rds/rms/"),
   paste0("./pnt/output/", ano, "/points", "/shp/capitais/"),
-  paste0("./pnt/output/", ano, "/points", "/shp/rms/")
+  paste0("./pnt/output/", ano, "/points", "/shp/rms/"),
+  "./pnt/resultados/",
+  paste0("./pnt/resultados/", ano),
+  paste0("./pnt/resultados/", ano, "/capitais"),
+  paste0("./pnt/resultados/", ano, "/rms"),
+  "./pnt/resultados/0_consolidado/",
+  paste0("./pnt/resultados/0_consolidado/", ano)
 )
 
 # Itera sobre a lista de caminhos e cria as pastas se não existirem
