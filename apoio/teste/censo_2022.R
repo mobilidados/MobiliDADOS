@@ -43,9 +43,10 @@ racafinal2 <- racafinal %>%
 colnames(racafinal2)[which(names(racafinal2) == "v0001")] <- "pop"
 colnames(racafinal2)[which(names(racafinal2) == "v0003")] <- "domi"
 
-racafinal2$negro <- racafinal2$preto + racafinal2$pardo 
+
 racafinal2$mulher_negra <- racafinal2$mulher_preta  + racafinal2$mulher_parda
-racafinal2$homem_negro <- racafinal2$preto + racafinal2$homem_pardo 
+racafinal2$homem_negro <- racafinal2$homem_preto + racafinal2$homem_pardo 
+racafinal2$negro <- racafinal2$mulher_negra + racafinal2$homem_negro
 
 
 
