@@ -94,7 +94,7 @@ base_rms2 <- base_rms %>% mutate(rm = case_when(
   NOME_CATMETROPOL == "Região Metropolitana de Curitiba" ~ "rmc",
   NOME_CATMETROPOL == "Região Integrada de Desenvolvimento do Distrito Federal e Entorno" ~ "ride",
   NOME_CATMETROPOL == "Região Metropolitana de Fortaleza" ~ "rmf",
-  NOME_CATMETROPOL == "Região Metropolitana do Recife" ~ "rmr",
+  NOME_CATMETROPOL == "Região Metropolitana de Recife" ~ "rmr",
   NOME_CATMETROPOL == "Região Metropolitana do Rio de Janeiro" ~ "rmrj",
   NOME_CATMETROPOL == "Região Metropolitana de Salvador" ~ "rms",
   NOME_CATMETROPOL == "Região Metropolitana de São Paulo" ~ "rmsp")) 
@@ -115,7 +115,7 @@ dados <- read_rds("./apoio/input_censo/dados_setores_2022.rds")
 
 sf_use_s2(FALSE)
 
-  codigo <- 3550308
+  codigo <- 2611606
   ano <- 2022
  is_rm <- TRUE
 
