@@ -35,9 +35,18 @@ racafinal2 <- racafinal %>%
     c(branco, preto, amarelo, pardo , indigena, homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
       mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena),
     ~ if_else(. == "X", "1", .)
-  ))
+  )) %>%
+  mutate(across(
+    c(branco, preto, amarelo, pardo , indigena, homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+      mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), as.numeric))
 
 colnames(racafinal2)[which(names(racafinal2) == "v0001")] <- "pop"
 colnames(racafinal2)[which(names(racafinal2) == "v0003")] <- "domi"
+
+racafinal2$negro <- racafinal2$preto + racafinal2$pardo 
+racafinal2$mulher_negra <- racafinal2$mulher_preta  + racafinal2$mulher_parda
+racafinal2$homem_negro <- racafinal2$preto + racafinal2$homem_pardo 
+
+
 
 write_rds(racafinal2, "./apoio/dados_setores_2022.rds")
