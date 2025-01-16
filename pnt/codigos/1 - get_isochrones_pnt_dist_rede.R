@@ -66,7 +66,7 @@ base_rms2 <- base_rms %>% mutate(rm = case_when(
   NOME_CATMETROPOL == "Região Metropolitana de Curitiba" ~ "rmc",
   NOME_CATMETROPOL == "Região Integrada de Desenvolvimento do Distrito Federal e Entorno" ~ "ride",
   NOME_CATMETROPOL == "Região Metropolitana de Fortaleza" ~ "rmf",
-  NOME_CATMETROPOL == "Região Metropolitana do Recife" ~ "rmr",
+  NOME_CATMETROPOL == "Região Metropolitana de Recife" ~ "rmr",
   NOME_CATMETROPOL == "Região Metropolitana do Rio de Janeiro" ~ "rmrj",
   NOME_CATMETROPOL == "Região Metropolitana de Salvador" ~ "rms",
   NOME_CATMETROPOL == "Região Metropolitana de São Paulo" ~ "rmsp")) 
@@ -90,7 +90,7 @@ get_isochrone <- function(fromPlace, dist, walk_speed = 3.6, ...) {
 read_geodata <- function(ano) {
   
   tma_kml <- paste0("./apoio/TMA/TMA_", ano, ".kml")
-  camadas <- c("BRT_Estacoes", "Metro_Trem_Barcas_Estacoes", "VLT_Monotrilho_Estacoes")
+  camadas <- c("BRT_Estacoes", "Metro_Trem_Barca_Estacoes", "VLT_Monotrilho_Estacoes")
   tma_sf <- lapply(camadas, function(x) read_sf(tma_kml, layer = x))
   tma_sf <- tryCatch(Reduce('rbind', tma_sf) %>% st_transform(., 4989), error = function(e) NULL)
   tma_sf2 <- st_intersection(tma_sf, geo_br)
@@ -98,9 +98,9 @@ read_geodata <- function(ano) {
     .[.$Description %like% "Sim",] %>% st_transform(., 4989)
 }
 
- is_rm <- TRUE
- target <- "rmsp"
- ano <- 2024
+# is_rm <- TRUE
+# target <- "rmsp"
+# ano <- 2022
 
 # Função para criar buffers realistas
 create_real_distance_buffer <- function(target, is_rm = FALSE, ano) {
@@ -115,7 +115,7 @@ create_real_distance_buffer <- function(target, is_rm = FALSE, ano) {
     port = 8080, wait = FALSE
   )
   
-  Sys.sleep(5)
+  Sys.sleep(20)
   otp_rm <- otp_connect(router = router_name)
   Sys.sleep(2)
   
@@ -172,8 +172,8 @@ create_real_distance_buffer <- function(target, is_rm = FALSE, ano) {
 }
 
 # Aplicar para municípios e regiões metropolitanas
-pbmapply(safely(create_real_distance_buffer), munis_df$code_muni, MoreArgs = list(is_rm = FALSE, ano = 2020))
-pbmapply(safely(create_real_distance_buffer), munis_df_rms$rms, MoreArgs = list(is_rm = TRUE, ano = 2020))
+pbmapply(safely(create_real_distance_buffer), munis_df$code_muni, MoreArgs = list(is_rm = FALSE, ano = 2022))
+pbmapply(safely(create_real_distance_buffer), munis_df_rms$rms, MoreArgs = list(is_rm = TRUE, ano = 2022))
 
 
 
