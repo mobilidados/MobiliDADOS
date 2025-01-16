@@ -27,17 +27,20 @@ racafinal <- racafinal %>% left_join(basico[,c("CD_SETOR","v0003")], c("CD_SETOR
 
 racafinal2 <- racafinal %>%
   mutate(across(
-    c(branco, preto,amarelo, pardo,indigena, homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+    c(branco, preto,amarelo, pardo,indigena, 
+      homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
       mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena),
     as.character
   )) %>%
   mutate(across(
-    c(branco, preto, amarelo, pardo , indigena, homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+    c(branco, preto, amarelo, pardo , indigena, 
+      homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
       mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena),
     ~ if_else(. == "X", "1", .)
   )) %>%
   mutate(across(
-    c(branco, preto, amarelo, pardo , indigena, homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
+    c(branco, preto, amarelo, pardo , indigena, 
+      homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
       mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), as.numeric))
 
 colnames(racafinal2)[which(names(racafinal2) == "v0001")] <- "pop"
