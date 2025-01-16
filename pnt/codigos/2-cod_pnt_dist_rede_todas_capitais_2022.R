@@ -162,7 +162,7 @@ PNT <- function(codigo, ano, is_rm = FALSE){
   dados_cid <- dados_cid %>%
     mutate(across(c(pop, branco, preto, amarelo, pardo, indigena,
                     homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-                    mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena), 
+                    mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
                   ~ as.numeric(as.character(.))))
   
   message(paste0('setores e dados foram unidos - ', subset(munis_df, code_muni==codigo)$name_muni,"\n"))
@@ -195,11 +195,11 @@ PNT <- function(codigo, ano, is_rm = FALSE){
            rt = as.numeric(ar_int / Ar_m2)) %>% 
     mutate(across(c(pop, branco, preto, amarelo, pardo, indigena,
                     homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-                    mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+                    mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
                   ~ as.numeric(as.character(.)))) %>% 
     mutate_at(vars(pop, branco, preto, amarelo, pardo, indigena,
                    homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-                   mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+                   mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
               list(int = ~ . * rt))
   Sys.sleep(5)
   
@@ -207,7 +207,7 @@ PNT <- function(codigo, ano, is_rm = FALSE){
   st_write(
     select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
            homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+           mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
     paste0('./pnt/output/', ano, '/entorno/shp/', 
            if (is_rm) "rms/" else "capitais/", 
            if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
@@ -216,9 +216,9 @@ PNT <- function(codigo, ano, is_rm = FALSE){
   
   # Gravar buffer em GeoJSON
   st_write(
-    select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
+    select(pop, branco, preto, amarelo, pardo, indigena,
            homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+           mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
     paste0('./pnt/output/', ano, '/entorno/geojson/', 
            if (is_rm) "rms/" else "capitais/", 
            if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
@@ -230,7 +230,7 @@ PNT <- function(codigo, ano, is_rm = FALSE){
   write_rds(
     select(setores_entorno, pop, branco, preto, amarelo, pardo, indigena,
            homem_branco, homem_preto, homem_amarelo, homem_pardo, homem_indigena, 
-           mulher_branca, mulher_preta, mulher_amarela, mulher_parda, mulher_indigena), 
+           mulher_branca, mulher_preta,mulher_amarela, mulher_parda, mulher_indigena, negro, mulher_negra, homem_negro), 
     paste0('./pnt/output/', ano, '/entorno/rds/', 
            if (is_rm) "rms/" else "capitais/", 
            if (is_rm) subset(munis_df_rms, code_muni == codigo)$rms else subset(munis_df, code_muni == codigo)$name_muni, 
@@ -253,7 +253,10 @@ PNT <- function(codigo, ano, is_rm = FALSE){
                      (sum(setores_entorno$mulher_preta_int, na.rm = TRUE)),
                      (sum(setores_entorno$mulher_amarela_int, na.rm = TRUE)),
                      (sum(setores_entorno$mulher_parda_int, na.rm = TRUE)),
-                     (sum(setores_entorno$mulher_indigena_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
+                     (sum(setores_entorno$mulher_indigena_int, na.rm = TRUE)),
+                     (sum(setores_entorno$negro_int, na.rm = TRUE)),
+                     (sum(setores_entorno$mulher_negra, na.rm = TRUE)),
+                     (sum(setores_entorno$homem_negro_int, na.rm = TRUE))) #Realizar a soma total de cada variavel
   
   #Calculo do total de cada variavel na cidade analisada
   total_cidade <- c((sum(dados_cid$pop, na.rm = TRUE)), 
@@ -271,14 +274,17 @@ PNT <- function(codigo, ano, is_rm = FALSE){
                     (sum(dados_cid$mulher_preta, na.rm = TRUE)),
                     (sum(dados_cid$mulher_amarela, na.rm = TRUE)),
                     (sum(dados_cid$mulher_parda, na.rm = TRUE)),
-                    (sum(dados_cid$mulher_indigena, na.rm = TRUE))) #Realizar a soma total de cada variavel
+                    (sum(dados_cid$negro, na.rm = TRUE)),
+                    (sum(dados_cid$mulher_negra, na.rm = TRUE)),
+                    (sum(dados_cid$homem_negro, na.rm = TRUE))) #Realizar a soma total de cada variavel
   
   #Calculo do resultado final
   Resultados_pnt <-rbind(total_entorno, total_cidade, round(100*(total_entorno/total_cidade),2))
   row.names(Resultados_pnt)<- c("total_entorno","total_rm", "resultado_%") #Nomeia as linhas da tabela criada
   colnames(Resultados_pnt)<- c("pop", "branco","preto","amarelo","pardo","indigena",
                                "homem_branco","homem_preto","homem_amarelo","homem_pardo","homem_indigena", 
-                               "mulher_branca","mulher_preta", "mulher_amarela", "mulher_parda","mulher_indigena") #Nomear as colunas da tabela criada
+                               "mulher_branca","mulher_preta", "mulher_amarela", "mulher_parda","mulher_indigena",
+                               "negro", "mulher_negra", "homem_negro") #Nomear as colunas da tabela criada
   print(Resultados_pnt) #Verfica tabela
   
   Resultados_pnt_final <- as.data.frame(t(Resultados_pnt))
