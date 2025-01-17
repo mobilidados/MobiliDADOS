@@ -64,14 +64,14 @@ setores <- st_read("./apoio/input_censo/BR_setores_CD2022.shp" )
 
 # dados <- read_rds('./apoio/dados_setores.rds')
 
-dados <- read_rds("./apoio/input_censo/dados_setores_2022.rds")
+dados <- read_rds("./apoio/dados_setores_2022.rds")
 
 
 # Define o ano de referência
-ano <- 2023
+ano <- 2024
 
 
-indicador <- "pnb"
+# indicador <- "pnb"
 
 # Função para processar dados de infraestrutura cicloviária e gerar indicadores
 processa_indicadores <- function(indicador, sig) {
