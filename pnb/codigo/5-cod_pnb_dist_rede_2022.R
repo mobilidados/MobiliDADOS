@@ -242,10 +242,10 @@ beep(3)
 # PNB("bho")
 
 # Juntar em tabela unica para MobiliDADOS database
-ano <- 2022
+ano <- 2024
 # Criar tabela unica
 # Criar lista
-files <- list.files(path = paste0('./resultados/',ano,'/network'),
+files <- list.files(path = paste0('./pnb/resultados/pnb/',ano,'/network'),
                     pattern = "*.csv", full.names = TRUE)
 
 # Ler e juntar
@@ -259,7 +259,7 @@ ordem <- c("Aracaju", "Belem", "Belo Horizonte", "Boa Vista", "Distrito Federal"
           "Porto Alegre","Porto Velho", "Recife","Rio Branco", "Rio De Janeiro", "Salvador","Sao Luis", "Sao Paulo",
           "Teresina","Vitoria") 
 ordem2 <- c("total", "total_entorno", "resultado")
-ordem3 <- c("Pop",'DR_0_meio', 'DR_meio_1', 'DR_1_3', 'DR_3_mais', "Negros_Mulher","Renda_Mulher_1SM")
+ordem3 <- c("pop")
 
 
 capitais_pnb_db1 <- juntos %>% 
@@ -280,9 +280,9 @@ capitais_pnb_db2 <- juntos %>%
 capitais_pnb_upload <- juntos[,c("indicador","resultado","territorio")] %>% 
   pivot_wider(names_from = "indicador", values_from = "resultado")
 
-write.csv2(capitais_pnb_db1, paste0("./resultados/",ano,"/network/consolidado/capitais_pnb_db1.csv"), row.names = FALSE)
-write.csv2(capitais_pnb_db2, paste0("./resultados/",ano,"/network/consolidado/capitais_pnb_db2.csv"), row.names = FALSE)
-write.csv2(capitais_pnb_upload, paste0("./resultados/",ano,"/network/consolidado/capitais_pnb_upload.csv"), row.names = FALSE)
+write.csv2(capitais_pnb_db1, paste0("./pnb/resultados/pnb/",ano,"/network/consolidado/capitais_pnb_db1.csv"), row.names = FALSE)
+write.csv2(capitais_pnb_db2, paste0("./pnb/resultados/pnb/",ano,"/network/consolidado/capitais_pnb_db2.csv"), row.names = FALSE)
+write.csv2(capitais_pnb_upload, paste0("./pnb/resultados/pnb/",ano,"/network/consolidado/capitais_pnb_upload.csv"), row.names = FALSE)
 
 
 
