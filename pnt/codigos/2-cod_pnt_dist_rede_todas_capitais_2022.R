@@ -316,12 +316,15 @@ pbmapply(safely(PNT),munis_df$code_muni,2022, is_rm = FALSE)
 
 #4.1. criar tabela unica
 #criar lista
-files <- list.files(path = "D:/Projetos/mobilidados/pnt_verificação/resultados/2021/capitais",
-                    pattern = "\\.xlsx$", full.names = TRUE)
+
+ano <- 2024
+
+files <- list.files(path = paste0("./pnt/resultados/", ano, "/capitais"),
+                    pattern = "\\.csv$", full.names = TRUE)
 
 
 #ler e juntar
-juntos <- do.call("rbind", lapply(files, read.xlsx))
+juntos <- do.call("rbind", lapply(files, read.csv2))
 
 
 #4.2 criar tabela para database
@@ -329,36 +332,31 @@ juntos <- do.call("rbind", lapply(files, read.xlsx))
 
 ordem <- c("belem", "belo horizonte", "distrito federal", "curitiba", "fortaleza", "goiania", "porto alegre",
            "recife", "rio de janeiro", "salvador", "sao paulo", "teresina") 
-ordem2 <- c("total", "total_entorno")
-ordem3 <- c("Pop",'DR_0_meio', 'DR_meio_1', 'DR_1_3', 'DR_3_mais', "Negros_Mulher","Renda_Mulher_0_1")
+ordem2 <- c("total_rm", "total_entorno", "resultado_.")
+ordem3 <- c("Pop")
 
 
-pnt_format_1 <- pivot_wider(juntos[,c(1,4,5)], names_from = indicador, values_from = resultado)
+pnt_format_1 <- pivot_wider(juntos[,c(1,4,5)], names_from = indicador, values_from = resultado_.)
 
 
-capitais_dados_upload  <- pnt_format_1 %>% mutate(territorio = factor(territorio, levels = ordem)) %>%
-  arrange(territorio)  
+capitais_dados_upload  <- pnt_format_1 %>% mutate(territorio = factor(cidade, levels = ordem)) %>%
+  arrange(cidade)  
 
 
 
 capitais_pnt_db <- juntos[c(1,2,3,5)] %>% 
-  pivot_longer(!c(indicador,territorio), names_to = "tipo", values_to = "valor") %>% subset(indicador %in% ordem3) %>%
-  mutate(territorio = factor(territorio, levels = ordem),
+  pivot_longer(!c(indicador,cidade), names_to = "tipo", values_to = "valor") %>% subset(indicador == "pop") %>%
+  mutate(territorio = factor(cidade, levels = ordem),
          tipo = factor(tipo, levels = ordem2),
-         indicador = factor(indicador, levels = ordem3),
-         ano = 2021) %>% arrange(territorio, indicador, tipo) %>% select(territorio, indicador, tipo, valor, ano) 
+         ano = ano) %>% arrange(cidade, indicador, tipo) %>% select(cidade, indicador, tipo, valor, ano) 
 
 
-capitais_pnt_resultado <- juntos[c(5,4,1)] %>% subset(indicador == "Pop") %>% 
-  mutate(territorio = factor(territorio, levels = ordem),
-         indicador = factor(indicador, levels = ordem3),
-         ano = 2021) %>% arrange(territorio, indicador) %>% select(territorio, resultado, ano) 
+capitais_pnt_resultado <- juntos[c(5,4,1)] %>% subset(indicador == "pop") %>% 
+ arrange(cidade, indicador) 
 
-write.xlsx(capitais_dados_upload, "D:/Projetos/mobilidados/pnt_verificação/resultados/2021/0_consolidado/capitais_dados_upload_2021.xlsx") # salvar
-write.xlsx(capitais_pnt_db, "D:/Projetos/mobilidados/pnt_verificação/resultados/2021/0_consolidado/capitais_pnt_db_2021.xlsx") # salvar
-write.xlsx(capitais_pnt_db, "D:/Projetos/mobilidados/pnt_verificação/resultados/0_geral/capitais/capitais_pnt_db_2021.xlsx") # salvar
-write.xlsx(capitais_pnt_resultado, "D:/Projetos/mobilidados/pnt_verificação/resultados/2021/0_consolidado/capitais_pnt_resultado_2021.xlsx")
-write.xlsx(capitais_pnt_resultado, "D:/Projetos/mobilidados/pnt_verificação/resultados/0_geral/capitais//capitais_pnt_resultado_2021.xlsx")# salvar
+write.xlsx(capitais_dados_upload, paste0("./pnt/resultados/0_geral/capitais/capitais_dados_upload_", ano,".xlsx")) # salvar
+write.xlsx(capitais_pnt_db, paste0("./pnt/resultados/0_geral/capitais/capitais_pnt_db_", ano,".xlsx")) # salvar
+
 
 
 i <- 2010
