@@ -43,7 +43,7 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606,
 # i <- 3304557
 # name_muni <- 'rio de janeiro'
 
-ano <- 2023
+ano <- 2022
 
 # Leitura das camadas geográficas
 read_geodata <- function(ano) {
@@ -103,7 +103,7 @@ caps_tma_bike <- caps_tma_bike %>% filter(tma_station > 0) %>% pivot_longer(!mun
 write.csv2(caps_tma_bike, paste0("./perc_estacoes_prox_infra_ciclo/resultados/",ano, "/caps_tma_bike",ano,".csv"), row.names = FALSE)
 
 
-get_tma_bike(3304557)
+# get_tma_bike(3304557)
 
 
 
