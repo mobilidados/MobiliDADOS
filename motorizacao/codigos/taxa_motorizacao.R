@@ -76,7 +76,7 @@ filter_select_regions <- function(data, regions) {
 }
 
 # Main script
-periodo <- 2001:2023
+periodo <- 2001:2024
 datasets <- lapply(periodo, read_process_dataset)
 combined_data <- combine_datasets(datasets)
 formatted_data <- clean_format_dataset(combined_data)

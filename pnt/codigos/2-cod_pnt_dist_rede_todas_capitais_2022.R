@@ -310,14 +310,14 @@ PNT <- function(codigo, ano, is_rm = FALSE){
 }
 
 
-pbmapply(safely(PNT),munis_df_rms$code_muni,2024, is_rm = TRUE)
-pbmapply(safely(PNT),munis_df$code_muni,2024, is_rm = FALSE)
+pbmapply(safely(PNT),munis_df_rms$code_muni,2022, is_rm = TRUE)
+pbmapply(safely(PNT),munis_df$code_muni,2022, is_rm = FALSE)
 
 
 #4.1. criar tabela unica
 #criar lista
 
-ano <- 2022
+ano <- 2024
 
 files <- list.files(path = paste0("./pnt/resultados/", ano, "/capitais"),
                     pattern = "\\.csv$", full.names = TRUE)
@@ -395,7 +395,7 @@ rms_pnt_resultado <- juntos[c(5,4,1)] %>% subset(indicador == "pop") %>%
          ano = ano) %>% arrange(cidade, indicador) %>% select(territorio, resultado_., ano) 
 
 
-write.xlsx(capitais_dados_upload, paste0("./pnt/resultados/0_geral/rms/rms_pnt_resultado_", ano,".xlsx")) # salvar
+write.xlsx(rms_dados_upload, paste0("./pnt/resultados/0_geral/rms/rms_pnt_resultado_", ano,".xlsx")) # salvar
 write.xlsx(rms_pnt_db, paste0("./pnt/resultados/0_geral/rms/rms_pnt_db_", ano,".xlsx")) # salvar
 
 

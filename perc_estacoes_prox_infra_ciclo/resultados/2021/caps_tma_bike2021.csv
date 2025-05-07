@@ -1,0 +1,37 @@
+"mun";"indicador";"resultado"
+"belem";"tma_station";22
+"belem";"tma_near_bike";22
+"belem";"perc_tma_bike";100
+"belo horizonte";"tma_station";63
+"belo horizonte";"tma_near_bike";27
+"belo horizonte";"perc_tma_bike";43
+"distrito federal";"tma_station";36
+"distrito federal";"tma_near_bike";27
+"distrito federal";"perc_tma_bike";75
+"curitiba";"tma_station";118
+"curitiba";"tma_near_bike";59
+"curitiba";"perc_tma_bike";50
+"fortaleza";"tma_station";23
+"fortaleza";"tma_near_bike";18
+"fortaleza";"perc_tma_bike";78
+"goiania";"tma_station";24
+"goiania";"tma_near_bike";0
+"goiania";"perc_tma_bike";0
+"porto alegre";"tma_station";81
+"porto alegre";"tma_near_bike";9
+"porto alegre";"perc_tma_bike";11
+"recife";"tma_station";34
+"recife";"tma_near_bike";12
+"recife";"perc_tma_bike";35
+"rio de janeiro";"tma_station";252
+"rio de janeiro";"tma_near_bike";91
+"rio de janeiro";"perc_tma_bike";36
+"salvador";"tma_station";19
+"salvador";"tma_near_bike";12
+"salvador";"perc_tma_bike";63
+"sao paulo";"tma_station";175
+"sao paulo";"tma_near_bike";119
+"sao paulo";"perc_tma_bike";68
+"teresina";"tma_station";37
+"teresina";"tma_near_bike";18
+"teresina";"perc_tma_bike";49

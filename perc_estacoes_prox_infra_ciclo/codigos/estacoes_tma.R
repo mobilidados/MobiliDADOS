@@ -43,13 +43,13 @@ munis_df <- data.frame(code_muni = c(2927408, 3550308, 3304557, 2611606,
 # i <- 3304557
 # name_muni <- 'rio de janeiro'
 
-ano <- 2022
+ano <- 2020
 
 # Leitura das camadas geográficas
 read_geodata <- function(ano) {
   
   tma_kml <- paste0("./apoio/TMA/TMA_", ano, ".kml")
-  camadas <- c("BRT_Estacoes", "Metro_Trem_Barca_Estacoes", "VLT_Monotrilho_Estacoes")
+  camadas <- c("BRT_Estacoes", "Metro_Trem_BarcaS_Estacoes", "VLT_Monotrilho_Estacoes")
   tma_sf <- lapply(camadas, function(x) read_sf(tma_kml, layer = x))
   tma_sf <- tryCatch(Reduce('rbind', tma_sf) %>% st_transform(., 4989), error = function(e) NULL)
   tma_sf2 <- st_intersection(tma_sf, geo_br)
