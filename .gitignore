@@ -12,6 +12,9 @@ criar_conta.R
 motorisation_base.csv
 pnb/network/pbf*
 datasus/output/obitos/final/*
+datasus/output/obitos/temp/*
+datasus/output/internacoes/final/*
+datasus/output/internacoes/temp/*
 pnb/dados/infra_cicloviaria/*
 pnb/geofabrik/*
 pnb/infra_ciclo/*
