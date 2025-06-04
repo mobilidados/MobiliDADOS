@@ -5,7 +5,7 @@ library(tidyr)
 
 
 # Read population data
-pop <- read.csv2("./populacao/output/csv/base_bruta.csv", encoding = "latin1") %>%
+pop <- read.csv2("./populacao/output/csv/tabela_pop_rm3.csv", encoding = "latin1") %>%
   mutate(ano = ano, COD_MUN = as.character(COD_MUN)) %>%
   rename(municipio_nome = municipio)
 

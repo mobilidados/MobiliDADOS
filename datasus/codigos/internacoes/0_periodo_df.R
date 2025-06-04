@@ -6,7 +6,7 @@ periodo_df <- data.frame(
 )
 
 # Loop through the desired periods
-for (i in 8:23) {
+for (i in 8:24) {
   for (j in 1:12) {
     output <- sprintf("fibr%02d%02d.dbf", i, j)
     year <- sprintf("20%02d", i)
